@@ -38,7 +38,7 @@ const TheStratification = () => {
     return (
         <div className="min-h-screen flex flex-col p-6 md:p-12 lg:p-16">
             {/* Nav – template: fixed top-0 left-0 w-full p-8 z-50 bg-void/80 backdrop-blur-md border-b */}
-            <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-50 bg-void/80 backdrop-blur-md border-b border-border-void/50">
+            <nav className="fixed top-0 left-16 right-0 p-8 flex justify-between items-center z-50 bg-void/80 backdrop-blur-md border-b border-border-void/50">
                 <div className="font-mono text-[10px] tracking-[0.4em] text-text-muted flex items-center gap-4">
                     <span className="w-2 h-2 bg-primary" />
                     THE_STRATIFICATION // RANKINGS_v4.0

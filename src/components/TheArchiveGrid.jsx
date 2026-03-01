@@ -27,7 +27,7 @@ const TheArchiveGrid = () => {
     return (
         <div className="min-h-screen relative">
             {/* Top nav – template: fixed top-0 left-0 w-full p-4 z-[60] bg-void/90 backdrop-blur-md border-b */}
-            <nav className="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-[60] bg-[#050505]/90 backdrop-blur-md border-b border-[#1a1a1a]">
+            <nav className="fixed top-0 left-16 right-0 p-4 flex justify-between items-center z-[60] bg-[#050505]/90 backdrop-blur-md border-b border-[#1a1a1a]">
                 <div className="flex items-center gap-4">
                     <div className="w-1.5 h-1.5 bg-[#f04242]" />
                     <div className="font-mono text-[10px] tracking-[0.4em] text-[#E5E5E5] uppercase font-bold">
@@ -42,7 +42,7 @@ const TheArchiveGrid = () => {
             </nav>
 
             {/* Left aside – template: fixed left-0 top-0 h-full w-10 hidden lg:flex */}
-            <aside className="fixed left-0 top-0 h-full w-10 border-r border-[#1a1a1a] hidden lg:flex flex-col items-center justify-between py-24 z-40 pointer-events-none">
+            <aside className="fixed left-16 top-0 h-full w-10 border-r border-[#1a1a1a] hidden lg:flex flex-col items-center justify-between py-24 z-40 pointer-events-none">
                 <div className="rotate-90 font-mono text-[9px] text-[#666666] tracking-[0.4em] whitespace-nowrap opacity-40">
                     LAT: 52.3676° N
                 </div>
@@ -55,7 +55,7 @@ const TheArchiveGrid = () => {
             </aside>
 
             {/* Main – template: pt-16 lg:pl-10 */}
-            <main className="pt-16 lg:pl-10">
+            <main className="pt-20 lg:pl-10">
                 {/* Header */}
                 <header className="px-6 py-8 border-b border-[#1a1a1a] flex flex-col md:flex-row justify-between items-end gap-6 bg-[#0a0a0a]">
                     <div className="space-y-1">

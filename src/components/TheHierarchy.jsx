@@ -27,7 +27,7 @@ const TheHierarchy = () => {
     return (
         <div className="h-screen w-full overflow-hidden font-display antialiased selection:bg-[#333333] selection:text-white relative">
             {/* Top nav – fixed full width */}
-            <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-start z-50 pointer-events-none">
+            <nav className="fixed top-0 left-16 right-0 p-8 flex justify-between items-start z-50 pointer-events-none">
                 <div className="flex flex-col gap-1 pointer-events-auto">
                     <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
                         Protocol // Archive

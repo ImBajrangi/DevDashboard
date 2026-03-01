@@ -54,7 +54,7 @@ const TheVoid = ({
                 </div>
             </div>
 
-            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32 pt-40">
+            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32 pt-12">
                 {/* Title — responsive sizing */}
                 <h1
                     className="font-display leading-[1.3] tracking-tighter mb-6 transition-all duration-500 font-bold"

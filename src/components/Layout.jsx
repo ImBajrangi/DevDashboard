@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LayoutGrid } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LayoutGrid, Archive } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 
 const Layout = ({
@@ -32,7 +32,7 @@ const Layout = ({
     const navItems = [
         { id: 'nexus', icon: <Radio size={20} />, label: 'Nexus' },
         { id: 'feed', icon: <Database size={20} />, label: 'Feed' },
-        { id: 'archives', icon: <Search size={20} />, label: 'Archives' },
+        { id: 'archives', icon: <Archive size={20} />, label: 'Archives' },
         { id: 'grid', icon: <Grid3x3 size={20} />, label: 'Grid' },
         { id: 'hierarchy', icon: <BarChart3 size={20} />, label: 'Hierarchy' },
         { id: 'stratification', icon: <Trophy size={20} />, label: 'Rankings' },
@@ -76,7 +76,7 @@ const Layout = ({
                 {/* Visual Overlays */}
                 <div className="noise-overlay" />
                 <div className="fixed inset-0 pointer-events-none scanline opacity-[0.05] z-[99]" />
-                
+
                 {/* Corner Brackets */}
                 <div className="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-t border-l border-primary/20"></div>
