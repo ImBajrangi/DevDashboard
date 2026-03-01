@@ -25,46 +25,44 @@ const TheVoid = ({
     };
 
     return (
-        <div className="min-h-screen bg-[#050505] text-[#E5E5E5] transition-colors duration-700">
+        <div className="min-h-screen bg-void text-text-main transition-colors duration-700">
             {/* Top bar — sticky so it stays in flow and doesn't overlap content */}
-            <div style={{ position: 'sticky', top: 0, zIndex: 50, backgroundColor: 'rgba(5,5,5,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #1a1a1a', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="sticky top-0 z-50 bg-void/95 backdrop-blur-md border-b border-border-void px-4 py-3 flex items-center justify-between">
                 <button
                     onClick={onBack}
-                    className="font-mono"
-                    style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#404040', background: 'none', border: 'none', cursor: 'pointer' }}
+                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted hover:text-text-main transition-colors"
                 >
                     ← Back
                 </button>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div className="flex items-center gap-2">
                     {audioUrl && (
                         <>
                             <audio ref={audioRef} src={audioUrl} onEnded={() => setIsPlaying(false)} />
                             <button
                                 onClick={toggleAudio}
-                                className="font-mono"
-                                style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.15em', border: '1px solid #262626', padding: '4px 8px', background: 'none', color: '#E5E5E5', cursor: 'pointer' }}
+                                className="font-mono text-[10px] uppercase tracking-[0.15em] border border-border-void px-2 py-1 text-text-main hover:bg-text-main hover:text-void transition-all"
                             >
                                 {isPlaying ? '⏸' : '♪'}
                             </button>
                         </>
                     )}
-                    <button onClick={() => setFontSize(s => Math.max(s - 2, 14))} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #1a1a1a', background: 'none', color: '#404040', cursor: 'pointer', fontSize: '12px' }}>A-</button>
-                    <button onClick={() => setFontSize(s => Math.min(s + 2, 36))} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #1a1a1a', background: 'none', color: '#404040', cursor: 'pointer', fontSize: '12px' }}>A+</button>
+                    <button onClick={() => setFontSize(s => Math.max(s - 2, 14))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs">A-</button>
+                    <button onClick={() => setFontSize(s => Math.min(s + 2, 36))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs">A+</button>
                 </div>
             </div>
 
-            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32" style={{ paddingTop: '20px' }}>
+            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32 pt-5">
                 {/* Title — responsive sizing */}
                 <h1
-                    className={`${fontClass} leading-[1.1] tracking-tight mb-6 transition-all duration-500`}
+                    className={`${fontClass} leading-[1.1] tracking-tight mb-6 transition-all duration-500 font-display`}
                     style={{ fontSize: `clamp(28px, calc(${fontSize}px * 2.2), calc(${fontSize}px * 2.6))` }}
                 >
                     {title || "The Architecture of Silence"}
                 </h1>
 
                 {/* Meta */}
-                <div className="border-t border-[#262626] pt-4 mb-8 font-mono text-[10px] uppercase tracking-widest text-[#404040] flex flex-wrap gap-3 md:gap-4">
+                <div className="border-t border-border-void pt-4 mb-8 font-mono text-[10px] uppercase tracking-widest text-text-muted flex flex-wrap gap-3 md:gap-4">
                     <span>By {author || "Unknown"}</span>
                     <span>·</span>
                     <span>{readTime || "12"} Min</span>
@@ -76,7 +74,7 @@ const TheVoid = ({
                 {tags?.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-10">
                         {tags.map(tag => (
-                            <span key={tag} className="font-mono text-[9px] border border-[#1a1a1a] px-2 py-0.5 text-[#404040]">
+                            <span key={tag} className="font-mono text-[9px] border border-border-void px-2 py-0.5 text-text-muted hover:border-primary/40 hover:text-primary transition-colors">
                                 #{tag.toUpperCase()}
                             </span>
                         ))}
@@ -93,17 +91,17 @@ const TheVoid = ({
                                 return (
                                     <div
                                         key={idx}
-                                        className="relative overflow-hidden border border-[#1a1a1a] cursor-pointer group"
+                                        className="relative overflow-hidden border border-border-void cursor-pointer group"
                                         onClick={() => setShowImageModal(src)}
                                     >
                                         <img
                                             src={`https://imbajrangi.github.io/Company/Vrindopnishad%20Web/sketch/main/${src}`}
                                             alt={imgTitle || title}
-                                            className="w-full h-36 md:h-48 object-cover grayscale hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                                            className="w-full h-36 md:h-48 object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 group-hover:scale-105"
                                             onError={e => { e.target.src = src; }}
                                         />
                                         {imgTitle && (
-                                            <div className="absolute bottom-0 left-0 right-0 bg-[#050505]/80 px-3 py-2 font-mono text-[9px] text-[#525252] opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <div className="absolute bottom-0 left-0 right-0 bg-void/80 px-3 py-2 font-mono text-[9px] text-text-muted opacity-0 group-hover:opacity-100 transition-opacity">
                                                 {imgTitle}
                                             </div>
                                         )}
@@ -116,7 +114,7 @@ const TheVoid = ({
 
                 {/* Content — responsive font */}
                 <div
-                    className={`${fontClass} leading-[1.85] tracking-normal space-y-6 transition-all duration-500`}
+                    className={`${fontClass} leading-[1.85] tracking-normal space-y-6 transition-all duration-500 text-text-main/90`}
                     style={{ whiteSpace: 'pre-line', fontSize: `${fontSize}px` }}
                 >
                     {content || `In the cacophony of the digital age, silence has become a luxury commodity. We trade our attention for dopamine, scrolling through infinite feeds that demand everything and return nothing.
@@ -127,18 +125,18 @@ Consider the terminal. A black screen, a blinking cursor. It is the most honest 
                 </div>
 
                 {/* End of Transmission */}
-                <div className="mt-16 md:mt-24 pt-8 md:pt-12 border-t border-[#262626] flex flex-col items-center gap-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#404040]">End of Transmission.</span>
+                <div className="mt-16 md:mt-24 pt-8 md:pt-12 border-t border-border-void flex flex-col items-center gap-6">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-text-muted">End of Transmission.</span>
                     <button
                         onClick={onBack}
-                        className="px-6 py-3 border border-[#262626] font-mono text-xs uppercase tracking-widest hover:bg-[#E5E5E5] hover:text-[#050505] transition-colors"
+                        className="btn-invert px-8 py-4"
                     >
                         [ Back to Archive ]
                     </button>
                 </div>
 
                 <div className="flex justify-center mt-8 opacity-30">
-                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[#404040] hover:text-[#E5E5E5] transition-colors text-xl">↑</button>
+                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-text-muted hover:text-text-main transition-colors text-xl">↑</button>
                 </div>
             </article>
 

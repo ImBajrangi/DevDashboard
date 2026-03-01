@@ -17,21 +17,21 @@ const TheFeed = ({ items = [], onItemClick }) => {
         <>
             {/* Header – template uses pl-[180px] pt-24 pb-12 pr-12 */}
             <header className="pl-[120px] pt-24 pb-12 pr-12">
-                <div className="flex items-end justify-between border-b border-[#262626] pb-4">
+                <div className="flex items-end justify-between border-b border-border-void pb-4">
                     <div>
-                        <h1 className="text-xs font-mono uppercase tracking-[0.3em] text-[#404040] mb-2">
+                        <h1 className="text-xs font-mono uppercase tracking-[0.3em] text-text-muted mb-2">
                             System // Directory
                         </h1>
-                        <h2 className="text-5xl font-bold tracking-tighter">THE FEED</h2>
+                        <h2 className="text-5xl font-bold tracking-tighter font-display">THE FEED</h2>
                     </div>
-                    <div className="flex gap-8 font-mono text-[10px] tracking-widest text-[#404040] uppercase">
-                        <a className="text-[#E5E5E5] border-b border-[#E5E5E5] pb-1" href="#">
+                    <div className="flex gap-8 font-mono text-[10px] tracking-widest text-text-muted uppercase">
+                        <a className="text-text-main border-b border-text-main pb-1" href="#">
                             All Transmissions
                         </a>
-                        <a className="hover:text-[#E5E5E5] pb-1 transition-colors" href="#">
+                        <a className="hover:text-text-main pb-1 transition-colors" href="#">
                             Filtered
                         </a>
-                        <a className="hover:text-[#E5E5E5] pb-1 transition-colors" href="#">
+                        <a className="hover:text-text-main pb-1 transition-colors" href="#">
                             Archived
                         </a>
                     </div>
@@ -44,26 +44,26 @@ const TheFeed = ({ items = [], onItemClick }) => {
                     {items.map((item, idx) => (
                         <div
                             key={item.id || idx}
-                            className="feed-row group px-16 py-14 flex flex-col md:flex-row md:items-center justify-between"
+                            className="feed-row group px-16 py-14 flex flex-col md:flex-row md:items-center justify-between border-b border-border-void"
                             onClick={() => onItemClick && onItemClick(item)}
                         >
                             <div className="flex flex-col gap-1">
-                                <span className="font-mono text-[10px] uppercase tracking-widest meta-text text-[#404040]">
+                                <span className="font-mono text-[10px] uppercase tracking-widest meta-text text-text-muted">
                                     Transmission // {String(idx + 1).padStart(3, '0')}
                                 </span>
-                                <h3 className="text-[32px] font-bold leading-none tracking-tight">{item.title}</h3>
+                                <h3 className="text-[32px] font-bold leading-none tracking-tight font-display">{item.title}</h3>
                             </div>
                             <div className="flex items-center gap-12 mt-6 md:mt-0 font-mono text-xs uppercase tracking-widest">
                                 <div className="flex flex-col items-end">
-                                    <span className="meta-text text-[#404040] text-[10px]">Source</span>
+                                    <span className="meta-text text-text-muted text-[10px]">Source</span>
                                     <span>{item.source}</span>
                                 </div>
                                 <div className="flex flex-col items-end">
-                                    <span className="meta-text text-[#404040] text-[10px]">Clarity</span>
+                                    <span className="meta-text text-text-muted text-[10px]">Clarity</span>
                                     <span>{item.clarity}</span>
                                 </div>
                                 <div className="flex flex-col items-end">
-                                    <span className="meta-text text-[#404040] text-[10px]">Date</span>
+                                    <span className="meta-text text-text-muted text-[10px]">Date</span>
                                     <span>{item.date}</span>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@ const TheFeed = ({ items = [], onItemClick }) => {
 
                     {/* Loading indicator */}
                     <div className="px-12 py-20 flex flex-col items-center justify-center opacity-30">
-                        <div className="w-1 h-8 bg-[#404040] animate-pulse mb-4" />
+                        <div className="w-1 h-8 bg-text-muted animate-pulse mb-4" />
                         <span className="font-mono text-[10px] uppercase tracking-[0.5em]">
                             Receiving further data...
                         </span>
@@ -82,9 +82,9 @@ const TheFeed = ({ items = [], onItemClick }) => {
 
             {/* Fixed bottom-right footer */}
             <footer className="fixed bottom-6 right-8 pointer-events-none">
-                <div className="flex items-center gap-4 text-[#404040] font-mono text-[10px] tracking-widest">
+                <div className="flex items-center gap-4 text-text-muted font-mono text-[10px] tracking-widest">
                     <span>TOTAL ENTRIES: {items.length}</span>
-                    <span className="w-1 h-1 bg-[#f04242] rounded-full" />
+                    <span className="w-1 h-1 bg-primary rounded-full" />
                     <span>SYSTEM: NOMINAL</span>
                 </div>
             </footer>

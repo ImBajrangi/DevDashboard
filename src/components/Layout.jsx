@@ -72,38 +72,56 @@ const Layout = ({
                 </script>
             </Helmet>
 
-            <div className={`min-h-screen bg-[#050505] text-[#E5E5E5] font-display relative ${isMobile ? 'pb-24' : ''}`}>
+            <div className={`min-h-screen bg-void text-text-main font-display relative ${isMobile ? 'pb-24' : ''}`}>
+                {/* Visual Overlays */}
+                <div className="noise-overlay" />
+                <div className="fixed inset-0 pointer-events-none scanline opacity-[0.05] z-[99]" />
+                
+                {/* Corner Brackets */}
+                <div className="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
+                    <div className="w-10 h-10 border-t border-l border-primary/20"></div>
+                </div>
+                <div className="fixed top-0 right-0 p-4 pointer-events-none z-[70]">
+                    <div className="w-10 h-10 border-t border-r border-primary/20"></div>
+                </div>
+                <div className="fixed bottom-0 left-0 p-4 pointer-events-none z-[70]">
+                    <div className="w-10 h-10 border-b border-l border-primary/20"></div>
+                </div>
+                <div className="fixed bottom-0 right-0 p-4 pointer-events-none z-[70]">
+                    <div className="w-10 h-10 border-b border-r border-primary/20"></div>
+                </div>
+
                 {/* Desktop Sidebar Navigation */}
                 {!isMobile && (
-                    <nav className={`sidebar-nav transition-all duration-700 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}>
+                    <nav className={`sidebar-nav transition-all duration-700 bg-void border-r border-border-void w-16 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}>
                         <button
-                            className="text-[#f04242] mb-12"
+                            className="text-primary mb-12"
                             onClick={() => setActiveTab('nexus')}
                         >
                             <Radio size={22} />
                         </button>
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-8">
                             {navItems.filter(i => i.id !== 'nexus' && i.id !== 'profile').map(item => (
                                 <button
                                     key={item.id}
                                     onClick={() => setActiveTab(item.id)}
-                                    className={`transition-colors p-1.5 ${activeTab === item.id ? 'text-[#E5E5E5]' : 'text-[#404040] hover:text-[#E5E5E5]'}`}
+                                    className={`transition-colors p-1.5 ${activeTab === item.id ? 'text-white' : 'text-text-muted hover:text-white'}`}
                                     title={item.label}
                                 >
                                     {item.icon}
                                 </button>
                             ))}
                         </div>
-                        <div className="mt-auto flex flex-col gap-6">
-                            <button onClick={onSignalOpen} className="text-[#404040] hover:text-[#f04242] transition-colors p-1.5" title="Signal">
-                                <Search size={20} />
+                        <div className="mt-auto flex flex-col gap-8">
+                            <button onClick={onSignalOpen} className="text-text-muted hover:text-primary transition-colors p-1.5" title="Signal">
+                                <Search size={22} />
                             </button>
                             <button
                                 onClick={() => setActiveTab('profile')}
-                                className={`transition-colors p-1.5 ${activeTab === 'profile' ? 'text-[#E5E5E5]' : 'text-[#404040] hover:text-[#E5E5E5]'}`}
+                                className={`transition-colors p-1.5 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted hover:text-white'}`}
                                 title="Profile"
                             >
-                                <User size={20} />
+                                <User size={22} />
                             </button>
                         </div>
                     </nav>
@@ -111,16 +129,16 @@ const Layout = ({
 
                 {/* Mobile Bottom Navigation Bar */}
                 {isMobile && (
-                    <nav className={`fixed bottom-0 left-0 right-0 z-50 bg-[#050505] border-t border-white/10 px-6 py-4 flex items-center justify-between transition-all duration-500 ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
-                        <button onClick={() => setActiveTab('nexus')} className={`flex flex-col items-center gap-1 ${activeTab === 'nexus' ? 'text-white' : 'text-[#666666]'}`}>
+                    <nav className={`fixed bottom-0 left-0 right-0 z-50 bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+                        <button onClick={() => setActiveTab('nexus')} className={`flex flex-col items-center gap-1 ${activeTab === 'nexus' ? 'text-white' : 'text-text-muted'}`}>
                             <Radio size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Nexus</span>
                         </button>
-                        <button onClick={() => setActiveTab('hierarchy')} className={`flex flex-col items-center gap-1 ${activeTab === 'hierarchy' ? 'text-white' : 'text-[#666666]'}`}>
+                        <button onClick={() => setActiveTab('hierarchy')} className={`flex flex-col items-center gap-1 ${activeTab === 'hierarchy' ? 'text-white' : 'text-text-muted'}`}>
                             <BarChart3 size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Hierarchy</span>
                         </button>
-                        <button onClick={() => setActiveTab('grid')} className={`flex flex-col items-center gap-1 ${activeTab === 'grid' ? 'text-white' : 'text-[#666666]'}`}>
+                        <button onClick={() => setActiveTab('grid')} className={`flex flex-col items-center gap-1 ${activeTab === 'grid' ? 'text-white' : 'text-text-muted'}`}>
                             <Grid3x3 size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Grid</span>
                         </button>
@@ -128,21 +146,21 @@ const Layout = ({
                         <div className="flex flex-col items-center">
                             <button
                                 onClick={onSignalOpen}
-                                className="w-10 h-10 bg-[#f04242] flex items-center justify-center -mt-8 rounded-sm border-2 border-[#050505] text-white active:scale-90 transition-transform"
+                                className="w-10 h-10 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_15px_rgba(255,51,51,0.3)]"
                             >
                                 <Plus size={20} />
                             </button>
                         </div>
 
-                        <button onClick={() => setActiveTab('feed')} className={`flex flex-col items-center gap-1 ${activeTab === 'feed' ? 'text-white' : 'text-[#666666]'}`}>
+                        <button onClick={() => setActiveTab('feed')} className={`flex flex-col items-center gap-1 ${activeTab === 'feed' ? 'text-white' : 'text-text-muted'}`}>
                             <Database size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Feed</span>
                         </button>
-                        <button onClick={() => setActiveTab('stratification')} className={`flex flex-col items-center gap-1 ${activeTab === 'stratification' ? 'text-white' : 'text-[#666666]'}`}>
+                        <button onClick={() => setActiveTab('stratification')} className={`flex flex-col items-center gap-1 ${activeTab === 'stratification' ? 'text-white' : 'text-text-muted'}`}>
                             <Trophy size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Rank</span>
                         </button>
-                        <button onClick={() => setActiveTab('profile')} className={`flex flex-col items-center gap-1 ${activeTab === 'profile' ? 'text-white' : 'text-[#666666]'}`}>
+                        <button onClick={() => setActiveTab('profile')} className={`flex flex-col items-center gap-1 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted'}`}>
                             <User size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Profile</span>
                         </button>
@@ -150,11 +168,9 @@ const Layout = ({
                 )}
 
                 {/* Main Content Area */}
-                <main className="min-h-screen" style={{ paddingLeft: isMobile ? '0' : '60px' }}>
+                <main className="min-h-screen" style={{ paddingLeft: isMobile ? '0' : '64px' }}>
                     {children}
                 </main>
-
-                <div className="noise-overlay"></div>
             </div>
         </HelmetProvider>
     );

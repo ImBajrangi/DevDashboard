@@ -28,19 +28,19 @@ const TheHierarchy = () => {
             {/* Top nav – fixed full width */}
             <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-start z-50 pointer-events-none">
                 <div className="flex flex-col gap-1 pointer-events-auto">
-                    <span className="font-mono text-[10px] text-[#404040] tracking-widest uppercase">
+                    <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
                         Protocol // Archive
                     </span>
-                    <h2 className="text-xl font-bold tracking-tighter uppercase">The Hierarchy</h2>
+                    <h2 className="text-xl font-bold tracking-tighter uppercase font-display">The Hierarchy</h2>
                 </div>
                 <div className="flex items-center gap-6 pointer-events-auto">
                     <div className="text-right flex flex-col items-end">
-                        <span className="font-mono text-[10px] text-[#404040] tracking-widest uppercase">
+                        <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
                             System Load
                         </span>
-                        <span className="font-mono text-xs text-[#f04242]">0.0004%</span>
+                        <span className="font-mono text-xs text-primary">0.0004%</span>
                     </div>
-                    <button className="material-symbols-outlined text-[#404040] hover:text-[#E5E5E5] transition-colors">
+                    <button className="material-symbols-outlined text-text-muted hover:text-text-main transition-colors">
                         close
                     </button>
                 </div>
@@ -50,42 +50,42 @@ const TheHierarchy = () => {
             <main className="relative z-10 h-full w-full flex items-center justify-center pt-24 px-12">
                 <div className="grid grid-cols-12 w-full max-w-6xl gap-12 h-[70vh]">
                     {/* Left tier sidebar – col-span-3 */}
-                    <div className="col-span-3 flex flex-col justify-between py-4 border-r border-[#262626] relative">
+                    <div className="col-span-3 flex flex-col justify-between py-4 border-r border-border-void relative">
                         <div
                             className="absolute right-[-1px] top-0 bottom-0 w-px"
                             style={{
-                                background: 'linear-gradient(to bottom, transparent, #404040 10%, #404040 90%, transparent)',
+                                background: 'linear-gradient(to bottom, transparent, var(--color-text-muted) 10%, var(--color-text-muted) 90%, transparent)',
                             }}
                         />
                         {/* Tier: Zenith / Commander */}
                         <div className="flex flex-col gap-2">
-                            <span className="font-mono text-[10px] text-[#404040] uppercase tracking-[0.2em]">
+                            <span className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em]">
                                 01 / Zenith
                             </span>
-                            <h3 className="text-2xl font-bold tracking-tight opacity-20">COMMANDER</h3>
+                            <h3 className="text-2xl font-bold tracking-tight opacity-20 font-display">COMMANDER</h3>
                         </div>
                         {/* Tier: Active / Operator */}
                         <div className="flex flex-col gap-2 relative">
-                            <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#f04242] rounded-full" />
-                            <span className="font-mono text-[10px] text-[#f04242] uppercase tracking-[0.2em]">
+                            <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_var(--color-primary)]" />
+                            <span className="font-mono text-[10px] text-primary uppercase tracking-[0.2em]">
                                 02 / Active Tier
                             </span>
-                            <h3 className="text-2xl font-bold tracking-tight text-[#E5E5E5]">OPERATOR</h3>
-                            <div className="h-px w-12 bg-[#f04242]/40 mt-1" />
+                            <h3 className="text-2xl font-bold tracking-tight text-text-main font-display">OPERATOR</h3>
+                            <div className="h-px w-12 bg-primary/40 mt-1" />
                         </div>
                         {/* Tier: Base / Acolyte */}
                         <div className="flex flex-col gap-2">
-                            <span className="font-mono text-[10px] text-[#404040] uppercase tracking-[0.2em]">
+                            <span className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em]">
                                 03 / Base
                             </span>
-                            <h3 className="text-2xl font-bold tracking-tight opacity-20">ACOLYTE</h3>
+                            <h3 className="text-2xl font-bold tracking-tight opacity-20 font-display">ACOLYTE</h3>
                         </div>
                     </div>
 
                     {/* Right table area – col-span-9 */}
                     <div className="col-span-9 flex flex-col h-full">
                         {/* Table header */}
-                        <div className="grid grid-cols-12 pb-4 border-b border-[#262626] font-mono text-[10px] text-[#404040] uppercase tracking-[0.2em]">
+                        <div className="grid grid-cols-12 pb-4 border-b border-border-void font-mono text-[10px] text-text-muted uppercase tracking-[0.2em]">
                             <div className="col-span-1">Pos</div>
                             <div className="col-span-6">Identity</div>
                             <div className="col-span-3">Contribution Weight</div>
@@ -98,31 +98,31 @@ const TheHierarchy = () => {
                                 user.isCurrentUser ? (
                                     <div
                                         key={user.pos}
-                                        className="grid grid-cols-12 py-5 border-y border-[#f04242]/30 bg-[#f04242]/5 relative group"
+                                        className="grid grid-cols-12 py-5 border-y border-primary/30 bg-primary/5 relative group"
                                     >
-                                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#f04242]" />
-                                        <div className="col-span-1 text-[#f04242] pl-4">{user.pos}</div>
+                                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
+                                        <div className="col-span-1 text-primary pl-4">{user.pos}</div>
                                         <div className="col-span-6 flex items-center gap-2">
-                                            <span className="text-[#E5E5E5] font-bold">{user.name}</span>
+                                            <span className="text-text-main font-bold">{user.name}</span>
                                             <span
-                                                className="w-2 h-4 bg-[#f04242] inline-block"
+                                                className="w-2 h-4 bg-primary inline-block"
                                                 style={{ animation: 'blink 1s step-end infinite' }}
                                             />
                                         </div>
-                                        <div className="col-span-3 text-[#E5E5E5]">{user.weight}</div>
-                                        <div className="col-span-2 text-right text-[10px] text-[#f04242] pr-4">
+                                        <div className="col-span-3 text-text-main">{user.weight}</div>
+                                        <div className="col-span-2 text-right text-[10px] text-primary pr-4">
                                             [ {user.status} ]
                                         </div>
                                     </div>
                                 ) : (
                                     <div
                                         key={user.pos}
-                                        className="grid grid-cols-12 py-3 border-b border-white/5 opacity-40 hover:opacity-100 hover:bg-white hover:text-black hover:px-4 -mx-4 transition-all duration-200 cursor-pointer"
+                                        className="grid grid-cols-12 py-3 border-b border-white/5 opacity-40 hover:opacity-100 hover:bg-text-main hover:text-void hover:px-4 -mx-4 transition-all duration-200 cursor-pointer"
                                     >
                                         <div className="col-span-1">{user.pos}</div>
                                         <div className="col-span-6 flex items-center gap-2">
                                             <span>{user.name}</span>
-                                            <span className="w-1.5 h-3 bg-transparent hover:bg-[#f04242]" style={{ animation: 'blink 1s step-end infinite' }} />
+                                            <span className="w-1.5 h-3 bg-transparent group-hover:bg-primary transition-colors" style={{ animation: 'blink 1s step-end infinite' }} />
                                         </div>
                                         <div className="col-span-3">{user.weight}</div>
                                         <div className="col-span-2 text-right text-[10px]">[ {user.status} ]</div>
@@ -139,23 +139,23 @@ const TheHierarchy = () => {
                         </div>
 
                         {/* Bottom stats */}
-                        <div className="mt-auto pt-8 flex justify-between border-t border-[#262626]">
+                        <div className="mt-auto pt-8 flex justify-between border-t border-border-void">
                             <div className="flex flex-col gap-1">
-                                <span className="font-mono text-[10px] text-[#404040] uppercase tracking-widest">
+                                <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest">
                                     Global Density
                                 </span>
                                 <div className="flex items-center gap-1">
-                                    <div className="w-16 h-1 bg-[#262626] overflow-hidden">
-                                        <div className="w-3/4 h-full bg-[#404040]" />
+                                    <div className="w-16 h-1 bg-border-void overflow-hidden">
+                                        <div className="w-3/4 h-full bg-text-muted" />
                                     </div>
-                                    <span className="font-mono text-[10px] text-[#404040]">74%</span>
+                                    <span className="font-mono text-[10px] text-text-muted">74%</span>
                                 </div>
                             </div>
                             <div className="text-right flex flex-col items-end gap-1">
-                                <span className="font-mono text-[10px] text-[#404040] uppercase tracking-widest">
+                                <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest">
                                     Next Evolution
                                 </span>
-                                <span className="font-mono text-xs text-[#E5E5E5]">10,000 WEIGHT REMAINING</span>
+                                <span className="font-mono text-xs text-text-main uppercase">10,000 WEIGHT REMAINING</span>
                             </div>
                         </div>
                     </div>
@@ -163,21 +163,21 @@ const TheHierarchy = () => {
             </main>
 
             {/* Right sidebar strip */}
-            <aside className="fixed right-0 top-0 bottom-0 w-16 border-l border-[#262626] flex flex-col items-center justify-center gap-12 z-20">
-                <div className="rotate-90 origin-center whitespace-nowrap font-mono text-[10px] tracking-[0.5em] text-[#404040] uppercase">
+            <aside className="fixed right-0 top-0 bottom-0 w-16 border-l border-border-void flex flex-col items-center justify-center gap-12 z-20">
+                <div className="rotate-90 origin-center whitespace-nowrap font-mono text-[10px] tracking-[0.5em] text-text-muted uppercase">
                     Ascension Protocol v1.4
                 </div>
                 <div className="flex flex-col gap-4">
-                    <div className="w-1 h-1 rounded-full bg-[#f04242] shadow-[0_0_8px_#f04242]" />
-                    <div className="w-1 h-1 rounded-full bg-[#262626]" />
-                    <div className="w-1 h-1 rounded-full bg-[#262626]" />
+                    <div className="w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
+                    <div className="w-1 h-1 rounded-full bg-border-void" />
+                    <div className="w-1 h-1 rounded-full bg-border-void" />
                 </div>
             </aside>
 
             {/* Bottom-left footer */}
-            <footer className="fixed bottom-8 left-8 flex gap-8 font-mono text-[10px] text-[#404040] uppercase tracking-widest z-50">
+            <footer className="fixed bottom-8 left-8 flex gap-8 font-mono text-[10px] text-text-muted uppercase tracking-widest z-50">
                 <span>Depth: 14,000km</span>
-                <span className="text-[#f04242]">Syncing...</span>
+                <span className="text-primary animate-pulse">Syncing...</span>
             </footer>
         </div>
     );

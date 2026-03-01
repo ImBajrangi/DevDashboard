@@ -3,15 +3,58 @@
 
 /* === DESIGN TOKENS from Stitch templates === */
 @theme {
-  --color-primary: #f04242;
+  --color-primary: #FF3333;
   --color-void: #050505;
+  --color-void-matte: #0a0a0a;
   --color-text-main: #E5E5E5;
-  --color-text-muted: #404040;
-  --color-border-void: #262626;
+  --color-text-muted: #666666;
+  --color-border-void: #1a1a1a;
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'EB Garamond', serif;
   --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply selection:bg-primary selection:text-white;
+  }
+}
+
+/* === UTILITIES === */
+.noise-overlay {
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDqoRsFj5qQz9ZHt8xnfvS-V3VWlm258U8SHBnwROMiXzLhaPgTvMSKoWDhN5axrpAc8Fr2QzyNtoFctLucOOGZhgBUqayaZ-IEEMyueyALWSFKiWJo8uy-_Ke0OJEa_I7dvZI1x65-dt5RW38TDV1ZbVKYREPv67S_VYRSjgXBM5zrCXNX_eRix8TnS-oO4-6LbVHjjZpteF3tplkivCUszF6IqFFBVlH8KcrSKEoWKyuYSWUp_3afvfs7D9cbmXwVjgoUHOsk1PY);
+}
+
+.scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.4) 50%);
+  background-size: 100% 2px;
+}
+
+.quadrant {
+  @apply border-r border-b border-border-void p-8 flex flex-col gap-6;
+}
+
+.pulsing-cursor {
+  @apply w-0.5 h-4 bg-primary inline-block;
+  animation: pulse 1s infinite step-end;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.btn-invert {
+  @apply px-4 py-2 border border-white text-white font-mono text-[10px] tracking-widest uppercase transition-all duration-200 hover:bg-white hover:text-void;
+}
+
+.btn-primary-invert {
+  @apply px-4 py-2 border border-primary text-primary font-mono text-[10px] tracking-widest uppercase transition-all duration-200 hover:bg-primary hover:text-white;
+}
+
+.list-item-invert {
+  @apply flex justify-between items-center py-3 border-b border-border-void font-mono text-[11px] tracking-tight transition-all duration-150 hover:bg-white hover:text-void hover:px-2;
 }
 
 /* === BASE STYLES === */
