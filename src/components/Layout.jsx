@@ -100,17 +100,24 @@ const Layout = ({
                         >
                             <Radio size={22} />
                         </button>
-                        <div className="flex flex-col gap-8">
-                            {navItems.filter(i => i.id !== 'nexus' && i.id !== 'profile').map(item => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => setActiveTab(item.id)}
-                                    className={`transition-colors p-1.5 ${activeTab === item.id ? 'text-white' : 'text-text-muted hover:text-white'}`}
-                                    title={item.label}
-                                >
-                                    {item.icon}
-                                </button>
-                            ))}
+                        <div className="flex flex-col gap-6">
+                            {navItems.filter(i => i.id !== 'nexus' && i.id !== 'profile').map(item => {
+                                const isActive = activeTab === item.id;
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => setActiveTab(item.id)}
+                                        className=""
+                                        title={item.label}
+                                        style={isActive
+                                            ? { background: '#ffffff', color: '#050505', padding: '6px', borderRadius: '3px' }
+                                            : { color: '#666666', padding: '6px' }
+                                        }
+                                    >
+                                        {item.icon}
+                                    </button>
+                                );
+                            })}
                         </div>
                         <div className="mt-auto flex flex-col gap-8">
                             <button onClick={onSignalOpen} className="text-text-muted hover:text-primary transition-colors p-1.5" title="Signal">

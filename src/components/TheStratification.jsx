@@ -1,39 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import TheStratificationMobile from './TheStratificationMobile';
+import { SYNTHETIC_OPERATORS } from '../data/syntheticData';
 
-/**
- * TheStratification – exact clone of the_airlock_5/code.html
- * Template uses: min-h-screen flex flex-col p-6 md:p-12 lg:p-16
- * Fixed nav: p-8 bg-void/80 backdrop-blur-md
- * Grid: grid-cols-1 lg:grid-cols-12 gap-12, aside col-span-3, section col-span-9
- * Tier markers with active state, rank table with "YOU" badge, scrollable overflow
- */
+const STRAT_TIERS = [
+    { id: 'lvl4', label: 'LVL_04', name: 'VOID_LORD', minKw: 1200 },
+    { id: 'lvl3', label: 'LVL_03', name: 'ARCHIVIST', minKw: 1100 },
+    { id: 'lvl2', label: 'LVL_02', name: 'DECRYPTOR', minKw: 1050 },
+    { id: 'lvl1', label: 'LVL_01', name: 'NOVICE', minKw: 0 },
+];
 
 const TheStratification = () => {
     const isMobile = useMobile();
+    const [activeLvl, setActiveLvl] = useState('lvl4');
+
     if (isMobile) {
         return <TheStratificationMobile />;
     }
-    const operators = [
-        { rank: '04', name: 'OPERATOR_772', kw: '1,240.82', uptime: '428D:12H:04M', isYou: true },
-        { rank: '01', name: 'OPERATOR_NULL', kw: '4,821.11', uptime: '892D:04H:11M' },
-        { rank: '02', name: 'S_PROTO_9', kw: '3,102.44', uptime: '741D:21H:30M' },
-        { rank: '03', name: 'VOID_WALKER_X', kw: '2,994.00', uptime: '610D:02H:55M' },
-    ];
 
-    // Generate more rows like the template does with JS
-    const moreOperators = ['K_LEVEL_5', 'GHOST_SIGNAL', 'V_ARCHIVE_1', 'ECHO_DEPTH', 'DEEP_DIVE_0', 'SIGMA_VOID', 'OMEGA_POINT'];
-    for (let i = 5; i <= 25; i++) {
-        const name = moreOperators[i % moreOperators.length] + '_' + Math.floor(Math.random() * 999);
-        operators.push({
-            rank: i < 10 ? '0' + i : String(i),
-            name,
-            kw: (1200 - (i * 12)).toFixed(2),
-            uptime: `${Math.floor(Math.random() * 400)}D:${Math.floor(Math.random() * 24)}H:${Math.floor(Math.random() * 60)}M`,
-        });
-    }
+    // Use synthetic operators
+    const operators = [...SYNTHETIC_OPERATORS];
+
+    // Parse KW for filtering
+    const parseKw = (k) => parseFloat(String(k).replace(/,/g, ''));
+    const currentLvl = STRAT_TIERS.find(t => t.id === activeLvl);
+    const prevIdx = STRAT_TIERS.findIndex(t => t.id === activeLvl) - 1;
+    const maxKw = prevIdx >= 0 ? STRAT_TIERS[prevIdx].minKw : Infinity;
+    const filteredOps = operators.filter(op => {
+        const kw = parseKw(op.kw);
+        return kw >= currentLvl.minKw && kw < maxKw;
+    });
+    const displayOps = filteredOps.length > 0 ? filteredOps : operators;
 
     return (
         <div className="min-h-screen flex flex-col p-6 md:p-12 lg:p-16">
@@ -62,30 +60,34 @@ const TheStratification = () => {
                             THE<br />STRATIFICATION
                         </h1>
                         <div className="flex flex-col">
-                            {/* Active tier */}
-                            <div className="relative pl-8 py-12 border-l border-primary text-primary">
-                                <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-primary shadow-[0_0_8px_var(--color-primary)]" />
-                                <span className="font-mono text-[10px] tracking-[0.3em] block opacity-50 mb-1">LVL_04</span>
-                                <h2 className="font-display text-2xl font-bold tracking-widest">VOID_LORD</h2>
-                            </div>
-                            {/* Inactive tiers */}
-                            <div className="relative pl-8 py-12 border-l border-border-void opacity-40">
-                                <span className="font-mono text-[10px] tracking-[0.3em] block mb-1">LVL_03</span>
-                                <h2 className="font-display text-2xl font-bold tracking-widest">ARCHIVIST</h2>
-                            </div>
-                            <div className="relative pl-8 py-12 border-l border-border-void opacity-40">
-                                <span className="font-mono text-[10px] tracking-[0.3em] block mb-1">LVL_02</span>
-                                <h2 className="font-display text-2xl font-bold tracking-widest">DECRYPTOR</h2>
-                            </div>
-                            <div className="relative pl-8 py-12 border-l border-border-void opacity-40">
-                                <span className="font-mono text-[10px] tracking-[0.3em] block mb-1">LVL_01</span>
-                                <h2 className="font-display text-2xl font-bold tracking-widest">NOVICE</h2>
-                            </div>
+                            {STRAT_TIERS.map((tier) => {
+                                const isActive = activeLvl === tier.id;
+                                return (
+                                    <button
+                                        key={tier.id}
+                                        onClick={() => setActiveLvl(tier.id)}
+                                        className={`relative pl-8 py-12 border-l text-left transition-all duration-300 cursor-pointer ${isActive
+                                                ? 'border-primary text-primary'
+                                                : 'border-border-void opacity-40 hover:opacity-70'
+                                            }`}
+                                    >
+                                        {isActive && (
+                                            <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-primary shadow-[0_0_8px_var(--color-primary)]" />
+                                        )}
+                                        <span className={`font-mono text-[10px] tracking-[0.3em] block mb-1 ${isActive ? 'opacity-50' : ''}`}>
+                                            {tier.label}
+                                        </span>
+                                        <h2 className="font-display text-2xl font-bold tracking-widest">
+                                            {tier.name}
+                                        </h2>
+                                    </button>
+                                );
+                            })}
                         </div>
                         <div className="mt-16 pt-8 border-t border-border-void">
                             <div className="font-mono text-[10px] text-text-muted space-y-2">
                                 <p>CURRENT_STATUS: ASCENDING</p>
-                                <p>NEXT_THRESHOLD: 1,500_KW</p>
+                                <p>ACTIVE_TIER: {currentLvl?.name}</p>
                             </div>
                         </div>
                     </div>
@@ -109,7 +111,7 @@ const TheStratification = () => {
 
                         {/* Table rows – max-h-[70vh] overflow-y-auto */}
                         <div className="divide-y divide-border-void overflow-y-auto max-h-[70vh]" style={{ scrollbarWidth: 'none' }}>
-                            {operators.map((op, idx) => (
+                            {displayOps.map((op, idx) => (
                                 <div
                                     key={idx}
                                     className={`grid grid-cols-12 items-center font-mono text-sm px-6 ${op.isYou

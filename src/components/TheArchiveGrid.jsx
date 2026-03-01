@@ -22,7 +22,7 @@ const IMAGES = [
 ];
 
 const TheArchiveGrid = () => {
-    const cells = Array.from({ length: 120 }, (_, i) => i + 1);
+    const cells = Array.from({ length: 60 }, (_, i) => i + 1);
 
     return (
         <div className="min-h-screen relative">
@@ -55,7 +55,7 @@ const TheArchiveGrid = () => {
             </aside>
 
             {/* Main – template: pt-16 lg:pl-10 */}
-            <main className="pt-20 lg:pl-10">
+            <main className="pt-24 lg:pl-10">
                 {/* Header */}
                 <header className="px-6 py-8 border-b border-[#1a1a1a] flex flex-col md:flex-row justify-between items-end gap-6 bg-[#0a0a0a]">
                     <div className="space-y-1">
@@ -97,13 +97,13 @@ const TheArchiveGrid = () => {
                         return (
                             <div
                                 key={i}
-                                className="relative overflow-hidden bg-[#0a0a0a] border-r border-b border-[#1a1a1a]/60 group transition-all duration-300"
+                                className="relative overflow-hidden bg-[#0a0a0a] border-r border-b border-[#1a1a1a]/60 group"
                                 style={{ aspectRatio: '1/1' }}
                             >
                                 <img
                                     src={img}
                                     alt={`TR_${id}`}
-                                    className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-100 group-hover:opacity-100"
+                                    className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-60 group-hover:brightness-100 group-hover:opacity-100"
                                 />
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-[#f04242]/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">

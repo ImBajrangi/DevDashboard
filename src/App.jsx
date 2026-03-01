@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { SYNTHETIC_ARTICLES } from './data/syntheticData'
 import Layout from './components/Layout'
 import TheFeed from './components/TheFeed'
 import TheVoid from './components/TheVoid'
@@ -38,9 +39,12 @@ function App() {
           .order('created_at', { ascending: false });
 
         if (error) throw error;
-        setAllEntries(data || []);
+        // Use Supabase data if available, otherwise fall back to synthetic
+        setAllEntries(data && data.length > 0 ? data : SYNTHETIC_ARTICLES);
       } catch (err) {
         console.error('Error fetching content:', err);
+        // Fallback to synthetic data on error
+        setAllEntries(SYNTHETIC_ARTICLES);
       } finally {
         setIsLoading(false);
       }
@@ -70,8 +74,10 @@ function App() {
 
   const archiveItems = feedItems.map(item => ({ ...item, isRead: false }));
 
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader'];
+
   const handleArticleClick = (article) => {
-    if (article.id && typeof article.id === 'string' && isNaN(parseInt(article.id))) {
+    if (article.id && validTabs.includes(article.id)) {
       // This is a tab switch request (e.g., 'archives', 'transmit')
       setActiveTab(article.id)
     } else {
@@ -99,7 +105,7 @@ function App() {
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (
-        <TheSignal onClose={() => setIsSignalOpen(false)} onSelection={handleArticleClick} />
+        <TheSignal onClose={() => setIsSignalOpen(false)} onSelection={handleArticleClick} items={feedItems} />
       )}
 
       {/* THE NEXUS – the_airlock_2 / the_airlock_7 template */}
