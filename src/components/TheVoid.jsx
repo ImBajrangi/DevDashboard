@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { ArrowLeft, ArrowUp, Play, Pause, Minus, Plus } from 'lucide-react';
 
 /**
  * TheVoid component – reader view, mobile-friendly.
@@ -30,9 +31,10 @@ const TheVoid = ({
             <div className="sticky top-0 z-50 bg-void/95 backdrop-blur-md border-b border-border-void px-4 py-3 flex items-center justify-between">
                 <button
                     onClick={onBack}
-                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted hover:text-text-main transition-colors"
+                    className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted hover:text-text-main transition-colors"
                 >
-                    ← Back
+                    <ArrowLeft size={12} />
+                    Back
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -41,33 +43,33 @@ const TheVoid = ({
                             <audio ref={audioRef} src={audioUrl} onEnded={() => setIsPlaying(false)} />
                             <button
                                 onClick={toggleAudio}
-                                className="font-mono text-[10px] uppercase tracking-[0.15em] border border-border-void px-2 py-1 text-text-main hover:bg-text-main hover:text-void transition-all"
+                                className="flex items-center justify-center w-8 h-8 border border-border-void text-text-main hover:bg-text-main hover:text-void transition-all"
                             >
-                                {isPlaying ? '⏸' : '♪'}
+                                {isPlaying ? <Pause size={12} /> : <Play size={12} />}
                             </button>
                         </>
                     )}
-                    <button onClick={() => setFontSize(s => Math.max(s - 2, 14))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs">A-</button>
-                    <button onClick={() => setFontSize(s => Math.min(s + 2, 36))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs">A+</button>
+                    <button onClick={() => setFontSize(s => Math.max(s - 2, 14))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs"><Minus size={12} /></button>
+                    <button onClick={() => setFontSize(s => Math.min(s + 2, 36))} className="w-8 h-8 flex items-center justify-center border border-border-void text-text-muted hover:text-text-main transition-colors text-xs"><Plus size={12} /></button>
                 </div>
             </div>
 
-            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32 pt-5">
+            <article className="w-full max-w-[750px] mx-auto px-6 md:px-12 pb-32 pt-40">
                 {/* Title — responsive sizing */}
                 <h1
-                    className={`${fontClass} leading-[1.1] tracking-tight mb-6 transition-all duration-500 font-display`}
+                    className="font-display leading-[1.3] tracking-tighter mb-6 transition-all duration-500 font-bold"
                     style={{ fontSize: `clamp(28px, calc(${fontSize}px * 2.2), calc(${fontSize}px * 2.6))` }}
                 >
                     {title || "The Architecture of Silence"}
                 </h1>
 
                 {/* Meta */}
-                <div className="border-t border-border-void pt-4 mb-8 font-mono text-[10px] uppercase tracking-widest text-text-muted flex flex-wrap gap-3 md:gap-4">
-                    <span>By {author || "Unknown"}</span>
+                <div className="border-t border-border-void pt-6 mb-10 font-mono text-[10px] uppercase tracking-widest text-text-muted flex flex-wrap gap-3 md:gap-4 items-center">
+                    <span>{author ? author.toUpperCase() : "LINK RESTRICTED"}</span>
                     <span>·</span>
-                    <span>{readTime || "12"} Min</span>
+                    <span>{readTime && !String(readTime).toUpperCase().includes('MIN') ? `${readTime} MIN READ` : (readTime || "12 MIN READ")}</span>
                     <span>·</span>
-                    <span>{date || ""}</span>
+                    <span>{date || "24.10.2023"}</span>
                 </div>
 
                 {/* Tags */}
@@ -136,7 +138,9 @@ Consider the terminal. A black screen, a blinking cursor. It is the most honest 
                 </div>
 
                 <div className="flex justify-center mt-8 opacity-30">
-                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-text-muted hover:text-text-main transition-colors text-xl">↑</button>
+                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-text-muted hover:text-text-main transition-colors">
+                        <ArrowUp size={24} />
+                    </button>
                 </div>
             </article>
 

@@ -7,8 +7,8 @@
   --color-void: #050505;
   --color-void-matte: #0a0a0a;
   --color-text-main: #E5E5E5;
-  --color-text-muted: #666666;
-  --color-border-void: #1a1a1a;
+  --color-text-muted: #404040;
+  --color-border-void: #262626;
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'EB Garamond', serif;
@@ -41,8 +41,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .btn-invert {

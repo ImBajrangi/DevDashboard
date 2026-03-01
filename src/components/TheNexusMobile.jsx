@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wifi, Filter } from 'lucide-react';
 
 /**
  * TheNexusMobile component – from the_airlock_7 template.
@@ -14,7 +15,7 @@ const TheNexusMobile = ({ onItemClick }) => {
                     <h1 className="text-4xl font-bold tracking-tighter leading-none uppercase font-display">THE_VRINDA</h1>
                 </div>
                 <div className="absolute top-12 right-6">
-                    <span className="material-symbols-outlined text-text-main text-2xl">sensors</span>
+                    <Wifi size={24} className="text-text-main" />
                 </div>
             </header>
 
@@ -54,7 +55,7 @@ const TheNexusMobile = ({ onItemClick }) => {
                 <section className="px-6 py-10">
                     <div className="flex items-center justify-between mb-8">
                         <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest">Latest_Signals</span>
-                        <span className="material-symbols-outlined text-text-muted text-sm">filter_list</span>
+                        <Filter size={16} className="text-text-muted" />
                     </div>
                     <div className="flex flex-col gap-10">
                         <div className="group cursor-pointer" onClick={() => onItemClick && onItemClick({ title: "THE HIERARCHY SHIFT DETECTED IN SECTOR 7" })}>

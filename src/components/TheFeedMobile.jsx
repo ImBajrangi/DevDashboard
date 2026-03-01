@@ -31,7 +31,7 @@ const TheFeedMobile = ({ items = [], onItemClick }) => {
                                 <span>{item.source || 'Trans. // 0882-X'}</span>
                                 <span>{item.date || '14.02.24'}</span>
                             </div>
-                            <h2 className="text-4xl font-semibold leading-[0.95] tracking-tight pr-8 uppercase font-display">
+                            <h2 className="text-4xl font-semibold leading-[1.3] tracking-tight pr-8 uppercase font-display">
                                 {item.title}
                             </h2>
                             <div className="flex gap-6 font-mono text-[10px] uppercase text-text-muted group-active:text-void/60">

@@ -51,7 +51,7 @@ const TheFeed = ({ items = [], onItemClick }) => {
                                 <span className="font-mono text-[10px] uppercase tracking-widest meta-text text-text-muted">
                                     Transmission // {String(idx + 1).padStart(3, '0')}
                                 </span>
-                                <h3 className="text-[32px] font-bold leading-none tracking-tight font-display">{item.title}</h3>
+                                <h3 className="text-[32px] font-bold leading-[1.2] tracking-tight font-display mb-2">{item.title}</h3>
                             </div>
                             <div className="flex items-center gap-12 mt-6 md:mt-0 font-mono text-xs uppercase tracking-widest">
                                 <div className="flex flex-col items-end">

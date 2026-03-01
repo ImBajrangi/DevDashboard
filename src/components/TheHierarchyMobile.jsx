@@ -1,4 +1,5 @@
 import React from 'react';
+import { MoreVertical, Radio, LayoutGrid, Search, User, Settings } from 'lucide-react';
 
 /**
  * TheHierarchyMobile – exact clone of the_airlock_10/code.html
@@ -15,7 +16,9 @@ const TheHierarchyMobile = () => {
                         <div className="text-[10px] text-text-muted tracking-[0.3em] uppercase mb-1 font-display">System // Rank</div>
                         <h1 className="text-xl font-bold tracking-tighter uppercase font-display">The Hierarchy</h1>
                     </div>
-                    <button className="material-symbols-outlined text-text-muted">more_vert</button>
+                    <button className="text-text-muted hover:text-text-main transition-colors">
+                        <MoreVertical size={20} />
+                    </button>
                 </div>
                 <div className="flex items-center gap-4">
                     <div className="flex-1">
@@ -102,8 +105,8 @@ const TheHierarchyMobile = () => {
                                     <span className="text-primary font-bold tracking-widest">[LINKED]</span>
                                 </div>
                             </div>
-                            <div className="absolute right-0 bottom-0 opacity-10">
-                                <span className="material-symbols-outlined text-4xl text-primary">sensors</span>
+                            <div className="absolute right-4 bottom-4 opacity-10">
+                                <Radio size={36} className="text-primary" />
                             </div>
                         </div>
                         {/* Node 004 */}
@@ -159,10 +162,10 @@ const TheHierarchyMobile = () => {
                     </div>
                 </div>
                 <nav className="flex justify-between items-center pt-4 border-t border-border-void/50">
-                    <button className="material-symbols-outlined text-primary text-xl">grid_view</button>
-                    <button className="material-symbols-outlined text-text-muted text-xl hover:text-text-main">search</button>
-                    <button className="material-symbols-outlined text-text-muted text-xl hover:text-text-main">account_circle</button>
-                    <button className="material-symbols-outlined text-text-muted text-xl hover:text-text-main">settings</button>
+                    <button className="text-primary hover:text-white transition-colors"><LayoutGrid size={20} /></button>
+                    <button className="text-text-muted hover:text-white transition-colors"><Search size={20} /></button>
+                    <button className="text-text-muted hover:text-white transition-colors"><User size={20} /></button>
+                    <button className="text-text-muted hover:text-white transition-colors"><Settings size={20} /></button>
                 </nav>
             </footer>
 

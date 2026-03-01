@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import TheStratificationMobile from './TheStratificationMobile';
 
@@ -140,11 +141,11 @@ const TheStratification = () => {
                             [ Scroll to decrypt further depth ]
                         </div>
                         <div className="flex gap-4">
-                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors">
-                                <span className="material-symbols-outlined text-sm">chevron_left</span>
+                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors flex items-center justify-center">
+                                <ChevronLeft size={16} />
                             </button>
-                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors">
-                                <span className="material-symbols-outlined text-sm">chevron_right</span>
+                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors flex items-center justify-center">
+                                <ChevronRight size={16} />
                             </button>
                         </div>
                     </div>

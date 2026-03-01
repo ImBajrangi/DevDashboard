@@ -1,4 +1,5 @@
 import React from 'react';
+import { Lock } from 'lucide-react';
 
 /**
  * TheSplash – exact clone of the_airlock_21/code.html
@@ -65,7 +66,7 @@ const TheSplash = ({ onEnter }) => {
 
             {/* Decorative Top Right Corner */}
             <div className="fixed top-8 right-8 text-[#404040] opacity-20 hover:opacity-100 transition-opacity duration-500 cursor-help">
-                <span className="material-symbols-outlined text-2xl">encrypted</span>
+                <Lock size={24} />
             </div>
 
             <style>{`

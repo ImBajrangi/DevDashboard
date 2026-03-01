@@ -1,4 +1,5 @@
 import React from 'react';
+import { Menu } from 'lucide-react';
 
 /**
  * TheStratificationMobile component – from the_airlock_14 template.
@@ -18,7 +19,9 @@ const TheStratificationMobile = () => {
                         <div className="text-[8px] text-text-muted uppercase">Sync_Rate</div>
                         <div className="text-[10px] text-primary">99.98%</div>
                     </div>
-                    <button className="material-symbols-outlined text-text-muted hover:text-primary transition-colors">menu</button>
+                    <button className="text-text-muted hover:text-primary transition-colors">
+                        <Menu size={20} />
+                    </button>
                 </div>
             </header>
 

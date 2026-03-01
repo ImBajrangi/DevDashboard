@@ -1,4 +1,5 @@
 import React from 'react';
+import { X } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import TheHierarchyMobile from './TheHierarchyMobile';
 
@@ -40,8 +41,8 @@ const TheHierarchy = () => {
                         </span>
                         <span className="font-mono text-xs text-primary">0.0004%</span>
                     </div>
-                    <button className="material-symbols-outlined text-text-muted hover:text-text-main transition-colors">
-                        close
+                    <button className="text-text-muted hover:text-text-main transition-colors">
+                        <X size={20} />
                     </button>
                 </div>
             </nav>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Focus } from 'lucide-react';
 
 /**
  * TheArchiveGrid – exact clone of the_airlock_4/code.html
@@ -114,7 +115,7 @@ const TheArchiveGrid = () => {
                                 </div>
                                 {/* Focus icon */}
                                 <div className="absolute bottom-1 right-1 opacity-0 group-hover:opacity-100 transition-all scale-50 group-hover:scale-100">
-                                    <span className="material-symbols-outlined text-[10px] text-[#f04242]">filter_center_focus</span>
+                                    <Focus size={12} className="text-[#f04242]" />
                                 </div>
                                 {/* Cell border */}
                                 <div className="absolute inset-0 border border-white/5 pointer-events-none" />

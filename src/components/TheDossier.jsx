@@ -1,4 +1,5 @@
 import React from 'react';
+import { Menu, ChevronRight, Lock } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 
 /**
@@ -31,7 +32,9 @@ const DossierMobile = () => {
                     <span className="text-[9px] text-[#555] tracking-[0.3em] uppercase">Status: Connected</span>
                     <span className="text-[11px] text-[#f04242] font-bold">DEEP_VOID // ACCESS_GRANTED</span>
                 </div>
-                <button className="material-symbols-outlined text-white scale-90">menu</button>
+                <button className="text-white scale-90">
+                    <Menu size={20} />
+                </button>
             </nav>
 
             {/* Main content */}
@@ -81,7 +84,7 @@ const DossierMobile = () => {
                                     <span className="text-[9px] font-bold tracking-widest uppercase opacity-60">{item.type}</span>
                                     <span className="text-sm font-extrabold tracking-tight">{item.name}</span>
                                 </div>
-                                <span className="material-symbols-outlined text-lg">arrow_forward_ios</span>
+                                <ChevronRight size={18} />
                             </div>
                         ))}
                         {/* Locked entry */}
@@ -90,7 +93,7 @@ const DossierMobile = () => {
                                 <span className="text-[9px] font-bold tracking-widest uppercase text-[#555]">Classified</span>
                                 <span className="text-sm font-extrabold tracking-tight text-[#555]">FRAGMENT_LOCKED</span>
                             </div>
-                            <span className="material-symbols-outlined text-lg text-[#555]">lock</span>
+                            <Lock size={18} className="text-[#555]" />
                         </div>
                     </div>
                 </section>
