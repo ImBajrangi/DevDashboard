@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deep Void Mobile Master UI Template</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f04242",
+                        "void": "#050505",
+                        "void-matte": "#0a0a0a",
+                        "text-main": "#E5E5E5",
+                        "text-muted": "#666666",
+                        "border-void": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px", 
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-void text-text-main font-display antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+            }
+        }
+        .noise-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDqoRsFj5qQz9ZHt8xnfvS-V3VWlm258U8SHBnwROMiXzLhaPgTvMSKoWDhN5axrpAc8Fr2QzyNtoFctLucOOGZhgBUqayaZ-IEEMyueyALWSFKiWJo8uy-_Ke0OJEa_I7dvZI1x65-dt5RW38TDV1ZbVKYREPv67S_VYRSjgXBM5zrCXNX_eRix8TnS-oO4-6LbVHjjZpteF3tplkivCUszF6IqFFBVlH8KcrSKEoWKyuYSWUp_3afvfs7D9cbmXwVjgoUHOsk1PY);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.4) 50%);
+            background-size: 100% 2px;
+        }
+        .quadrant {
+            @apply border-border-void border-r border-b min-h-[400px] p-8 flex flex-col gap-6;
+        }
+        .phone-mock {
+            @apply w-[280px] h-[580px] bg-void-matte border-[12px] border-[#111] rounded-[3rem] relative shadow-2xl overflow-hidden self-center;
+        }
+        .invert-on-tap:active {
+            @apply bg-text-main text-void;
+        }
+        .airlock-cursor {
+            @apply w-12 h-12 border border-primary/50 flex items-center justify-center relative;
+        }
+        .airlock-cursor::before {
+            content: '';
+            @apply absolute w-[1px] h-full bg-primary/20;
+        }
+        .airlock-cursor::after {
+            content: '';
+            @apply absolute h-[1px] w-full bg-primary/20;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<nav class="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-[60] bg-void border-b border-border-void">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-1.5 bg-primary"></div>
+<div class="font-mono text-[10px] tracking-[0.4em] text-text-main uppercase font-bold">
+                DEEP_VOID / MOBILE_SYSTEM_V.1
+            </div>
+</div>
+<div class="flex items-center gap-8 font-mono text-[9px] text-text-muted">
+<span class="text-white">FORM_FACTOR: HANDHELD</span>
+<span class="text-primary animate-pulse">SYSTEM_STABLE</span>
+</div>
+</nav>
+<main class="pt-14 grid grid-cols-1 md:grid-cols-2 min-h-screen">
+<section class="quadrant">
+<div class="space-y-1">
+<span class="font-mono text-[9px] text-primary tracking-[0.2em] font-bold">01_TYPOGRAPHY</span>
+<h2 class="font-display text-xl font-bold uppercase tracking-tight">Scaled_Hierarchy</h2>
+</div>
+<div class="space-y-8 mt-4">
+<div class="space-y-2">
+<p class="font-mono text-[10px] text-text-muted border-b border-border-void pb-1">H1_DISPLAY / SPACE_GROTESK</p>
+<h1 class="text-4xl font-bold text-white tracking-tighter">VOID_CORE</h1>
+</div>
+<div class="space-y-2">
+<p class="font-mono text-[10px] text-text-muted border-b border-border-void pb-1">H2_SUBHEADER / SPACE_GROTESK</p>
+<h2 class="text-2xl font-medium text-white tracking-tight">Subsurface_Scanning</h2>
+</div>
+<div class="space-y-2">
+<p class="font-mono text-[10px] text-text-muted border-b border-border-void pb-1">BODY_TEXT / JETBRAINS_MONO</p>
+<p class="font-mono text-xs leading-relaxed text-text-main/80">Automated archival protocols initiated. All telemetry data must be synchronized with the central terminal before extraction. Event horizon proximity: 0.04 AU.</p>
+</div>
+<div class="space-y-2">
+<p class="font-mono text-[10px] text-text-muted border-b border-border-void pb-1">SMALL_CAPS / JETBRAINS_MONO</p>
+<p class="font-mono text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Protocol_Override_Active</p>
+</div>
+</div>
+</section>
+<section class="quadrant">
+<div class="space-y-1">
+<span class="font-mono text-[9px] text-primary tracking-[0.2em] font-bold">02_TOUCH_INTERACTIONS</span>
+<h2 class="font-display text-xl font-bold uppercase tracking-tight">Haptic_Visuals</h2>
+</div>
+<div class="space-y-6 mt-4">
+<div class="space-y-3">
+<label class="font-mono text-[9px] text-text-muted">TAP_TARGETS (MIN_44PX)</label>
+<div class="flex gap-4">
+<button class="w-11 h-11 border border-border-void flex items-center justify-center hover:bg-white hover:text-void transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="w-11 h-11 border border-border-void flex items-center justify-center hover:bg-white hover:text-void transition-all">
+<span class="material-symbols-outlined text-sm">settings</span>
+</button>
+<button class="w-24 h-11 border border-primary text-primary font-mono text-[9px] font-bold tracking-widest uppercase">
+                            EXECUTE
+                        </button>
+</div>
+</div>
+<div class="space-y-3">
+<label class="font-mono text-[9px] text-text-muted uppercase">Invert_on_Tap_List</label>
+<div class="space-y-[1px] bg-border-void">
+<div class="invert-on-tap h-14 bg-void p-4 flex justify-between items-center cursor-pointer">
+<span class="font-mono text-[10px] tracking-widest font-bold">ARCHIVE_CELL_001</span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</div>
+<div class="invert-on-tap h-14 bg-void p-4 flex justify-between items-center cursor-pointer">
+<span class="font-mono text-[10px] tracking-widest font-bold">ARCHIVE_CELL_002</span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</div>
+<div class="invert-on-tap h-14 bg-void p-4 flex justify-between items-center cursor-pointer">
+<span class="font-mono text-[10px] tracking-widest font-bold">ARCHIVE_CELL_003</span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<label class="font-mono text-[9px] text-text-muted uppercase">Swipe_Gesture_Visualizer</label>
+<div class="relative w-full h-12 border border-dashed border-border-void flex items-center px-4">
+<div class="absolute right-4 w-8 h-8 rounded-full border border-primary/40 animate-ping"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm animate-pulse">chevron_left</span>
+<span class="font-mono text-[9px] text-text-muted tracking-widest">SWIPE_TO_DISMISS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="quadrant">
+<div class="space-y-1">
+<span class="font-mono text-[9px] text-primary tracking-[0.2em] font-bold">03_COMPONENTS</span>
+<h2 class="font-display text-xl font-bold uppercase tracking-tight">Interface_Units</h2>
+</div>
+<div class="flex flex-col items-center justify-center flex-1 py-4">
+<div class="phone-mock">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-mono text-[8px] text-text-muted uppercase">99% Signal</span>
+</div>
+<div class="space-y-4 flex-1">
+<div class="h-24 bg-void border border-border-void flex items-center justify-center">
+<div class="airlock-cursor">
+<div class="w-1 h-1 bg-primary"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="h-1 w-full bg-border-void"><div class="h-full w-2/3 bg-primary"></div></div>
+<div class="flex justify-between font-mono text-[7px] text-text-muted">
+<span>SYNC_PROGRESS</span>
+<span>67%</span>
+</div>
+</div>
+</div>
+<div class="mt-auto h-16 -mx-6 bg-void border-t border-border-void flex items-center justify-around px-2">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+<span class="material-symbols-outlined text-text-muted">radio</span>
+<span class="material-symbols-outlined text-text-muted">folder_open</span>
+<span class="material-symbols-outlined text-text-muted">terminal</span>
+</div>
+</div>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#111] rounded-b-xl"></div>
+</div>
+<p class="font-mono text-[9px] text-text-muted mt-4 uppercase">Fig 3.1: Component_Composite</p>
+</div>
+</section>
+<section class="quadrant border-r-0">
+<div class="space-y-1">
+<span class="font-mono text-[9px] text-primary tracking-[0.2em] font-bold">04_GRID_SYSTEM</span>
+<h2 class="font-display text-xl font-bold uppercase tracking-tight">Structural_Logic</h2>
+</div>
+<div class="flex-1 mt-4 relative">
+<div class="absolute inset-0 grid grid-cols-4 gap-4 px-4 h-full pointer-events-none opacity-20">
+<div class="bg-primary/20 border-x border-primary/40 h-full"></div>
+<div class="bg-primary/20 border-x border-primary/40 h-full"></div>
+<div class="bg-primary/20 border-x border-primary/40 h-full"></div>
+<div class="bg-primary/20 border-x border-primary/40 h-full"></div>
+</div>
+<div class="relative z-10 p-4 space-y-6">
+<div class="bg-void-matte border border-border-void p-4 space-y-2">
+<span class="font-mono text-[9px] text-white font-bold">SPECIFICATIONS</span>
+<div class="space-y-1 text-[8px] font-mono text-text-muted uppercase">
+<p>Columns: 4_Units</p>
+<p>Margins: 16px (Fixed)</p>
+<p>Gutter: 16px (Fluid)</p>
+<p>Baseline: 4px_Grid</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="h-12 w-full border border-primary/30 flex items-center justify-center font-mono text-[8px] text-primary/60">COL_SPAN_4</div>
+<div class="flex gap-4">
+<div class="h-12 w-1/2 border border-primary/30 flex items-center justify-center font-mono text-[8px] text-primary/60">COL_SPAN_2</div>
+<div class="h-12 w-1/2 border border-primary/30 flex items-center justify-center font-mono text-[8px] text-primary/60">COL_SPAN_2</div>
+</div>
+</div>
+<div class="pt-12">
+<p class="font-mono text-[9px] leading-relaxed text-text-main/50">
+                            The mobile grid ensures strict adherence to the brutalist ethos, prioritizing scanability and tactile precision in low-light environments.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed inset-0 pointer-events-none opacity-[0.04] noise-overlay z-[100]"></div>
+<div class="fixed inset-0 pointer-events-none opacity-[0.05] scanline z-[99]"></div>
+<div class="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
+<div class="w-6 h-6 border-t border-l border-primary/40"></div>
+</div>
+<div class="fixed bottom-0 right-0 p-4 pointer-events-none z-[70]">
+<div class="w-6 h-6 border-b border-r border-primary/40"></div>
+</div>
+<footer class="fixed bottom-0 left-0 w-full p-4 border-t border-border-void bg-void/90 backdrop-blur-md flex justify-between items-center z-[60]">
+<div class="font-mono text-[8px] text-text-muted tracking-[0.2em] uppercase">
+            MASTER_UI_TEMPLATE_X01
+        </div>
+<div class="flex gap-6">
+<span class="font-mono text-[8px] text-white/40">LAT: 0.0000°</span>
+<span class="font-mono text-[8px] text-white/40">LNG: 0.0000°</span>
+</div>
+</footer>
+
+</body></html>

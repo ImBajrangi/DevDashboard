@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive Grid Technical Spec - Deep Void</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f04242",
+                        "void": "#050505",
+                        "void-matte": "#0a0a0a",
+                        "spec-blue": "#3b82f6",
+                        "text-main": "#E5E5E5",
+                        "text-muted": "#666666",
+                        "border-void": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-void text-text-main font-display antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+            }
+        }
+        .noise-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDqoRsFj5qQz9ZHt8xnfvS-V3VWlm258U8SHBnwROMiXzLhaPgTvMSKoWDhN5axrpAc8Fr2QzyNtoFctLucOOGZhgBUqayaZ-IEEMyueyALWSFKiWJo8uy-_Ke0OJEa_I7dvZI1x65-dt5RW38TDV1ZbVKYREPv67S_VYRSjgXBM5zrCXNX_eRix8TnS-oO4-6LbVHjjZpteF3tplkivCUszF6IqFFBVlH8KcrSKEoWKyuYSWUp_3afvfs7D9cbmXwVjgoUHOsk1PY);
+        }
+        .blueprint-grid {
+            background-image: linear-gradient(to right, #111 1px, transparent 1px),
+                              linear-gradient(to bottom, #111 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .spec-container {
+            @apply border border-white/10 bg-void-matte/50 p-6 relative;
+        }
+        .spec-label {
+            @apply absolute -top-3 left-4 bg-void px-2 font-mono text-[10px] text-primary font-bold tracking-[0.2em] uppercase;
+        }
+        .dim-line {
+            @apply absolute border-spec-blue/40 border-dashed;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<nav class="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-[60] bg-void/90 backdrop-blur-md border-b border-border-void">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-1.5 bg-primary"></div>
+<div class="font-mono text-[10px] tracking-[0.4em] text-text-main uppercase font-bold">
+                SYSTEM_SPEC / ARCHIVE_GRID_LOGIC
+            </div>
+</div>
+<div class="flex gap-8">
+<a class="font-mono text-[10px] tracking-widest text-text-muted hover:text-primary transition-colors" href="#">DOCUMENTATION</a>
+<a class="font-mono text-[10px] tracking-widest text-white border-b border-primary pb-1" href="#">TECHNICAL_SPEC</a>
+<a class="font-mono text-[10px] tracking-widest text-text-muted hover:text-primary transition-colors" href="#">EXIT_TERMINAL</a>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto space-y-12">
+<header class="border-b border-border-void pb-8">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-mono text-[10px] text-primary font-bold px-2 py-0.5 border border-primary/30">REV. 4.0.2</span>
+<span class="font-mono text-[10px] text-text-muted uppercase tracking-widest">Protocol: Visual_Telemetry_Display</span>
+</div>
+<h1 class="font-mono text-4xl font-bold tracking-tighter uppercase text-white mb-2">Archive_Grid // Layout_Logic</h1>
+<p class="font-mono text-xs text-text-muted max-w-2xl leading-relaxed">
+                Technical breakdown of the square-matrix rendering engine. This document specifies the geometry, responsiveness, and interaction states for the Deep Void archival interface.
+            </p>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="spec-container blueprint-grid">
+<span class="spec-label">01 // CELL_GEOMETRY</span>
+<div class="relative w-full aspect-video flex items-center justify-center">
+<div class="w-48 h-48 border-2 border-spec-blue relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-symbols-outlined text-spec-blue text-6xl">grid_guides</span>
+</div>
+<div class="dim-line top-[-20px] left-0 right-0 border-t flex justify-center">
+<span class="bg-void-matte text-[8px] font-mono text-spec-blue -mt-2 px-1 italic">1:1 ASPECT_RATIO</span>
+</div>
+<div class="dim-line bottom-[-1px] left-[-20px] top-0 border-l flex items-center">
+<span class="bg-void-matte text-[8px] font-mono text-spec-blue -ml-6 -rotate-90 italic">W=H</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 text-right space-y-1">
+<p class="font-mono text-[9px] text-white">GUTTER_LOGIC: 0px</p>
+<p class="font-mono text-[9px] text-text-muted">BORDER_WIDTH: 1px_INSIDE</p>
+</div>
+</div>
+</div>
+<div class="spec-container">
+<span class="spec-label">02 // METADATA_OVERLAY</span>
+<div class="relative w-full aspect-video bg-void border border-white/5 flex flex-col p-8">
+<div class="w-full h-full border border-spec-blue/30 relative flex flex-col justify-end p-4">
+<div class="w-16 h-4 bg-spec-blue/20 border border-spec-blue/40 flex items-center px-1 mb-2">
+<div class="w-1 h-1 bg-spec-blue mr-1"></div>
+<span class="font-mono text-[8px] text-spec-blue">TYPOGRAPHY</span>
+</div>
+<div class="space-y-1">
+<p class="font-mono text-[11px] text-white font-bold">TR_ID_LABEL</p>
+<p class="font-mono text-[9px] text-text-muted uppercase">Font: JetBrains Mono</p>
+<p class="font-mono text-[9px] text-text-muted uppercase">Size: 9px / Tracking: -0.05em</p>
+</div>
+<div class="absolute bottom-4 left-4 w-4 h-4 border-l border-b border-primary"></div>
+<div class="absolute bottom-4 left-12 text-[8px] font-mono text-primary">ANCHOR: BOTTOM_LEFT (8px OFFSET)</div>
+</div>
+</div>
+</div>
+</section>
+<section class="spec-container">
+<span class="spec-label">03 // RESPONSIVE_SCALING</span>
+<div class="w-full py-12 flex flex-col lg:flex-row justify-around items-center gap-12 overflow-hidden">
+<div class="flex flex-col items-center gap-4">
+<div class="grid grid-cols-6 gap-0 w-64 border border-border-void">
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+</div>
+<div class="text-center font-mono space-y-1">
+<p class="text-[10px] text-white font-bold">DESKTOP_VIEWPORT</p>
+<p class="text-[9px] text-text-muted">GRID: 6_COLUMNS</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="grid grid-cols-4 gap-0 w-44 border border-border-void">
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+</div>
+<div class="text-center font-mono space-y-1">
+<p class="text-[10px] text-white font-bold">TABLET_VIEWPORT</p>
+<p class="text-[9px] text-text-muted">GRID: 4_COLUMNS</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="grid grid-cols-2 gap-0 w-24 border border-border-void">
+<div class="aspect-square border border-border-void bg-white/5"></div>
+<div class="aspect-square border border-border-void bg-white/5"></div>
+</div>
+<div class="text-center font-mono space-y-1">
+<p class="text-[10px] text-white font-bold">MOBILE_VIEWPORT</p>
+<p class="text-[9px] text-text-muted">GRID: 2_COLUMNS</p>
+</div>
+</div>
+</div>
+</section>
+<section class="spec-container">
+<span class="spec-label">04 // HOVER_ZOOM_LOGIC</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 py-8">
+<div class="space-y-4">
+<div class="aspect-square bg-void-matte border border-border-void relative overflow-hidden">
+<img alt="Spec Image" class="w-full h-full object-cover grayscale brightness-50 opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH-ovnezlBDScWP5Z6mMMiy0CaopYk6EezQViKKO8QlVjcY_AjOiG601XZsKOxjeCLcAQoPnzhF3p5rngMzyrZroVKUFjMyQW-8jMOa-iMTEHDSbmfIvdF5WUhdSccaK1rOGDqzt5LpQQnGaG1LkfgwNXR_RbFMtvdP4eTkN1lVL2V8cUIk72NcmFAHkSAHHsaycojDz6gWsnd9zQJ1U2RdHm0mlfsi4R0f4DpYV5yf6F9piC6JKHmXKBrCu_y9HIx1v3wpJVPg24"/>
+<div class="absolute bottom-2 left-2">
+<span class="font-mono text-[9px] text-text-muted font-bold">TR_003</span>
+</div>
+</div>
+<div class="font-mono">
+<p class="text-[10px] text-white font-bold">01. IDLE_STATE</p>
+<p class="text-[9px] text-text-muted">Scale: 100% // Label: #666</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="aspect-square bg-void-matte border border-primary/40 relative overflow-hidden">
+<img alt="Spec Image" class="w-full h-full object-cover grayscale brightness-75 scale-105 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXwXnIewN7FzwBWeiNYjyNi_WrBHKxLpQIPgEU1mg7aXoGNwA4A2gng70IHIpEx8EzANmyppwI-iPnXWm5jN5zNj456J55FQHUWZhSAbSyJ3V6lVxciJFq5Yclr47o6DyI4VWSl0cOkvPGml9qr0QDxwdYtUWMTBGh-3UFLLIegNGBVUdsrOmIDKtcUrUBpPZntQMk4HUHdAUy7CzMT3Ebi4GJc2RiVkf2z6OKVWA0cfhogMJzVavL55I1y5kPzGZpbaS_S5q0-3o"/>
+<div class="absolute bottom-2 left-2">
+<span class="font-mono text-[9px] text-white font-bold">TR_003</span>
+</div>
+<div class="absolute inset-0 border border-primary/20"></div>
+</div>
+<div class="font-mono">
+<p class="text-[10px] text-primary font-bold">02. HOVER_ACTIVE</p>
+<p class="text-[9px] text-text-muted">Scale: 110% // Label: #FFF</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="aspect-square bg-primary/90 relative flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-white animate-spin text-2xl">sync</span>
+<span class="font-mono text-[9px] text-white font-bold tracking-[0.2em]">SYNCHRONIZING</span>
+</div>
+<div class="font-mono">
+<p class="text-[10px] text-white font-bold">03. CLICK_TRIGGER</p>
+<p class="text-[9px] text-text-muted">Overlay: Primary // Syncing...</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="pt-12 border-t border-border-void flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-2">
+<p class="font-mono text-[10px] text-text-muted uppercase">Documentation_Ref: DV-ARCH-04</p>
+<div class="flex gap-4">
+<button class="font-mono text-[9px] text-primary hover:underline uppercase">Download_Spec_PDF</button>
+<button class="font-mono text-[9px] text-primary hover:underline uppercase">View_Global_Architecture</button>
+</div>
+</div>
+<div class="flex gap-12">
+<div class="font-mono text-[9px] text-text-muted uppercase">
+<p class="text-white">Coordinate_System</p>
+<p>Cartesian / Sector-Based</p>
+</div>
+<div class="font-mono text-[9px] text-text-muted uppercase">
+<p class="text-white">Render_Engine</p>
+<p>Webkit / Gecko / Blink</p>
+</div>
+</div>
+</footer>
+</main>
+<div class="fixed inset-0 pointer-events-none opacity-[0.04] noise-overlay z-[100]"></div>
+<div class="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
+<div class="w-12 h-12 border-t border-l border-primary/30"></div>
+</div>
+<div class="fixed bottom-0 right-0 p-4 pointer-events-none z-[70]">
+<div class="w-12 h-12 border-b border-r border-primary/30"></div>
+</div>
+<aside class="fixed left-0 top-0 h-full w-10 border-r border-border-void hidden lg:flex flex-col items-center justify-center gap-24 py-24 z-40 pointer-events-none">
+<div class="rotate-90 font-mono text-[8px] text-text-muted tracking-[0.4em] whitespace-nowrap opacity-40 uppercase">
+            Spec_Mode_Internal
+        </div>
+<div class="rotate-90 font-mono text-[8px] text-primary tracking-[0.4em] whitespace-nowrap uppercase font-bold">
+            Draft_Verified
+        </div>
+</aside>
+
+</body></html>
