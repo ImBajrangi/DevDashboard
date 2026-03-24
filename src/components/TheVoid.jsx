@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowUp, Play, Pause, Minus, Plus } from 'lucide-react';
  * Responsive controls, flexible layout, safe padding for mobile bottom nav.
  */
 const TheVoid = ({
-    title, author, date, readTime, content, onBack = () => { },
+    title, author, date, readTime, content, sanskrit, onBack = () => { },
     settings = { typeface: 'serif', baseSize: 20, immersionMode: true },
     audioUrl, images = [], tags = []
 }) => {
