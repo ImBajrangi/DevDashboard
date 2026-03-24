@@ -159,7 +159,7 @@ function App() {
 
       {/* THE NEXUS – the_airlock_2 / the_airlock_7 template */}
       {activeTab === 'nexus' && (
-        isMobile ? <TheNexusMobile onItemClick={handleArticleClick} /> : <TheNexus onSignalClick={handleArticleClick} allEntries={allEntries} />
+        isMobile ? <TheNexusMobile onItemClick={handleArticleClick} items={feedItems} /> : <TheNexus onSignalClick={handleArticleClick} allEntries={allEntries} />
       )}
 
       {/* THE FEED – the_airlock_3 / the_airlock_15 template */}

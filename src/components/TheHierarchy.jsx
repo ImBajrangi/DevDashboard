@@ -21,7 +21,7 @@ const TheHierarchy = ({ users = [] }) => {
     ];
 
     if (isMobile) {
-        return <TheHierarchyMobile />;
+        return <TheHierarchyMobile users={ALL_USERS} />;
     }
 
     // Parse weight string to number for filtering

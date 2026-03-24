@@ -16,7 +16,7 @@ const TheStratification = ({ operators = [] }) => {
     const [activeLvl, setActiveLvl] = useState('lvl4');
 
     if (isMobile) {
-        return <TheStratificationMobile />;
+        return <TheStratificationMobile operators={displayOperators} />;
     }
 
     // Use operators from props or fallback to synthetic

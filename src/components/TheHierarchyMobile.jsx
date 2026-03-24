@@ -1,182 +1,103 @@
 import React from 'react';
-import { MoreVertical, Radio, LayoutGrid, Search, User, Settings } from 'lucide-react';
+import { MoreVertical, Radio, LayoutGrid, Search, User, Settings, Shield } from 'lucide-react';
 
 /**
- * TheHierarchyMobile – exact clone of the_airlock_10/code.html
- * Mobile rankings view with side ruler, tier markers, ranking nodes list,
- * footer with ascension progress bar and bottom nav.
+ * TheHierarchyMobile - High-Density Monolithic Interface.
+ * Brutalist rankings view for the spiritual hierarchy.
  */
-const TheHierarchyMobile = () => {
+const TheHierarchyMobile = ({ users = [] }) => {
     return (
-        <div className="bg-void text-text-main font-mono antialiased overflow-hidden min-h-screen w-full flex flex-col pt-16 pb-0 border-x border-border-void mx-auto relative">
+        <div className="bg-black text-white font-mono min-h-screen flex flex-col pb-24 border-x border-white/5">
             {/* Header */}
-            <header className="p-6 border-b border-border-void bg-void/80 backdrop-blur-md z-40">
-                <div className="flex justify-between items-start mb-6">
+            <header className="p-4 border-b border-white/10 bg-black/90 backdrop-blur-md sticky top-0 z-50">
+                <div className="flex justify-between items-start mb-4">
                     <div>
-                        <div className="text-[10px] text-text-muted tracking-[0.3em] uppercase mb-1 font-display">System // Rank</div>
-                        <h1 className="text-xl font-bold tracking-tighter uppercase font-display">The Hierarchy</h1>
+                        <div className="text-[9px] text-primary tracking-[0.3em] uppercase mb-1 font-display">System // Rank</div>
+                        <h1 className="text-lg font-bold tracking-tighter uppercase font-display">THE HIERARCHY</h1>
                     </div>
-                    <button className="text-text-muted hover:text-text-main transition-colors">
-                        <MoreVertical size={20} />
+                    <button className="text-zinc-500 hover:text-white transition-colors">
+                        <MoreVertical size={18} />
                     </button>
                 </div>
-                <div className="flex items-center gap-4">
-                    <div className="flex-1">
-                        <div className="text-[9px] text-text-muted uppercase mb-1">Current Tier</div>
-                        <div className="text-sm font-bold tracking-widest text-primary">OPERATOR [02]</div>
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="p-2 border border-white/5 bg-white/[0.02]">
+                        <div className="text-[8px] text-zinc-500 uppercase mb-0.5">Current Tier</div>
+                        <div className="text-xs font-bold tracking-widest text-primary flex items-center gap-1.5">
+                            <Shield size={10} />
+                            OPERATOR [02]
+                        </div>
                     </div>
-                    <div className="text-right">
-                        <div className="text-[9px] text-text-muted uppercase mb-1">Global Weight</div>
-                        <div className="text-sm">94,202.11</div>
+                    <div className="p-2 border border-white/5 bg-white/[0.02]">
+                        <div className="text-[8px] text-zinc-500 uppercase mb-0.5">Global Weight</div>
+                        <div className="text-xs font-bold tracking-tighter">94,202.11</div>
                     </div>
                 </div>
             </header>
 
-            {/* Main Content Area */}
             <div className="flex-1 flex overflow-hidden">
-                {/* Side Ruler */}
-                <aside className="w-20 relative border-r border-border-void flex flex-col items-center py-8">
+                {/* Side Ruler (Visual Only) */}
+                <aside className="w-12 border-r border-white/5 flex flex-col items-center py-4 relative bg-zinc-900/10">
                     <div
-                        className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-[1px] opacity-30"
+                        className="absolute inset-y-4 left-1/2 -translate-x-1/2 w-[1px] opacity-20"
                         style={{
-                            backgroundImage: 'linear-gradient(to bottom, var(--color-text-muted) 1px, transparent 1px)',
-                            backgroundSize: '100% 20px',
+                            backgroundImage: 'linear-gradient(to bottom, #FFF 1px, transparent 1px)',
+                            backgroundSize: '100% 24px',
                         }}
                     />
-                    <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-32">
-                        <div className="rotate-90 origin-left translate-x-3 text-[10px] text-text-muted/40 uppercase tracking-widest whitespace-nowrap">
-                            Commander
-                        </div>
-                        <div className="relative flex items-center justify-center">
-                            <div className="w-10 h-10 border border-primary/30 flex items-center justify-center bg-void">
-                                <div className="w-4 h-0.5 bg-primary" style={{ boxShadow: '0 0 15px var(--color-primary-shadow)' }} />
-                            </div>
-                            <div className="absolute left-12 whitespace-nowrap text-[10px] font-bold text-primary tracking-widest">
-                                LEVEL_02
-                            </div>
-                        </div>
-                        <div className="rotate-90 origin-left translate-x-3 text-[10px] text-text-muted/40 uppercase tracking-widest whitespace-nowrap">
-                            Acolyte
-                        </div>
+                    <div className="flex flex-col items-center justify-between h-full py-10 opacity-30">
+                         <div className="vertical-text text-[8px] tracking-[0.5em] uppercase">ZENITH</div>
+                         <div className="w-4 h-4 border border-white rotate-45"></div>
+                         <div className="vertical-text text-[8px] tracking-[0.5em] uppercase">BASE</div>
                     </div>
                 </aside>
 
                 {/* Rankings List */}
-                <section className="flex-1 overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
-                    <div className="sticky top-0 bg-void border-b border-border-void px-4 py-3 z-20 flex justify-between items-center">
-                        <span className="text-[9px] text-text-muted tracking-widest uppercase">Stratification List</span>
-                        <span className="text-[9px] text-text-muted uppercase">T-34 Nodes</span>
+                <section className="flex-1">
+                    <div className="bg-zinc-900/40 border-b border-white/10 px-4 py-2 flex justify-between items-center sticky top-[108px] z-40">
+                        <span className="text-[8px] text-zinc-500 tracking-widest uppercase">Stratification List</span>
+                        <span className="text-[8px] text-zinc-500 uppercase">{users.length} Nodes Sycned</span>
                     </div>
-                    <div className="divide-y divide-border-void">
-                        {/* Node 001 */}
-                        <div className="p-4 flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity">
-                            <div className="flex justify-between items-center">
-                                <span className="text-xs font-bold tracking-tight">V_REVENANT</span>
-                                <span className="text-[9px] text-text-muted">#001</span>
-                            </div>
-                            <div className="flex justify-between items-center font-mono text-[10px]">
-                                <span className="text-text-muted uppercase tracking-tighter">Weight: 142,880.04</span>
-                                <span className="text-text-muted">[OFFLINE]</span>
-                            </div>
-                        </div>
-                        {/* Node 002 */}
-                        <div className="p-4 flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity">
-                            <div className="flex justify-between items-center">
-                                <span className="text-xs font-bold tracking-tight">NULL_VECTOR</span>
-                                <span className="text-[9px] text-text-muted">#002</span>
-                            </div>
-                            <div className="flex justify-between items-center font-mono text-[10px]">
-                                <span className="text-text-muted uppercase tracking-tighter">Weight: 128,004.91</span>
-                                <span className="text-text-muted">[IDLE]</span>
-                            </div>
-                        </div>
-                        {/* Current User – Node 003 */}
-                        <div className="p-4 bg-primary/5 border-l-2 border-primary relative overflow-hidden">
-                            <div className="flex flex-col gap-1">
+                    <div className="divide-y divide-white/5">
+                        {users.map((user, idx) => (
+                            <div 
+                                key={user.id || idx}
+                                className={`p-4 flex flex-col gap-1 transition-all ${user.isCurrentUser ? 'bg-primary/5 border-l-2 border-primary' : 'hover:bg-white/[0.02]'}`}
+                            >
                                 <div className="flex justify-between items-center">
                                     <div className="flex items-center gap-2">
-                                        <span className="text-xs font-bold tracking-tight text-white">USER_ALPHA</span>
-                                        <span className="w-1.5 h-3 bg-primary animate-pulse" />
+                                        <span className={`text-xs font-bold tracking-tight uppercase ${user.isCurrentUser ? 'text-primary' : 'text-zinc-200'}`}>
+                                            {user.name}
+                                        </span>
+                                        {user.isCurrentUser && <span className="w-1 h-3 bg-primary animate-pulse" />}
                                     </div>
-                                    <span className="text-[9px] text-primary font-bold">#003</span>
+                                    <span className={`text-[9px] font-bold ${user.isCurrentUser ? 'text-primary' : 'text-zinc-600'}`}>
+                                        #{user.pos || (idx + 1).toString().padStart(3, '0')}
+                                    </span>
                                 </div>
-                                <div className="flex justify-between items-center font-mono text-[10px]">
-                                    <span className="text-text-main uppercase tracking-tighter font-medium">Weight: 94,202.11</span>
-                                    <span className="text-primary font-bold tracking-widest">[LINKED]</span>
+                                <div className="flex justify-between items-center text-[10px]">
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-zinc-500 uppercase tracking-tighter">Weight: {user.weight}</span>
+                                        <span className="text-[8px] text-zinc-700 bg-white/5 px-1 tracking-tighter">{user.kw} KW</span>
+                                    </div>
+                                    <span className={`tracking-widest text-[9px] font-bold ${user.status === 'ACTIVE' || user.status === '[LINKED]' ? 'text-primary' : 'text-zinc-700'}`}>
+                                        [{user.status || 'OFFLINE'}]
+                                    </span>
                                 </div>
+                                {user.isCurrentUser && (
+                                    <div className="mt-2 flex items-center gap-2">
+                                        <div className="flex-1 h-[1px] bg-primary/20"></div>
+                                        <span className="text-[7px] text-primary uppercase animate-pulse tracking-[0.2em]">Live_Sync_Active</span>
+                                    </div>
+                                )}
                             </div>
-                            <div className="absolute right-4 bottom-4 opacity-10">
-                                <Radio size={36} className="text-primary" />
-                            </div>
-                        </div>
-                        {/* Node 004 */}
-                        <div className="p-4 flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity">
-                            <div className="flex justify-between items-center">
-                                <span className="text-xs font-bold tracking-tight">GHOST_SIGNAL</span>
-                                <span className="text-[9px] text-text-muted">#004</span>
-                            </div>
-                            <div className="flex justify-between items-center font-mono text-[10px]">
-                                <span className="text-text-muted uppercase tracking-tighter">Weight: 82,119.00</span>
-                                <span className="text-text-muted">[OFFLINE]</span>
-                            </div>
-                        </div>
-                        {/* Node 005 */}
-                        <div className="p-4 flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity">
-                            <div className="flex justify-between items-center">
-                                <span className="text-xs font-bold tracking-tight">STARK_VOID</span>
-                                <span className="text-[9px] text-text-muted">#005</span>
-                            </div>
-                            <div className="flex justify-between items-center font-mono text-[10px]">
-                                <span className="text-text-muted uppercase tracking-tighter">Weight: 77,402.15</span>
-                                <span className="text-text-muted">[OFFLINE]</span>
-                            </div>
-                        </div>
-                        {/* Node 006 */}
-                        <div className="p-4 flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity">
-                            <div className="flex justify-between items-center">
-                                <span className="text-xs font-bold tracking-tight">MONOLITH_X</span>
-                                <span className="text-[9px] text-text-muted">#006</span>
-                            </div>
-                            <div className="flex justify-between items-center font-mono text-[10px]">
-                                <span className="text-text-muted uppercase tracking-tighter">Weight: 64,001.22</span>
-                                <span className="text-text-muted">[OFFLINE]</span>
-                            </div>
-                        </div>
-                        <div className="h-32" />
+                        ))}
                     </div>
+                    <div className="h-32" />
                 </section>
             </div>
 
-            {/* Footer */}
-            <footer className="p-6 border-t border-border-void bg-void z-40">
-                <div className="flex justify-between items-end mb-4">
-                    <div className="flex flex-col gap-1">
-                        <span className="text-[9px] text-text-muted uppercase tracking-widest">Ascension Progress</span>
-                        <div className="w-32 h-1 bg-border-void">
-                            <div className="h-full bg-primary w-2/3" />
-                        </div>
-                    </div>
-                    <div className="text-right">
-                        <span className="text-[9px] text-text-muted uppercase block">Next Tier Evolution</span>
-                        <span className="text-[10px] text-text-main font-bold">+5,797.89</span>
-                    </div>
-                </div>
-                <nav className="flex justify-between items-center pt-4 border-t border-border-void/50">
-                    <button className="text-primary hover:text-white transition-colors"><LayoutGrid size={20} /></button>
-                    <button className="text-text-muted hover:text-white transition-colors"><Search size={20} /></button>
-                    <button className="text-text-muted hover:text-white transition-colors"><User size={20} /></button>
-                    <button className="text-text-muted hover:text-white transition-colors"><Settings size={20} /></button>
-                </nav>
-            </footer>
-
-            {/* Visual dots */}
-            <div className="absolute bottom-24 left-4 z-50">
-                <div className="flex flex-col gap-1 opacity-20">
-                    <div className="w-1 h-1 bg-text-muted" />
-                    <div className="w-1 h-1 bg-text-muted" />
-                    <div className="w-1 h-1 bg-primary" />
-                </div>
-            </div>
+            {/* Footer Fixes for Navigation overlap */}
+            <div className="h-20"></div>
         </div>
     );
 };

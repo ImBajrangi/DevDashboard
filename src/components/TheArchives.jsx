@@ -1,4 +1,6 @@
 import React from 'react';
+import { useMobile } from '../hooks/useMobile';
+import TheArchivesMobile from './TheArchivesMobile';
 
 /**
  * TheArchives component – from the_archives template.
@@ -6,6 +8,12 @@ import React from 'react';
  * Features: Large serif titles, date/read-time metadata, strikethrough for read articles.
  */
 const TheArchives = ({ items = [], onItemClick = () => { } }) => {
+    const isMobile = useMobile();
+
+    if (isMobile) {
+        return <TheArchivesMobile items={items} onItemClick={onItemClick} />;
+    }
+
     return (
         <>
             {/* Header */}
