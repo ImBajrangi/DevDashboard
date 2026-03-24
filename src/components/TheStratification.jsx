@@ -15,23 +15,23 @@ const TheStratification = ({ operators = [] }) => {
     const isMobile = useMobile();
     const [activeLvl, setActiveLvl] = useState('lvl4');
 
+    // Use operators from props or fallback to synthetic
+    const displayOperators = operators.length > 0 ? operators : [...SYNTHETIC_OPERATORS];
+
     if (isMobile) {
         return <TheStratificationMobile operators={displayOperators} />;
     }
-
-    // Use operators from props or fallback to synthetic
-    const displayOperators = operators.length > 0 ? operators : [...SYNTHETIC_OPERATORS];
 
     // Parse KW for filtering
     const parseKw = (k) => parseFloat(String(k).replace(/,/g, ''));
     const currentLvl = STRAT_TIERS.find(t => t.id === activeLvl);
     const prevIdx = STRAT_TIERS.findIndex(t => t.id === activeLvl) - 1;
     const maxKw = prevIdx >= 0 ? STRAT_TIERS[prevIdx].minKw : Infinity;
-    const filteredOps = operators.filter(op => {
+    const filteredOps = displayOperators.filter(op => {
         const kw = parseKw(op.kw);
         return kw >= currentLvl.minKw && kw < maxKw;
     });
-    const displayOps = filteredOps.length > 0 ? filteredOps : operators;
+    const displayOps = filteredOps.length > 0 ? filteredOps : displayOperators;
 
     return (
         <div className="min-h-screen flex flex-col p-6 md:p-12 lg:p-16">
@@ -114,19 +114,19 @@ const TheStratification = ({ operators = [] }) => {
                             {displayOps.map((op, idx) => (
                                 <div
                                     key={idx}
-                                    className={`grid grid-cols-12 items-center font-mono text-sm px-6 ${op.isYou
+                                    className={`grid grid-cols-12 items-center font-mono text-sm px-6 ${op.isCurrentUser
                                         ? 'py-5 bg-primary/10 border-l-2 border-l-primary'
                                         : 'py-4 hover:bg-white/5'
                                         }`}
                                 >
-                                    <div className={`col-span-1 ${op.isYou ? 'text-primary font-bold' : 'text-text-muted'}`}>
+                                    <div className={`col-span-1 ${op.isCurrentUser ? 'text-primary font-bold' : 'text-text-muted'}`}>
                                         {op.rank}
                                     </div>
                                     <div className="col-span-5 flex items-center gap-3">
-                                        <span className={`tracking-tighter ${op.isYou ? 'text-primary' : ''}`}>
+                                        <span className={`tracking-tighter ${op.isCurrentUser ? 'text-primary' : ''}`}>
                                             {op.name}
                                         </span>
-                                        {op.isYou && (
+                                        {op.isCurrentUser && (
                                             <span className="text-[9px] bg-primary text-white px-1 font-bold">YOU</span>
                                         )}
                                     </div>

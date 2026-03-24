@@ -5,21 +5,36 @@ import { Wifi, Filter, Activity, Zap, Shield, Database, Radio } from 'lucide-rea
  * TheNexusMobile - High-Density Monolithic Interface.
  * Optimized for mobile data visualization with a brutalist/industrial aesthetic.
  */
-const TheNexusMobile = ({ onItemClick, items = [] }) => {
+const TheNexusMobile = ({ onItemClick, items = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     // Current timestamp for the 'Sacred Terminal' look
     const currentTime = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
 
     return (
         <div className="min-h-screen bg-black text-white font-mono selection:bg-primary selection:text-black pb-20">
             {/* 1. TOP TELEMETRY BAR */}
-            <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-4 py-3 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-primary animate-pulse"></div>
-                    <span className="text-[10px] tracking-widest text-primary font-bold">VRINDA_SYS : CORE_01</span>
+            <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10 flex flex-col pt-3">
+                <div className="px-4 pb-3 flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary animate-pulse"></div>
+                        <span className="text-[10px] tracking-widest text-primary font-bold">VRINDA_SYS : CORE_01</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <span className="text-[10px] text-zinc-500">{currentTime}</span>
+                        <Wifi size={14} className="text-primary" />
+                    </div>
                 </div>
-                <div className="flex items-center gap-4">
-                    <span className="text-[10px] text-zinc-500">{currentTime}</span>
-                    <Wifi size={14} className="text-primary" />
+
+                {/* Dynamic Category Bar */}
+                <div className="flex gap-4 px-4 overflow-x-auto no-scrollbar pb-3 border-t border-white/5 pt-3">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => onCategoryChange && onCategoryChange(cat)}
+                            className={`whitespace-nowrap text-[9px] tracking-widest uppercase px-3 py-1 border transition-all duration-200 ${selectedCategory === cat ? 'bg-white text-black border-white' : 'text-zinc-500 border-zinc-500/30'}`}
+                        >
+                            {cat.replace('_', ' ')}
+                        </button>
+                    ))}
                 </div>
             </header>
 

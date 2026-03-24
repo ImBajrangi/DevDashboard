@@ -244,9 +244,145 @@ const DossierDesktop = ({ user }) => {
 };
 
 /* ========== MAIN EXPORT ========== */
-const TheDossier = ({ user = null }) => {
+const TheDossier = ({ user = null, allEntries = [] }) => {
     const isMobile = useMobile();
-    return isMobile ? <DossierMobile user={user} /> : <DossierDesktop user={user} />;
+
+    // Calculate real user stats
+    const userDisplayName = user?.displayName || "Vrindopnishad";
+    const userEntries = allEntries.filter(entry => 
+        entry.author === userDisplayName || entry.author_id === user?.uid
+    );
+
+    const userStats = {
+        signals: userEntries.length,
+        depth: (userEntries.length * 1.2).toFixed(1),
+        weight: (userEntries.length * 7.5).toFixed(1),
+        sync: user ? "99.9" : "0.0",
+        fragments: userEntries.slice(0, 5).map(entry => ({
+            type: entry.category?.toUpperCase() || 'DATA_FRAGMENT',
+            name: entry.title?.toUpperCase().replace(/\s+/g, '_') || 'UNKNOWN_LOG'
+        }))
+    };
+
+    // If no real fragments, use placeholders
+    const fragments = userStats.fragments.length > 0 ? userStats.fragments : KNOWLEDGE_ITEMS;
+
+    if (isMobile) {
+        return (
+            <div className="bg-[#000] text-white font-mono antialiased overflow-x-hidden min-h-screen flex flex-col pb-24 selection:bg-[#f04242] selection:text-[#050505]">
+                <nav className="sticky top-0 bg-[#000]/80 backdrop-blur-md border-b border-[#1A1A1A] z-40 px-6 py-4 flex justify-between items-center">
+                    <div className="flex flex-col">
+                        <span className="text-[9px] text-[#555] tracking-[0.3em] uppercase">Status: {user ? 'Authenticated' : 'Connected'}</span>
+                        <span className="text-[11px] text-[#f04242] font-bold">{user ? user.email?.toUpperCase() : 'DEEP_VOID // ACCESS_GRANTED'}</span>
+                    </div>
+                </nav>
+
+                <main className="px-6 py-8 pb-32 max-w-md mx-auto w-full">
+                    <header className="mb-12">
+                        <div className="inline-block border-l-2 border-[#f04242] pl-4 mb-4">
+                            <span className="text-[10px] text-[#555] tracking-[0.4em] uppercase">Operator Identity</span>
+                            <h1 className="text-4xl font-extrabold tracking-tighter mt-1">
+                                {userDisplayName.toUpperCase().replace(/\s+/g, '_')}
+                            </h1>
+                        </div>
+                    </header>
+
+                    <section className="grid grid-cols-2 border-t border-l border-[#1A1A1A] mb-12">
+                        {[
+                            { label: 'Signals', value: userStats.signals, unit: 'LOGS' },
+                            { label: 'Depth', value: userStats.depth, unit: 'KM' },
+                            { label: 'Weight', value: userStats.weight, unit: 'W' },
+                            { label: 'Sync', value: userStats.sync, unit: '%' },
+                        ].map(stat => (
+                            <div key={stat.label} className="border-r border-b border-[#1A1A1A] p-5">
+                                <span className="text-[9px] text-[#555] tracking-widest uppercase block mb-2">{stat.label}</span>
+                                <div className="flex items-baseline gap-1">
+                                    <span className="text-2xl font-bold">{stat.value}</span>
+                                    <span className="text-[10px] text-[#f04242]">{stat.unit}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </section>
+
+                    <section>
+                        <div className="flex justify-between items-end mb-6">
+                            <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-white">Acquired_Knowledge</h3>
+                            <span className="text-[9px] text-[#555] font-bold">TOTAL_{userStats.signals.toString().padStart(2, '0')}</span>
+                        </div>
+                        <div className="space-y-2">
+                            {fragments.map((item, idx) => (
+                                <div key={idx} className="group bg-white text-[#050505] p-4 flex justify-between items-center transition-all active:scale-95">
+                                    <div className="flex flex-col">
+                                        <span className="text-[9px] font-bold tracking-widest uppercase opacity-60">{item.type}</span>
+                                        <span className="text-sm font-extrabold tracking-tight">{item.name}</span>
+                                    </div>
+                                    <ChevronRight size={18} />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </main>
+            </div>
+        );
+    }
+
+    return (
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '96px 64px 48px 64px' }}>
+            <main style={{ maxWidth: '896px', width: '100%', margin: '0 auto' }}>
+                <section style={{ marginBottom: '96px' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', justifyBetween: 'space-between', borderBottom: '1px solid #262626', paddingBottom: '16px' }}>
+                        <h1 className="font-mono" style={{ fontSize: '3.75rem', fontWeight: 300, letterSpacing: '-0.05em', lineHeight: 1 }}>
+                            {userDisplayName.toUpperCase().replace(/\s+/g, '_')}
+                        </h1>
+                        <span className="font-mono" style={{ fontSize: '12px', color: '#404040', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.3em' }}>
+                            Status: {user ? 'Authenticated' : 'Active'}
+                        </span>
+                    </div>
+                </section>
+
+                <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', marginBottom: '96px' }}>
+                    <div>
+                        <h2 className="font-display" style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.4em', color: '#404040', textTransform: 'uppercase', marginBottom: '24px' }}>Core_Parameters</h2>
+                        <div style={{ borderTop: '1px solid #262626', borderBottom: '1px solid #262626' }}>
+                            {[
+                                ['SIGNALS_DECRYPTED', userStats.signals],
+                                ['TIME_IN_VOID', `${Math.floor(userStats.signals * 8.5)}M`],
+                                ['TRANSMISSION_STRENGTH', `${userStats.sync}%`],
+                                ['VOID_DEPTH_MAX', `${userStats.depth}KM`],
+                            ].map(([label, value]) => (
+                                <div key={label} className="font-mono" style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 8px', fontSize: '14px', borderBottom: '1px solid #262626' }}>
+                                    <span>{label}</span>
+                                    <span>{value}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className="font-display" style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.4em', color: '#404040', textTransform: 'uppercase', marginBottom: '24px' }}>Terminal_History</h2>
+                        <div className="font-mono" style={{ fontSize: '10px', color: '#404040', lineHeight: 1.8 }}>
+                            <p>&gt; AUTH_SUCCESS: {user ? 'ACTIVE' : 'GUEST'}</p>
+                            <p>&gt; UPLOADING_ENCRYPTED_PACKET... DONE</p>
+                            <p>&gt; FRAGMENT_RECOVERY: {userStats.signals} UNITSFOUND</p>
+                            <p>&gt; SYSTEM_CHECK: NOMINAL</p>
+                            <p className="animate-pulse">_</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section style={{ marginBottom: '96px' }}>
+                    <h2 className="font-display" style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.4em', color: '#404040', textTransform: 'uppercase', marginBottom: '32px' }}>Acquired_Knowledge</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', borderLeft: '1px solid #262626', borderTop: '1px solid #262626' }}>
+                        {fragments.map((badge, idx) => (
+                            <div key={idx} style={{ borderRight: '1px solid #262626', borderBottom: '1px solid #262626', padding: '24px' }}>
+                                <div className="font-mono" style={{ fontSize: '10px', color: '#404040', marginBottom: '16px' }}>0{idx + 1} // {badge.type}</div>
+                                <h3 className="font-display" style={{ fontWeight: 700, fontSize: '18px', lineHeight: 1 }}>{badge.name}</h3>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
 };
 
 export default TheDossier;

@@ -15,10 +15,7 @@ const TheHierarchy = ({ users = [] }) => {
     const [activeTier, setActiveTier] = useState('active');
 
     // Use users from props or fallback to synthetic
-    const ALL_USERS = users.length > 0 ? users : [
-        ...SYNTHETIC_USERS,
-        { pos: '011', name: 'PHANTOM_LINK', weight: '38,100.55', status: 'OFFLINE' },
-    ];
+    const ALL_USERS = users.length > 0 ? users : [...SYNTHETIC_USERS];
 
     if (isMobile) {
         return <TheHierarchyMobile users={ALL_USERS} />;

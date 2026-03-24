@@ -47,24 +47,24 @@ const TheStratificationMobile = ({ operators = [] }) => {
                         {operators.length > 0 ? operators.map((op, idx) => (
                             <div 
                                 key={op.id || idx} 
-                                className={`flex items-center justify-between p-4 transition-all ${op.isCurrentUser || op.isYou ? 'bg-primary/5 border-l-2 border-primary' : 'hover:bg-white/[0.02]'}`}
+                                className={`flex items-center justify-between p-4 transition-all ${op.isCurrentUser ? 'bg-primary/5 border-l-2 border-primary' : 'hover:bg-white/[0.02]'}`}
                             >
                                 <div className="flex items-center gap-4">
-                                    <span className={`text-[10px] font-bold ${op.isCurrentUser || op.isYou ? 'text-primary' : 'text-zinc-600'}`}>
+                                    <span className={`text-[10px] font-bold ${op.isCurrentUser? 'text-primary' : 'text-zinc-600'}`}>
                                         {op.pos || (idx + 1).toString().padStart(3, '0')}
                                     </span>
                                     <div className="flex flex-col">
                                          <div className="flex items-center gap-2">
-                                            <span className={`text-xs font-bold tracking-tight uppercase ${op.isCurrentUser || op.isYou ? 'text-primary' : 'text-zinc-200'}`}>
+                                            <span className={`text-xs font-bold tracking-tight uppercase ${op.isCurrentUser ? 'text-primary' : 'text-zinc-200'}`}>
                                                 {op.name}
                                             </span>
-                                            {(op.isCurrentUser || op.isYou) && <Zap size={10} className="text-primary animate-pulse" />}
+                                            {op.isCurrentUser && <Zap size={10} className="text-primary animate-pulse" />}
                                         </div>
                                         <span className="text-[8px] text-zinc-600 uppercase tracking-tighter">{op.status || 'Verified_Node'}</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-end">
-                                    <span className={`text-xs font-bold ${op.isCurrentUser || op.isYou ? 'text-white' : 'text-zinc-400'}`}>{op.weight || op.kw} <span className="text-[8px] opacity-40">KW</span></span>
+                                    <span className={`text-xs font-bold ${op.isCurrentUser ? 'text-white' : 'text-zinc-400'}`}>{op.weight || op.kw} <span className="text-[8px] opacity-40">KW</span></span>
                                     <span className="text-[8px] text-zinc-600 uppercase tracking-tighter">{op.uptime || '98.2%'} UP</span>
                                 </div>
                             </div>

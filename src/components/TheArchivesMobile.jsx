@@ -5,11 +5,11 @@ import { Archive, CheckCircle, Circle } from 'lucide-react';
  * TheArchivesMobile - High-Density Archival Interface.
  * Brutalist, industrial design for mobile data retrieval.
  */
-const TheArchivesMobile = ({ items = [], onItemClick }) => {
+const TheArchivesMobile = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     return (
         <div className="bg-black text-white font-mono min-h-screen flex flex-col pb-24">
             {/* Header */}
-            <header className="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 px-4 py-4">
+            <header className="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 px-4 pt-4">
                 <div className="flex justify-between items-center mb-4">
                      <div className="flex flex-col">
                         <span className="text-[9px] text-zinc-500 tracking-[0.3em] uppercase mb-1">// SYSTEM_ARCHIVE</span>
@@ -18,11 +18,17 @@ const TheArchivesMobile = ({ items = [], onItemClick }) => {
                     <Archive size={16} className="text-primary opacity-50" />
                 </div>
                 
-                {/* Filter Tabs */}
-                <div className="flex gap-4 text-[9px] uppercase tracking-widest text-zinc-500 overflow-x-auto no-scrollbar">
-                    <button className="text-primary font-bold border-b border-primary pb-1 whitespace-nowrap">All_Files</button>
-                    <button className="hover:text-white pb-1 whitespace-nowrap transition-colors">Pending</button>
-                    <button className="hover:text-white pb-1 whitespace-nowrap transition-colors">Decrypted</button>
+                {/* Dynamic Category Tabs */}
+                <div className="flex gap-4 px-0 overflow-x-auto no-scrollbar pb-3">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => onCategoryChange && onCategoryChange(cat)}
+                            className={`whitespace-nowrap text-[9px] tracking-widest uppercase px-3 py-1 border transition-all duration-200 ${selectedCategory === cat ? 'bg-white text-black border-white' : 'text-zinc-500 border-zinc-500/30'}`}
+                        >
+                            {cat.replace('_', ' ')}
+                        </button>
+                    ))}
                 </div>
             </header>
 

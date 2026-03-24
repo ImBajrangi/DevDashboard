@@ -5,17 +5,32 @@ import { Radio } from 'lucide-react';
  * TheFeedMobile - High-Density Transmission Feed.
  * Aligned with the Monolithic Interface strategy.
  */
-const TheFeedMobile = ({ items = [], onItemClick }) => {
+const TheFeedMobile = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     return (
         <div className="bg-black text-white font-mono min-h-screen flex flex-col pb-24">
             {/* Header */}
-            <header className="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 px-4 py-4 flex justify-between items-end">
-                <div className="flex flex-col">
-                    <span className="text-[9px] text-primary tracking-[0.3em] uppercase mb-1">Transmission // Stream</span>
-                    <h1 className="text-xl font-bold tracking-tighter uppercase leading-none font-display">DIRECTORY</h1>
+            <header className="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 pt-4 flex flex-col">
+                <div className="px-4 pb-3 flex justify-between items-end">
+                    <div className="flex flex-col">
+                        <span className="text-[9px] text-primary tracking-[0.3em] uppercase mb-1">Transmission // Stream</span>
+                        <h1 className="text-xl font-bold tracking-tighter uppercase leading-none font-display">DIRECTORY</h1>
+                    </div>
+                    <div className="text-[9px] text-zinc-500">
+                        V.9.5.1
+                    </div>
                 </div>
-                <div className="text-[9px] text-zinc-500">
-                    V.9.4.0
+
+                {/* Category Bar */}
+                <div className="flex gap-4 px-4 overflow-x-auto no-scrollbar pb-3 border-t border-white/5 pt-3">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => onCategoryChange && onCategoryChange(cat)}
+                            className={`whitespace-nowrap text-[9px] tracking-widest uppercase px-3 py-1 border transition-all duration-200 ${selectedCategory === cat ? 'bg-white text-black border-white' : 'text-zinc-500 border-zinc-500/30'}`}
+                        >
+                            {cat.replace('_', ' ')}
+                        </button>
+                    ))}
                 </div>
             </header>
 

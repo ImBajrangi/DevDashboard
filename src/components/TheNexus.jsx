@@ -4,7 +4,7 @@ import React from 'react';
  * TheNexus component – from the_airlock_2 template.
  * High-density desktop dashboard.
  */
-const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [] }) => {
+const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     const latestSignals = (allEntries || []).slice(0, 3).map(entry => {
         if (!entry) return null;
         return {
@@ -23,10 +23,24 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [] }) => {
 
     return (
         <div className="min-h-screen bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col pt-20">
-            {/* Top Bar Label */}
-            <div className="px-12 py-8 flex justify-between items-center opacity-40 text-[10px] tracking-[0.3em] uppercase border-b border-border-void">
-                <span>System_Access // THE_NEXUS_V.4.0</span>
-                <div className="flex gap-16">
+            {/* Top Bar Label & Dynamic Categories */}
+            <div className="px-12 py-8 flex justify-between items-center border-b border-border-void">
+                <div className="flex gap-8 items-center">
+                    <span className="opacity-40 text-[10px] tracking-[0.3em] uppercase">System_Access // THE_NEXUS_V.4.0</span>
+                    <div className="h-4 w-px bg-border-void mx-4 opacity-40"></div>
+                    <div className="flex gap-4">
+                        {categories.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => onCategoryChange && onCategoryChange(cat)}
+                                className={`text-[9px] tracking-widest uppercase px-3 py-1 border transition-all duration-200 ${selectedCategory === cat ? 'bg-primary text-white border-primary' : 'text-text-muted border-border-void hover:text-text-main hover:border-text-muted'}`}
+                            >
+                                {cat.replace('_', ' ')}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div className="flex gap-16 opacity-40 text-[10px] tracking-[0.3em] uppercase">
                     <span className="cursor-pointer hover:text-text-main" onClick={() => onSignalClick && onSignalClick({ id: 'archives' })}>[ ARCHIVES ]</span>
                     <span className="cursor-pointer hover:text-text-main text-primary" onClick={() => onSignalClick && onSignalClick({ id: 'feed' })}>[ TRANSMIT ]</span>
                     <span className="cursor-pointer hover:text-text-main" onClick={() => onSignalClick && onSignalClick({ id: 'grid' })}>[ TERMINAL ]</span>

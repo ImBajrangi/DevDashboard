@@ -3,14 +3,18 @@ import { supabase } from '../lib/supabase';
 import { Plus, Save, Trash2, Edit3, X, Check, Image as ImageIcon, Type, Tag, User, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const TheForge = () => {
+const TheForge = ({ categories = [] }) => {
     const [entries, setEntries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingEntry, setEditingEntry] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
+    
+    // Filter out 'ALL' and 'MY_FEED' for selection
+    const selectableCategories = categories.filter(c => c !== 'ALL' && c !== 'MY_FEED');
+
     const [formData, setFormData] = useState({
         title: '',
-        category: 'Meditation',
+        category: selectableCategories[0] || 'General',
         author: 'Vrindopnishad',
         description: '',
         content_text: '',
@@ -88,7 +92,7 @@ const TheForge = () => {
     const resetForm = () => {
         setFormData({
             title: '',
-            category: 'Meditation',
+            category: selectableCategories[0] || 'General',
             author: 'Vrindopnishad',
             description: '',
             content_text: '',
@@ -112,7 +116,7 @@ const TheForge = () => {
         setEditingEntry(entry);
         setFormData({
             title: entry.title || '',
-            category: entry.category || 'Meditation',
+            category: entry.category || 'General',
             author: entry.author || 'Vrindopnishad',
             description: entry.description || '',
             content_text: entry.content_text || '',
@@ -183,11 +187,26 @@ const TheForge = () => {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] uppercase text-text-muted">Sphere (Category)</label>
-                                            <input 
-                                                className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
-                                                value={formData.category}
-                                                onChange={e => setFormData({...formData, category: e.target.value})}
-                                            />
+                                            <div className="flex flex-col gap-2">
+                                                <input 
+                                                    className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                                    value={formData.category}
+                                                    onChange={e => setFormData({...formData, category: e.target.value})}
+                                                    placeholder="Type or select..."
+                                                />
+                                                <div className="flex flex-wrap gap-2">
+                                                    {selectableCategories.map(cat => (
+                                                        <button
+                                                            key={cat}
+                                                            type="button"
+                                                            onClick={() => setFormData({...formData, category: cat})}
+                                                            className={`text-[8px] px-2 py-1 border transition-all ${formData.category === cat ? 'bg-primary border-primary text-white' : 'border-white/10 text-text-muted hover:border-white/30'}`}
+                                                        >
+                                                            {cat}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] uppercase text-text-muted">Originator (Author)</label>

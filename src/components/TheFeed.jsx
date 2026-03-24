@@ -8,10 +8,18 @@ import TheFeedMobile from './TheFeedMobile';
  * Template header: pl-[180px] → we need pl-[120px]
  * Template main:   pl-[120px] → we need pl-[60px]
  */
-const TheFeed = ({ items = [], onItemClick }) => {
+const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     const isMobile = useMobile();
     if (isMobile) {
-        return <TheFeedMobile items={items} onItemClick={onItemClick} />;
+        return (
+            <TheFeedMobile 
+                items={items} 
+                onItemClick={onItemClick} 
+                categories={categories} 
+                selectedCategory={selectedCategory} 
+                onCategoryChange={onCategoryChange} 
+            />
+        );
     }
     return (
         <>
@@ -24,16 +32,16 @@ const TheFeed = ({ items = [], onItemClick }) => {
                         </h1>
                         <h2 className="text-5xl font-bold tracking-tighter font-display">THE FEED</h2>
                     </div>
-                    <div className="flex gap-8 font-mono text-[10px] tracking-widest text-text-muted uppercase">
-                        <a className="text-text-main border-b border-text-main pb-1" href="#">
-                            All Transmissions
-                        </a>
-                        <a className="hover:text-text-main pb-1 transition-colors" href="#">
-                            Filtered
-                        </a>
-                        <a className="hover:text-text-main pb-1 transition-colors" href="#">
-                            Archived
-                        </a>
+                    <div className="flex gap-6 font-mono text-[9px] tracking-widest text-text-muted uppercase">
+                        {categories.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => onCategoryChange && onCategoryChange(cat)}
+                                className={`pb-1 transition-all duration-200 ${selectedCategory === cat ? 'text-text-main border-b border-text-main' : 'hover:text-text-main border-b border-transparent'}`}
+                            >
+                                {cat.replace('_', ' ')}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </header>

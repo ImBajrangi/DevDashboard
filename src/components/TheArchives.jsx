@@ -7,11 +7,19 @@ import TheArchivesMobile from './TheArchivesMobile';
  * A clean article list with filter tabs (ALL, UNREAD, FINISHED).
  * Features: Large serif titles, date/read-time metadata, strikethrough for read articles.
  */
-const TheArchives = ({ items = [], onItemClick = () => { } }) => {
+const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     const isMobile = useMobile();
 
     if (isMobile) {
-        return <TheArchivesMobile items={items} onItemClick={onItemClick} />;
+        return (
+            <TheArchivesMobile 
+                items={items} 
+                onItemClick={onItemClick} 
+                categories={categories} 
+                selectedCategory={selectedCategory} 
+                onCategoryChange={onCategoryChange} 
+            />
+        );
     }
 
     return (
@@ -21,10 +29,16 @@ const TheArchives = ({ items = [], onItemClick = () => { } }) => {
                 <span className="font-mono text-xs uppercase tracking-[0.3em] text-text-muted">
                     // THE_ARCHIVES_V.1.0
                 </span>
-                <div className="flex gap-6 font-mono text-[11px] uppercase tracking-widest">
-                    <button className="text-text-main font-bold border-b border-text-main pb-1">All</button>
-                    <button className="text-text-muted hover:text-text-main pb-1 transition-colors">Unread</button>
-                    <button className="text-text-muted hover:text-text-main pb-1 transition-colors">Finished</button>
+                <div className="flex gap-6 font-mono text-[11px] uppercase tracking-widest text-text-muted">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => onCategoryChange && onCategoryChange(cat)}
+                            className={`pb-1 transition-all duration-200 ${selectedCategory === cat ? 'text-text-main font-bold border-b border-text-main' : 'hover:text-text-main border-b border-transparent'}`}
+                        >
+                            {cat.replace('_', ' ')}
+                        </button>
+                    ))}
                 </div>
             </header>
 

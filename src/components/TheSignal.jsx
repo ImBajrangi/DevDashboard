@@ -6,12 +6,12 @@ import { ArrowRight, CornerDownLeft } from 'lucide-react';
  * Exact match to the Stitch template: clean dark overlay, centered search,
  * well-spaced result records with numbered IDs.
  */
-const TheSignal = ({ onClose, onSelection, items = [] }) => {
+const TheSignal = ({ onClose, onSelection, items = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
     const [query, setQuery] = useState('');
 
     // Map feed items to clean display records (no UUID leaks)
     const allRecords = items.length > 0
-        ? items.slice(0, 20).map((item, idx) => ({
+        ? items.map((item, idx) => ({
             displayId: String(idx + 1).padStart(2, '0'),
             title: item.title,
             date: item.date || '00.00.00',
@@ -25,7 +25,7 @@ const TheSignal = ({ onClose, onSelection, items = [] }) => {
             { displayId: '03', title: 'Deep Work vs Shallow Work', date: '08.09.2023', readTime: '15 MIN READ', status: '' },
         ];
 
-    // Filter by search text, or show first 5
+    // Filter by search text
     const records = query.length > 0
         ? allRecords.filter(r => r.title.toLowerCase().includes(query.toLowerCase())).slice(0, 8)
         : allRecords.slice(0, 5);
@@ -44,7 +44,7 @@ const TheSignal = ({ onClose, onSelection, items = [] }) => {
             <div className="w-full max-w-3xl px-8">
 
                 {/* Search Input */}
-                <div className="mb-10">
+                <div className="mb-6">
                     <div className="flex items-end gap-4 border-b border-[#262626] pb-3">
                         <span className="text-3xl text-[#404040] select-none font-display">&gt;</span>
                         <input
@@ -66,6 +66,19 @@ const TheSignal = ({ onClose, onSelection, items = [] }) => {
                         <span>Signal Status: <span className="text-[#FF3333]">ACTIVE</span></span>
                         <span>Protocol Detected: HTTPS</span>
                     </div>
+                </div>
+
+                {/* Dynamic Category Tabs */}
+                <div className="flex gap-3 mb-10 overflow-x-auto no-scrollbar">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => onCategoryChange && onCategoryChange(cat)}
+                            className={`whitespace-nowrap text-[9px] tracking-widest uppercase px-3 py-1 border transition-all duration-200 ${selectedCategory === cat ? 'bg-[#FF3333] text-white border-[#FF3333]' : 'text-[#404040] border-[#262626] hover:text-[#e5e5e5] hover:border-[#404040]'}`}
+                        >
+                            {cat.replace('_', ' ')}
+                        </button>
+                    ))}
                 </div>
 
                 {/* Matching Records Header */}

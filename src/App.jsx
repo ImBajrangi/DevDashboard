@@ -25,6 +25,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('nexus')
   const [selectedArticle, setSelectedArticle] = useState(null)
   const [allEntries, setAllEntries] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isSignalOpen, setIsSignalOpen] = useState(false)
@@ -80,8 +81,16 @@ function App() {
     return <TheSplash onEnter={() => setShowSplash(false)} />
   }
 
+  // Derive Dynamic Categories
+  const dynamicCategories = ['ALL', ...new Set((allEntries || []).map(entry => entry.category?.toUpperCase()).filter(Boolean))];
+  
+  // If user is logged in, add "MY_FEED"
+  if (currentUser) {
+    dynamicCategories.push('MY_FEED');
+  }
+
   // Map Supabase entries to app format
-  const feedItems = (allEntries || []).map(item => {
+  const mappedItems = (allEntries || []).map(item => {
     if (!item) return null;
     return {
       id: item.id,
@@ -96,9 +105,19 @@ function App() {
       category: item.category || "General",
       tags: item.tags || [],
       audioUrl: item.audio_url,
-      images: item.image_urls || item.images || []
+      images: item.image_urls || item.images || [],
+      createdBy: item.author_id || item.created_by // assume field exists or fallback
     };
   }).filter(Boolean);
+
+  // Apply Filtering
+  const feedItems = mappedItems.filter(item => {
+    if (selectedCategory === 'ALL') return true;
+    if (selectedCategory === 'MY_FEED') {
+      return item.author === currentUser?.displayName || item.author === "Vrindopnishad";
+    }
+    return item.source === selectedCategory;
+  });
 
   const archiveItems = feedItems.map(item => ({ ...item, isRead: false }));
 
@@ -110,6 +129,7 @@ function App() {
   }, {});
 
   const dynamicRankings = Object.entries(authorStats)
+    .sort((a, b) => b[1] - a[1]) // Sort by count descending (most contributions first)
     .map(([name, count], idx) => ({
       pos: String(idx + 1).padStart(3, '0'),
       rank: idx + 1,
@@ -119,14 +139,12 @@ function App() {
       uptime: `${Math.floor(Math.random() * 100)}%`,
       status: Math.random() > 0.3 ? 'ACTIVE' : 'IDLE',
       isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
-    }))
-    .sort((a, b) => b.rank - a.rank); // Sort by weight descending (roughly)
+    }));
 
   const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge'];
 
   const handleArticleClick = (article) => {
     if (article.id && validTabs.includes(article.id)) {
-      // This is a tab switch request (e.g., 'archives', 'transmit')
       setActiveTab(article.id)
     } else {
       setSelectedArticle(article)
@@ -154,17 +172,44 @@ function App() {
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (
-        <TheSignal onClose={() => setIsSignalOpen(false)} onSelection={handleArticleClick} items={feedItems} />
+        <TheSignal 
+          onClose={() => setIsSignalOpen(false)} 
+          onSelection={handleArticleClick} 
+          items={feedItems} 
+          categories={dynamicCategories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
       )}
 
       {/* THE NEXUS – the_airlock_2 / the_airlock_7 template */}
       {activeTab === 'nexus' && (
-        isMobile ? <TheNexusMobile onItemClick={handleArticleClick} items={feedItems} /> : <TheNexus onSignalClick={handleArticleClick} allEntries={allEntries} />
+        isMobile 
+          ? <TheNexusMobile 
+              onItemClick={handleArticleClick} 
+              items={feedItems} 
+              categories={dynamicCategories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            /> 
+          : <TheNexus 
+              onSignalClick={handleArticleClick} 
+              allEntries={allEntries} 
+              categories={dynamicCategories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
       )}
 
       {/* THE FEED – the_airlock_3 / the_airlock_15 template */}
       {activeTab === 'feed' && (
-        <TheFeed items={feedItems} onItemClick={handleArticleClick} />
+        <TheFeed 
+          items={feedItems} 
+          onItemClick={handleArticleClick} 
+          categories={dynamicCategories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
       )}
 
       {/* THE VOID – the_vrinda template (reader) */}
@@ -186,7 +231,13 @@ function App() {
 
       {/* THE ARCHIVES */}
       {activeTab === 'archives' && (
-        <TheArchives items={archiveItems} onItemClick={handleArticleClick} />
+        <TheArchives 
+          items={archiveItems} 
+          onItemClick={handleArticleClick} 
+          categories={dynamicCategories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
       )}
 
       {/* THE TETHER (settings) */}
@@ -211,12 +262,12 @@ function App() {
 
       {/* THE DOSSIER */}
       {activeTab === 'profile' && (
-        <TheDossier user={currentUser} />
+        <TheDossier user={currentUser} allEntries={allEntries} />
       )}
 
       {/* THE FORGE (Content Management) */}
       {activeTab === 'forge' && (
-        <TheForge />
+        <TheForge categories={dynamicCategories} />
       )}
     </Layout>
   )
