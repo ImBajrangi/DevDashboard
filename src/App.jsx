@@ -13,6 +13,7 @@ import TheNexus from './components/TheNexus'
 import TheNexusMobile from './components/TheNexusMobile'
 import TheSignal from './components/TheSignal'
 import TheSplash from './components/TheSplash'
+import TheForge from './components/TheForge'
 import { useMobile } from './hooks/useMobile'
 import { supabase } from './lib/supabase'
 
@@ -74,7 +75,7 @@ function App() {
 
   const archiveItems = feedItems.map(item => ({ ...item, isRead: false }));
 
-  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader'];
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge'];
 
   const handleArticleClick = (article) => {
     if (article.id && validTabs.includes(article.id)) {
@@ -162,6 +163,11 @@ function App() {
       {/* THE DOSSIER */}
       {activeTab === 'profile' && (
         <TheDossier />
+      )}
+
+      {/* THE FORGE (Content Management) */}
+      {activeTab === 'forge' && (
+        <TheForge />
       )}
     </Layout>
   )

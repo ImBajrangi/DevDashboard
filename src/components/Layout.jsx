@@ -36,6 +36,7 @@ const Layout = ({
         { id: 'grid', icon: <Grid3x3 size={20} />, label: 'Grid' },
         { id: 'hierarchy', icon: <BarChart3 size={20} />, label: 'Hierarchy' },
         { id: 'stratification', icon: <Trophy size={20} />, label: 'Rankings' },
+        { id: 'forge', icon: <Plus size={20} />, label: 'Forge' },
         { id: 'settings', icon: <Settings size={20} />, label: 'Settings' },
         { id: 'profile', icon: <User size={20} />, label: 'Profile' },
     ];
@@ -152,7 +153,7 @@ const Layout = ({
 
                         <div className="flex flex-col items-center">
                             <button
-                                onClick={onSignalOpen}
+                                onClick={() => setActiveTab('forge')}
                                 className="w-10 h-10 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_15px_rgba(255,51,51,0.3)]"
                             >
                                 <Plus size={20} />
