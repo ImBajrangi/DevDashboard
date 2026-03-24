@@ -267,3 +267,13 @@ button {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.main-content-padding {
+  padding-left: 64px;
+}
+
+@media (max-width: 768px) {
+  .main-content-padding {
+    padding-left: 0 !important;
+  }
+}

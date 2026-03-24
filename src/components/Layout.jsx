@@ -195,7 +195,7 @@ const Layout = ({
                 )}
 
                 {/* Main Content Area */}
-                <main className="min-h-screen" style={{ paddingLeft: isMobile ? '0' : '64px' }}>
+                <main className="min-h-screen main-content-padding">
                     {children}
                 </main>
             </div>
