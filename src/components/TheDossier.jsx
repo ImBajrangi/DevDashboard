@@ -23,14 +23,14 @@ const BADGES = [
 ];
 
 /* ========== MOBILE – airlock_8 ========== */
-const DossierMobile = () => {
+const DossierMobile = ({ user }) => {
     return (
         <div className="bg-[#000] text-white font-mono antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-[#f04242] selection:text-[#050505]">
             {/* Sticky nav */}
             <nav className="sticky top-0 bg-[#000]/80 backdrop-blur-md border-b border-[#1A1A1A] z-40 px-6 py-4 flex justify-between items-center">
                 <div className="flex flex-col">
-                    <span className="text-[9px] text-[#555] tracking-[0.3em] uppercase">Status: Connected</span>
-                    <span className="text-[11px] text-[#f04242] font-bold">DEEP_VOID // ACCESS_GRANTED</span>
+                    <span className="text-[9px] text-[#555] tracking-[0.3em] uppercase">Status: {user ? 'Authenticated' : 'Connected'}</span>
+                    <span className="text-[11px] text-[#f04242] font-bold">{user ? user.email.toUpperCase() : 'DEEP_VOID // ACCESS_GRANTED'}</span>
                 </div>
                 <button className="text-white scale-90">
                     <Menu size={20} />
@@ -43,7 +43,9 @@ const DossierMobile = () => {
                 <header className="mb-12">
                     <div className="inline-block border-l-2 border-[#f04242] pl-4 mb-4">
                         <span className="text-[10px] text-[#555] tracking-[0.4em] uppercase">Operator Identity</span>
-                        <h1 className="text-4xl font-extrabold tracking-tighter mt-1">OPERATOR_772</h1>
+                        <h1 className="text-4xl font-extrabold tracking-tighter mt-1">
+                            {user?.displayName ? user.displayName.toUpperCase().replace(/\s+/g, '_') : 'ANONYMOUS_OPERATOR'}
+                        </h1>
                     </div>
                     <div className="flex items-center gap-4 text-xs text-[#555]">
                         <span className="flex items-center gap-1">
@@ -119,7 +121,7 @@ const DossierMobile = () => {
 };
 
 /* ========== DESKTOP – airlock_6 ========== */
-const DossierDesktop = () => {
+const DossierDesktop = ({ user }) => {
     const [isPurging, setIsPurging] = React.useState(false);
 
     const handlePurge = () => {
@@ -134,8 +136,12 @@ const DossierDesktop = () => {
                 {/* Username */}
                 <section style={{ marginBottom: '96px' }}>
                     <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', borderBottom: '1px solid #262626', paddingBottom: '16px' }}>
-                        <h1 className="font-mono" style={{ fontSize: '3.75rem', fontWeight: 300, letterSpacing: '-0.05em', lineHeight: 1 }}>OPERATOR_772</h1>
-                        <span className="font-mono" style={{ fontSize: '12px', color: '#404040', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Status: Active</span>
+                        <h1 className="font-mono" style={{ fontSize: '3.75rem', fontWeight: 300, letterSpacing: '-0.05em', lineHeight: 1 }}>
+                            {user?.displayName ? user.displayName.toUpperCase().replace(/\s+/g, '_') : 'ANONYMOUS_OPERATOR'}
+                        </h1>
+                        <span className="font-mono" style={{ fontSize: '12px', color: '#404040', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.3em' }}>
+                            Status: {user ? 'Authenticated' : 'Active'}
+                        </span>
                     </div>
                 </section>
 
@@ -229,7 +235,7 @@ const DossierDesktop = () => {
                     <p>ENCRYPTION: AES-4096-VOID</p>
                 </div>
                 <div style={{ textAlign: 'right', fontSize: '10px', color: '#404040' }}>
-                    <p>USER_TOKEN: 0x82...F42A</p>
+                    <p>USER_TOKEN: {user?.uid ? `0x${user.uid.substring(0, 8)}...` : '0xNULL'}</p>
                     <p>© 2024 THE_VRINDA_RECORDS</p>
                 </div>
             </footer>
@@ -238,9 +244,9 @@ const DossierDesktop = () => {
 };
 
 /* ========== MAIN EXPORT ========== */
-const TheDossier = () => {
+const TheDossier = ({ user = null }) => {
     const isMobile = useMobile();
-    return isMobile ? <DossierMobile /> : <DossierDesktop />;
+    return isMobile ? <DossierMobile user={user} /> : <DossierDesktop user={user} />;
 };
 
 export default TheDossier;

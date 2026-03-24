@@ -5,12 +5,15 @@ import React from 'react';
  * High-density desktop dashboard.
  */
 const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [] }) => {
-    const latestSignals = allEntries.slice(0, 3).map(entry => ({
-        id: entry.id,
-        date: new Date(entry.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.'),
-        title: entry.title.toUpperCase(),
-        desc: entry.description || entry.content_text?.substring(0, 100) + '...'
-    }));
+    const latestSignals = (allEntries || []).slice(0, 3).map(entry => {
+        if (!entry) return null;
+        return {
+            id: entry.id,
+            date: entry.created_at ? new Date(entry.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.') : '00.00.00',
+            title: (entry.title || "UNTITLED_SIGNAL").toUpperCase(),
+            desc: entry.description || (entry.content_text ? entry.content_text.substring(0, 100) + '...' : 'Signal data fragmented.')
+        };
+    }).filter(Boolean);
 
     const stats = {
         totalRecords: allEntries.length,

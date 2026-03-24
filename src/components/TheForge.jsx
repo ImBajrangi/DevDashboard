@@ -16,6 +16,7 @@ const TheForge = () => {
         content_text: '',
         english_translation: '',
         hindi_text: '',
+        sanskrit_text: '',
         tags: '',
         image_urls: '',
         audio_url: '',
@@ -93,6 +94,7 @@ const TheForge = () => {
             content_text: '',
             english_translation: '',
             hindi_text: '',
+            sanskrit_text: '',
             tags: '',
             image_urls: '',
             audio_url: '',
@@ -116,6 +118,7 @@ const TheForge = () => {
             content_text: entry.content_text || '',
             english_translation: entry.english_translation || '',
             hindi_text: entry.hindi_text || '',
+            sanskrit_text: entry.sanskrit_text || '',
             tags: Array.isArray(entry.tags) ? entry.tags.join(', ') : '',
             image_urls: Array.isArray(entry.image_urls) ? entry.image_urls.join(', ') : '',
             audio_url: entry.audio_url || '',
@@ -264,6 +267,16 @@ const TheForge = () => {
                                             className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
                                             value={formData.hindi_text}
                                             onChange={e => setFormData({...formData, hindi_text: e.target.value})}
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] uppercase text-text-muted">Sanskrit original (Shlokas)</label>
+                                        <textarea 
+                                            rows={4}
+                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            value={formData.sanskrit_text}
+                                            onChange={e => setFormData({...formData, sanskrit_text: e.target.value})}
+                                            placeholder="यदा यदा हि धर्मस्य..."
                                         />
                                     </div>
                                 </div>

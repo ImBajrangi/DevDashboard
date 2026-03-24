@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LayoutGrid, Archive } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
+import { signInWithGoogle, logOut } from '../lib/firebase';
 
 const Layout = ({
     children,
@@ -10,7 +11,8 @@ const Layout = ({
     title = "The Feed - All Content | Deep Void",
     description = "A digital sanctuary for deep reading and archival silence.",
     settings = { immersionMode: true },
-    onSignalOpen = () => { }
+    onSignalOpen = () => { },
+    user = null
 }) => {
     const isMobile = useMobile();
     const [isScrolled, setIsScrolled] = React.useState(false);
@@ -124,6 +126,23 @@ const Layout = ({
                             <button onClick={onSignalOpen} className="text-text-muted hover:text-primary transition-colors p-1.5" title="Signal">
                                 <Search size={22} />
                             </button>
+                            {user ? (
+                                <button
+                                    onClick={logOut}
+                                    className="text-text-muted hover:text-primary transition-colors p-1.5"
+                                    title="Sign Out"
+                                >
+                                    <LogOut size={22} />
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={signInWithGoogle}
+                                    className="text-text-muted hover:text-primary transition-colors p-1.5"
+                                    title="Sign In"
+                                >
+                                    <LogIn size={22} />
+                                </button>
+                            )}
                             <button
                                 onClick={() => setActiveTab('profile')}
                                 className={`transition-colors p-1.5 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted hover:text-white'}`}

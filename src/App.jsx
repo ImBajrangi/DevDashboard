@@ -16,6 +16,8 @@ import TheSplash from './components/TheSplash'
 import TheForge from './components/TheForge'
 import { useMobile } from './hooks/useMobile'
 import { supabase } from './lib/supabase'
+import { auth } from './lib/firebase'
+import { onAuthStateChanged } from 'firebase/auth'
 
 function App() {
   const isMobile = useMobile()
@@ -23,6 +25,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('nexus')
   const [selectedArticle, setSelectedArticle] = useState(null)
   const [allEntries, setAllEntries] = useState([])
+  const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isSignalOpen, setIsSignalOpen] = useState(false)
   const [systemSettings, setSystemSettings] = useState({
@@ -32,6 +35,11 @@ function App() {
   })
 
   useEffect(() => {
+    // Listen for Firebase Auth changes
+    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user)
+    })
+
     async function fetchData() {
       try {
         const { data, error } = await supabase
@@ -51,6 +59,21 @@ function App() {
       }
     }
     fetchData();
+
+    // Set up Supabase real-time listener if needed
+    const channel = supabase
+      .channel('schema-db-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'content' },
+        () => fetchData()
+      )
+      .subscribe();
+
+    return () => {
+      unsubscribeAuth()
+      supabase.removeChannel(channel)
+    }
   }, [])
 
   if (showSplash) {
@@ -58,20 +81,24 @@ function App() {
   }
 
   // Map Supabase entries to app format
-  const feedItems = allEntries.map(item => ({
-    id: item.id,
-    title: item.title,
-    source: item.category?.toUpperCase() || "SYSTEM",
-    clarity: "100%",
-    date: new Date(item.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.'),
-    readTime: "12",
-    author: item.author || "Unknown",
-    content: item.content_text || (typeof item.content === 'string' ? item.content : item.content?.content) || "",
-    category: item.category,
-    tags: item.tags || [],
-    audioUrl: item.audio_url,
-    images: item.images || []
-  }))
+  const feedItems = (allEntries || []).map(item => {
+    if (!item) return null;
+    return {
+      id: item.id,
+      title: item.title || "Untitled Transmission",
+      source: item.category?.toUpperCase() || "SYSTEM",
+      clarity: "100%",
+      date: item.created_at ? new Date(item.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.') : "00.00.00",
+      readTime: "12",
+      author: item.author || "Unknown",
+      content: item.content_text || (typeof item.content === 'string' ? item.content : item.content?.content) || "",
+      sanskrit: item.sanskrit_text || "",
+      category: item.category || "General",
+      tags: item.tags || [],
+      audioUrl: item.audio_url,
+      images: item.image_urls || item.images || []
+    };
+  }).filter(Boolean);
 
   const archiveItems = feedItems.map(item => ({ ...item, isRead: false }));
 
@@ -86,12 +113,12 @@ function App() {
     .map(([name, count], idx) => ({
       pos: String(idx + 1).padStart(3, '0'),
       rank: idx + 1,
-      name: name.toUpperCase(),
+      name: (name || "Unknown").toUpperCase(),
       weight: (count * 10000).toLocaleString(),
       kw: (count * 100).toLocaleString(),
       uptime: `${Math.floor(Math.random() * 100)}%`,
       status: Math.random() > 0.3 ? 'ACTIVE' : 'IDLE',
-      isCurrentUser: name === "Vrindopnishad"
+      isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
     }))
     .sort((a, b) => b.rank - a.rank); // Sort by weight descending (roughly)
 
@@ -123,6 +150,7 @@ function App() {
       setActiveTab={setActiveTab}
       settings={systemSettings}
       onSignalOpen={() => setIsSignalOpen(true)}
+      user={currentUser}
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (
@@ -147,6 +175,7 @@ function App() {
           readTime={selectedArticle?.readTime || "0"}
           date={selectedArticle?.date || "00.00.00"}
           content={selectedArticle?.content}
+          sanskrit={selectedArticle?.sanskrit}
           onBack={handleBackToFeed}
           settings={systemSettings}
           audioUrl={selectedArticle?.audioUrl}
@@ -182,7 +211,7 @@ function App() {
 
       {/* THE DOSSIER */}
       {activeTab === 'profile' && (
-        <TheDossier />
+        <TheDossier user={currentUser} />
       )}
 
       {/* THE FORGE (Content Management) */}

@@ -114,6 +114,19 @@ const TheVoid = ({
                     </div>
                 )}
 
+                {/* Sanskrit Section */}
+                {sanskrit && (
+                    <div className="mb-12 p-8 border-l-2 border-primary/30 bg-white/[0.02] relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-2 font-mono text-[8px] text-primary/40 uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">Sanskrit_Original</div>
+                        <div 
+                            className="font-serif italic leading-relaxed text-primary/90 text-center"
+                            style={{ fontSize: `${fontSize * 1.2}px` }}
+                        >
+                            {sanskrit}
+                        </div>
+                    </div>
+                )}
+
                 {/* Content — responsive font */}
                 <div
                     className={`${fontClass} leading-[1.85] tracking-normal space-y-6 transition-all duration-500 text-text-main/90`}
