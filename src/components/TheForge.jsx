@@ -34,7 +34,7 @@ const TheForge = ({ categories = [] }) => {
     const fetchEntries = async () => {
         setLoading(true);
         const { data, error } = await supabase
-            .from('content')
+            .from('blogs')
             .select('*')
             .order('created_at', { ascending: false });
         
@@ -56,13 +56,13 @@ const TheForge = ({ categories = [] }) => {
         let error;
         if (editingEntry) {
             const { error: err } = await supabase
-                .from('content')
+                .from('blogs')
                 .update(payload)
                 .eq('id', editingEntry.id);
             error = err;
         } else {
             const { error: err } = await supabase
-                .from('content')
+                .from('blogs')
                 .insert([{ ...payload, id: crypto.randomUUID() }]);
             error = err;
         }
@@ -82,7 +82,7 @@ const TheForge = ({ categories = [] }) => {
         if (!confirm('Extinguish this transmission permanently?')) return;
         
         const { error } = await supabase
-            .from('content')
+            .from('blogs')
             .delete()
             .eq('id', id);
         

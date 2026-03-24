@@ -44,7 +44,7 @@ function App() {
     async function fetchData() {
       try {
         const { data, error } = await supabase
-          .from('content')
+          .from('blogs')
           .select('*')
           .order('created_at', { ascending: false });
 
@@ -66,7 +66,7 @@ function App() {
       .channel('schema-db-changes')
       .on(
         'postgres_changes',
-        { event: '*', schema: 'public', table: 'content' },
+        { event: '*', schema: 'public', table: 'blogs' },
         () => fetchData()
       )
       .subscribe();
