@@ -11,7 +11,7 @@ const STRAT_TIERS = [
     { id: 'lvl1', label: 'LVL_01', name: 'NOVICE', minKw: 0 },
 ];
 
-const TheStratification = () => {
+const TheStratification = ({ operators = [] }) => {
     const isMobile = useMobile();
     const [activeLvl, setActiveLvl] = useState('lvl4');
 
@@ -19,8 +19,8 @@ const TheStratification = () => {
         return <TheStratificationMobile />;
     }
 
-    // Use synthetic operators
-    const operators = [...SYNTHETIC_OPERATORS];
+    // Use operators from props or fallback to synthetic
+    const displayOperators = operators.length > 0 ? operators : [...SYNTHETIC_OPERATORS];
 
     // Parse KW for filtering
     const parseKw = (k) => parseFloat(String(k).replace(/,/g, ''));

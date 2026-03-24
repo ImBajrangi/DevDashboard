@@ -21,8 +21,21 @@ const IMAGES = [
     'https://images.unsplash.com/photo-1446776899648-aa78eefe8512?auto=format&fit=crop&q=80&w=300',
 ];
 
-const TheArchiveGrid = () => {
-    const cells = Array.from({ length: 60 }, (_, i) => i + 1);
+const TheArchiveGrid = ({ items = [] }) => {
+    // Collect all unique images from items
+    const dynamicImages = items
+        .flatMap(item => item.images || [])
+        .filter(url => url);
+
+    // Filter items that have at least one image
+    const displayItems = items.filter(item => item.images && item.images.length > 0);
+
+    // Fallback to synthetic logic if no dynamic images exist
+    const gridItems = displayItems.length > 0 ? displayItems : Array.from({ length: 48 }, (_, i) => ({
+        id: `SYNTH_${i}`,
+        title: `Archive_Unit_${i + 1}`,
+        images: [IMAGES[i % IMAGES.length]]
+    }));
 
     return (
         <div className="min-h-screen relative">
@@ -91,18 +104,18 @@ const TheArchiveGrid = () => {
                         width: '100%',
                     }}
                 >
-                    {cells.map((i) => {
-                        const id = String(i).padStart(3, '0');
-                        const img = IMAGES[i % IMAGES.length];
+                    {gridItems.map((item, i) => {
+                        const id = String(i + 1).padStart(3, '0');
+                        const img = item.images[0];
                         return (
                             <div
-                                key={i}
+                                key={item.id}
                                 className="relative overflow-hidden bg-[#0a0a0a] border-r border-b border-[#1a1a1a]/60 group"
                                 style={{ aspectRatio: '1/1' }}
                             >
                                 <img
                                     src={img}
-                                    alt={`TR_${id}`}
+                                    alt={item.title}
                                     className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-60 group-hover:brightness-100 group-hover:opacity-100"
                                 />
                                 {/* Hover overlay */}
@@ -111,7 +124,10 @@ const TheArchiveGrid = () => {
                                 </div>
                                 {/* Cell ID label */}
                                 <div className="absolute top-0 left-0 bg-[#050505] px-1 py-0.5 z-20 opacity-0 group-hover:opacity-100 transition-all -translate-x-full group-hover:translate-x-0">
-                                    <span className="font-mono text-[8px] text-[#f04242] font-bold">TS_{id}</span>
+                                    <span className="font-mono text-[8px] text-[#f04242] font-bold">ARC_{id}</span>
+                                </div>
+                                <div className="absolute top-8 left-0 px-1 py-0.5 opacity-0 group-hover:opacity-100 transition-all">
+                                    <span className="font-mono text-[6px] text-white uppercase tracking-tighter truncate max-w-[100px] block">{item.title}</span>
                                 </div>
                                 {/* Focus icon */}
                                 <div className="absolute bottom-1 right-1 opacity-0 group-hover:opacity-100 transition-all scale-50 group-hover:scale-100">

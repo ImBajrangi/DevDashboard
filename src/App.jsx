@@ -75,6 +75,26 @@ function App() {
 
   const archiveItems = feedItems.map(item => ({ ...item, isRead: false }));
 
+  // Dynamic Rankings based on Author contributions
+  const authorStats = allEntries.reduce((acc, entry) => {
+    const author = entry.author || "Unknown";
+    acc[author] = (acc[author] || 0) + 1;
+    return acc;
+  }, {});
+
+  const dynamicRankings = Object.entries(authorStats)
+    .map(([name, count], idx) => ({
+      pos: String(idx + 1).padStart(3, '0'),
+      rank: idx + 1,
+      name: name.toUpperCase(),
+      weight: (count * 10000).toLocaleString(),
+      kw: (count * 100).toLocaleString(),
+      uptime: `${Math.floor(Math.random() * 100)}%`,
+      status: Math.random() > 0.3 ? 'ACTIVE' : 'IDLE',
+      isCurrentUser: name === "Vrindopnishad"
+    }))
+    .sort((a, b) => b.rank - a.rank); // Sort by weight descending (roughly)
+
   const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge'];
 
   const handleArticleClick = (article) => {
@@ -111,7 +131,7 @@ function App() {
 
       {/* THE NEXUS – the_airlock_2 / the_airlock_7 template */}
       {activeTab === 'nexus' && (
-        isMobile ? <TheNexusMobile onItemClick={handleArticleClick} /> : <TheNexus onSignalClick={handleArticleClick} />
+        isMobile ? <TheNexusMobile onItemClick={handleArticleClick} /> : <TheNexus onSignalClick={handleArticleClick} allEntries={allEntries} />
       )}
 
       {/* THE FEED – the_airlock_3 / the_airlock_15 template */}
@@ -147,17 +167,17 @@ function App() {
 
       {/* THE HIERARCHY – airlock_16 / airlock_10 */}
       {activeTab === 'hierarchy' && (
-        <TheHierarchy />
+        <TheHierarchy users={dynamicRankings} />
       )}
 
       {/* THE ARCHIVE GRID */}
       {activeTab === 'grid' && (
-        <TheArchiveGrid />
+        <TheArchiveGrid items={feedItems} />
       )}
 
       {/* THE STRATIFICATION – airlock_5 / airlock_14 */}
       {activeTab === 'stratification' && (
-        <TheStratification />
+        <TheStratification operators={dynamicRankings} />
       )}
 
       {/* THE DOSSIER */}

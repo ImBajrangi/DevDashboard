@@ -10,18 +10,15 @@ const TIERS = [
     { id: 'base', label: '03 / Base', name: 'ACOLYTE', minWeight: 0 },
 ];
 
-const ALL_USERS = [
-    ...SYNTHETIC_USERS,
-    { pos: '011', name: 'PHANTOM_LINK', weight: '38,100.55', status: 'OFFLINE' },
-    { pos: '012', name: 'VOID_CRAWLER', weight: '32,800.12', status: 'IDLE' },
-    { pos: '013', name: 'NEXUS_DRIFT', weight: '28,400.90', status: 'OFFLINE' },
-    { pos: '014', name: 'PROTO_ZERO', weight: '22,100.44', status: 'OFFLINE' },
-    { pos: '015', name: 'DARK_MATTER_7', weight: '18,900.33', status: 'IDLE' },
-];
-
-const TheHierarchy = () => {
+const TheHierarchy = ({ users = [] }) => {
     const isMobile = useMobile();
     const [activeTier, setActiveTier] = useState('active');
+
+    // Use users from props or fallback to synthetic
+    const ALL_USERS = users.length > 0 ? users : [
+        ...SYNTHETIC_USERS,
+        { pos: '011', name: 'PHANTOM_LINK', weight: '38,100.55', status: 'OFFLINE' },
+    ];
 
     if (isMobile) {
         return <TheHierarchyMobile />;

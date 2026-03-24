@@ -16,8 +16,10 @@ const TheForge = () => {
         content_text: '',
         english_translation: '',
         hindi_text: '',
-        tags: [],
-        image_urls: []
+        tags: '',
+        image_urls: '',
+        audio_url: '',
+        is_premium: false
     });
 
     useEffect(() => {
@@ -41,6 +43,8 @@ const TheForge = () => {
 
         const payload = {
             ...formData,
+            tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
+            image_urls: formData.image_urls.split(',').map(u => u.trim()).filter(u => u),
             updated_at: new Date().toISOString()
         };
 
@@ -89,8 +93,10 @@ const TheForge = () => {
             content_text: '',
             english_translation: '',
             hindi_text: '',
-            tags: [],
-            image_urls: []
+            tags: '',
+            image_urls: '',
+            audio_url: '',
+            is_premium: false
         });
     };
 
@@ -110,8 +116,10 @@ const TheForge = () => {
             content_text: entry.content_text || '',
             english_translation: entry.english_translation || '',
             hindi_text: entry.hindi_text || '',
-            tags: entry.tags || [],
-            image_urls: entry.image_urls || []
+            tags: Array.isArray(entry.tags) ? entry.tags.join(', ') : '',
+            image_urls: Array.isArray(entry.image_urls) ? entry.image_urls.join(', ') : '',
+            audio_url: entry.audio_url || '',
+            is_premium: entry.is_premium || false
         });
         setIsFormOpen(true);
     };
@@ -200,11 +208,52 @@ const TheForge = () => {
 
                                 <div className="space-y-6">
                                     <div className="space-y-1">
+                                        <label className="text-[10px] uppercase text-text-muted">Audio Uplink (URL)</label>
+                                        <input 
+                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                            value={formData.audio_url}
+                                            onChange={e => setFormData({...formData, audio_url: e.target.value})}
+                                            placeholder="https://audio.vrindopnishad.in/..."
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] uppercase text-text-muted">Visual Fragments (URLs, comma separated)</label>
+                                        <textarea 
+                                            rows={2}
+                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            value={formData.image_urls}
+                                            onChange={e => setFormData({...formData, image_urls: e.target.value})}
+                                            placeholder="url1, url2..."
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] uppercase text-text-muted">Descriptors (Tags, comma separated)</label>
+                                        <input 
+                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                            value={formData.tags}
+                                            onChange={e => setFormData({...formData, tags: e.target.value})}
+                                            placeholder="meditation, silence, peace..."
+                                        />
+                                    </div>
+                                    <div className="flex items-center gap-4 pt-4">
+                                        <input 
+                                            type="checkbox"
+                                            id="is_premium"
+                                            className="size-4 accent-primary"
+                                            checked={formData.is_premium}
+                                            onChange={e => setFormData({...formData, is_premium: e.target.checked})}
+                                        />
+                                        <label htmlFor="is_premium" className="text-[10px] uppercase text-white font-bold tracking-widest cursor-pointer">Premium Access Protocol</label>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <div className="space-y-1">
                                         <label className="text-[10px] uppercase text-text-muted">English Interpretation</label>
                                         <textarea 
                                             rows={6}
                                             className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
-                                            value={formData.english_translation}
+                                            value={formData.english_translation || formData.content_text}
                                             onChange={e => setFormData({...formData, english_translation: e.target.value})}
                                         />
                                     </div>

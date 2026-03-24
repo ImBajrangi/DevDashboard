@@ -4,7 +4,20 @@ import React from 'react';
  * TheNexus component – from the_airlock_2 template.
  * High-density desktop dashboard.
  */
-const TheNexus = ({ onSignalClick, onTransmissionClick }) => {
+const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [] }) => {
+    const latestSignals = allEntries.slice(0, 3).map(entry => ({
+        id: entry.id,
+        date: new Date(entry.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.'),
+        title: entry.title.toUpperCase(),
+        desc: entry.description || entry.content_text?.substring(0, 100) + '...'
+    }));
+
+    const stats = {
+        totalRecords: allEntries.length,
+        categories: [...new Set(allEntries.map(e => e.category))].length,
+        latestUpdate: allEntries[0] ? new Date(allEntries[0].created_at).toLocaleTimeString() : 'N/A'
+    };
+
     return (
         <div className="min-h-screen bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col pt-20">
             {/* Top Bar Label */}
@@ -27,7 +40,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick }) => {
                     </p>
                     <div className="text-right text-[10px] opacity-40 tracking-widest leading-loose">
                         COORD: 27.5706° N, 77.6854° E<br />
-                        SIGNAL_STATUS: STABLE
+                        SIGNAL_STATUS: {stats.totalRecords > 0 ? 'STABLE' : 'OFFLINE'}
                     </div>
                 </div>
             </header>
@@ -43,20 +56,19 @@ const TheNexus = ({ onSignalClick, onTransmissionClick }) => {
                     </div>
 
                     <div className="space-y-16">
-                        {[
-                            { date: '2024.05.12 // 04:22', title: 'QUANTUM_ENTROPY_LEAK', desc: 'Analyzing the recent disturbances in the subnet-7 encryption layers...' },
-                            { date: '2024.05.10 // 21:15', title: 'NEURAL_DECAY_PROTOCOLS', desc: 'Understanding the limits of synthetic memory retention in long-void exposure.' },
-                            { date: '2024.05.08 // 09:44', title: 'THE_SILENT_SERVERS', desc: 'Mapping the decommissioned data centers in Sector 9.' }
-                        ].map((signal, idx) => (
+                        {latestSignals.map((signal, idx) => (
                             <div key={idx} className="group cursor-pointer" onClick={() => onSignalClick && onSignalClick(signal)}>
                                 <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-1">{signal.date}</span>
                                 <h3 className="text-2xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors font-display">{signal.title}</h3>
                                 <p className="text-xs opacity-60 leading-relaxed max-w-sm">{signal.desc}</p>
                             </div>
                         ))}
+                        {latestSignals.length === 0 && (
+                            <div className="text-text-muted italic opacity-50 uppercase tracking-widest">No active signals detected.</div>
+                        )}
                     </div>
 
-                    <button className="mt-auto self-start btn-invert">
+                    <button className="mt-auto self-start btn-invert" onClick={() => onSignalClick && onSignalClick({ id: 'feed' })}>
                         [ VIEW_ALL_SIGNALS ]
                     </button>
                 </section>
@@ -67,27 +79,27 @@ const TheNexus = ({ onSignalClick, onTransmissionClick }) => {
 
                     <div className="space-y-16">
                         <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Operators_Online</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display">1,240,882</div>
+                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Total_Transmissions</span>
+                            <div className="text-6xl font-medium tracking-tighter font-display">{stats.totalRecords}</div>
                             <div className="w-full h-px bg-border-void mt-4"></div>
                         </div>
 
                         <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Data_Processed (PB)</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display">89.442</div>
+                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Active_Spheres (Categories)</span>
+                            <div className="text-6xl font-medium tracking-tighter font-display">{stats.categories}</div>
                             <div className="w-full h-px bg-border-void mt-4"></div>
                         </div>
 
                         <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Void_Depth_Index</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display">0.0042</div>
+                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Last_Sync_Burst</span>
+                            <div className="text-6xl font-medium tracking-tighter font-display uppercase text-lg">{stats.latestUpdate}</div>
                             <div className="w-full h-px bg-primary/30 mt-4"></div>
                         </div>
                     </div>
 
                     <div className="mt-auto p-6 border border-border-void bg-void-matte">
                         <p className="text-[10px] leading-relaxed text-text-muted uppercase font-bold">
-                            STATUS_REPORT: <span className="text-text-main">SYSTEM RUNNING AT NOMINAL CAPACITY. ALL NODES RESPONDING. NO UNRECOGNIZED INTERFERENCE DETECTED IN THE LAST 120 CYCLES.</span>
+                            STATUS_REPORT: <span className="text-text-main">SYSTEM RUNNING AT {stats.totalRecords > 0 ? 'OPTIMAL' : 'REDUCED'} CAPACITY. {stats.totalRecords} NODES RESPONDING. NO UNRECOGNIZED INTERFERENCE DETECTED.</span>
                         </p>
                     </div>
                 </section>
