@@ -15,7 +15,8 @@ import TheSignal from './components/TheSignal'
 import TheSplash from './components/TheSplash'
 import TheForge from './components/TheForge'
 import { useMobile } from './hooks/useMobile'
-import { supabase } from './lib/supabase'
+import { supabase, legacySupabase } from './lib/supabase'
+import { cache } from './lib/cache';
 import { auth } from './lib/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 
@@ -42,38 +43,85 @@ function App() {
     })
 
     async function fetchData() {
-      try {
-        const { data, error } = await supabase
-          .from('blogs')
-          .select('*')
-          .order('created_at', { ascending: false });
+      // 1. Check Cache for Instant Render
+      const cachedFeed = cache.get('global_feed');
+      if (cachedFeed && cachedFeed.length > 0) {
+        setAllEntries(cachedFeed);
+        // We don't set isLoading(false) here, so the global background 
+        // "TRANSMITTING" indicator shows until the fresh data arrives.
+      }
 
-        if (error) throw error;
-        // Use Supabase data if available, otherwise fall back to synthetic
-        setAllEntries(data && data.length > 0 ? data : SYNTHETIC_ARTICLES);
+      try {
+        // Optimized Selective Fetching - Only get fields needed for cards
+        const selectFields = "id, title, category, author, status, created_at, image_urls, audio_url, is_premium, description, slug, source";
+        
+        const [contentRes, vrindaRes] = await Promise.all([
+          legacySupabase.from('content').select(selectFields).order('created_at', { ascending: false }).limit(50),
+          supabase.from('blogvrinda').select(selectFields).order('created_at', { ascending: false }).limit(50)
+        ]);
+  
+        const { data: contentData, error: contentError } = contentRes;
+        const { data: vrindaData, error: vrindaError } = vrindaRes;
+  
+        if (contentError) console.error('Error fetching global content:', contentError);
+        if (vrindaError) console.error('Error fetching Vrinda content:', vrindaError);
+  
+        const transformedContent = (contentData || []).map(post => ({
+          ...post,
+          id: post.id || post.slug,
+          stream: 'dev'
+        }));
+  
+        const transformedVrinda = (vrindaData || []).map(post => ({
+          ...post,
+          id: post.id || post.slug,
+          stream: 'vrinda'
+        }));
+  
+        // Merge and sort by date
+        const merged = [...transformedContent, ...transformedVrinda].sort((a, b) => 
+          new Date(b.created_at) - new Date(a.created_at)
+        );
+
+        const finalEntries = merged.length > 0 ? merged : SYNTHETIC_ARTICLES;
+        
+        // 2. Update Cache & State
+        setAllEntries(finalEntries);
+        if (merged.length > 0) {
+          cache.set('global_feed', merged);
+        }
       } catch (err) {
         console.error('Error fetching content:', err);
-        // Fallback to synthetic data on error
-        setAllEntries(SYNTHETIC_ARTICLES);
+        if (!cachedFeed) setAllEntries(SYNTHETIC_ARTICLES);
       } finally {
         setIsLoading(false);
       }
     }
     fetchData();
 
-    // Set up Supabase real-time listener if needed
-    const channel = supabase
-      .channel('schema-db-changes')
+    // Set up Supabase real-time listeners for both instances
+    const legacyChannel = legacySupabase
+      .channel('legacy-db-changes')
       .on(
         'postgres_changes',
-        { event: '*', schema: 'public', table: 'blogs' },
+        { event: '*', schema: 'public', table: 'content' },
+        () => fetchData()
+      )
+      .subscribe();
+
+    const mainChannel = supabase
+      .channel('main-db-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'blogvrinda' },
         () => fetchData()
       )
       .subscribe();
 
     return () => {
       unsubscribeAuth()
-      supabase.removeChannel(channel)
+      legacySupabase.removeChannel(legacyChannel)
+      supabase.removeChannel(mainChannel)
     }
   }, [])
 
@@ -92,21 +140,23 @@ function App() {
   // Map Supabase entries to app format
   const mappedItems = (allEntries || []).map(item => {
     if (!item) return null;
+    const isVrinda = item.source_stream === 'blogvrinda';
     return {
       id: item.id,
       title: item.title || "Untitled Transmission",
-      source: item.category?.toUpperCase() || "SYSTEM",
-      clarity: "100%",
+      source: isVrinda ? "VRINDA" : (item.category?.toUpperCase() || "SYSTEM"),
+      clarity: isVrinda ? "88%" : "100%",
       date: item.created_at ? new Date(item.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.') : "00.00.00",
-      readTime: "12",
+      readTime: isVrinda ? "08" : "12",
       author: item.author || "Unknown",
-      content: item.content_text || (typeof item.content === 'string' ? item.content : item.content?.content) || "",
+      content: item.english_translation || item.content_text || (typeof item.content === 'string' ? item.content : item.content?.content) || "",
       sanskrit: item.sanskrit_text || "",
       category: item.category || "General",
       tags: item.tags || [],
       audioUrl: item.audio_url,
       images: item.image_urls || item.images || [],
-      createdBy: item.author_id || item.created_by // assume field exists or fallback
+      createdBy: item.author_id || item.created_by,
+      isVrinda: isVrinda
     };
   }).filter(Boolean);
 
@@ -143,14 +193,45 @@ function App() {
 
   const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge'];
 
-  const handleArticleClick = (article) => {
+  const handleArticleClick = async (article) => {
     if (article.id && validTabs.includes(article.id)) {
       setActiveTab(article.id)
     } else {
-      setSelectedArticle(article)
-      setActiveTab('reader')
+      // On-demand Fetch for Full Content (if it's a card from the optimized feed)
+      if (!article.content_text && !article.content) {
+        setIsLoading(true);
+        try {
+          // Check which stream it came from
+          const client = article.stream === 'vrinda' ? supabase : legacySupabase;
+          const table = article.stream === 'vrinda' ? 'blogvrinda' : 'content';
+          
+          const { data, error } = await client
+            .from(table)
+            .select('*')
+            .eq('id', article.id)
+            .maybeSingle();
+
+          if (data) {
+            setSelectedArticle({
+              ...article,
+              content: data.content_text || data.content,
+              sanskrit: data.sanskrit_text || data.sanskrit
+            });
+            setActiveTab('reader');
+          }
+        } catch (err) {
+          console.error('Error fetching full content:', err);
+          setSelectedArticle(article);
+          setActiveTab('reader');
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setSelectedArticle(article);
+        setActiveTab('reader');
+      }
     }
-    setIsSignalOpen(false)
+    setIsSignalOpen(false);
   }
 
   const handleBackToFeed = () => {
@@ -169,6 +250,7 @@ function App() {
       settings={systemSettings}
       onSignalOpen={() => setIsSignalOpen(true)}
       user={currentUser}
+      loading={isLoading}
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (

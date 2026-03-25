@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
-import { Plus, Save, Trash2, Edit3, X, Check, Image as ImageIcon, Type, Tag, User, Globe } from 'lucide-react';
+import { supabase, legacySupabase } from '../lib/supabase';
+import { Save, Plus, X, Edit3, Trash2, Globe, FileText, Type, Hash, Link, Image as ImageIcon, Music, Lock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cache } from '../lib/cache';
 
 const TheForge = ({ categories = [] }) => {
     const [entries, setEntries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingEntry, setEditingEntry] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [activeStream, setActiveStream] = useState('content'); // 'content' or 'blogvrinda'
+    
+    // Helper to get the correct client based on the active stream
+    const getClient = () => activeStream === 'content' ? legacySupabase : supabase;
     
     // Filter out 'ALL' and 'MY_FEED' for selection
     const selectableCategories = categories.filter(c => c !== 'ALL' && c !== 'MY_FEED');
@@ -29,17 +34,48 @@ const TheForge = ({ categories = [] }) => {
 
     useEffect(() => {
         fetchEntries();
-    }, []);
+    }, [activeStream]); // Refetch when stream changes
 
     const fetchEntries = async () => {
-        setLoading(true);
-        const { data, error } = await supabase
-            .from('blogs')
-            .select('*')
-            .order('created_at', { ascending: false });
+        // 1. Check Cache for Instant Render
+        const cacheKey = `forge_${activeStream}`;
+        const cachedEntries = cache.get(cacheKey);
         
-        if (!error) setEntries(data || []);
-        setLoading(false);
+        if (cachedEntries && cachedEntries.length > 0) {
+            setEntries(cachedEntries);
+            // We keep loading(true) for the background sync indicator
+        } else {
+            setLoading(true);
+            setEntries([]);
+        }
+        
+        try {
+            // Optimized Selective Fetching for Admin List
+            const selectFields = "id, title, category, author, status, created_at, is_premium";
+            
+            const { data, error } = await getClient()
+                .from(activeStream)
+                .select(selectFields)
+                .order('created_at', { ascending: false })
+                .limit(50);
+            
+            if (!error) {
+                setEntries(data || []);
+                // 2. Update Cache
+                if (data) cache.set(cacheKey, data);
+            } else {
+                console.error('Forge Fetch Error:', error);
+            }
+        } catch (err) {
+            console.error('Forge Fetch Exception:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const invalidateCache = () => {
+        cache.remove(`forge_${activeStream}`);
+        cache.remove('global_feed'); // Also clear the main feed
     };
 
     const handleSave = async (e) => {
@@ -53,16 +89,23 @@ const TheForge = ({ categories = [] }) => {
             updated_at: new Date().toISOString()
         };
 
+        // Add slug for blogVrinda if missing
+        if (activeStream === 'blogvrinda') {
+            payload.slug = formData.title.toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+        }
+
         let error;
         if (editingEntry) {
-            const { error: err } = await supabase
-                .from('blogs')
+            const { error: err } = await getClient()
+                .from(activeStream)
                 .update(payload)
                 .eq('id', editingEntry.id);
             error = err;
         } else {
-            const { error: err } = await supabase
-                .from('blogs')
+            const { error: err } = await getClient()
+                .from(activeStream)
                 .insert([{ ...payload, id: crypto.randomUUID() }]);
             error = err;
         }
@@ -71,6 +114,7 @@ const TheForge = ({ categories = [] }) => {
             setIsFormOpen(false);
             setEditingEntry(null);
             resetForm();
+            invalidateCache(); // Ensure fresh data
             fetchEntries();
         } else {
             alert('Forge Error: ' + error.message);
@@ -81,19 +125,22 @@ const TheForge = ({ categories = [] }) => {
     const handleDelete = async (id) => {
         if (!confirm('Extinguish this transmission permanently?')) return;
         
-        const { error } = await supabase
-            .from('blogs')
+        const { error } = await getClient()
+            .from(activeStream)
             .delete()
             .eq('id', id);
         
-        if (!error) fetchEntries();
+        if (!error) {
+            invalidateCache(); // Ensure fresh data
+            fetchEntries();
+        }
     };
 
     const resetForm = () => {
         setFormData({
             title: '',
             category: selectableCategories[0] || 'General',
-            author: 'Vrindopnishad',
+            author: activeStream === 'blogvrinda' ? 'Vrindopnishad' : 'Anonymous',
             description: '',
             content_text: '',
             english_translation: '',
@@ -112,38 +159,76 @@ const TheForge = ({ categories = [] }) => {
         setIsFormOpen(true);
     };
 
+    const handleEdit = async (entry) => {
+        setLoading(true);
+        try {
+            // Fetch full record for editing
+            const { data, error } = await getClient()
+                .from(activeStream)
+                .select('*')
+                .eq('id', entry.id)
+                .maybeSingle();
+
+            if (data) {
+                setEditingEntry(data);
+                setFormData({
+                    title: data.title || '',
+                    category: data.category || '',
+                    author: data.author || '',
+                    description: data.description || '', // Added description
+                    content_text: data.content_text || data.content || '',
+                    english_translation: data.english_translation || '',
+                    hindi_text: data.hindi_text || '',
+                    sanskrit_text: data.sanskrit_text || data.sanskrit || '',
+                    tags: (data.tags || []).join(', '),
+                    image_urls: (data.image_urls || data.images || []).join(', '),
+                    audio_url: data.audio_url || '',
+                    is_premium: data.is_premium || false
+                });
+                setIsFormOpen(true);
+            } else if (error) {
+                console.error('Error fetching full entry for edit:', error);
+            }
+        } catch (err) {
+            console.error('Error fetching full entry for edit:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const openEditForm = (entry) => {
-        setEditingEntry(entry);
-        setFormData({
-            title: entry.title || '',
-            category: entry.category || 'General',
-            author: entry.author || 'Vrindopnishad',
-            description: entry.description || '',
-            content_text: entry.content_text || '',
-            english_translation: entry.english_translation || '',
-            hindi_text: entry.hindi_text || '',
-            sanskrit_text: entry.sanskrit_text || '',
-            tags: Array.isArray(entry.tags) ? entry.tags.join(', ') : '',
-            image_urls: Array.isArray(entry.image_urls) ? entry.image_urls.join(', ') : '',
-            audio_url: entry.audio_url || '',
-            is_premium: entry.is_premium || false
-        });
-        setIsFormOpen(true);
+        handleEdit(entry);
     };
 
     return (
         <div className="p-8 md:p-12 lg:p-20 bg-void min-h-screen text-text-main font-mono overflow-y-auto">
-            <header className="flex items-center justify-between mb-16 border-b border-primary/20 pb-8">
+            <header className="flex flex-col md:flex-row items-center justify-between mb-16 border-b border-primary/20 pb-8 gap-8">
                 <div>
                     <h1 className="text-4xl font-bold tracking-tighter text-white transition-all hover:text-primary">THE FORGE</h1>
                     <p className="text-xs text-text-muted mt-2 uppercase tracking-[0.3em]">Centralized Content Stream Controller</p>
                 </div>
+                
+                <div className="flex bg-void-light p-1 rounded-sm border border-white/5">
+                    <button 
+                        onClick={() => setActiveStream('content')}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'content' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                    >
+                        DEV STREAM
+                    </button>
+                    <button 
+                        onClick={() => setActiveStream('blogvrinda')}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'blogvrinda' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                    >
+                        VRINDA STREAM
+                    </button>
+                </div>
+
                 <button 
                     onClick={openCreateForm}
                     className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-sm hover:bg-white hover:text-black transition-all active:scale-95 shadow-[0_0_20px_rgba(255,51,51,0.2)]"
                 >
                     <Plus size={18} />
-                    <span>NEW TRANSMISSION</span>
+                    <span>NEW {activeStream === 'blogvrinda' ? 'WISDOM' : 'TRANSMISSION'}</span>
                 </button>
             </header>
 
@@ -322,9 +407,19 @@ const TheForge = ({ categories = [] }) => {
                 )}
             </AnimatePresence>
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 relative">
+                {loading && entries.length > 0 && (
+                    <div className="absolute -top-12 right-0 flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-sm animate-pulse z-10">
+                        <div className="size-2 bg-primary rounded-full animate-ping"></div>
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-primary font-bold">Synchronizing Stream</span>
+                    </div>
+                )}
+                
                 {loading && entries.length === 0 ? (
-                    <div className="py-20 text-center animate-pulse text-text-muted uppercase tracking-widest">Synchronizing with the abyss...</div>
+                    <div className="flex flex-col items-center justify-center py-32 space-y-4">
+                        <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin shadow-[0_0_20px_rgba(255,51,51,0.3)]"></div>
+                        <div className="text-[10px] text-text-muted uppercase tracking-[0.3em] animate-pulse">Synchronizing Stream...</div>
+                    </div>
                 ) : (
                     entries.map((entry) => (
                         <div key={entry.id} className="group bg-void-light border border-white/5 p-6 hover:border-primary/40 transition-all flex items-center justify-between gap-6">

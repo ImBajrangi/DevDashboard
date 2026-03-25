@@ -12,7 +12,8 @@ const Layout = ({
     description = "A digital sanctuary for deep reading and archival silence.",
     settings = { immersionMode: true },
     onSignalOpen = () => { },
-    user = null
+    user = null,
+    loading = false
 }) => {
     const isMobile = useMobile();
     const [isScrolled, setIsScrolled] = React.useState(false);
@@ -84,8 +85,14 @@ const Layout = ({
                 <div className="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-t border-l border-primary/20"></div>
                 </div>
-                <div className="fixed top-0 right-0 p-4 pointer-events-none z-[70]">
+                <div className="fixed top-0 right-0 p-4 pointer-events-none z-[75] flex flex-col items-end gap-2">
                     <div className="w-10 h-10 border-t border-r border-primary/20"></div>
+                    {loading && (
+                        <div className="flex items-center gap-2 mr-2 animate-pulse">
+                            <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Transmitting</span>
+                            <div className="size-1.5 bg-primary rounded-full animate-ping"></div>
+                        </div>
+                    )}
                 </div>
                 <div className="fixed bottom-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-b border-l border-primary/20"></div>
