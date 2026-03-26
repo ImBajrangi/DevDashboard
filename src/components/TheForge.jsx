@@ -51,14 +51,26 @@ const TheForge = ({ categories = [] }) => {
         
         try {
             // Optimized Selective Fetching for Admin List
-            const selectFields = "id, title, category, author, status, created_at, is_premium";
+            const safeFields = "id, title, category, author, created_at";
+            const extraFields = "status, is_premium";
             
-            const { data, error } = await getClient()
+            let { data, error } = await getClient()
                 .from(activeStream)
-                .select(selectFields)
+                .select(`${safeFields}, ${extraFields}`)
                 .order('created_at', { ascending: false })
                 .limit(50);
             
+            // Fallback if extra fields fail
+            if (error?.status === 400) {
+              const fallback = await getClient()
+                  .from(activeStream)
+                  .select(safeFields)
+                  .order('created_at', { ascending: false })
+                  .limit(50);
+              data = fallback.data;
+              error = fallback.error;
+            }
+
             if (!error) {
                 setEntries(data || []);
                 // 2. Update Cache

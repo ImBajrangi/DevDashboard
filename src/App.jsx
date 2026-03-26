@@ -52,16 +52,35 @@ function App() {
       }
 
       try {
-        // Optimized Selective Fetching - Only get fields needed for cards
-        const selectFields = "id, title, category, author, status, created_at, image_urls, audio_url, is_premium, description, slug, source";
+        // To avoid 400 error from missing columns, we use a more conservative initial list
+        // and handle specific missing fields in a separate attempt if needed.
+        const safeFields = "id, title, category, author, created_at, description";
+        const extraFields = "status, image_urls, images, audio_url, is_premium, slug, source, content_text, content";
         
         const [contentRes, vrindaRes] = await Promise.all([
-          legacySupabase.from('content').select(selectFields).order('created_at', { ascending: false }).limit(50),
-          supabase.from('blogvrinda').select(selectFields).order('created_at', { ascending: false }).limit(50)
+          legacySupabase.from('content').select(`${safeFields}, ${extraFields}`).order('created_at', { ascending: false }).limit(50),
+          supabase.from('blogvrinda').select(`${safeFields}, ${extraFields}`).order('created_at', { ascending: false }).limit(50)
         ]);
-  
-        const { data: contentData, error: contentError } = contentRes;
-        const { data: vrindaData, error: vrindaError } = vrindaRes;
+        
+        // If the above blanket select failed with 400, fallback to minimal fields
+        let contentData = contentRes.data;
+        let contentError = contentRes.error;
+        let vrindaData = vrindaRes.data;
+        let vrindaError = vrindaRes.error;
+
+        if (contentError?.code === 'PGRST204' || contentError?.status === 400) {
+          console.warn('Falling back to safe fields for global content...');
+          const fallback = await legacySupabase.from('content').select(safeFields).order('created_at', { ascending: false }).limit(50);
+          contentData = fallback.data;
+          contentError = fallback.error;
+        }
+
+        if (vrindaError?.code === 'PGRST204' || vrindaError?.status === 400) {
+          console.warn('Falling back to safe fields for Vrinda content...');
+          const fallback = await supabase.from('blogvrinda').select(safeFields).order('created_at', { ascending: false }).limit(50);
+          vrindaData = fallback.data;
+          vrindaError = fallback.error;
+        }
   
         if (contentError) console.error('Error fetching global content:', contentError);
         if (vrindaError) console.error('Error fetching Vrinda content:', vrindaError);
@@ -140,7 +159,7 @@ function App() {
   // Map Supabase entries to app format
   const mappedItems = (allEntries || []).map(item => {
     if (!item) return null;
-    const isVrinda = item.source_stream === 'blogvrinda';
+    const isVrinda = item.stream === 'vrinda';
     return {
       id: item.id,
       title: item.title || "Untitled Transmission",
