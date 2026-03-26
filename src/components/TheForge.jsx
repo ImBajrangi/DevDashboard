@@ -50,33 +50,15 @@ const TheForge = ({ categories = [] }) => {
         }
         
         try {
-            // Optimized Selective Fetching for Admin List
-            // Note: 'author' is missing in blogvrinda production
-            // 'is_premium' is missing in content production
-            const CORE_LIST = "id, title, category, created_at";
-            const isVrinda = activeStream === 'blogvrinda';
-            
-            const selectString = isVrinda 
-                ? `${CORE_LIST}, status, is_premium` // blogvrinda has is_premium
-                : `${CORE_LIST}, author`;           // content has author
-                
+            // Use select('*') to be absolutely resilient against schema discrepancies. 
+            // This ensures the admin list works regardless of which columns exist in production.
             let { data, error } = await getClient()
                 .from(activeStream)
-                .select(selectString)
+                .select('*')
                 .order('created_at', { ascending: false })
                 .limit(50);
             
-            // Fallback to absolute bare minimum if the above fails
-            if (error?.status === 400) {
-              console.warn(`Forge falling back for ${activeStream}...`);
-              const fallback = await getClient()
-                  .from(activeStream)
-                  .select(CORE_LIST)
-                  .order('created_at', { ascending: false })
-                  .limit(50);
-              data = fallback.data;
-              error = fallback.error;
-            }
+            // Note: No explicit fallback needed when using '*' as it only fetches existing columns.
 
             if (!error) {
                 setEntries(data || []);

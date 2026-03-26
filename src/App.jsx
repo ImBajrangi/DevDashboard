@@ -52,16 +52,11 @@ function App() {
       }
 
       try {
-        // To avoid 400 error from missing columns, we use separate definitions for each stream
-        // as the production and development schemas appear to be out of sync.
-        const CORE_FIELDS = "id, title, category, created_at, description";
-        const EXTENDED_FIELDS = "status, image_urls, audio_url, slug, source, content_text, content";
-        
-        // blogvrinda is missing 'author' in production
-        // content is missing 'images' and 'is_premium' in production
+        // Use select('*') to be absolutely resilient against schema discrepancies between 
+        // local and production databases. This avoids 400 errors when columns are missing.
         const [contentRes, vrindaRes] = await Promise.all([
-          legacySupabase.from('content').select(`${CORE_FIELDS}, author, ${EXTENDED_FIELDS}`).order('created_at', { ascending: false }).limit(50),
-          supabase.from('blogvrinda').select(`${CORE_FIELDS}, ${EXTENDED_FIELDS}`).order('created_at', { ascending: false }).limit(50)
+          legacySupabase.from('content').select('*').order('created_at', { ascending: false }).limit(50),
+          supabase.from('blogvrinda').select('*').order('created_at', { ascending: false }).limit(50)
         ]);
         
         let contentData = contentRes.data;
@@ -69,21 +64,7 @@ function App() {
         let vrindaData = vrindaRes.data;
         let vrindaError = vrindaRes.error;
 
-        // Content Fallback (excluding author/is_premium if they fail)
-        if (contentError?.status === 400) {
-          console.warn('Falling back for content stream...');
-          const fallback = await legacySupabase.from('content').select(CORE_FIELDS).order('created_at', { ascending: false }).limit(50);
-          contentData = fallback.data;
-          contentError = fallback.error;
-        }
-
-        // Vrinda Fallback (excluding author if it fails)
-        if (vrindaError?.status === 400) {
-          console.warn('Falling back for vrinda stream...');
-          const fallback = await supabase.from('blogvrinda').select(CORE_FIELDS).order('created_at', { ascending: false }).limit(50);
-          vrindaData = fallback.data;
-          vrindaError = fallback.error;
-        }
+        // Note: No explicit fallback needed when using '*' as it only fetches existing columns.
   
         if (contentError) console.error('Error fetching global content:', contentError);
         if (vrindaError) console.error('Error fetching Vrinda content:', vrindaError);
