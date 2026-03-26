@@ -52,32 +52,35 @@ function App() {
       }
 
       try {
-        // To avoid 400 error from missing columns, we use a more conservative initial list
-        // and handle specific missing fields in a separate attempt if needed.
-        const safeFields = "id, title, category, author, created_at, description";
-        const extraFields = "status, image_urls, images, audio_url, is_premium, slug, source, content_text, content";
+        // To avoid 400 error from missing columns, we use separate definitions for each stream
+        // as the production and development schemas appear to be out of sync.
+        const CORE_FIELDS = "id, title, category, created_at, description";
+        const EXTENDED_FIELDS = "status, image_urls, audio_url, slug, source, content_text, content";
         
+        // blogvrinda is missing 'author' in production
+        // content is missing 'images' and 'is_premium' in production
         const [contentRes, vrindaRes] = await Promise.all([
-          legacySupabase.from('content').select(`${safeFields}, ${extraFields}`).order('created_at', { ascending: false }).limit(50),
-          supabase.from('blogvrinda').select(`${safeFields}, ${extraFields}`).order('created_at', { ascending: false }).limit(50)
+          legacySupabase.from('content').select(`${CORE_FIELDS}, author, ${EXTENDED_FIELDS}`).order('created_at', { ascending: false }).limit(50),
+          supabase.from('blogvrinda').select(`${CORE_FIELDS}, ${EXTENDED_FIELDS}`).order('created_at', { ascending: false }).limit(50)
         ]);
         
-        // If the above blanket select failed with 400, fallback to minimal fields
         let contentData = contentRes.data;
         let contentError = contentRes.error;
         let vrindaData = vrindaRes.data;
         let vrindaError = vrindaRes.error;
 
-        if (contentError?.code === 'PGRST204' || contentError?.status === 400) {
-          console.warn('Falling back to safe fields for global content...');
-          const fallback = await legacySupabase.from('content').select(safeFields).order('created_at', { ascending: false }).limit(50);
+        // Content Fallback (excluding author/is_premium if they fail)
+        if (contentError?.status === 400) {
+          console.warn('Falling back for content stream...');
+          const fallback = await legacySupabase.from('content').select(CORE_FIELDS).order('created_at', { ascending: false }).limit(50);
           contentData = fallback.data;
           contentError = fallback.error;
         }
 
-        if (vrindaError?.code === 'PGRST204' || vrindaError?.status === 400) {
-          console.warn('Falling back to safe fields for Vrinda content...');
-          const fallback = await supabase.from('blogvrinda').select(safeFields).order('created_at', { ascending: false }).limit(50);
+        // Vrinda Fallback (excluding author if it fails)
+        if (vrindaError?.status === 400) {
+          console.warn('Falling back for vrinda stream...');
+          const fallback = await supabase.from('blogvrinda').select(CORE_FIELDS).order('created_at', { ascending: false }).limit(50);
           vrindaData = fallback.data;
           vrindaError = fallback.error;
         }

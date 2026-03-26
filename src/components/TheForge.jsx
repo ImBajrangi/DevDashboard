@@ -51,20 +51,27 @@ const TheForge = ({ categories = [] }) => {
         
         try {
             // Optimized Selective Fetching for Admin List
-            const safeFields = "id, title, category, author, created_at";
-            const extraFields = "status, is_premium";
+            // Note: 'author' is missing in blogvrinda production
+            // 'is_premium' is missing in content production
+            const CORE_LIST = "id, title, category, created_at";
+            const isVrinda = activeStream === 'blogvrinda';
             
+            const selectString = isVrinda 
+                ? `${CORE_LIST}, status, is_premium` // blogvrinda has is_premium
+                : `${CORE_LIST}, author`;           // content has author
+                
             let { data, error } = await getClient()
                 .from(activeStream)
-                .select(`${safeFields}, ${extraFields}`)
+                .select(selectString)
                 .order('created_at', { ascending: false })
                 .limit(50);
             
-            // Fallback if extra fields fail
+            // Fallback to absolute bare minimum if the above fails
             if (error?.status === 400) {
+              console.warn(`Forge falling back for ${activeStream}...`);
               const fallback = await getClient()
                   .from(activeStream)
-                  .select(safeFields)
+                  .select(CORE_LIST)
                   .order('created_at', { ascending: false })
                   .limit(50);
               data = fallback.data;
