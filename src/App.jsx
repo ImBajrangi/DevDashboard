@@ -14,6 +14,7 @@ import TheNexusMobile from './components/TheNexusMobile'
 import TheSignal from './components/TheSignal'
 import TheSplash from './components/TheSplash'
 import TheForge from './components/TheForge'
+import ThePortal from './components/ThePortal'
 import { useMobile } from './hooks/useMobile'
 import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
@@ -194,7 +195,7 @@ function App() {
       isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
     }));
 
-  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge'];
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal'];
 
   const handleArticleClick = async (article) => {
     if (article.id && validTabs.includes(article.id)) {
@@ -353,6 +354,11 @@ function App() {
       {/* THE FORGE (Content Management) */}
       {activeTab === 'forge' && (
         <TheForge categories={dynamicCategories} />
+      )}
+
+      {/* THE PORTAL (Admin & Notifications) */}
+      {activeTab === 'portal' && (
+        <ThePortal />
       )}
     </Layout>
   )

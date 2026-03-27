@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 
@@ -40,6 +40,7 @@ const Layout = ({
         { id: 'hierarchy', icon: <BarChart3 size={20} />, label: 'Hierarchy' },
         { id: 'stratification', icon: <Trophy size={20} />, label: 'Rankings' },
         { id: 'forge', icon: <Plus size={20} />, label: 'Forge' },
+        { id: 'portal', icon: <ShieldCheck size={20} />, label: 'Portal' },
         { id: 'settings', icon: <Settings size={20} />, label: 'Settings' },
         { id: 'profile', icon: <User size={20} />, label: 'Profile' },
     ];
