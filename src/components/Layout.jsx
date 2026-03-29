@@ -90,6 +90,69 @@ const Layout = ({
             </Helmet>
 
             <div className={`min-h-screen bg-void text-text-main font-display relative ${isMobile ? 'pb-24' : ''}`}>
+                {/* Global Top Header Bar */}
+                <header className={`fixed top-0 left-0 right-0 h-16 bg-void/90 backdrop-blur-md border-b border-border-void z-[100] transition-all duration-700 ${hideNav ? '-translate-y-full' : 'translate-y-0'}`}>
+                    <div className="h-full flex items-center justify-between px-6 pl-20 md:pl-24">
+                        <div className="flex items-center gap-4">
+                            <div className="w-2 h-2 bg-primary animate-pulse shadow-[0_0_8px_#FF3333]"></div>
+                            <span className="font-mono text-[10px] tracking-[0.4em] text-text-muted uppercase font-bold hidden sm:block">SYSTEM_LINK // ACTIVE</span>
+                        </div>
+
+                        <div className="flex items-center gap-6">
+                            {loading && (
+                                <div className="flex items-center gap-2 animate-pulse">
+                                    <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Transmitting</span>
+                                    <div className="size-1 bg-primary rounded-full animate-ping"></div>
+                                </div>
+                            )}
+                            
+                            {/* Project Selector moved here */}
+                            <div className="relative">
+                                <button 
+                                    onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
+                                    className="bg-void border border-white/5 px-4 py-2 flex items-center gap-3 hover:border-primary/50 transition-all group"
+                                >
+                                    <div className="text-primary group-hover:animate-pulse">
+                                        {projectIcons[projects.find(p => p.id === activeProject)?.icon] || <Radio size={14} />}
+                                    </div>
+                                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white whitespace-nowrap">
+                                        {projects.find(p => p.id === activeProject)?.label || 'SELECT PROJECT'}
+                                    </span>
+                                    <ChevronDown size={14} className={`text-text-muted transition-transform duration-300 ${isProjectMenuOpen ? 'rotate-180' : ''}`} />
+                                </button>
+
+                                <AnimatePresence>
+                                    {isProjectMenuOpen && (
+                                        <motion.div 
+                                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                            className="absolute top-full right-0 mt-2 w-64 bg-void border border-primary/30 p-1 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-[110]"
+                                        >
+                                            {projects.map((proj) => (
+                                                <button
+                                                    key={proj.id}
+                                                    onClick={() => {
+                                                        setActiveProject(proj.id);
+                                                        setIsProjectMenuOpen(false);
+                                                    }}
+                                                    className={`w-full flex items-center gap-4 px-4 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-primary/10 ${activeProject === proj.id ? 'text-primary bg-primary/5' : 'text-text-muted hover:text-white'}`}
+                                                >
+                                                    <div className={activeProject === proj.id ? 'text-primary' : 'opacity-40'}>
+                                                        {projectIcons[proj.icon]}
+                                                    </div>
+                                                    <span className="flex-1 text-left">{proj.label}</span>
+                                                    {activeProject === proj.id && <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_#FF3333]"></div>}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
                 {/* Visual Overlays */}
                 <div className="noise-overlay" />
                 <div className="fixed inset-0 pointer-events-none scanline opacity-[0.05] z-[99]" />
@@ -98,59 +161,8 @@ const Layout = ({
                 <div className="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-t border-l border-primary/20"></div>
                 </div>
-                <div className="fixed top-0 right-0 p-4 z-[80] flex flex-col items-end gap-4">
-                    <div className="w-10 h-10 border-t border-r border-primary/20 absolute top-4 right-4 pointer-events-none"></div>
-                    
-                    {/* Project Selector */}
-                    <div className="relative mt-2 mr-2">
-                        <button 
-                            onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
-                            className="bg-void/80 backdrop-blur-md border border-white/10 px-4 py-2 flex items-center gap-3 hover:border-primary/50 transition-all group"
-                        >
-                            <div className="text-primary group-hover:animate-pulse">
-                                {projectIcons[projects.find(p => p.id === activeProject)?.icon] || <Radio size={14} />}
-                            </div>
-                            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white whitespace-nowrap">
-                                {projects.find(p => p.id === activeProject)?.label || 'SELECT PROJECT'}
-                            </span>
-                            <ChevronDown size={14} className={`text-text-muted transition-transform duration-300 ${isProjectMenuOpen ? 'rotate-180' : ''}`} />
-                        </button>
-
-                        <AnimatePresence>
-                            {isProjectMenuOpen && (
-                                <motion.div 
-                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    className="absolute top-full right-0 mt-2 w-64 bg-void border border-primary/30 p-1 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-[90]"
-                                >
-                                    {projects.map((proj) => (
-                                        <button
-                                            key={proj.id}
-                                            onClick={() => {
-                                                setActiveProject(proj.id);
-                                                setIsProjectMenuOpen(false);
-                                            }}
-                                            className={`w-full flex items-center gap-4 px-4 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-primary/10 ${activeProject === proj.id ? 'text-primary bg-primary/5' : 'text-text-muted hover:text-white'}`}
-                                        >
-                                            <div className={activeProject === proj.id ? 'text-primary' : 'opacity-40'}>
-                                                {projectIcons[proj.icon]}
-                                            </div>
-                                            <span className="flex-1 text-left">{proj.label}</span>
-                                            {activeProject === proj.id && <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_#FF3333]"></div>}
-                                        </button>
-                                    ))}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-
-                    {loading && (
-                        <div className="flex items-center gap-2 mr-4 animate-pulse">
-                            <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Transmitting</span>
-                            <div className="size-1.5 bg-primary rounded-full animate-ping"></div>
-                        </div>
-                    )}
+                <div className="fixed top-0 right-0 p-4 z-[70] pointer-events-none">
+                    <div className="size-10 border-t border-r border-primary/20 absolute top-4 right-4"></div>
                 </div>
                 <div className="fixed bottom-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-b border-l border-primary/20"></div>
@@ -259,8 +271,8 @@ const Layout = ({
                     </nav>
                 )}
 
-                {/* Main Content Area */}
-                <main className="min-h-screen main-content-padding">
+                {/* Main Content Area – Decollided */}
+                <main className={`min-h-screen pt-16 ${isMobile ? 'pb-24' : 'main-content-padding'}`}>
                     {children}
                 </main>
             </div>

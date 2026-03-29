@@ -36,7 +36,7 @@ const TheHierarchy = ({ users = [] }) => {
     const displayUsers = filteredUsers.length > 0 ? filteredUsers : ALL_USERS;
 
     return (
-        <div className="h-screen flex flex-col md:pl-4 overflow-hidden relative font-display antialiased selection:bg-[#333333] selection:text-white">
+        <div className="h-[calc(100vh-64px)] flex flex-col md:pl-4 overflow-hidden relative font-display antialiased selection:bg-[#333333] selection:text-white">
             {/* Visual Overlays for consistency */}
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
             {/* Top nav – now part of the flex flow, but looks fixed */}

@@ -214,7 +214,7 @@ button {
   left: 0;
   top: 0;
   height: 100%;
-  width: 60px;
+  width: 64px;
   border-right: 1px solid var(--color-border-void);
   display: flex;
   flex-direction: column;

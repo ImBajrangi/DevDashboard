@@ -35,7 +35,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
     };
 
     return (
-        <div className="min-h-screen bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col pt-20">
+        <div className="min-h-[calc(100vh-64px)] bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col">
             {/* Top Bar Label & Dynamic Categories */}
             <div className="px-12 py-8 flex justify-between items-center border-b border-border-void">
                 <div className="flex gap-8 items-center">
