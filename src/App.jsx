@@ -32,9 +32,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [isSignalOpen, setIsSignalOpen] = useState(false)
   const [systemSettings, setSystemSettings] = useState({
-    typeface: 'serif', // 'serif' or 'mono'
-    baseSize: 18,      // 14 to 32
+    typeface: 'serif',
+    baseSize: 18,
     immersionMode: true
+  })
+  const [globalPremiumStats, setGlobalPremiumStats] = useState({
+    totalReflections: 0,
+    soulSeekers: 0
   })
 
   useEffect(() => {
@@ -55,15 +59,24 @@ function App() {
       try {
         // Use select('*') to be absolutely resilient against schema discrepancies between 
         // local and production databases. This avoids 400 errors when columns are missing.
-        const [contentRes, vrindaRes] = await Promise.all([
+        const [contentRes, vrindaRes, premiumJournalRes, premiumUserRes] = await Promise.all([
           legacySupabase.from('content').select('*').order('created_at', { ascending: false }).limit(50),
-          supabase.from('blogvrinda').select('*').order('created_at', { ascending: false }).limit(50)
+          supabase.from('blogvrinda').select('*').order('created_at', { ascending: false }).limit(50),
+          legacySupabase.from('journal_entries').select('*', { count: 'exact', head: true }),
+          legacySupabase.from('user_stats').select('*', { count: 'exact', head: true })
         ]);
         
         let contentData = contentRes.data;
         let contentError = contentRes.error;
         let vrindaData = vrindaRes.data;
         let vrindaError = vrindaRes.error;
+        
+        if (!premiumJournalRes.error || !premiumUserRes.error) {
+          setGlobalPremiumStats({
+            totalReflections: premiumJournalRes.count || 0,
+            soulSeekers: premiumUserRes.count || 0
+          });
+        }
 
         // Note: No explicit fallback needed when using '*' as it only fetches existing columns.
   
@@ -284,6 +297,7 @@ function App() {
               categories={dynamicCategories}
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
+              premiumStats={globalPremiumStats}
             />
       )}
 
@@ -358,7 +372,7 @@ function App() {
 
       {/* THE PORTAL (Admin & Notifications) */}
       {activeTab === 'portal' && (
-        <ThePortal />
+        <ThePortal premiumStats={globalPremiumStats} />
       )}
     </Layout>
   )

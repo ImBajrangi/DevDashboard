@@ -4,7 +4,7 @@ import React from 'react';
  * TheNexus component – from the_airlock_2 template.
  * High-density desktop dashboard.
  */
-const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
+const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 } }) => {
     const latestSignals = (allEntries || []).slice(0, 3).map(entry => {
         if (!entry) return null;
         return {
@@ -141,6 +141,20 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="p-8 border-t border-border-void">
+                        <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase mb-8 text-primary">Global_Command_Bridge</h2>
+                        <div className="grid grid-cols-2 gap-8">
+                            <div>
+                                <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Total_Reflections</span>
+                                <div className="text-4xl font-black font-display text-white">{premiumStats.totalReflections}</div>
+                            </div>
+                            <div>
+                                <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Soul_Seekers</span>
+                                <div className="text-4xl font-black font-display text-white">{premiumStats.soulSeekers}</div>
+                            </div>
                         </div>
                     </div>
 

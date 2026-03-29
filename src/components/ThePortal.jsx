@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Send, Music, Bell, Smartphone, ShieldCheck, Zap, History, Info, Volume2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ThePortal = () => {
+const ThePortal = ({ premiumStats = { totalReflections: 0, soulSeekers: 0 } }) => {
     const [targetApp, setTargetApp] = useState('all'); // 'all', 'premium', 'mobile'
     const [notification, setNotification] = useState({
         title: '',
@@ -198,23 +198,27 @@ const ThePortal = () => {
                         </h2>
                         <div className="space-y-6">
                             <div className="p-4 bg-void border border-white/5">
-                                <p className="text-[10px] text-text-muted uppercase mb-2">Total Synchronized Nodes</p>
-                                <p className="text-3xl font-bold text-primary">12,482</p>
+                                <p className="text-[10px] text-text-muted uppercase mb-2">INTEGRATED_SPIRITUAL_NODES</p>
+                                <p className="text-3xl font-bold text-primary">{premiumStats.totalReflections.toLocaleString()}</p>
                             </div>
                             <div className="p-4 bg-void border border-white/5">
-                                <p className="text-[10px] text-text-muted uppercase mb-2">Active Channels</p>
+                                <p className="text-[10px] text-text-muted uppercase mb-2">Global_Active_Channels</p>
                                 <div className="space-y-3 mt-4">
                                     <div className="flex justify-between items-center">
-                                        <span className="text-[10px] text-white">PREMIUM INSTANCE</span>
-                                        <span className="text-[10px] text-green-500 font-bold">STABLE</span>
+                                        <span className="text-[10px] text-white uppercase">Premium_App_Node</span>
+                                        <span className={`text-[10px] font-bold ${premiumStats.totalReflections > 0 ? 'text-green-500' : 'text-primary animate-pulse'}`}>
+                                            {premiumStats.totalReflections > 0 ? 'STABLE' : 'SEARCHING...'}
+                                        </span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-[10px] text-white">MOBILE INSTANCE</span>
-                                        <span className="text-[10px] text-green-500 font-bold">STABLE</span>
+                                        <span className="text-[10px] text-white uppercase">Soul_Seeker_Stream</span>
+                                        <span className={`text-[10px] font-bold ${premiumStats.soulSeekers > 0 ? 'text-green-500' : 'text-primary'}`}>
+                                            {premiumStats.soulSeekers > 0 ? 'ACTIVE_DATA' : 'IDLE'}
+                                        </span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-[10px] text-white">SIGNAL PROCESSOR</span>
-                                        <span className="text-[10px] text-primary font-bold animate-pulse">OPTIMIZING</span>
+                                        <span className="text-[10px] text-white uppercase">Signal_Link_Quality</span>
+                                        <span className="text-[10px] text-primary font-bold animate-pulse">99.9%_SYNC</span>
                                     </div>
                                 </div>
                             </div>

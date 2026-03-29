@@ -9,10 +9,10 @@ const TheForge = ({ categories = [] }) => {
     const [loading, setLoading] = useState(true);
     const [editingEntry, setEditingEntry] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
-    const [activeStream, setActiveStream] = useState('content'); // 'content' or 'blogvrinda'
+    const [activeStream, setActiveStream] = useState('content'); // 'content', 'blogvrinda', or 'journal_entries'
     
     // Helper to get the correct client based on the active stream
-    const getClient = () => activeStream === 'content' ? legacySupabase : supabase;
+    const getClient = () => (activeStream === 'content' || activeStream === 'journal_entries') ? legacySupabase : supabase;
     
     // Filter out 'ALL' and 'MY_FEED' for selection
     const selectableCategories = categories.filter(c => c !== 'ALL' && c !== 'MY_FEED');
@@ -222,6 +222,12 @@ const TheForge = ({ categories = [] }) => {
                     >
                         VRINDA STREAM
                     </button>
+                    <button 
+                        onClick={() => setActiveStream('journal_entries')}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'journal_entries' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                    >
+                        PREMIUM STREAM
+                    </button>
                 </div>
 
                 <button 
@@ -229,7 +235,7 @@ const TheForge = ({ categories = [] }) => {
                     className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-sm hover:bg-white hover:text-black transition-all active:scale-95 shadow-[0_0_20px_rgba(255,51,51,0.2)]"
                 >
                     <Plus size={18} />
-                    <span>NEW {activeStream === 'blogvrinda' ? 'WISDOM' : 'TRANSMISSION'}</span>
+                    <span>NEW {activeStream === 'blogvrinda' ? 'WISDOM' : activeStream === 'journal_entries' ? 'REFLECTION' : 'TRANSMISSION'}</span>
                 </button>
             </header>
 
