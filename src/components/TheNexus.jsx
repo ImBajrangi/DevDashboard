@@ -4,8 +4,21 @@ import React from 'react';
  * TheNexus component – from the_airlock_2 template.
  * High-density desktop dashboard.
  */
-const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 } }) => {
-    const latestSignals = (allEntries || []).slice(0, 3).map(entry => {
+const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 }, activeProject = 'ALL_SYSTEMS' }) => {
+    const projectSourceMap = {
+        'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
+        'VRINDA_BLOG': 'VRINDA',
+        'SPIRIT_DEV': 'DEV'
+    };
+
+    const filteredEntries = activeProject === 'ALL_SYSTEMS' 
+        ? allEntries 
+        : allEntries.filter(e => {
+            const mappedSource = e.stream === 'vrinda' ? 'VRINDA' : (e.category?.toUpperCase() || 'DEV');
+            return mappedSource === projectSourceMap[activeProject] || (activeProject === 'SANT_VAANI_PREMIUM' && e.source === 'PREMIUM_REFLECT');
+        });
+
+    const latestSignals = (filteredEntries || []).slice(0, 3).map(entry => {
         if (!entry) return null;
         return {
             id: entry.id,
@@ -16,9 +29,9 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
     }).filter(Boolean);
 
     const stats = {
-        totalRecords: allEntries.length,
-        categories: [...new Set(allEntries.map(e => e.category))].length,
-        latestUpdate: allEntries[0] ? new Date(allEntries[0].created_at).toLocaleTimeString() : 'N/A'
+        totalRecords: filteredEntries.length,
+        categories: [...new Set(filteredEntries.map(e => e.category))].length,
+        latestUpdate: filteredEntries[0] ? new Date(filteredEntries[0].created_at).toLocaleTimeString() : 'N/A'
     };
 
     return (

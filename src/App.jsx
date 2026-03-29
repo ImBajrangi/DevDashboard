@@ -36,6 +36,14 @@ function App() {
     baseSize: 18,
     immersionMode: true
   })
+  const [activeProject, setActiveProject] = useState('ALL_SYSTEMS');
+  const projects = [
+    { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
+    { id: 'SANT_VAANI_PREMIUM', label: 'Sant-Vaani Premium', icon: 'Star' },
+    { id: 'VRINDA_BLOG', label: 'Vrinda Vaani (Blog)', icon: 'Heart' },
+    { id: 'SPIRIT_DEV', label: 'Spirit-Dev Archive', icon: 'Code' }
+  ];
+
   const [globalPremiumStats, setGlobalPremiumStats] = useState({
     totalReflections: 0,
     soulSeekers: 0
@@ -177,8 +185,19 @@ function App() {
     };
   }).filter(Boolean);
 
-  // Apply Filtering
+  // Apply Global Project Filtering & Category Filtering
   const feedItems = mappedItems.filter(item => {
+    // 1. Project Filter
+    if (activeProject !== 'ALL_SYSTEMS') {
+      const projectSourceMap = {
+        'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
+        'VRINDA_BLOG': 'VRINDA',
+        'SPIRIT_DEV': 'DEV'
+      }
+      if (item.source !== projectSourceMap[activeProject]) return false;
+    }
+
+    // 2. Category Filter
     if (selectedCategory === 'ALL') return true;
     if (selectedCategory === 'MY_FEED') {
       return item.author === currentUser?.displayName || item.author === "Vrindopnishad";
@@ -268,6 +287,9 @@ function App() {
       onSignalOpen={() => setIsSignalOpen(true)}
       user={currentUser}
       loading={isLoading}
+      activeProject={activeProject}
+      setActiveProject={setActiveProject}
+      projects={projects}
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (
@@ -298,6 +320,7 @@ function App() {
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
               premiumStats={globalPremiumStats}
+              activeProject={activeProject}
             />
       )}
 
@@ -367,7 +390,7 @@ function App() {
 
       {/* THE FORGE (Content Management) */}
       {activeTab === 'forge' && (
-        <TheForge categories={dynamicCategories} />
+        <TheForge categories={dynamicCategories} activeProject={activeProject} />
       )}
 
       {/* THE PORTAL (Admin & Notifications) */}

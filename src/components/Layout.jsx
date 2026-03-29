@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 
@@ -13,10 +14,21 @@ const Layout = ({
     settings = { immersionMode: true },
     onSignalOpen = () => { },
     user = null,
-    loading = false
+    loading = false,
+    activeProject = 'ALL_SYSTEMS',
+    setActiveProject = () => { },
+    projects = []
 }) => {
     const isMobile = useMobile();
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [isProjectMenuOpen, setIsProjectMenuOpen] = React.useState(false);
+
+    const projectIcons = {
+        'Radio': <Radio size={14} />,
+        'Star': <Star size={14} />,
+        'Heart': <Heart size={14} />,
+        'Code': <Code size={14} />
+    };
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -86,10 +98,55 @@ const Layout = ({
                 <div className="fixed top-0 left-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-t border-l border-primary/20"></div>
                 </div>
-                <div className="fixed top-0 right-0 p-4 pointer-events-none z-[75] flex flex-col items-end gap-2">
-                    <div className="w-10 h-10 border-t border-r border-primary/20"></div>
+                <div className="fixed top-0 right-0 p-4 z-[80] flex flex-col items-end gap-4">
+                    <div className="w-10 h-10 border-t border-r border-primary/20 absolute top-4 right-4 pointer-events-none"></div>
+                    
+                    {/* Project Selector */}
+                    <div className="relative mt-2 mr-2">
+                        <button 
+                            onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
+                            className="bg-void/80 backdrop-blur-md border border-white/10 px-4 py-2 flex items-center gap-3 hover:border-primary/50 transition-all group"
+                        >
+                            <div className="text-primary group-hover:animate-pulse">
+                                {projectIcons[projects.find(p => p.id === activeProject)?.icon] || <Radio size={14} />}
+                            </div>
+                            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white whitespace-nowrap">
+                                {projects.find(p => p.id === activeProject)?.label || 'SELECT PROJECT'}
+                            </span>
+                            <ChevronDown size={14} className={`text-text-muted transition-transform duration-300 ${isProjectMenuOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <AnimatePresence>
+                            {isProjectMenuOpen && (
+                                <motion.div 
+                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    className="absolute top-full right-0 mt-2 w-64 bg-void border border-primary/30 p-1 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-[90]"
+                                >
+                                    {projects.map((proj) => (
+                                        <button
+                                            key={proj.id}
+                                            onClick={() => {
+                                                setActiveProject(proj.id);
+                                                setIsProjectMenuOpen(false);
+                                            }}
+                                            className={`w-full flex items-center gap-4 px-4 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-primary/10 ${activeProject === proj.id ? 'text-primary bg-primary/5' : 'text-text-muted hover:text-white'}`}
+                                        >
+                                            <div className={activeProject === proj.id ? 'text-primary' : 'opacity-40'}>
+                                                {projectIcons[proj.icon]}
+                                            </div>
+                                            <span className="flex-1 text-left">{proj.label}</span>
+                                            {activeProject === proj.id && <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_#FF3333]"></div>}
+                                        </button>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
                     {loading && (
-                        <div className="flex items-center gap-2 mr-2 animate-pulse">
+                        <div className="flex items-center gap-2 mr-4 animate-pulse">
                             <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Transmitting</span>
                             <div className="size-1.5 bg-primary rounded-full animate-ping"></div>
                         </div>

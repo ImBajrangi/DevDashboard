@@ -34,10 +34,11 @@ const TheStratification = ({ operators = [] }) => {
     const displayOps = filteredOps.length > 0 ? filteredOps : displayOperators;
 
     return (
-        <div className="min-h-screen flex flex-col p-6 md:p-12 lg:p-16">
-            {/* Nav – template: fixed top-0 left-0 w-full p-8 z-50 bg-void/80 backdrop-blur-md border-b */}
-            <nav className="fixed top-0 left-16 right-0 p-8 flex justify-between items-center z-50 bg-void/80 backdrop-blur-md border-b border-border-void/50">
-                <div className="font-mono text-[10px] tracking-[0.4em] text-text-muted flex items-center gap-4">
+        <div className="h-screen flex flex-col md:pl-4 overflow-hidden relative font-display antialiased selection:bg-[#333333] selection:text-white">
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
+            {/* Nav – now shrink-0 within the flex flow */}
+            <nav className="flex justify-between items-center px-12 pt-12 pb-8 shrink-0 z-30">
+                <div className="font-mono text-[10px] tracking-[0.4em] text-text-muted flex items-center gap-4 uppercase font-bold">
                     <span className="w-2 h-2 bg-primary" />
                     THE_STRATIFICATION // RANKINGS_v4.0
                 </div>
@@ -51,8 +52,8 @@ const TheStratification = ({ operators = [] }) => {
                 </div>
             </nav>
 
-            {/* Main grid – template: mt-24 grid-cols-1 lg:grid-cols-12 gap-12 */}
-            <main className="w-full mx-auto mt-24 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-grow">
+            {/* Main grid – expands to fill remaining space */}
+            <main className="flex-1 min-h-0 w-full grid grid-cols-12 max-w-6xl mx-auto gap-12 px-12 pb-8">
                 {/* Left sidebar – col-span-3 */}
                 <aside className="lg:col-span-3 space-y-12">
                     <div className="sticky top-32">
@@ -109,15 +110,15 @@ const TheStratification = ({ operators = [] }) => {
                             <div className="col-span-3 text-right">Uptime</div>
                         </div>
 
-                        {/* Table rows – max-h-[70vh] overflow-y-auto */}
-                        <div className="divide-y divide-border-void overflow-y-auto max-h-[70vh]" style={{ scrollbarWidth: 'none' }}>
+                        {/* Table rows – TRUE scrolling region */}
+                        <div className="flex-1 overflow-y-auto no-scrollbar divide-y divide-border-void">
                             {displayOps.map((op, idx) => (
                                 <div
                                     key={idx}
                                     className={`grid grid-cols-12 items-center font-mono text-sm px-6 ${op.isCurrentUser
                                         ? 'py-5 bg-primary/10 border-l-2 border-l-primary'
-                                        : 'py-4 hover:bg-white/5'
-                                        }`}
+                                        : 'py-4 hover:bg-white hover:text-void'
+                                        } transition-all duration-150 cursor-pointer`}
                                 >
                                     <div className={`col-span-1 ${op.isCurrentUser ? 'text-primary font-bold' : 'text-text-muted'}`}>
                                         {op.rank}
@@ -154,9 +155,9 @@ const TheStratification = ({ operators = [] }) => {
                 </section>
             </main>
 
-            {/* Footer */}
-            <footer className="mt-24 pt-12 border-t border-border-void flex flex-col md:flex-row justify-between items-end opacity-40">
-                <div className="font-mono text-[10px] space-y-1">
+            {/* Footer – now relative and integrated */}
+            <footer className="mt-auto pt-8 border-t border-border-void flex justify-between items-end pb-8 px-12 z-40">
+                <div className="font-mono text-[10px] space-y-1 text-text-muted">
                     <p>SYSTEM_REVISION: ALPHA_4.12.0</p>
                     <p>DATA_INTEGRITY: 100%_VERIFIED</p>
                 </div>

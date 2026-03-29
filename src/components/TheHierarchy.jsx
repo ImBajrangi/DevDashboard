@@ -36,10 +36,12 @@ const TheHierarchy = ({ users = [] }) => {
     const displayUsers = filteredUsers.length > 0 ? filteredUsers : ALL_USERS;
 
     return (
-        <div className="h-screen w-full overflow-hidden font-display antialiased selection:bg-[#333333] selection:text-white relative">
-            {/* Top nav – fixed full width */}
-            <nav className="fixed top-0 left-16 right-0 p-8 flex justify-between items-start z-50 pointer-events-none">
-                <div className="flex flex-col gap-1 pointer-events-auto">
+        <div className="h-screen flex flex-col md:pl-4 overflow-hidden relative font-display antialiased selection:bg-[#333333] selection:text-white">
+            {/* Visual Overlays for consistency */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
+            {/* Top nav – now part of the flex flow, but looks fixed */}
+            <nav className="flex justify-between items-start pt-12 pb-8 px-12 shrink-0 z-30">
+                <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
                         Protocol // Archive
                     </span>
@@ -55,9 +57,9 @@ const TheHierarchy = ({ users = [] }) => {
                 </div>
             </nav>
 
-            {/* Main centered content */}
-            <main className="relative z-10 h-full w-full flex items-center justify-center pt-24 px-12">
-                <div className="grid grid-cols-12 w-full max-w-6xl gap-12 h-[70vh]">
+            {/* Main content grid – expands to fill remaining space */}
+            <main className="flex-1 min-h-0 w-full flex flex-col items-center px-12">
+                <div className="grid grid-cols-12 w-full max-w-6xl gap-12 flex-1 min-h-0 pb-8">
                     {/* Left tier sidebar – col-span-3 */}
                     <div className="col-span-3 flex flex-col justify-between py-4 border-r border-border-void relative">
                         <div
@@ -99,8 +101,8 @@ const TheHierarchy = ({ users = [] }) => {
                             <div className="col-span-2 text-right">Status</div>
                         </div>
 
-                        {/* Table rows */}
-                        <div className="flex-1 overflow-y-auto font-mono text-sm py-4" style={{ scrollbarWidth: 'none' }}>
+                        {/* Table rows – TRUE scrolling region */}
+                        <div className="flex-1 overflow-y-auto no-scrollbar font-mono text-sm py-4">
                             {displayUsers.map((user) =>
                                 user.isCurrentUser ? (
                                     <div
@@ -124,7 +126,7 @@ const TheHierarchy = ({ users = [] }) => {
                                 ) : (
                                     <div
                                         key={user.pos}
-                                        className="grid grid-cols-12 py-3 border-b border-white/5 opacity-40 hover:opacity-100 hover:bg-text-main hover:text-void hover:px-4 -mx-4 transition-all duration-200 cursor-pointer"
+                                        className="grid grid-cols-12 py-3 border-b border-white/5 opacity-40 hover:opacity-100 hover:bg-white hover:text-void hover:px-4 transition-all duration-200 cursor-pointer"
                                     >
                                         <div className="col-span-1">{user.pos}</div>
                                         <div className="col-span-6 flex items-center gap-2">
@@ -169,15 +171,10 @@ const TheHierarchy = ({ users = [] }) => {
                 </div>
             </main>
 
-            {/* Right sidebar strip */}
-            <aside className="fixed right-0 top-0 bottom-0 w-16 border-l border-border-void flex flex-col items-center justify-center gap-12 z-20">
+            {/* Right sidebar decoration strip – anchored to the container */}
+            <aside className="absolute right-0 top-0 bottom-0 w-12 border-l border-border-void flex flex-col items-center justify-center gap-12 z-20">
                 <div className="rotate-90 origin-center whitespace-nowrap font-mono text-[10px] tracking-[0.5em] text-text-muted uppercase">
                     Ascension Protocol v1.4
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
-                    <div className="w-1 h-1 rounded-full bg-border-void" />
-                    <div className="w-1 h-1 rounded-full bg-border-void" />
                 </div>
             </aside>
 

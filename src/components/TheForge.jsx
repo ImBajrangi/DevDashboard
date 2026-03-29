@@ -4,7 +4,7 @@ import { Save, Plus, X, Edit3, Trash2, Globe, FileText, Type, Hash, Link, Image 
 import { motion, AnimatePresence } from 'framer-motion';
 import { cache } from '../lib/cache';
 
-const TheForge = ({ categories = [] }) => {
+const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
     const [entries, setEntries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingEntry, setEditingEntry] = useState(null);
@@ -31,6 +31,17 @@ const TheForge = ({ categories = [] }) => {
         audio_url: '',
         is_premium: false
     });
+
+    useEffect(() => {
+        const projectStreamMap = {
+            'SANT_VAANI_PREMIUM': 'journal_entries',
+            'VRINDA_BLOG': 'blogvrinda',
+            'SPIRIT_DEV': 'content'
+        };
+        if (activeProject !== 'ALL_SYSTEMS' && projectStreamMap[activeProject]) {
+            setActiveStream(projectStreamMap[activeProject]);
+        }
+    }, [activeProject]);
 
     useEffect(() => {
         fetchEntries();
