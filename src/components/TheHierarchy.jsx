@@ -40,7 +40,7 @@ const TheHierarchy = ({ users = [] }) => {
             {/* Visual Overlays for consistency */}
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
             {/* Top nav – now part of the flex flow, but looks fixed */}
-            <nav className="flex justify-between items-start pt-12 pb-8 px-12 shrink-0 z-30">
+            <nav className="flex justify-between items-start pt-4 pb-8 px-12 shrink-0 z-30">
                 <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
                         Protocol // Archive

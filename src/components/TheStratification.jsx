@@ -37,7 +37,7 @@ const TheStratification = ({ operators = [] }) => {
         <div className="h-[calc(100vh-64px)] flex flex-col md:pl-4 overflow-hidden relative font-display antialiased selection:bg-[#333333] selection:text-white">
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
             {/* Nav – now shrink-0 within the flex flow */}
-            <nav className="flex justify-between items-center px-12 pt-12 pb-8 shrink-0 z-30">
+            <nav className="flex justify-between items-center px-12 pt-4 pb-8 shrink-0 z-30">
                 <div className="font-mono text-[10px] tracking-[0.4em] text-text-muted flex items-center gap-4 uppercase font-bold">
                     <span className="w-2 h-2 bg-primary" />
                     THE_STRATIFICATION // RANKINGS_v4.0

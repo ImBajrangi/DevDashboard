@@ -90,9 +90,9 @@ const Layout = ({
             </Helmet>
 
             <div className={`min-h-screen bg-void text-text-main font-display relative ${isMobile ? 'pb-24' : ''}`}>
-                {/* Global Top Header Bar */}
-                <header className={`fixed top-0 left-0 right-0 h-16 bg-void/90 backdrop-blur-md border-b border-border-void z-[100] transition-all duration-700 ${hideNav ? '-translate-y-full' : 'translate-y-0'}`}>
-                    <div className="h-full flex items-center justify-between px-6 pl-20 md:pl-24">
+                {/* Global Top Header Bar – Pointer Pass-Through Enabled */}
+                <header className={`fixed top-0 left-0 right-0 h-16 bg-void/90 backdrop-blur-md border-b border-border-void z-[100] transition-all duration-700 pointer-events-none ${hideNav ? '-translate-y-full' : 'translate-y-0'}`}>
+                    <div className="h-full flex items-center justify-between px-6 pl-20 md:pl-24 pointer-events-auto">
                         <div className="flex items-center gap-4">
                             <div className="w-2 h-2 bg-primary animate-pulse shadow-[0_0_8px_#FF3333]"></div>
                             <span className="font-mono text-[10px] tracking-[0.4em] text-text-muted uppercase font-bold hidden sm:block">SYSTEM_LINK // ACTIVE</span>
@@ -231,9 +231,9 @@ const Layout = ({
                     </nav>
                 )}
 
-                {/* Mobile Bottom Navigation Bar */}
+                {/* Mobile Bottom Navigation Bar – HIDDEN ON DESKTOP */}
                 {isMobile && (
-                    <nav className={`fixed bottom-0 left-0 right-0 z-50 bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+                    <nav className={`fixed bottom-0 left-0 right-0 z-50 bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 md:hidden ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
                         <button onClick={() => setActiveTab('nexus')} className={`flex flex-col items-center gap-1 ${activeTab === 'nexus' ? 'text-white' : 'text-text-muted'}`}>
                             <Radio size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Nexus</span>
@@ -271,8 +271,11 @@ const Layout = ({
                     </nav>
                 )}
 
-                {/* Main Content Area – Decollided */}
-                <main className={`min-h-screen pt-16 ${isMobile ? 'pb-24' : 'main-content-padding'}`}>
+                {/* Main Content Area – Decollided (Explicit 64px Top-Offset) */}
+                <main 
+                    className={`min-h-screen ${isMobile ? 'pb-24' : 'main-content-padding'}`}
+                    style={{ paddingTop: '64px' }}
+                >
                     {children}
                 </main>
             </div>

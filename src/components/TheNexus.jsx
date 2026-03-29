@@ -36,8 +36,8 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
 
     return (
         <div className="min-h-[calc(100vh-64px)] bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col">
-            {/* Top Bar Label & Dynamic Categories */}
-            <div className="px-12 py-8 flex justify-between items-center border-b border-border-void">
+            {/* Top Bar Label & Dynamic Categories – Sticky Deployment */}
+            <div className="sticky top-0 z-40 bg-void/95 backdrop-blur-md px-12 py-8 flex justify-between items-center border-b border-border-void">
                 <div className="flex gap-8 items-center">
                     <span className="opacity-40 text-[10px] tracking-[0.3em] uppercase">System_Access // THE_NEXUS_V.4.0</span>
                     <div className="h-4 w-px bg-border-void mx-4 opacity-40"></div>
