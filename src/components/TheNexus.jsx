@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useMobile } from '../hooks/useMobile';
+import TheNexusMobile from './TheNexusMobile';
 
 /**
  * TheNexus component – from the_airlock_2 template.
  * High-density desktop dashboard.
  */
-const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 }, activeProject = 'ALL_SYSTEMS' }) => {
+const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 }, activeProject = 'ALL_SYSTEMS', onLoadMoreEntries, isFetchingMore }) => {
+    const isMobile = useMobile();
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    if (isMobile) {
+        return (
+            <TheNexusMobile 
+                items={allEntries} 
+                onItemClick={onSignalClick} 
+                categories={categories} 
+                selectedCategory={selectedCategory} 
+                onCategoryChange={onCategoryChange} 
+                onLoadMore={onLoadMoreEntries}
+                isFetchingMore={isFetchingMore}
+            />
+        );
+    }
+    
+    // Reset visible count when context changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [activeProject, selectedCategory]);
+
     const projectSourceMap = {
         'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
         'VRINDA_BLOG': 'VRINDA',
@@ -18,7 +42,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             return mappedSource === projectSourceMap[activeProject] || (activeProject === 'SANT_VAANI_PREMIUM' && e.source === 'PREMIUM_REFLECT');
         });
 
-    const latestSignals = (filteredEntries || []).slice(0, 3).map(entry => {
+    const latestSignals = (filteredEntries || []).slice(0, visibleCount).map(entry => {
         if (!entry) return null;
         return {
             id: entry.id,
@@ -98,9 +122,31 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                         )}
                     </div>
 
-                    <button className="mt-auto self-start btn-invert" onClick={() => onSignalClick && onSignalClick({ id: 'feed' })}>
-                        [ VIEW_ALL_SIGNALS ]
-                    </button>
+                    <div className="mt-auto flex flex-col gap-4">
+                        {visibleCount < (filteredEntries || []).length ? (
+                            <button 
+                                className="self-start px-4 py-2 border border-primary text-primary font-mono text-[10px] tracking-widest hover:bg-primary hover:text-white transition-all duration-300 animate-pulse"
+                                onClick={() => setVisibleCount(prev => prev + 6)}
+                            >
+                                [ EXPAND_LOCAL_VIEW ]
+                            </button>
+                        ) : (
+                            <button 
+                                onClick={onLoadMoreEntries}
+                                disabled={isFetchingMore}
+                                className={`self-start px-4 py-2 border border-border-void text-text-main font-mono text-[10px] tracking-widest hover:bg-white hover:text-void transition-all duration-300 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                            >
+                                {isFetchingMore ? '[ SYNCING_CORE... ]' : '[ SYNC_GLOBAL_ARCHIVE ]'}
+                            </button>
+                        )}
+                        
+                        <button 
+                            className="self-start text-[9px] text-text-muted hover:text-white font-mono tracking-widest transition-colors uppercase"
+                            onClick={() => onSignalClick && onSignalClick({ id: 'feed' })}
+                        >
+                            &gt; Access_All_Archive_Data
+                        </button>
+                    </div>
                 </section>
 
                 {/* Column 2: System Metrics */}

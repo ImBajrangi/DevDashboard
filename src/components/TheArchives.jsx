@@ -7,7 +7,7 @@ import TheArchivesMobile from './TheArchivesMobile';
  * A clean article list with filter tabs (ALL, UNREAD, FINISHED).
  * Features: Large serif titles, date/read-time metadata, strikethrough for read articles.
  */
-const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
+const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, onLoadMore, isFetchingMore }) => {
     const isMobile = useMobile();
 
     if (isMobile) {
@@ -18,6 +18,8 @@ const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL']
                 categories={categories} 
                 selectedCategory={selectedCategory} 
                 onCategoryChange={onCategoryChange} 
+                onLoadMore={onLoadMore}
+                isFetchingMore={isFetchingMore}
             />
         );
     }
@@ -60,6 +62,21 @@ const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL']
                         </div>
                     </div>
                 ))}
+
+                {/* Global Archive Sync Trigger */}
+                <div className="mt-12 py-20 flex flex-col items-center justify-center border-t border-border-void/30">
+                    <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                    <button 
+                        onClick={onLoadMore}
+                        disabled={isFetchingMore}
+                        className={`font-mono text-[10px] uppercase tracking-[0.5em] border border-border-void px-8 py-4 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                    >
+                        {isFetchingMore ? '[ TRANSMITTING_RECORDS... ]' : '[ SYNC_EXTENDED_ARCHIVE ]'}
+                    </button>
+                    <span className="mt-4 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-40">
+                        Coordinate: {items.length} Archival Nodes Decrypted
+                    </span>
+                </div>
             </div>
         </>
     );

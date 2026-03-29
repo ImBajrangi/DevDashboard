@@ -37,6 +37,8 @@ function App() {
     immersionMode: true
   })
   const [activeProject, setActiveProject] = useState('ALL_SYSTEMS');
+  const [offset, setOffset] = useState(50);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
   const projects = [
     { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
     { id: 'SANT_VAANI_PREMIUM', label: 'Sant-Vaani Premium', icon: 'Star' },
@@ -123,7 +125,7 @@ function App() {
       }
     }
     fetchData();
-
+    
     // Set up Supabase real-time listeners for both instances
     const legacyChannel = legacySupabase
       .channel('legacy-db-changes')
@@ -149,6 +151,35 @@ function App() {
       supabase.removeChannel(mainChannel)
     }
   }, [])
+
+  const handleLoadMore = async () => {
+    if (isFetchingMore) return;
+    setIsFetchingMore(true);
+    
+    try {
+      const BATCH = 50;
+      const [contentRes, vrindaRes] = await Promise.all([
+        legacySupabase.from('content').select('*').order('created_at', { ascending: false }).range(offset, offset + BATCH - 1),
+        supabase.from('blogvrinda').select('*').order('created_at', { ascending: false }).range(offset, offset + BATCH - 1)
+      ]);
+
+      const transformedContent = (contentRes.data || []).map(post => ({ ...post, id: post.id || post.slug, stream: 'dev' }));
+      const transformedVrinda = (vrindaRes.data || []).map(post => ({ ...post, id: post.id || post.slug, stream: 'vrinda' }));
+
+      const merged = [...transformedContent, ...transformedVrinda].sort((a, b) => 
+        new Date(b.created_at) - new Date(a.created_at)
+      );
+
+      if (merged.length > 0) {
+        setAllEntries(prev => [...prev, ...merged]);
+        setOffset(prev => prev + BATCH);
+      }
+    } catch (err) {
+      console.error('Deep Archive Sync Failure:', err);
+    } finally {
+      setIsFetchingMore(false);
+    }
+  };
 
   if (showSplash) {
     return <TheSplash onEnter={() => setShowSplash(false)} />
@@ -312,6 +343,8 @@ function App() {
               categories={dynamicCategories}
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
+              onLoadMore={handleLoadMore}
+              isFetchingMore={isFetchingMore}
             /> 
           : <TheNexus 
               onSignalClick={handleArticleClick} 
@@ -321,6 +354,8 @@ function App() {
               onCategoryChange={setSelectedCategory}
               premiumStats={globalPremiumStats}
               activeProject={activeProject}
+              onLoadMoreEntries={handleLoadMore}
+              isFetchingMore={isFetchingMore}
             />
       )}
 
@@ -332,6 +367,8 @@ function App() {
           categories={dynamicCategories}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
+          onLoadMore={handleLoadMore}
+          isFetchingMore={isFetchingMore}
         />
       )}
 
@@ -360,6 +397,8 @@ function App() {
           categories={dynamicCategories}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
+          onLoadMore={handleLoadMore}
+          isFetchingMore={isFetchingMore}
         />
       )}
 
@@ -370,17 +409,29 @@ function App() {
 
       {/* THE HIERARCHY – airlock_16 / airlock_10 */}
       {activeTab === 'hierarchy' && (
-        <TheHierarchy users={dynamicRankings} />
+        <TheHierarchy 
+          users={dynamicRankings} 
+          onLoadMore={handleLoadMore}
+          isFetchingMore={isFetchingMore}
+        />
       )}
 
       {/* THE ARCHIVE GRID */}
       {activeTab === 'grid' && (
-        <TheArchiveGrid items={feedItems} />
+        <TheArchiveGrid 
+          items={feedItems} 
+          onLoadMore={handleLoadMore}
+          isFetchingMore={isFetchingMore}
+        />
       )}
 
       {/* THE STRATIFICATION – airlock_5 / airlock_14 */}
       {activeTab === 'stratification' && (
-        <TheStratification operators={dynamicRankings} />
+        <TheStratification 
+          operators={dynamicRankings} 
+          onLoadMore={handleLoadMore}
+          isFetchingMore={isFetchingMore}
+        />
       )}
 
       {/* THE DOSSIER */}

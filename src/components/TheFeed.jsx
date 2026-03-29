@@ -8,7 +8,7 @@ import TheFeedMobile from './TheFeedMobile';
  * Template header: pl-[180px] → we need pl-[120px]
  * Template main:   pl-[120px] → we need pl-[60px]
  */
-const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
+const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, onLoadMore, isFetchingMore }) => {
     const isMobile = useMobile();
     if (isMobile) {
         return (
@@ -18,6 +18,8 @@ const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCatego
                 categories={categories} 
                 selectedCategory={selectedCategory} 
                 onCategoryChange={onCategoryChange} 
+                onLoadMore={onLoadMore}
+                isFetchingMore={isFetchingMore}
             />
         );
     }
@@ -78,11 +80,18 @@ const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCatego
                         </div>
                     ))}
 
-                    {/* Loading indicator */}
-                    <div className="px-12 py-20 flex flex-col items-center justify-center opacity-30">
-                        <div className="w-1 h-8 bg-text-muted animate-pulse mb-4" />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.5em]">
-                            Receiving further data...
+                    {/* Deep Archive Sync Trigger */}
+                    <div className="px-12 py-20 flex flex-col items-center justify-center border-t border-border-void/30">
+                        <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                        <button 
+                            onClick={onLoadMore}
+                            disabled={isFetchingMore}
+                            className={`font-mono text-[10px] uppercase tracking-[0.5em] border border-border-void px-8 py-4 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                        >
+                            {isFetchingMore ? '[ TRANSMITTING_SIGNAL... ]' : '[ SYNC_NEXT_BATCH ]'}
+                        </button>
+                        <span className="mt-4 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-40">
+                            Coordinate: {items.length} Records Decrypted
                         </span>
                     </div>
                 </div>

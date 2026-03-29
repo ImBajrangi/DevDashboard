@@ -5,7 +5,7 @@ import { Wifi, Filter, Activity, Zap, Shield, Database, Radio } from 'lucide-rea
  * TheNexusMobile - High-Density Monolithic Interface.
  * Optimized for mobile data visualization with a brutalist/industrial aesthetic.
  */
-const TheNexusMobile = ({ onItemClick, items = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
+const TheNexusMobile = ({ onItemClick, items = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, onLoadMore, isFetchingMore }) => {
     // Current timestamp for the 'Sacred Terminal' look
     const currentTime = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
 
@@ -75,46 +75,62 @@ const TheNexusMobile = ({ onItemClick, items = [], categories = ['ALL'], selecte
                     </div>
 
                     <div className="divide-y divide-white/5">
-                        {items.length > 0 ? items.map((item, idx) => (
-                            <div 
-                                key={item.id || idx}
-                                onClick={() => onItemClick && onItemClick(item)}
-                                className="px-4 py-4 active:bg-primary/10 transition-colors group relative overflow-hidden"
-                            >
-                                {/* Background Accent Flash on certain items */}
-                                {idx % 5 === 0 && <div className="absolute top-0 left-0 w-1 h-full bg-primary/40"></div>}
-                                
-                                <div className="flex justify-between items-start mb-2">
-                                    <div className="flex flex-col">
-                                        <span className="text-[9px] text-zinc-500 flex items-center gap-1.5 mb-1">
-                                            <span className="text-primary">[{item.source || 'SYS'}]</span>
-                                            {item.date} // {idx.toString().padStart(4, '0')}
-                                        </span>
-                                        <h3 className="text-sm font-bold leading-snug uppercase tracking-tight group-active:text-primary transition-colors pr-8 overflow-hidden line-clamp-2">
-                                            {item.title}
-                                        </h3>
+                        {items.length > 0 ? (
+                            items.map((item, idx) => (
+                                <div 
+                                    key={item.id || idx}
+                                    onClick={() => onItemClick && onItemClick(item)}
+                                    className="px-4 py-4 active:bg-primary/10 transition-colors group relative overflow-hidden"
+                                >
+                                    {/* Background Accent Flash on certain items */}
+                                    {idx % 5 === 0 && <div className="absolute top-0 left-0 w-1 h-full bg-primary/40"></div>}
+                                    
+                                    <div className="flex justify-between items-start mb-2">
+                                        <div className="flex flex-col">
+                                            <span className="text-[9px] text-zinc-500 flex items-center gap-1.5 mb-1">
+                                                <span className="text-primary">[{item.source || 'SYS'}]</span>
+                                                {item.date} // {idx.toString().padStart(4, '0')}
+                                            </span>
+                                            <h3 className="text-sm font-bold leading-snug uppercase tracking-tight group-active:text-primary transition-colors pr-8 overflow-hidden line-clamp-2">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                        <div className="flex flex-col items-end shrink-0">
+                                            <span className={`text-[10px] font-bold ${parseInt(item.clarity) < 90 ? 'text-red-500' : 'text-zinc-300'}`}>
+                                                {item.clarity || '98.2%'}
+                                            </span>
+                                            <span className="text-[8px] text-zinc-600 uppercase">Clarity</span>
+                                        </div>
                                     </div>
-                                    <div className="flex flex-col items-end shrink-0">
-                                        <span className={`text-[10px] font-bold ${parseInt(item.clarity) < 90 ? 'text-red-500' : 'text-zinc-300'}`}>
-                                            {item.clarity || '98.2%'}
-                                        </span>
-                                        <span className="text-[8px] text-zinc-600 uppercase">Clarity</span>
-                                    </div>
-                                </div>
 
-                                <div className="flex items-center gap-3">
-                                    <div className="flex-1 h-[2px] bg-white/5 overflow-hidden">
-                                        <div 
-                                            className={`h-full ${parseInt(item.clarity) < 85 ? 'bg-red-500' : 'bg-primary/40'}`} 
-                                            style={{ width: `${item.clarity || 95}%` }}
-                                        ></div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex-1 h-[2px] bg-white/5 overflow-hidden">
+                                            <div 
+                                                className={`h-full ${parseInt(item.clarity) < 85 ? 'bg-red-500' : 'bg-primary/40'}`} 
+                                                style={{ width: `${item.clarity || 95}%` }}
+                                            ></div>
+                                        </div>
+                                        <span className="text-[8px] text-zinc-400 uppercase tracking-widest">{item.category}</span>
                                     </div>
-                                    <span className="text-[8px] text-zinc-400 uppercase tracking-widest">{item.category}</span>
                                 </div>
-                            </div>
-                        )) : (
+                            ))
+                        ) : (
                             <div className="p-10 text-center opacity-20 italic text-xs">Waiting for uplink...</div>
                         )}
+
+                        {/* Mobile Archive Sync Trigger */}
+                        <div className="p-6 flex flex-col items-center justify-center bg-zinc-900/10">
+                            <button 
+                                onClick={onLoadMore}
+                                disabled={isFetchingMore}
+                                className={`w-full py-4 border border-zinc-500/30 text-[10px] uppercase tracking-[0.3em] font-bold transition-all active:bg-primary active:text-black ${isFetchingMore ? 'opacity-50 animate-pulse' : ''}`}
+                            >
+                                {isFetchingMore ? 'SYNCING_SIGNAL...' : '[ SYNC_NEXT_BATCH ]'}
+                            </button>
+                            <span className="mt-3 text-[8px] text-zinc-600 uppercase tracking-widest">
+                                Buffer: {items.length} Nodes Cached
+                            </span>
+                        </div>
                     </div>
                 </section>
 

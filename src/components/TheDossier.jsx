@@ -244,7 +244,7 @@ const DossierDesktop = ({ user }) => {
 };
 
 /* ========== MAIN EXPORT ========== */
-const TheDossier = ({ user = null, allEntries = [] }) => {
+const TheDossier = ({ user = null, allEntries = [], onLoadMore, isFetchingMore }) => {
     const isMobile = useMobile();
 
     // Calculate real user stats
@@ -320,6 +320,17 @@ const TheDossier = ({ user = null, allEntries = [] }) => {
                                 </div>
                             ))}
                         </div>
+
+                        {/* Mobile Archive Sync Trigger */}
+                        <div className="mt-8 flex flex-col items-center">
+                            <button 
+                                onClick={onLoadMore}
+                                disabled={isFetchingMore}
+                                className={`w-full py-4 border border-[#1A1A1A] text-[10px] uppercase tracking-[0.3em] font-bold transition-all active:bg-[#f04242] active:text-white ${isFetchingMore ? 'opacity-50 animate-pulse' : ''}`}
+                            >
+                                {isFetchingMore ? 'RETRIEVING_DATA...' : '[ SYNC_PERSONAL_ARCHIVES ]'}
+                            </button>
+                        </div>
                     </section>
                 </main>
             </div>
@@ -378,6 +389,28 @@ const TheDossier = ({ user = null, allEntries = [] }) => {
                                 <h3 className="font-display" style={{ fontWeight: 700, fontSize: '18px', lineHeight: 1 }}>{badge.name}</h3>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Desktop Archive Sync Trigger */}
+                    <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <button 
+                            onClick={onLoadMore}
+                            disabled={isFetchingMore}
+                            className="font-mono"
+                            style={{
+                                fontSize: '12px', letterSpacing: '0.3em', padding: '12px 24px',
+                                color: isFetchingMore ? '#404040' : 'white',
+                                background: isFetchingMore ? 'transparent' : '#050505',
+                                border: '1px solid #262626',
+                                cursor: 'pointer', transition: 'all 0.2s',
+                                width: '100%'
+                            }}
+                        >
+                            {isFetchingMore ? '[ DECRYPTING_FURTHER_FRAGMENTS... ]' : '[ SYNC_PERSONAL_ARCHIVES ]'}
+                        </button>
+                        <span style={{ marginTop: '8px', fontSize: '10px', color: '#404040', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                            Local Cache: {userEntries.length} Identity Nodes
+                        </span>
                     </div>
                 </section>
             </main>

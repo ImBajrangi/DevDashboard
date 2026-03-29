@@ -11,7 +11,7 @@ const STRAT_TIERS = [
     { id: 'lvl1', label: 'LVL_01', name: 'NOVICE', minKw: 0 },
 ];
 
-const TheStratification = ({ operators = [] }) => {
+const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
     const isMobile = useMobile();
     const [activeLvl, setActiveLvl] = useState('lvl4');
 
@@ -19,7 +19,7 @@ const TheStratification = ({ operators = [] }) => {
     const displayOperators = operators.length > 0 ? operators : [...SYNTHETIC_OPERATORS];
 
     if (isMobile) {
-        return <TheStratificationMobile operators={displayOperators} />;
+        return <TheStratificationMobile operators={displayOperators} onLoadMore={onLoadMore} isFetchingMore={isFetchingMore} />;
     }
 
     // Parse KW for filtering
@@ -138,19 +138,19 @@ const TheStratification = ({ operators = [] }) => {
                         </div>
                     </div>
 
-                    {/* Pagination */}
-                    <div className="flex justify-between items-center pt-4">
-                        <div className="font-mono text-[9px] text-text-muted tracking-[0.2em] uppercase">
-                            [ Scroll to decrypt further depth ]
-                        </div>
-                        <div className="flex gap-4">
-                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors flex items-center justify-center">
-                                <ChevronLeft size={16} />
-                            </button>
-                            <button className="border border-border-void p-2 hover:bg-text-main hover:text-void transition-colors flex items-center justify-center">
-                                <ChevronRight size={16} />
-                            </button>
-                        </div>
+                    {/* Global Archive Sync Trigger within Stratification */}
+                    <div className="mt-8 py-12 flex flex-col items-center justify-center border-t border-border-void/20">
+                        <div className={`w-1 h-6 bg-primary mb-2 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                        <button 
+                            onClick={onLoadMore}
+                            disabled={isFetchingMore}
+                            className={`font-mono text-[9px] uppercase tracking-[0.4em] border border-border-void px-6 py-3 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                        >
+                            {isFetchingMore ? '[ TRANSMITTING_RANKS... ]' : '[ SYNC_STRAT_DATA ]'}
+                        </button>
+                        <span className="mt-3 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-30">
+                            Coordinate: {displayOps.length} Active Operators Decrypted
+                        </span>
                     </div>
                 </section>
             </main>

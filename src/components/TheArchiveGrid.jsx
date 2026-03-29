@@ -21,7 +21,7 @@ const IMAGES = [
     'https://images.unsplash.com/photo-1446776899648-aa78eefe8512?auto=format&fit=crop&q=80&w=300',
 ];
 
-const TheArchiveGrid = ({ items = [] }) => {
+const TheArchiveGrid = ({ items = [], onLoadMore, isFetchingMore }) => {
     // Collect all unique images from items
     const dynamicImages = items
         .flatMap(item => item.images || [])
@@ -193,6 +193,21 @@ const TheArchiveGrid = ({ items = [] }) => {
             {/* Transmitting text */}
             <div className="fixed bottom-4 left-1/2 -translate-x-1/2 font-mono text-[8px] text-[#666666] tracking-[1em] uppercase opacity-20 pointer-events-none z-50">
                 Sector_Zero_Transmitting...
+            </div>
+
+            {/* Global Archive Sync Trigger */}
+            <div className="mt-20 py-24 flex flex-col items-center justify-center border-t border-border-void/30">
+                <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                <button 
+                    onClick={onLoadMore}
+                    disabled={isFetchingMore}
+                    className={`font-mono text-[10px] uppercase tracking-[0.5em] border border-border-void px-8 py-4 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                >
+                    {isFetchingMore ? '[ TRANSMITTING_GRID_DATA... ]' : '[ SYNC_EXTENDED_GRID ]'}
+                </button>
+                <span className="mt-4 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-40">
+                    Coordinate: {items.length} High-Res Transmissions Cached
+                </span>
             </div>
         </div>
     );

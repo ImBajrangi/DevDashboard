@@ -5,7 +5,7 @@ import { Archive, CheckCircle, Circle } from 'lucide-react';
  * TheArchivesMobile - High-Density Archival Interface.
  * Brutalist, industrial design for mobile data retrieval.
  */
-const TheArchivesMobile = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange }) => {
+const TheArchivesMobile = ({ items = [], onItemClick, categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, onLoadMore, isFetchingMore }) => {
     return (
         <div className="bg-black text-white font-mono min-h-screen flex flex-col pb-24">
             {/* Header */}
@@ -34,33 +34,49 @@ const TheArchivesMobile = ({ items = [], onItemClick, categories = ['ALL'], sele
 
             {/* Archive List */}
             <main className="flex-1 divide-y divide-white/5">
-                {items.length > 0 ? items.map((item, idx) => (
-                    <div
-                        key={item.id || idx}
-                        className={`px-4 py-6 cursor-pointer active:bg-primary/5 transition-colors group relative ${item.isRead ? 'opacity-40' : 'opacity-100'}`}
-                        onClick={() => onItemClick && onItemClick(item)}
-                    >
-                        <div className="flex gap-4 items-start">
-                             <div className="shrink-0 mt-1">
-                                {item.isRead ? <CheckCircle size={14} className="text-primary" /> : <Circle size={14} className="text-zinc-700" />}
-                            </div>
-                            <div className="flex flex-col gap-2 flex-1">
-                                <h3 className={`text-base font-bold leading-tight tracking-tight uppercase group-active:text-primary transition-colors line-clamp-2 ${item.isRead ? 'line-through' : ''}`}>
-                                    {item.title}
-                                </h3>
-                                <div className="flex justify-between items-center text-[9px] uppercase text-zinc-600">
-                                    <div className="flex gap-3">
-                                        <span>{item.date}</span>
-                                        <span>[{item.readTime}m]</span>
+                {items.length > 0 ? (
+                    items.map((item, idx) => (
+                        <div
+                            key={item.id || idx}
+                            className={`px-4 py-6 cursor-pointer active:bg-primary/5 transition-colors group relative ${item.isRead ? 'opacity-40' : 'opacity-100'}`}
+                            onClick={() => onItemClick && onItemClick(item)}
+                        >
+                            <div className="flex gap-4 items-start">
+                                <div className="shrink-0 mt-1">
+                                    {item.isRead ? <CheckCircle size={14} className="text-primary" /> : <Circle size={14} className="text-zinc-700" />}
+                                </div>
+                                <div className="flex flex-col gap-2 flex-1">
+                                    <h3 className={`text-base font-bold leading-tight tracking-tight uppercase group-active:text-primary transition-colors line-clamp-2 ${item.isRead ? 'line-through' : ''}`}>
+                                        {item.title}
+                                    </h3>
+                                    <div className="flex justify-between items-center text-[9px] uppercase text-zinc-600">
+                                        <div className="flex gap-3">
+                                            <span>{item.date}</span>
+                                            <span>[{item.readTime}m]</span>
+                                        </div>
+                                        <span className="tracking-widest">ID_{idx.toString().padStart(4, '0')}</span>
                                     </div>
-                                    <span className="tracking-widest">ID_{idx.toString().padStart(4, '0')}</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )) : (
-                    <div className="p-20 text-center text-xs opacity-20 italic">No records in vault...</div>
+                    ))
+                ) : (
+                    <div className="p-10 text-center opacity-20 italic text-xs">Awaiting data decryption...</div>
                 )}
+
+                {/* Mobile Archive Sync Trigger */}
+                <div className="p-6 flex flex-col items-center justify-center bg-zinc-900/10 border-t border-white/5">
+                    <button 
+                        onClick={onLoadMore}
+                        disabled={isFetchingMore}
+                        className={`w-full py-4 border border-zinc-500/30 text-[10px] uppercase tracking-[0.3em] font-bold transition-all active:bg-primary active:text-black ${isFetchingMore ? 'opacity-50 animate-pulse' : ''}`}
+                    >
+                        {isFetchingMore ? 'SYNCING_VAULT...' : '[ SYNC_EXTENDED_VAULT ]'}
+                    </button>
+                    <span className="mt-3 text-[8px] text-zinc-600 uppercase tracking-widest">
+                        Archive: {items.length} Documents Restored
+                    </span>
+                </div>
             </main>
 
             {/* Floating Index Decor */}

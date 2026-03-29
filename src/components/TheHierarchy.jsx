@@ -10,7 +10,7 @@ const TIERS = [
     { id: 'base', label: '03 / Base', name: 'ACOLYTE', minWeight: 0 },
 ];
 
-const TheHierarchy = ({ users = [] }) => {
+const TheHierarchy = ({ users = [], onLoadMore, isFetchingMore }) => {
     const isMobile = useMobile();
     const [activeTier, setActiveTier] = useState('active');
 
@@ -18,7 +18,7 @@ const TheHierarchy = ({ users = [] }) => {
     const ALL_USERS = users.length > 0 ? users : [...SYNTHETIC_USERS];
 
     if (isMobile) {
-        return <TheHierarchyMobile users={ALL_USERS} />;
+        return <TheHierarchyMobile users={ALL_USERS} onLoadMore={onLoadMore} isFetchingMore={isFetchingMore} />;
     }
 
     // Parse weight string to number for filtering
@@ -138,12 +138,19 @@ const TheHierarchy = ({ users = [] }) => {
                                     </div>
                                 )
                             )}
-                            {/* Truncated indicator */}
-                            <div className="grid grid-cols-12 py-3 border-b border-white/5 opacity-20">
-                                <div className="col-span-1">...</div>
-                                <div className="col-span-6">---</div>
-                                <div className="col-span-3">---</div>
-                                <div className="col-span-2 text-right text-[10px]">---</div>
+                            {/* Global Archive Sync Trigger within Hierarchy */}
+                            <div className="mt-8 py-12 flex flex-col items-center justify-center border-t border-border-void/20">
+                                <div className={`w-1 h-6 bg-primary mb-2 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                                <button 
+                                    onClick={onLoadMore}
+                                    disabled={isFetchingMore}
+                                    className={`font-mono text-[9px] uppercase tracking-[0.4em] border border-border-void px-6 py-3 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
+                                >
+                                    {isFetchingMore ? '[ TRANSMITTING_NODES... ]' : '[ SYNC_SYSTEM_OPERATORS ]'}
+                                </button>
+                                <span className="mt-3 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-30">
+                                    Coordinate: {displayUsers.length} Active Identifiers Recorded
+                                </span>
                             </div>
                         </div>
 

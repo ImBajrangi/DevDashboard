@@ -5,7 +5,7 @@ import { MoreVertical, Radio, LayoutGrid, Search, User, Settings, Shield } from 
  * TheHierarchyMobile - High-Density Monolithic Interface.
  * Brutalist rankings view for the spiritual hierarchy.
  */
-const TheHierarchyMobile = ({ users = [] }) => {
+const TheHierarchyMobile = ({ users = [], onLoadMore, isFetchingMore }) => {
     return (
         <div className="bg-black text-white font-mono min-h-screen flex flex-col pb-24 border-x border-white/5">
             {/* Header */}
@@ -92,7 +92,20 @@ const TheHierarchyMobile = ({ users = [] }) => {
                             </div>
                         ))}
                     </div>
-                    <div className="h-32" />
+                        {/* Mobile Archive Sync Trigger within Hierarchy */}
+                        <div className="p-6 flex flex-col items-center justify-center bg-zinc-900/10 border-t border-white/5">
+                            <button 
+                                onClick={onLoadMore}
+                                disabled={isFetchingMore}
+                                className={`w-full py-4 border border-zinc-500/30 text-[10px] uppercase tracking-[0.3em] font-bold transition-all active:bg-primary active:text-black ${isFetchingMore ? 'opacity-50 animate-pulse' : ''}`}
+                            >
+                                {isFetchingMore ? 'SYNCING_NODES...' : '[ SYNC_SYSTEM_OPERATORS ]'}
+                            </button>
+                            <span className="mt-3 text-[8px] text-zinc-600 uppercase tracking-widest">
+                                Buffer: {users.length} Active Identifiers
+                            </span>
+                        </div>
+                        <div className="h-32" />
                 </section>
             </div>
 
