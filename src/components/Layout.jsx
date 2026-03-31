@@ -22,6 +22,8 @@ const Layout = ({
 }) => {
     const isMobile = useMobile();
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [showNav, setShowNav] = React.useState(true);
+    const lastScrollY = React.useRef(0);
     const [isProjectMenuOpen, setIsProjectMenuOpen] = React.useState(false);
     const [isSidebarHovered, setIsSidebarHovered] = React.useState(false);
     const [isHubOpen, setIsHubOpen] = React.useState(false);
@@ -34,18 +36,35 @@ const Layout = ({
     };
 
     React.useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
+        const handleScroll = (e) => {
+            // Target specific scrollable area OR window
+            const target = e.target === document ? window : e.target;
+            const currentScrollY = target === window ? window.scrollY : target.scrollTop;
+            
+            // Limit tracking to significant vertical scrolls
+            if (Math.abs(currentScrollY - lastScrollY.current) < 5) return;
+
+            // Threshold for general scrolled state
+            setIsScrolled(currentScrollY > 50);
+
+            // Direction tracking
+            if (currentScrollY < 50) {
+                setShowNav(true);
+            } else if (currentScrollY > lastScrollY.current) {
+                setShowNav(false);
+            } else if (currentScrollY < lastScrollY.current) {
+                setShowNav(true);
             }
+
+            lastScrollY.current = currentScrollY;
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        // Use capture: true to catch scrolls on children (like tables)
+        window.addEventListener('scroll', handleScroll, { capture: true, passive: true });
+        return () => window.removeEventListener('scroll', handleScroll, { capture: true });
     }, []);
 
-    const hideNav = settings.immersionMode && isScrolled;
+    const hideNav = !showNav;
 
     const navItems = [
         { id: 'nexus', icon: <Radio size={20} />, label: 'Nexus' },
