@@ -55,10 +55,11 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
             {/* Main grid – expands to fill remaining space */}
             <main className="flex-1 min-h-0 w-full grid grid-cols-12 max-w-6xl mx-auto gap-12 px-12 pb-8">
                 {/* Left sidebar – col-span-3 */}
-                <aside className="lg:col-span-3 space-y-12">
+                {/* Sidebar – col-span-12 on mobile/tablet, col-span-3 on large */}
+                <aside className="col-span-12 lg:col-span-3 space-y-8 lg:space-y-12 h-auto lg:h-full">
                     <div className="sticky top-32">
-                        <h1 className="font-display text-4xl font-bold tracking-tighter mb-16 leading-none">
-                            THE<br />STRATIFICATION
+                    <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-8 lg:mb-16 leading-none">
+                            THE<br className="hidden lg:block" /> STRATIFICATION
                         </h1>
                         <div className="flex flex-col">
                             {STRAT_TIERS.map((tier) => {
@@ -95,7 +96,8 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                 </aside>
 
                 {/* Right section – col-span-9 */}
-                <section className="lg:col-span-9 space-y-8">
+                {/* Table – col-span-12 on mobile/tablet, col-span-9 on large */}
+                <section className="col-span-12 lg:col-span-9 space-y-8 flex flex-col min-h-0">
                     <div className="flex justify-between items-end border-b border-border-void pb-4">
                         <div className="font-mono text-xs text-text-muted tracking-widest">ACTIVE_OPERATORS [50]</div>
                         <div className="font-mono text-[10px] text-primary animate-pulse">LIVE_FEED_SYNCED</div>
@@ -111,7 +113,7 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                         </div>
 
                         {/* Table rows – TRUE scrolling region */}
-                        <div className="flex-1 overflow-y-auto no-scrollbar divide-y divide-border-void">
+                        <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-border-void">
                             {displayOps.map((op, idx) => (
                                 <div
                                     key={idx}
