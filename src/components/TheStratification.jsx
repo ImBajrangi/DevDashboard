@@ -58,7 +58,7 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                 {/* Sidebar – col-span-12 on mobile/tablet, col-span-3 on large */}
                 <aside className="col-span-12 lg:col-span-3 space-y-8 lg:space-y-12 h-auto lg:h-full">
                     <div className="sticky top-32">
-                    <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-8 lg:mb-16 leading-none">
+                        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-8 lg:mb-16 leading-none">
                             THE<br className="hidden lg:block" /> STRATIFICATION
                         </h1>
                         <div className="flex flex-col">
@@ -69,8 +69,8 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                                         key={tier.id}
                                         onClick={() => setActiveLvl(tier.id)}
                                         className={`relative pl-8 py-12 border-l text-left transition-all duration-300 cursor-pointer ${isActive
-                                                ? 'border-primary text-primary'
-                                                : 'border-border-void opacity-40 hover:opacity-70'
+                                            ? 'border-primary text-primary'
+                                            : 'border-border-void opacity-40 hover:opacity-70'
                                             }`}
                                     >
                                         {isActive && (
@@ -97,15 +97,15 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
 
                 {/* Right section – col-span-9 */}
                 {/* Table – col-span-12 on mobile/tablet, col-span-9 on large */}
-                <section className="col-span-12 lg:col-span-9 space-y-8 flex flex-col min-h-0">
+                <section className="col-span-12 lg:col-span-9 space-y-8 flex flex-col min-h-0 h-full">
                     <div className="flex justify-between items-end border-b border-border-void pb-4">
                         <div className="font-mono text-xs text-text-muted tracking-widest">ACTIVE_OPERATORS [50]</div>
                         <div className="font-mono text-[10px] text-primary animate-pulse">LIVE_FEED_SYNCED</div>
                     </div>
 
-                    <div className="overflow-hidden border border-border-void">
-                        {/* Table header */}
-                        <div className="grid grid-cols-12 font-mono text-[10px] tracking-widest text-text-muted bg-white/5 py-3 px-6 border-b border-border-void uppercase">
+                    <div className="flex-1 min-h-0 flex flex-col overflow-hidden border border-border-void">
+                        {/* Table header (Fixed height inside flex-col) */}
+                        <div className="grid grid-cols-12 font-mono text-[10px] tracking-widest text-text-muted bg-white/5 py-3 px-6 border-b border-border-void uppercase shrink-0">
                             <div className="col-span-1">Rank</div>
                             <div className="col-span-5">Operator_ID</div>
                             <div className="col-span-3 text-right">Knowledge_Weight</div>
@@ -113,7 +113,7 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                         </div>
 
                         {/* Table rows – TRUE scrolling region */}
-                        <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-border-void">
+                        <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-border-void cyber-scroll">
                             {displayOps.map((op, idx) => (
                                 <div
                                     key={idx}
@@ -141,18 +141,15 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
                     </div>
 
                     {/* Global Archive Sync Trigger within Stratification */}
-                    <div className="mt-8 py-12 flex flex-col items-center justify-center border-t border-border-void/20">
+                    <div className="py-8 shrink-0 flex flex-col items-center justify-center border-t border-border-void/20">
                         <div className={`w-1 h-6 bg-primary mb-2 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
-                        <button 
+                        <button
                             onClick={onLoadMore}
                             disabled={isFetchingMore}
                             className={`font-mono text-[9px] uppercase tracking-[0.4em] border border-border-void px-6 py-3 hover:bg-primary hover:text-white transition-all duration-500 ${isFetchingMore ? 'opacity-50 cursor-wait' : 'hover:scale-105'}`}
                         >
                             {isFetchingMore ? '[ TRANSMITTING_RANKS... ]' : '[ SYNC_STRAT_DATA ]'}
                         </button>
-                        <span className="mt-3 font-mono text-[8px] text-text-muted uppercase tracking-widest opacity-30">
-                            Coordinate: {displayOps.length} Active Operators Decrypted
-                        </span>
                     </div>
                 </section>
             </main>

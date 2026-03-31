@@ -276,13 +276,13 @@ button {
   transform: rotate(180deg);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: block; /* Restore for Cyber-Brutalist scrollbars */
+.cyber-scroll::-webkit-scrollbar {
+  display: block;
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.cyber-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-void);
 }
 
 .main-content-padding {

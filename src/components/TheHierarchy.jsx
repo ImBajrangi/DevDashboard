@@ -61,7 +61,7 @@ const TheHierarchy = ({ users = [], onLoadMore, isFetchingMore }) => {
             <main className="flex-1 min-h-0 w-full flex flex-col items-center px-12">
                 <div className="grid grid-cols-12 w-full max-w-6xl gap-12 flex-1 min-h-0 pb-8">
                     {/* Left tier sidebar – col-span-3 */}
-                    <div className="col-span-3 flex flex-col justify-between py-4 border-r border-border-void relative">
+                    <div className="col-span-3 flex flex-col justify-center gap-20 py-4 border-r border-border-void relative">
                         <div
                             className="absolute right-[-1px] top-0 bottom-0 w-px"
                             style={{
@@ -92,17 +92,19 @@ const TheHierarchy = ({ users = [], onLoadMore, isFetchingMore }) => {
                     </div>
 
                     {/* Right table area – col-span-9 */}
-                    <div className="col-span-9 flex flex-col h-full">
-                        {/* Table header */}
-                        <div className="grid grid-cols-12 pb-4 border-b border-border-void font-mono text-[10px] text-text-muted uppercase tracking-[0.2em]">
-                            <div className="col-span-1">Pos</div>
-                            <div className="col-span-6">Identity</div>
-                            <div className="col-span-3">Contribution Weight</div>
-                            <div className="col-span-2 text-right">Status</div>
-                        </div>
-
-                        {/* Table rows – TRUE scrolling region */}
-                        <div className="flex-1 min-h-0 overflow-y-auto font-mono text-sm py-4">
+                    <div className="col-span-9 flex flex-col min-h-0 h-full">
+                        {/* Table rows wrapper – ensures containment */}
+                        <div className="flex-1 min-h-0 flex flex-col overflow-hidden border border-border-void p-1 mt-4">
+                            {/* Table header (Fixed height inside flex-col) */}
+                            <div className="grid grid-cols-12 pb-4 border-b border-border-void font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] px-4 pt-4 shrink-0">
+                                <div className="col-span-1">Pos</div>
+                                <div className="col-span-6">Identity</div>
+                                <div className="col-span-3">Contribution Weight</div>
+                                <div className="col-span-2 text-right">Status</div>
+                            </div>
+                            
+                            {/* Table rows – TRUE scrolling region */}
+                            <div className="flex-1 overflow-y-auto font-mono text-sm py-4 px-4 cyber-scroll">
                             {displayUsers.map((user) =>
                                 user.isCurrentUser ? (
                                     <div
@@ -153,6 +155,7 @@ const TheHierarchy = ({ users = [], onLoadMore, isFetchingMore }) => {
                                 </span>
                             </div>
                         </div>
+                    </div>
 
                         {/* Bottom stats */}
                         <div className="mt-auto pt-8 flex justify-between border-t border-border-void">
