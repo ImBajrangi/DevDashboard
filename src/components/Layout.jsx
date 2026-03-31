@@ -4,6 +4,7 @@ import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Pl
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
+import TheMenu from './TheMenu';
 
 const Layout = ({
     children,
@@ -23,6 +24,7 @@ const Layout = ({
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isProjectMenuOpen, setIsProjectMenuOpen] = React.useState(false);
     const [isSidebarHovered, setIsSidebarHovered] = React.useState(false);
+    const [isHubOpen, setIsHubOpen] = React.useState(false);
 
     const projectIcons = {
         'Radio': <Radio size={14} />,
@@ -183,9 +185,9 @@ const Layout = ({
                         }}
                         onMouseEnter={() => setIsSidebarHovered(true)}
                         onMouseLeave={() => setIsSidebarHovered(false)}
-                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-20 overflow-hidden shadow-[20px_0_50px_rgba(0,0,0,0.5)] transition-opacity duration-700 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
+                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.5)] transition-opacity duration-700 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
                     >
-                        <div className="flex flex-col gap-6 px-3">
+                        <div className="flex flex-col gap-1.5 px-3">
                             {navItems.filter(i => i.id !== 'profile').map(item => {
                                 const isActive = activeTab === item.id;
                                 return (
@@ -271,45 +273,53 @@ const Layout = ({
                     </motion.nav>
                 )}
 
-                {/* Mobile Bottom Navigation Bar – HIDDEN ON DESKTOP */}
+                {/* Mobile Bottom Navigation Bar – SIMPLIFIED 4-BUTTON + HUB */}
                 {isMobile && (
-                    <nav className={`fixed bottom-0 left-0 right-0 z-50 bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 md:hidden ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+                    <nav className={`fixed bottom-0 left-0 right-0 z-[150] bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 md:hidden ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
                         <button onClick={() => setActiveTab('nexus')} className={`flex flex-col items-center gap-1 ${activeTab === 'nexus' ? 'text-white' : 'text-text-muted'}`}>
                             <Radio size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Nexus</span>
                         </button>
-                        <button onClick={() => setActiveTab('hierarchy')} className={`flex flex-col items-center gap-1 ${activeTab === 'hierarchy' ? 'text-white' : 'text-text-muted'}`}>
-                            <BarChart3 size={20} />
-                            <span className="font-mono text-[8px] uppercase tracking-widest">Hierarchy</span>
-                        </button>
-                        <button onClick={() => setActiveTab('grid')} className={`flex flex-col items-center gap-1 ${activeTab === 'grid' ? 'text-white' : 'text-text-muted'}`}>
-                            <Grid3x3 size={20} />
-                            <span className="font-mono text-[8px] uppercase tracking-widest">Grid</span>
-                        </button>
-
-                        <div className="flex flex-col items-center">
-                            <button
-                                onClick={() => setActiveTab('forge')}
-                                className="w-10 h-10 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_15px_rgba(255,51,51,0.3)]"
-                            >
-                                <Plus size={20} />
-                            </button>
-                        </div>
-
+                        
                         <button onClick={() => setActiveTab('feed')} className={`flex flex-col items-center gap-1 ${activeTab === 'feed' ? 'text-white' : 'text-text-muted'}`}>
                             <Database size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Feed</span>
                         </button>
-                        <button onClick={() => setActiveTab('stratification')} className={`flex flex-col items-center gap-1 ${activeTab === 'stratification' ? 'text-white' : 'text-text-muted'}`}>
-                            <Trophy size={20} />
-                            <span className="font-mono text-[8px] uppercase tracking-widest">Rank</span>
-                        </button>
+
+                        <div className="flex flex-col items-center">
+                            <button
+                                onClick={onSignalOpen}
+                                className="w-10 h-10 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_15px_rgba(255,51,51,0.3)]"
+                            >
+                                <Search size={20} />
+                            </button>
+                        </div>
+
                         <button onClick={() => setActiveTab('profile')} className={`flex flex-col items-center gap-1 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted'}`}>
                             <User size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Profile</span>
                         </button>
+
+                        <button 
+                            onClick={() => setIsHubOpen(true)}
+                            className="flex flex-col items-center gap-1 text-primary animate-pulse"
+                        >
+                            <Grid3x3 size={20} />
+                            <span className="font-mono text-[8px] uppercase tracking-widest font-bold">Hub</span>
+                        </button>
                     </nav>
                 )}
+
+                {/* Mobile Full-Screen Menu Drawer */}
+                <TheMenu 
+                    isOpen={isHubOpen} 
+                    onClose={() => setIsHubOpen(false)}
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                    navItems={navItems}
+                    user={user}
+                    logOut={logOut}
+                />
 
                 {/* Main Content Area – Decollided (Explicit 64px Top-Offset) */}
                 <main 
