@@ -15,6 +15,7 @@ import TheSignal from './components/TheSignal'
 import TheSplash from './components/TheSplash'
 import TheForge from './components/TheForge'
 import ThePortal from './components/ThePortal'
+import TheBeacon from './components/TheBeacon'
 import { useMobile } from './hooks/useMobile'
 import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
@@ -36,6 +37,11 @@ function App() {
     baseSize: 18,
     immersionMode: true
   })
+  const [seoConfig, setSeoConfig] = useState({
+    title: "The Feed - All Content | Deep Void",
+    description: "A digital sanctuary for deep reading and archival silence.",
+    keywords: "Vrindavan, Spirituality, Vedic Art, Paath, Divine Knowledge, Deep Reading"
+  });
   const [activeProject, setActiveProject] = useState('ALL_SYSTEMS');
   const [offset, setOffset] = useState(50);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
@@ -258,7 +264,7 @@ function App() {
       isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
     }));
 
-  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal'];
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal', 'beacon'];
 
   const handleArticleClick = async (article) => {
     if (article.id && validTabs.includes(article.id)) {
@@ -321,6 +327,8 @@ function App() {
       activeProject={activeProject}
       setActiveProject={setActiveProject}
       projects={projects}
+      title={seoConfig.title}
+      description={seoConfig.description}
     >
       {/* THE SIGNAL OVERLAY – derived from the_signal template */}
       {isSignalOpen && (
@@ -447,6 +455,12 @@ function App() {
       {/* THE PORTAL (Admin & Notifications) */}
       {activeTab === 'portal' && (
         <ThePortal premiumStats={globalPremiumStats} />
+      )}
+      {activeTab === 'beacon' && (
+        <TheBeacon 
+          config={seoConfig} 
+          onUpdate={setSeoConfig} 
+        />
       )}
     </Layout>
   )

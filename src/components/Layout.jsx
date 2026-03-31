@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
@@ -22,6 +22,7 @@ const Layout = ({
     const isMobile = useMobile();
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isProjectMenuOpen, setIsProjectMenuOpen] = React.useState(false);
+    const [isSidebarHovered, setIsSidebarHovered] = React.useState(false);
 
     const projectIcons = {
         'Radio': <Radio size={14} />,
@@ -51,7 +52,8 @@ const Layout = ({
         { id: 'grid', icon: <Grid3x3 size={20} />, label: 'Grid' },
         { id: 'hierarchy', icon: <BarChart3 size={20} />, label: 'Hierarchy' },
         { id: 'stratification', icon: <Trophy size={20} />, label: 'Rankings' },
-        { id: 'forge', icon: <Plus size={20} />, label: 'Forge' },
+        { id: 'forge', icon: <Plus size={20} />, label: 'The Forge' },
+        { id: 'beacon', icon: <Globe size={20} />, label: 'The Beacon' },
         { id: 'portal', icon: <ShieldCheck size={20} />, label: 'Portal' },
         { id: 'settings', icon: <Settings size={20} />, label: 'Settings' },
         { id: 'profile', icon: <User size={20} />, label: 'Profile' },
@@ -173,62 +175,100 @@ const Layout = ({
 
                 {/* Desktop Sidebar Navigation */}
                 {!isMobile && (
-                    <nav className={`sidebar-nav transition-all duration-700 bg-void border-r border-border-void w-16 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}>
-                        <button
-                            className="text-primary mb-12"
-                            onClick={() => setActiveTab('nexus')}
-                        >
-                            <Radio size={22} />
-                        </button>
-                        <div className="flex flex-col gap-6">
-                            {navItems.filter(i => i.id !== 'nexus' && i.id !== 'profile').map(item => {
+                    <motion.nav 
+                        initial={false}
+                        animate={{ 
+                            width: isSidebarHovered ? 240 : 64,
+                            backgroundColor: isSidebarHovered ? 'rgba(5, 5, 5, 0.98)' : 'rgba(5, 5, 5, 0.95)'
+                        }}
+                        onMouseEnter={() => setIsSidebarHovered(true)}
+                        onMouseLeave={() => setIsSidebarHovered(false)}
+                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-20 overflow-hidden shadow-[20px_0_50px_rgba(0,0,0,0.5)] transition-opacity duration-700 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
+                    >
+                        <div className="flex flex-col gap-6 px-3">
+                            {navItems.filter(i => i.id !== 'profile').map(item => {
                                 const isActive = activeTab === item.id;
                                 return (
                                     <button
                                         key={item.id}
                                         onClick={() => setActiveTab(item.id)}
-                                        className=""
-                                        title={item.label}
-                                        style={isActive
-                                            ? { background: '#ffffff', color: '#050505', padding: '6px', borderRadius: '3px' }
-                                            : { color: '#666666', padding: '6px' }
-                                        }
+                                        className={`group relative flex items-center h-10 transition-all duration-300 rounded-sm ${isActive ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text-main hover:bg-white/5'}`}
+                                        title={!isSidebarHovered ? item.label : ''}
                                     >
-                                        {item.icon}
+                                        <div className={`flex items-center justify-center w-10 min-w-[40px] transition-transform duration-500 ${isActive ? 'scale-110' : 'group-hover:scale-110 group-active:scale-95'}`}>
+                                            {item.icon}
+                                        </div>
+                                        
+                                        <AnimatePresence>
+                                            {isSidebarHovered && (
+                                                <motion.span 
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0, x: -10 }}
+                                                    className="font-mono text-[10px] uppercase tracking-[0.2em] whitespace-nowrap ml-2 font-bold"
+                                                >
+                                                    {item.label}
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+
+                                        {isActive && (
+                                            <motion.div 
+                                                layoutId="active-nav"
+                                                className="absolute left-0 w-0.5 h-full bg-primary shadow-[0_0_10px_#FF3333]" 
+                                            />
+                                        )}
                                     </button>
                                 );
                             })}
                         </div>
-                        <div className="mt-auto flex flex-col gap-8">
-                            <button onClick={onSignalOpen} className="text-text-muted hover:text-primary transition-colors p-1.5" title="Signal">
-                                <Search size={22} />
+                        <div className="mt-auto flex flex-col gap-8 px-3">
+                            <button onClick={onSignalOpen} className="group relative flex items-center h-10 text-text-muted hover:text-primary transition-colors">
+                                <div className="flex items-center justify-center w-10 min-w-[40px] group-hover:scale-110">
+                                    <Search size={22} />
+                                </div>
+                                {isSidebarHovered && (
+                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] ml-2">Signal Search</span>
+                                )}
                             </button>
                             {user ? (
                                 <button
                                     onClick={logOut}
-                                    className="text-text-muted hover:text-primary transition-colors p-1.5"
-                                    title="Sign Out"
+                                    className="group relative flex items-center h-10 text-text-muted hover:text-primary transition-colors"
                                 >
-                                    <LogOut size={22} />
+                                    <div className="flex items-center justify-center w-10 min-w-[40px] group-hover:rotate-12">
+                                        <LogOut size={22} />
+                                    </div>
+                                    {isSidebarHovered && (
+                                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] ml-2">Disconnect</span>
+                                    )}
                                 </button>
                             ) : (
                                 <button
                                     onClick={signInWithGoogle}
-                                    className="text-text-muted hover:text-primary transition-colors p-1.5"
-                                    title="Sign In"
+                                    className="group relative flex items-center h-10 text-text-muted hover:text-primary transition-colors"
                                 >
-                                    <LogIn size={22} />
+                                    <div className="flex items-center justify-center w-10 min-w-[40px] group-hover:rotate-12">
+                                        <LogIn size={22} />
+                                    </div>
+                                    {isSidebarHovered && (
+                                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] ml-2">Authenticate</span>
+                                    )}
                                 </button>
                             )}
                             <button
                                 onClick={() => setActiveTab('profile')}
-                                className={`transition-colors p-1.5 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted hover:text-white'}`}
-                                title="Profile"
+                                className={`group relative flex items-center h-10 transition-colors ${activeTab === 'profile' ? 'text-white' : 'text-text-muted hover:text-white'}`}
                             >
-                                <User size={22} />
+                                <div className="flex items-center justify-center w-10 min-w-[40px] group-hover:scale-110">
+                                    <User size={22} />
+                                </div>
+                                {isSidebarHovered && (
+                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] ml-2">User Profile</span>
+                                )}
                             </button>
                         </div>
-                    </nav>
+                    </motion.nav>
                 )}
 
                 {/* Mobile Bottom Navigation Bar – HIDDEN ON DESKTOP */}
