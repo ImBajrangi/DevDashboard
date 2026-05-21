@@ -16,6 +16,7 @@ import TheSplash from './components/TheSplash'
 import TheForge from './components/TheForge'
 import ThePortal from './components/ThePortal'
 import TheBeacon from './components/TheBeacon'
+import TheConsole from './components/TheConsole'
 import { useMobile } from './hooks/useMobile'
 import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
@@ -47,6 +48,9 @@ function App() {
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const projects = [
     { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
+    { id: 'FOODY_VRINDA', label: 'Foody Vrinda (App)', icon: 'Store' },
+    { id: 'VRINDA_TOURS', label: 'Vrinda Tours (Web)', icon: 'Compass' },
+    { id: 'CHITRA_VRINDA', label: 'Chitra Vrinda (Art)', icon: 'Image' },
     { id: 'SANT_VAANI_PREMIUM', label: 'Sant-Vaani Premium', icon: 'Star' },
     { id: 'VRINDA_BLOG', label: 'Vrinda Vaani (Blog)', icon: 'Heart' },
     { id: 'SPIRIT_DEV', label: 'Spirit-Dev Archive', icon: 'Code' }
@@ -229,7 +233,10 @@ function App() {
       const projectSourceMap = {
         'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
         'VRINDA_BLOG': 'VRINDA',
-        'SPIRIT_DEV': 'DEV'
+        'SPIRIT_DEV': 'DEV',
+        'FOODY_VRINDA': 'FOODY_VRINDA',
+        'VRINDA_TOURS': 'VRINDA_TOURS',
+        'CHITRA_VRINDA': 'CHITRA_VRINDA'
       }
       if (item.source !== projectSourceMap[activeProject]) return false;
     }
@@ -264,7 +271,7 @@ function App() {
       isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
     }));
 
-  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal', 'beacon'];
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal', 'beacon', 'console'];
 
   const handleArticleClick = async (article) => {
     if (article.id && validTabs.includes(article.id)) {
@@ -461,6 +468,9 @@ function App() {
           config={seoConfig} 
           onUpdate={setSeoConfig} 
         />
+      )}
+      {activeTab === 'console' && (
+        <TheConsole />
       )}
     </Layout>
   )

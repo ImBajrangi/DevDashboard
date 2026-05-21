@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code, Globe } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code, Globe, Store, Compass, Image, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
@@ -32,7 +32,10 @@ const Layout = ({
         'Radio': <Radio size={14} />,
         'Star': <Star size={14} />,
         'Heart': <Heart size={14} />,
-        'Code': <Code size={14} />
+        'Code': <Code size={14} />,
+        'Store': <Store size={14} />,
+        'Compass': <Compass size={14} />,
+        'Image': <Image size={14} />
     };
 
     React.useEffect(() => {
@@ -76,6 +79,7 @@ const Layout = ({
         { id: 'forge', icon: <Plus size={20} />, label: 'The Forge' },
         { id: 'beacon', icon: <Globe size={20} />, label: 'The Beacon' },
         { id: 'portal', icon: <ShieldCheck size={20} />, label: 'Portal' },
+        { id: 'console', icon: <Cpu size={20} />, label: 'Console' },
         { id: 'settings', icon: <Settings size={20} />, label: 'Settings' },
         { id: 'profile', icon: <User size={20} />, label: 'Profile' },
     ];

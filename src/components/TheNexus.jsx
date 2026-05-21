@@ -32,14 +32,20 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
     const projectSourceMap = {
         'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
         'VRINDA_BLOG': 'VRINDA',
-        'SPIRIT_DEV': 'DEV'
+        'SPIRIT_DEV': 'DEV',
+        'FOODY_VRINDA': 'FOODY_VRINDA',
+        'VRINDA_TOURS': 'VRINDA_TOURS',
+        'CHITRA_VRINDA': 'CHITRA_VRINDA'
     };
 
     const filteredEntries = activeProject === 'ALL_SYSTEMS' 
         ? allEntries 
         : allEntries.filter(e => {
             const mappedSource = e.stream === 'vrinda' ? 'VRINDA' : (e.category?.toUpperCase() || 'DEV');
-            return mappedSource === projectSourceMap[activeProject] || (activeProject === 'SANT_VAANI_PREMIUM' && e.source === 'PREMIUM_REFLECT');
+            return mappedSource === projectSourceMap[activeProject] || 
+                   e.source === projectSourceMap[activeProject] || 
+                   e.category?.toUpperCase() === projectSourceMap[activeProject] ||
+                   (activeProject === 'SANT_VAANI_PREMIUM' && e.source === 'PREMIUM_REFLECT');
         });
 
     const latestSignals = (filteredEntries || []).slice(0, visibleCount).map(entry => {
@@ -57,6 +63,209 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
         categories: [...new Set(filteredEntries.map(e => e.category))].length,
         latestUpdate: filteredEntries[0] ? new Date(filteredEntries[0].created_at).toLocaleTimeString() : 'N/A'
     };
+
+    // Dynamic project customization
+    let displayMetrics = null;
+    let transmissionsToRender = [
+        { status: 'LIVE', label: 'OPERATOR_991 // ENCRYPTED_CHANNEL', sub: 'RECOVERING_FRAGMENT_88...', color: '#660000' },
+        { status: 'IDLE', label: 'OPERATOR_402 // STANDBY', sub: 'WAITING_FOR_SIGNAL_BURST', color: 'transparent' },
+        { status: 'UPLINK', label: 'SYSTEM_CORE // BROADCAST', sub: 'GLOBAL_REPLICA_SYNCING', color: 'transparent' }
+    ];
+    let displayBridge = null;
+    let displayTerminal = null;
+    let statusReport = `SYSTEM RUNNING AT ${stats.totalRecords > 0 ? 'OPTIMAL' : 'REDUCED'} CAPACITY. ${stats.totalRecords} NODES RESPONDING. NO UNRECOGNIZED INTERFERENCE DETECTED.`;
+
+    if (activeProject === 'FOODY_VRINDA') {
+        displayMetrics = (
+            <div className="space-y-16">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Active_Orders</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">42</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold font-mono">Operational_Kitchens</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">8 <span className="text-sm opacity-50">/ 10</span></div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Active_Delivery_Fleet</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-primary">15</div>
+                    <div className="w-full h-px bg-primary/30 mt-4"></div>
+                </div>
+            </div>
+        );
+        transmissionsToRender = [
+            { status: 'ORDER', label: 'ORDER_#4812 // PENDING', sub: 'KITCHEN: BINDUSAR | DELIVERING TO BRAJ', color: '#660000' },
+            { status: 'COOK', label: 'ORDER_#4811 // PREPARING', sub: 'KITCHEN: RADHE RADHE | 10 MIN REMAINING', color: 'transparent' },
+            { status: 'DELIV', label: 'ORDER_#4810 // ON THE WAY', sub: 'AGENT: SAKHI DAS | DISTANCE 1.2 KM', color: 'transparent' }
+        ];
+        displayBridge = (
+            <div className="grid grid-cols-2 gap-8">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Today's Revenue</span>
+                    <div className="text-4xl font-black font-display text-white">₹24,850</div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Rating Average</span>
+                    <div className="text-4xl font-black font-display text-primary">4.92 ★</div>
+                </div>
+            </div>
+        );
+        displayTerminal = (
+            <div className="bg-void-matte p-10 text-[10px] leading-relaxed font-mono overflow-hidden border border-border-void relative">
+                <div className="text-primary animate-pulse">&gt; FOODY_VRINDA: CONNECTING TO LOCAL SQLITE CACHE...</div>
+                <div className="opacity-60">&gt; PRE-FETCHING MENU ITEMS [SUCCESS]</div>
+                <div className="opacity-60">&gt; CACHE SYNCHRONIZED: 120MS LATENCY</div>
+                <div className="opacity-60">&gt; LISTENING FOR FCM PUSH NOTIFICATIONS...</div>
+                <div className="opacity-60">&gt; DEV_PANEL: COMPILATION CLEAN ON TARGET DEVICES.</div>
+                <div className="opacity-60">&gt; READY.</div>
+                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+            </div>
+        );
+        statusReport = "FOODY_VRINDA INSTANCE ONLINE. CACHING ENABLED. 0 LAG/STUTTERS DETECTED. CHANNELS SYNCED.";
+    } else if (activeProject === 'VRINDA_TOURS') {
+        displayMetrics = (
+            <div className="space-y-16">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Active_Tours_Braj</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">12</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Registered_Guides</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">24</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Pending_Bookings</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-primary">8</div>
+                    <div className="w-full h-px bg-primary/30 mt-4"></div>
+                </div>
+            </div>
+        );
+        transmissionsToRender = [
+            { status: 'BOOK', label: 'BOOKING_#9201 // CONFIRMED', sub: 'TOUR: PARIKRAMA | 4 PILGRIMS', color: '#660000' },
+            { status: 'LIVE', label: 'TOUR_#9199 // IN PROGRESS', sub: 'GUIDE: SHYAM DAS | LOCATION: GOVARDHAN', color: 'transparent' },
+            { status: 'INQR', label: 'INQUIRY // PENDING', sub: 'LEELA STHALI WALKTHROUGH SPECIAL REQUEST', color: 'transparent' }
+        ];
+        displayBridge = (
+            <div className="grid grid-cols-2 gap-8">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Monthly Bookings</span>
+                    <div className="text-4xl font-black font-display text-white">340</div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">User Satisfaction</span>
+                    <div className="text-4xl font-black font-display text-primary">99.4%</div>
+                </div>
+            </div>
+        );
+        displayTerminal = (
+            <div className="bg-void-matte p-10 text-[10px] leading-relaxed font-mono overflow-hidden border border-border-void relative">
+                <div className="text-primary animate-pulse">&gt; VRINDA_TOURS: INITIALIZING GOOGLE MAPS API...</div>
+                <div className="opacity-60">&gt; GEO-LOCATING REGISTERED GUIDES... 24 STABLE LINKS</div>
+                <div className="opacity-60">&gt; CACHE PRE-LOADED FOR OFFLINE BRAJ MAPS</div>
+                <div className="opacity-60">&gt; WEB CLIENT RUNNING AT 60 FPS WITHOUT FLICKER</div>
+                <div className="opacity-60">&gt; SYNC STATUS: ALL DESTINATIONS OK.</div>
+                <div className="opacity-60">&gt; READY.</div>
+                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+            </div>
+        );
+        statusReport = "VRINDA_TOURS PORTAL STABLE. OFFLINE MAP LAYERS LOADED. 12 ACTIVE EXCURSIONS.";
+    } else if (activeProject === 'CHITRA_VRINDA') {
+        displayMetrics = (
+            <div className="space-y-16">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Paintings</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">412</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Exhibitions_Online</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-white">4</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Art_Downloads_24H</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-primary">189</div>
+                    <div className="w-full h-px bg-primary/30 mt-4"></div>
+                </div>
+            </div>
+        );
+        transmissionsToRender = [
+            { status: 'IMAGE', label: 'RENDER_#092 // COMPLETED', sub: 'DIVINE_LILA_SERIES_#12 (1080P)', color: '#660000' },
+            { status: 'UPLOAD', label: 'ARTWORK // NEW', sub: 'ARTIST: DAMODAR DAS | "YAMUNA ARATI"', color: 'transparent' },
+            { status: 'EXHIB', label: 'GALLERY_LINK // ACTIVE', sub: 'RADHA PREM EXHIBITION SYNCED TO CDN', color: 'transparent' }
+        ];
+        displayBridge = (
+            <div className="grid grid-cols-2 gap-8">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">CDN Storage</span>
+                    <div className="text-4xl font-black font-display text-white">12.4 GB</div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Bandwidth Use</span>
+                    <div className="text-4xl font-black font-display text-primary">92.1%</div>
+                </div>
+            </div>
+        );
+        displayTerminal = (
+            <div className="bg-void-matte p-10 text-[10px] leading-relaxed font-mono overflow-hidden border border-border-void relative">
+                <div className="text-primary animate-pulse">&gt; CHITRA_VRINDA: SYNCHRONIZING GALLERY METADATA...</div>
+                <div className="opacity-60">&gt; CACHE PRE-COMPILING RENDER TILES... SUCCESS</div>
+                <div className="opacity-60">&gt; CDN CONTENT VERIFIED: 412 HIGH-RES IMAGES ONLINE</div>
+                <div className="opacity-60">&gt; IMAGE LOADER ENABLED WITH PROGRESSIVE RESIZE</div>
+                <div className="opacity-60">&gt; COMPRESSION RATIO OPTIMIZED TO 1.4:1 WITHOUT LOSS</div>
+                <div className="opacity-60">&gt; READY.</div>
+                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+            </div>
+        );
+        statusReport = "CHITRA_VRINDA ASSETS SYNCHRONIZED. 412 MASTER IMAGE FILES PRE-LOADED IN CLOUD CDN CACHE.";
+    } else {
+        displayMetrics = (
+            <div className="space-y-16">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Transmissions</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display">{stats.totalRecords}</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Active_Spheres (Categories)</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display">{stats.categories}</div>
+                    <div className="w-full h-px bg-border-void mt-4"></div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Last_Sync_Burst</span>
+                    <div className="text-6xl font-medium tracking-tighter font-display uppercase text-lg">{stats.latestUpdate}</div>
+                    <div className="w-full h-px bg-primary/30 mt-4"></div>
+                </div>
+            </div>
+        );
+        displayBridge = (
+            <div className="grid grid-cols-2 gap-8">
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Reflections</span>
+                    <div className="text-4xl font-black font-display text-white">{premiumStats.totalReflections}</div>
+                </div>
+                <div>
+                    <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Soul_Seekers</span>
+                    <div className="text-4xl font-black font-display text-white">{premiumStats.soulSeekers}</div>
+                </div>
+            </div>
+        );
+        displayTerminal = (
+            <div className="bg-void-matte p-10 text-[10px] leading-relaxed font-mono overflow-hidden border border-border-void relative">
+                <div className="text-primary animate-pulse">&gt; BOOTING_NEXUS_CORE...</div>
+                <div className="opacity-60">&gt; LOAD_MODULE: VOID_BRUTALISM</div>
+                <div className="opacity-60">&gt; CHECKING_INTEGRITY... 100%</div>
+                <div className="opacity-60">&gt; CONNECTING_TO_PEERS... 12,992 FOUND</div>
+                <div className="opacity-60">&gt; ENABLING_HIGH_FIDELITY_TYPOGRAPHY</div>
+                <div className="opacity-60">&gt; READY.</div>
+                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-[calc(100vh-64px)] bg-void text-text-main font-mono selection:bg-primary selection:text-white flex flex-col">
@@ -153,29 +362,11 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 <section className="col-span-4 p-8 flex flex-col gap-16">
                     <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase">System_Metrics</h2>
 
-                    <div className="space-y-16">
-                        <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Total_Transmissions</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display">{stats.totalRecords}</div>
-                            <div className="w-full h-px bg-border-void mt-4"></div>
-                        </div>
-
-                        <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Active_Spheres (Categories)</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display">{stats.categories}</div>
-                            <div className="w-full h-px bg-border-void mt-4"></div>
-                        </div>
-
-                        <div>
-                            <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Last_Sync_Burst</span>
-                            <div className="text-6xl font-medium tracking-tighter font-display uppercase text-lg">{stats.latestUpdate}</div>
-                            <div className="w-full h-px bg-primary/30 mt-4"></div>
-                        </div>
-                    </div>
+                    {displayMetrics}
 
                     <div className="mt-auto p-6 border border-border-void bg-void-matte">
                         <p className="text-[10px] leading-relaxed text-text-muted uppercase font-bold">
-                            STATUS_REPORT: <span className="text-text-main">SYSTEM RUNNING AT {stats.totalRecords > 0 ? 'OPTIMAL' : 'REDUCED'} CAPACITY. {stats.totalRecords} NODES RESPONDING. NO UNRECOGNIZED INTERFERENCE DETECTED.</span>
+                            STATUS_REPORT: <span className="text-text-main">{statusReport}</span>
                         </p>
                     </div>
                 </section>
@@ -185,13 +376,9 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                     <div className="p-8 flex-1">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase mb-8">Active_Transmissions</h2>
                         <div className="space-y-8">
-                            {[
-                                { status: 'LIVE', label: 'OPERATOR_991 // ENCRYPTED_CHANNEL', sub: 'RECOVERING_FRAGMENT_88...', color: '#660000' },
-                                { status: 'IDLE', label: 'OPERATOR_402 // STANDBY', sub: 'WAITING_FOR_SIGNAL_BURST', color: 'transparent' },
-                                { status: 'UPLINK', label: 'SYSTEM_CORE // BROADCAST', sub: 'GLOBAL_REPLICA_SYNCING', color: 'transparent' }
-                            ].map((trans, idx) => (
+                            {transmissionsToRender.map((trans, idx) => (
                                 <div key={idx} className="flex gap-4 items-start group cursor-pointer" onClick={() => onTransmissionClick && onTransmissionClick(trans)}>
-                                    <span className={`text-[8px] border border-border-void px-1.5 py-0.5 font-bold tracking-widest ${idx === 0 ? 'bg-primary text-white border-primary' : 'opacity-40'}`}>
+                                    <span className={`text-[8px] border border-border-void px-1.5 py-0.5 font-bold tracking-widest ${idx === 0 || trans.status === 'ORDER' || trans.status === 'BOOK' || trans.status === 'IMAGE' ? 'bg-primary text-white border-primary' : 'opacity-40'}`}>
                                         {trans.status}
                                     </span>
                                     <div>
@@ -205,29 +392,12 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
 
                     <div className="p-8 border-t border-border-void">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase mb-8 text-primary">Global_Command_Bridge</h2>
-                        <div className="grid grid-cols-2 gap-8">
-                            <div>
-                                <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Total_Reflections</span>
-                                <div className="text-4xl font-black font-display text-white">{premiumStats.totalReflections}</div>
-                            </div>
-                            <div>
-                                <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2">Soul_Seekers</span>
-                                <div className="text-4xl font-black font-display text-white">{premiumStats.soulSeekers}</div>
-                            </div>
-                        </div>
+                        {displayBridge}
                     </div>
 
                     <div className="p-12 flex flex-col gap-8">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase">Void_Terminal_Output</h2>
-                        <div className="bg-void-matte p-10 text-[10px] leading-relaxed font-mono overflow-hidden border border-border-void relative">
-                            <div className="text-primary animate-pulse">&gt; BOOTING_NEXUS_CORE...</div>
-                            <div className="opacity-60">&gt; LOAD_MODULE: VOID_BRUTALISM</div>
-                            <div className="opacity-60">&gt; CHECKING_INTEGRITY... 100%</div>
-                            <div className="opacity-60">&gt; CONNECTING_TO_PEERS... 12,992 FOUND</div>
-                            <div className="opacity-60">&gt; ENABLING_HIGH_FIDELITY_TYPOGRAPHY</div>
-                            <div className="opacity-60">&gt; READY.</div>
-                            <div className="pulsing-cursor absolute bottom-10 right-10"></div>
-                        </div>
+                        {displayTerminal}
                     </div>
                 </section>
             </main>
