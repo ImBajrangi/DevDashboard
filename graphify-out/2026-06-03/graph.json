@@ -1,0 +1,2142 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "eslint.config.js",
+      "file_type": "code",
+      "source_file": "eslint.config.js",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "eslint.config.js",
+      "id": "eslint_config"
+    },
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "app.jsx",
+      "id": "src_app"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "community": 2,
+      "norm_label": "app()",
+      "id": "src_app_app"
+    },
+    {
+      "label": "Gallery.jsx",
+      "file_type": "code",
+      "source_file": "src/components/Gallery.jsx",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "gallery.jsx",
+      "id": "components_gallery"
+    },
+    {
+      "label": "Gallery()",
+      "file_type": "code",
+      "source_file": "src/components/Gallery.jsx",
+      "source_location": "L4",
+      "community": 5,
+      "norm_label": "gallery()",
+      "id": "components_gallery_gallery"
+    },
+    {
+      "label": "Layout.jsx",
+      "file_type": "code",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "layout.jsx",
+      "id": "components_layout"
+    },
+    {
+      "label": "Layout()",
+      "file_type": "code",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L9",
+      "community": 2,
+      "norm_label": "layout()",
+      "id": "components_layout_layout"
+    },
+    {
+      "label": "Reader.jsx",
+      "file_type": "code",
+      "source_file": "src/components/Reader.jsx",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "reader.jsx",
+      "id": "components_reader"
+    },
+    {
+      "label": "Reader()",
+      "file_type": "code",
+      "source_file": "src/components/Reader.jsx",
+      "source_location": "L4",
+      "community": 6,
+      "norm_label": "reader()",
+      "id": "components_reader_reader"
+    },
+    {
+      "label": "TheArchiveGrid.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheArchiveGrid.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thearchivegrid.jsx",
+      "id": "components_thearchivegrid"
+    },
+    {
+      "label": "IMAGES",
+      "file_type": "code",
+      "source_file": "src/components/TheArchiveGrid.jsx",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "images",
+      "id": "components_thearchivegrid_images"
+    },
+    {
+      "label": "TheArchives.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheArchives.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thearchives.jsx",
+      "id": "components_thearchives"
+    },
+    {
+      "label": "TheBeacon.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheBeacon.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thebeacon.jsx",
+      "id": "components_thebeacon"
+    },
+    {
+      "label": "TheBeacon()",
+      "file_type": "code",
+      "source_file": "src/components/TheBeacon.jsx",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "thebeacon()",
+      "id": "components_thebeacon_thebeacon"
+    },
+    {
+      "label": "TheConsole.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheConsole.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "theconsole.jsx",
+      "id": "components_theconsole"
+    },
+    {
+      "label": "TheDossier.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thedossier.jsx",
+      "id": "components_thedossier"
+    },
+    {
+      "label": "KNOWLEDGE_ITEMS",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L10",
+      "community": 2,
+      "norm_label": "knowledge_items",
+      "id": "components_thedossier_knowledge_items"
+    },
+    {
+      "label": "BADGES",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L17",
+      "community": 2,
+      "norm_label": "badges",
+      "id": "components_thedossier_badges"
+    },
+    {
+      "label": "DossierMobile()",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L26",
+      "community": 2,
+      "norm_label": "dossiermobile()",
+      "id": "components_thedossier_dossiermobile"
+    },
+    {
+      "label": "DossierDesktop()",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L124",
+      "community": 2,
+      "norm_label": "dossierdesktop()",
+      "id": "components_thedossier_dossierdesktop"
+    },
+    {
+      "label": "TheDossier()",
+      "file_type": "code",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L247",
+      "community": 2,
+      "norm_label": "thedossier()",
+      "id": "components_thedossier_thedossier"
+    },
+    {
+      "label": "TheFeed.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thefeed.jsx",
+      "id": "components_thefeed"
+    },
+    {
+      "label": "TheFeed()",
+      "file_type": "code",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L11",
+      "community": 2,
+      "norm_label": "thefeed()",
+      "id": "components_thefeed_thefeed"
+    },
+    {
+      "label": "TheFeedMobile.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheFeedMobile.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thefeedmobile.jsx",
+      "id": "components_thefeedmobile"
+    },
+    {
+      "label": "TheFeedMobile()",
+      "file_type": "code",
+      "source_file": "src/components/TheFeedMobile.jsx",
+      "source_location": "L8",
+      "community": 2,
+      "norm_label": "thefeedmobile()",
+      "id": "components_thefeedmobile_thefeedmobile"
+    },
+    {
+      "label": "TheForge.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "theforge.jsx",
+      "id": "components_theforge"
+    },
+    {
+      "label": "TheForge()",
+      "file_type": "code",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L7",
+      "community": 0,
+      "norm_label": "theforge()",
+      "id": "components_theforge_theforge"
+    },
+    {
+      "label": "TheHierarchy.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "thehierarchy.jsx",
+      "id": "components_thehierarchy"
+    },
+    {
+      "label": "TIERS",
+      "file_type": "code",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L7",
+      "community": 1,
+      "norm_label": "tiers",
+      "id": "components_thehierarchy_tiers"
+    },
+    {
+      "label": "TheHierarchyMobile.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheHierarchyMobile.jsx",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "thehierarchymobile.jsx",
+      "id": "components_thehierarchymobile"
+    },
+    {
+      "label": "TheMenu.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheMenu.jsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "themenu.jsx",
+      "id": "components_themenu"
+    },
+    {
+      "label": "TheMenu()",
+      "file_type": "code",
+      "source_file": "src/components/TheMenu.jsx",
+      "source_location": "L5",
+      "community": 3,
+      "norm_label": "themenu()",
+      "id": "components_themenu_themenu"
+    },
+    {
+      "label": "TheNexus.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thenexus.jsx",
+      "id": "components_thenexus"
+    },
+    {
+      "label": "TheNexus()",
+      "file_type": "code",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L9",
+      "community": 2,
+      "norm_label": "thenexus()",
+      "id": "components_thenexus_thenexus"
+    },
+    {
+      "label": "TheNexusMobile.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheNexusMobile.jsx",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "thenexusmobile.jsx",
+      "id": "components_thenexusmobile"
+    },
+    {
+      "label": "ThePortal.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "theportal.jsx",
+      "id": "components_theportal"
+    },
+    {
+      "label": "ThePortal()",
+      "file_type": "code",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "theportal()",
+      "id": "components_theportal_theportal"
+    },
+    {
+      "label": "TheSignal.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheSignal.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thesignal.jsx",
+      "id": "components_thesignal"
+    },
+    {
+      "label": "TheSignal()",
+      "file_type": "code",
+      "source_file": "src/components/TheSignal.jsx",
+      "source_location": "L9",
+      "community": 0,
+      "norm_label": "thesignal()",
+      "id": "components_thesignal_thesignal"
+    },
+    {
+      "label": "TheSplash.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheSplash.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thesplash.jsx",
+      "id": "components_thesplash"
+    },
+    {
+      "label": "TheSplash()",
+      "file_type": "code",
+      "source_file": "src/components/TheSplash.jsx",
+      "source_location": "L9",
+      "community": 0,
+      "norm_label": "thesplash()",
+      "id": "components_thesplash_thesplash"
+    },
+    {
+      "label": "TheStratification.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "thestratification.jsx",
+      "id": "components_thestratification"
+    },
+    {
+      "label": "STRAT_TIERS",
+      "file_type": "code",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L7",
+      "community": 1,
+      "norm_label": "strat_tiers",
+      "id": "components_thestratification_strat_tiers"
+    },
+    {
+      "label": "TheStratificationMobile.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheStratificationMobile.jsx",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "thestratificationmobile.jsx",
+      "id": "components_thestratificationmobile"
+    },
+    {
+      "label": "TheTether.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thetether.jsx",
+      "id": "components_thetether"
+    },
+    {
+      "label": "TheTether()",
+      "file_type": "code",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L9",
+      "community": 0,
+      "norm_label": "thetether()",
+      "id": "components_thetether_thetether"
+    },
+    {
+      "label": "TheVoid.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheVoid.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "thevoid.jsx",
+      "id": "components_thevoid"
+    },
+    {
+      "label": "TheVoid()",
+      "file_type": "code",
+      "source_file": "src/components/TheVoid.jsx",
+      "source_location": "L8",
+      "community": 0,
+      "norm_label": "thevoid()",
+      "id": "components_thevoid_thevoid"
+    },
+    {
+      "label": "syntheticData.js",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "syntheticdata.js",
+      "id": "data_syntheticdata"
+    },
+    {
+      "label": "CATEGORIES",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L6",
+      "community": 1,
+      "norm_label": "categories",
+      "id": "data_syntheticdata_categories"
+    },
+    {
+      "label": "AUTHORS",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L7",
+      "community": 1,
+      "norm_label": "authors",
+      "id": "data_syntheticdata_authors"
+    },
+    {
+      "label": "TAGS_POOL",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L20",
+      "community": 1,
+      "norm_label": "tags_pool",
+      "id": "data_syntheticdata_tags_pool"
+    },
+    {
+      "label": "IMAGES_POOL",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L26",
+      "community": 1,
+      "norm_label": "images_pool",
+      "id": "data_syntheticdata_images_pool"
+    },
+    {
+      "label": "randomFrom()",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L35",
+      "community": 1,
+      "norm_label": "randomfrom()",
+      "id": "data_syntheticdata_randomfrom"
+    },
+    {
+      "label": "randomTags()",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L39",
+      "community": 1,
+      "norm_label": "randomtags()",
+      "id": "data_syntheticdata_randomtags"
+    },
+    {
+      "label": "randomDate()",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L45",
+      "community": 1,
+      "norm_label": "randomdate()",
+      "id": "data_syntheticdata_randomdate"
+    },
+    {
+      "label": "SYNTHETIC_ARTICLES",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L52",
+      "community": 1,
+      "norm_label": "synthetic_articles",
+      "id": "data_syntheticdata_synthetic_articles"
+    },
+    {
+      "label": "SYNTHETIC_USERS",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L298",
+      "community": 1,
+      "norm_label": "synthetic_users",
+      "id": "data_syntheticdata_synthetic_users"
+    },
+    {
+      "label": "SYNTHETIC_SIGNALS",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L350",
+      "community": 1,
+      "norm_label": "synthetic_signals",
+      "id": "data_syntheticdata_synthetic_signals"
+    },
+    {
+      "label": "SYNTHETIC_OPERATORS",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L357",
+      "community": 1,
+      "norm_label": "synthetic_operators",
+      "id": "data_syntheticdata_synthetic_operators"
+    },
+    {
+      "label": "ARCHIVE_GRID_IMAGES",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L381",
+      "community": 1,
+      "norm_label": "archive_grid_images",
+      "id": "data_syntheticdata_archive_grid_images"
+    },
+    {
+      "label": "SYNTHETIC_PROFILE",
+      "file_type": "code",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L395",
+      "community": 1,
+      "norm_label": "synthetic_profile",
+      "id": "data_syntheticdata_synthetic_profile"
+    },
+    {
+      "label": "useData.js",
+      "file_type": "code",
+      "source_file": "src/hooks/useData.js",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "usedata.js",
+      "id": "hooks_usedata"
+    },
+    {
+      "label": "useData()",
+      "file_type": "code",
+      "source_file": "src/hooks/useData.js",
+      "source_location": "L8",
+      "community": 7,
+      "norm_label": "usedata()",
+      "id": "hooks_usedata_usedata"
+    },
+    {
+      "label": "useMobile.js",
+      "file_type": "code",
+      "source_file": "src/hooks/useMobile.js",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "usemobile.js",
+      "id": "hooks_usemobile"
+    },
+    {
+      "label": "cache.js",
+      "file_type": "code",
+      "source_file": "src/lib/cache.js",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "cache.js",
+      "id": "lib_cache"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "src/lib/cache.js",
+      "source_location": "L9",
+      "community": 0,
+      "norm_label": "cache",
+      "id": "lib_cache_cache"
+    },
+    {
+      "label": "firebase.js",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "firebase.js",
+      "id": "lib_firebase"
+    },
+    {
+      "label": "firebaseConfig",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L4",
+      "community": 3,
+      "norm_label": "firebaseconfig",
+      "id": "lib_firebase_firebaseconfig"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L14",
+      "community": 3,
+      "norm_label": "app",
+      "id": "lib_firebase_app"
+    },
+    {
+      "label": "auth",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L15",
+      "community": 3,
+      "norm_label": "auth",
+      "id": "lib_firebase_auth"
+    },
+    {
+      "label": "googleProvider",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L16",
+      "community": 3,
+      "norm_label": "googleprovider",
+      "id": "lib_firebase_googleprovider"
+    },
+    {
+      "label": "signInWithGoogle()",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L18",
+      "community": 3,
+      "norm_label": "signinwithgoogle()",
+      "id": "lib_firebase_signinwithgoogle"
+    },
+    {
+      "label": "logOut()",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L19",
+      "community": 3,
+      "norm_label": "logout()",
+      "id": "lib_firebase_logout"
+    },
+    {
+      "label": "supabase.js",
+      "file_type": "code",
+      "source_file": "src/lib/supabase.js",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "supabase.js",
+      "id": "lib_supabase"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": "src/lib/supabase.js",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "supabase",
+      "id": "lib_supabase_supabase"
+    },
+    {
+      "label": "legacySupabase",
+      "file_type": "code",
+      "source_file": "src/lib/supabase.js",
+      "source_location": "L12",
+      "community": 0,
+      "norm_label": "legacysupabase",
+      "id": "lib_supabase_legacysupabase"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "src/main.jsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "main.jsx",
+      "id": "src_main"
+    },
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "vite.config.js",
+      "id": "vite_config"
+    },
+    {
+      "label": "devGatewayPlugin()",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L9",
+      "community": 9,
+      "norm_label": "devgatewayplugin()",
+      "id": "vite_config_devgatewayplugin"
+    },
+    {
+      "label": "The Nexus",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "the nexus",
+      "id": "readme_the_nexus"
+    },
+    {
+      "label": "The Feed",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "the feed",
+      "id": "readme_the_feed"
+    },
+    {
+      "label": "The Forge (CMS)",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "the forge (cms)",
+      "id": "readme_the_forge"
+    },
+    {
+      "label": "The Void (Immersive Reader)",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "the void (immersive reader)",
+      "id": "readme_the_void"
+    },
+    {
+      "label": "The Signal",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 18,
+      "norm_label": "the signal",
+      "id": "readme_the_signal"
+    },
+    {
+      "label": "The Dossier",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 16,
+      "norm_label": "the dossier",
+      "id": "readme_the_dossier"
+    },
+    {
+      "label": "The Hierarchy & Stratification",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "the hierarchy & stratification",
+      "id": "readme_the_hierarchy"
+    },
+    {
+      "label": "The Tether",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 19,
+      "norm_label": "the tether",
+      "id": "readme_the_tether"
+    },
+    {
+      "label": "React 19",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://react.dev/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "react 19",
+      "id": "readme_react_19"
+    },
+    {
+      "label": "Vite 7",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://vite.dev/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 20,
+      "norm_label": "vite 7",
+      "id": "readme_vite_7"
+    },
+    {
+      "label": "Tailwind CSS 4",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://tailwindcss.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 15,
+      "norm_label": "tailwind css 4",
+      "id": "readme_tailwind_css_4"
+    },
+    {
+      "label": "Supabase",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "supabase",
+      "id": "readme_supabase"
+    },
+    {
+      "label": "Firebase Auth",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "firebase auth",
+      "id": "readme_firebase_auth"
+    },
+    {
+      "label": "Framer Motion",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://www.framer.com/motion/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 12,
+      "norm_label": "framer motion",
+      "id": "readme_framer_motion"
+    },
+    {
+      "label": "GSAP",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://gsap.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 13,
+      "norm_label": "gsap",
+      "id": "readme_gsap"
+    },
+    {
+      "label": "Custom Caching Engine",
+      "file_type": "code",
+      "source_file": "src/lib/cache.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "custom caching engine",
+      "id": "readme_cache_js"
+    },
+    {
+      "label": "Main Entry Point",
+      "file_type": "code",
+      "source_file": "src/main.jsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "main entry point",
+      "id": "index_main_jsx"
+    },
+    {
+      "label": "Root DOM Element",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "root dom element",
+      "id": "index_root"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_layout"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thearchivegrid"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thearchives"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thebeacon"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_theconsole"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thedossier"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thefeed"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_theforge"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thehierarchy"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thenexus"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thenexusmobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_theportal"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thesignal"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thesplash"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thestratification"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thetether"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_thevoid"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "data_syntheticdata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "data_syntheticdata_synthetic_articles"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_cache"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_cache_cache"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_firebase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_firebase_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_supabase_legacysupabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_app"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main",
+      "target": "src_app"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_app",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Gallery.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_gallery",
+      "target": "components_gallery_gallery"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "components_layout_layout"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "components_themenu"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "lib_firebase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "lib_firebase_logout"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "lib_firebase_signinwithgoogle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout_layout",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Reader.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_reader",
+      "target": "components_reader_reader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchiveGrid.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thearchivegrid",
+      "target": "components_thearchivegrid_images"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchives.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thearchives",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheBeacon.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thebeacon",
+      "target": "components_thebeacon_thebeacon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "components_thedossier_badges"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "components_thedossier_dossierdesktop"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "components_thedossier_dossiermobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "components_thedossier_knowledge_items"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "components_thedossier_thedossier"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheDossier.jsx",
+      "source_location": "L248",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thedossier_thedossier",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thefeed",
+      "target": "components_thefeed_thefeed"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thefeed",
+      "target": "components_thefeedmobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thefeed",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thefeed_thefeed",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeedMobile.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thefeedmobile",
+      "target": "components_thefeedmobile_thefeedmobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "components_theforge_theforge"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "lib_cache"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "lib_cache_cache"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "lib_supabase_legacysupabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thehierarchy",
+      "target": "components_thehierarchy_tiers"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thehierarchy",
+      "target": "components_thehierarchymobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thehierarchy",
+      "target": "data_syntheticdata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thehierarchy",
+      "target": "data_syntheticdata_synthetic_users"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thehierarchy",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheMenu.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_themenu",
+      "target": "components_themenu_themenu"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thenexus",
+      "target": "components_thenexus_thenexus"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thenexus",
+      "target": "components_thenexusmobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thenexus",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheNexus.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thenexus_thenexus",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "components_theportal_theportal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheSignal.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thesignal",
+      "target": "components_thesignal_thesignal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheSplash.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thesplash",
+      "target": "components_thesplash_thesplash"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thestratification",
+      "target": "components_thestratification_strat_tiers"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thestratification",
+      "target": "components_thestratificationmobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thestratification",
+      "target": "data_syntheticdata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thestratification",
+      "target": "data_syntheticdata_synthetic_operators"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thestratification",
+      "target": "hooks_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thetether",
+      "target": "components_thetether_thetether"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheVoid.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thevoid",
+      "target": "components_thevoid_thevoid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L381",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_archive_grid_images"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_authors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_categories"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_images_pool"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_randomdate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_randomfrom"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_randomtags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_synthetic_articles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L357",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_synthetic_operators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L395",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_synthetic_profile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L350",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_synthetic_signals"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L298",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_synthetic_users"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/syntheticData.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_syntheticdata",
+      "target": "data_syntheticdata_tags_pool"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useData.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usedata",
+      "target": "hooks_usedata_usedata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/cache.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_cache",
+      "target": "lib_cache_cache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_firebaseconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_googleprovider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_logout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_signinwithgoogle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_supabase",
+      "target": "lib_supabase_legacysupabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_supabase",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vite_config",
+      "target": "vite_config_devgatewayplugin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_nexus",
+      "target": "readme_cache_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_nexus",
+      "target": "readme_supabase"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_nexus",
+      "target": "readme_the_feed"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_nexus",
+      "target": "readme_the_forge"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_nexus",
+      "target": "readme_the_void"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_feed",
+      "target": "readme_supabase"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_the_forge",
+      "target": "readme_supabase"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_main_jsx",
+      "target": "index_root"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "17d2a864aa00c502298de40b45f2215f4f9c8abe"
+}

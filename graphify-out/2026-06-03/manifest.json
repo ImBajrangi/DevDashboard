@@ -1,0 +1,172 @@
+{
+  "/Users/sakhi/Code/DevDashboard/eslint.config.js": {
+    "mtime": 1774622558.1651819,
+    "ast_hash": "49c8473bcfcec3aef596a5fb04a6df06",
+    "semantic_hash": "49c8473bcfcec3aef596a5fb04a6df06"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/App.jsx": {
+    "mtime": 1779375399.5894246,
+    "ast_hash": "bd23c16e767ce4901e85d871add83ae5",
+    "semantic_hash": "bd23c16e767ce4901e85d871add83ae5"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/Gallery.jsx": {
+    "mtime": 1774622558.166948,
+    "ast_hash": "3fb6e50f656f24d5d14fb67f5f06c8ca",
+    "semantic_hash": "3fb6e50f656f24d5d14fb67f5f06c8ca"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/Layout.jsx": {
+    "mtime": 1779375404.7638555,
+    "ast_hash": "30d78e0d05b2639ea22b5cb5bf731d39",
+    "semantic_hash": "30d78e0d05b2639ea22b5cb5bf731d39"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/Reader.jsx": {
+    "mtime": 1774622558.1672552,
+    "ast_hash": "9613d792a4ce7578bd4f7e53c70eb359",
+    "semantic_hash": "9613d792a4ce7578bd4f7e53c70eb359"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheArchiveGrid.jsx": {
+    "mtime": 1774805998.1862943,
+    "ast_hash": "0d455e5cce612bb9c6320db7c17e4c2c",
+    "semantic_hash": "0d455e5cce612bb9c6320db7c17e4c2c"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheArchives.jsx": {
+    "mtime": 1774806116.3261094,
+    "ast_hash": "2c4adeaadc47331cffd56f689ea729ff",
+    "semantic_hash": "2c4adeaadc47331cffd56f689ea729ff"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheArchivesMobile.jsx": {
+    "mtime": 1774806334.048206,
+    "ast_hash": "ca227bbccbf6a30cd9484e5050ac4c9f",
+    "semantic_hash": "ca227bbccbf6a30cd9484e5050ac4c9f"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheBeacon.jsx": {
+    "mtime": 1774965858.3418708,
+    "ast_hash": "9fc3f88ab5c96f97f64e9d207b2a16c0",
+    "semantic_hash": "9fc3f88ab5c96f97f64e9d207b2a16c0"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheConsole.jsx": {
+    "mtime": 1779375595.7985086,
+    "ast_hash": "452791cabad17e7b9d48338dbe0bd054",
+    "semantic_hash": "452791cabad17e7b9d48338dbe0bd054"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheDossier.jsx": {
+    "mtime": 1774806172.1867125,
+    "ast_hash": "f546fa1490670a153800db9f1faed42a",
+    "semantic_hash": "f546fa1490670a153800db9f1faed42a"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheFeed.jsx": {
+    "mtime": 1774965620.9817486,
+    "ast_hash": "ca432e41bc9a40d851ce0bc65ff82e01",
+    "semantic_hash": "ca432e41bc9a40d851ce0bc65ff82e01"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheFeedMobile.jsx": {
+    "mtime": 1774806149.299066,
+    "ast_hash": "bc076fdd631a1510393e9e46285e6ad3",
+    "semantic_hash": "bc076fdd631a1510393e9e46285e6ad3"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheForge.jsx": {
+    "mtime": 1774803362.0378597,
+    "ast_hash": "3d8c2f60a74abf5a4fea4e7c8128bf5b",
+    "semantic_hash": "3d8c2f60a74abf5a4fea4e7c8128bf5b"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheHierarchy.jsx": {
+    "mtime": 1774966854.9824932,
+    "ast_hash": "b331c56b21ad5ce4e4f11c335f9f2361",
+    "semantic_hash": "b331c56b21ad5ce4e4f11c335f9f2361"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheHierarchyMobile.jsx": {
+    "mtime": 1774806185.6441596,
+    "ast_hash": "0a60f37838a131e5e4ca01007d099fda",
+    "semantic_hash": "0a60f37838a131e5e4ca01007d099fda"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheMenu.jsx": {
+    "mtime": 1774966293.9673228,
+    "ast_hash": "0f9b417c796ad0a88830198c6933207e",
+    "semantic_hash": "0f9b417c796ad0a88830198c6933207e"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheNexus.jsx": {
+    "mtime": 1779369173.0889916,
+    "ast_hash": "5a1f1f7dca747830ac62c7b880b4df92",
+    "semantic_hash": "5a1f1f7dca747830ac62c7b880b4df92"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheNexusMobile.jsx": {
+    "mtime": 1774806296.2854364,
+    "ast_hash": "f82681dc266381dd32c4807dca655109",
+    "semantic_hash": "f82681dc266381dd32c4807dca655109"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/ThePortal.jsx": {
+    "mtime": 1774802610.8203204,
+    "ast_hash": "0a9f6472417c9cef1798a6f9a1a54a78",
+    "semantic_hash": "0a9f6472417c9cef1798a6f9a1a54a78"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheSignal.jsx": {
+    "mtime": 1774622558.1692584,
+    "ast_hash": "dd31f4320ed871857b6b4e3515362651",
+    "semantic_hash": "dd31f4320ed871857b6b4e3515362651"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheSplash.jsx": {
+    "mtime": 1774622558.1694045,
+    "ast_hash": "5841f90f6efbcb0a02c530e796c8a4f3",
+    "semantic_hash": "5841f90f6efbcb0a02c530e796c8a4f3"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheStratification.jsx": {
+    "mtime": 1774966929.8390353,
+    "ast_hash": "2ea0aa83742b4a3a83eeb9e0037ca43e",
+    "semantic_hash": "2ea0aa83742b4a3a83eeb9e0037ca43e"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheStratificationMobile.jsx": {
+    "mtime": 1774806200.9294884,
+    "ast_hash": "bb2e627a44821b0952c0bc9758bc1a29",
+    "semantic_hash": "bb2e627a44821b0952c0bc9758bc1a29"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheTether.jsx": {
+    "mtime": 1774622558.1698906,
+    "ast_hash": "64758d2f48790aa1f7352d9008ba273c",
+    "semantic_hash": "64758d2f48790aa1f7352d9008ba273c"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/components/TheVoid.jsx": {
+    "mtime": 1774622558.1702068,
+    "ast_hash": "f18a4d3af505c1cde8925bfff2deab7b",
+    "semantic_hash": "f18a4d3af505c1cde8925bfff2deab7b"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/data/syntheticData.js": {
+    "mtime": 1779369148.1618748,
+    "ast_hash": "0a8ffa730dfca621981ce4c84ac88095",
+    "semantic_hash": "0a8ffa730dfca621981ce4c84ac88095"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/hooks/useData.js": {
+    "mtime": 1774622558.1706178,
+    "ast_hash": "bc136d434f711e84f019f9ea8523d4d5",
+    "semantic_hash": "bc136d434f711e84f019f9ea8523d4d5"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/hooks/useMobile.js": {
+    "mtime": 1774622558.1707206,
+    "ast_hash": "436b7b219ee213ed727866063379c805",
+    "semantic_hash": "436b7b219ee213ed727866063379c805"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/lib/cache.js": {
+    "mtime": 1774622558.1710496,
+    "ast_hash": "ba2ab4224934172775e47832a999ef75",
+    "semantic_hash": "ba2ab4224934172775e47832a999ef75"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/lib/firebase.js": {
+    "mtime": 1774622558.1711595,
+    "ast_hash": "2473419647761f5d0eaf8b08ddb0cd6e",
+    "semantic_hash": "2473419647761f5d0eaf8b08ddb0cd6e"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/lib/supabase.js": {
+    "mtime": 1774622558.1712644,
+    "ast_hash": "9a34f9d879b09f7c04689c0d81f7f706",
+    "semantic_hash": "9a34f9d879b09f7c04689c0d81f7f706"
+  },
+  "/Users/sakhi/Code/DevDashboard/src/main.jsx": {
+    "mtime": 1774622558.1713738,
+    "ast_hash": "a069b9cb15aee6e522e9c21f110535b4",
+    "semantic_hash": "a069b9cb15aee6e522e9c21f110535b4"
+  },
+  "/Users/sakhi/Code/DevDashboard/vite.config.js": {
+    "mtime": 1779375560.1551278,
+    "ast_hash": "a00b071b6e9a77d771ce21834290a3f5",
+    "semantic_hash": "a00b071b6e9a77d771ce21834290a3f5"
+  }
+}
