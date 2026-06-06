@@ -1,5 +1,6 @@
 import React from 'react';
 import { Focus } from 'lucide-react';
+import Loader from './ui/Loader';
 
 /**
  * TheArchiveGrid – exact clone of the_airlock_4/code.html
@@ -192,7 +193,9 @@ const TheArchiveGrid = ({ items = [], onLoadMore, isFetchingMore }) => {
 
             {/* Global Archive Sync Trigger */}
             <div className="mt-20 py-24 flex flex-col items-center justify-center border-t border-border-void/30">
-                <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                <div className="h-12 mb-4 flex items-center justify-center">
+                    {isFetchingMore && <Loader size={32} />}
+                </div>
                 <button 
                     onClick={onLoadMore}
                     disabled={isFetchingMore}

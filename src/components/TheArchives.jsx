@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMobile } from '../hooks/useMobile';
 import TheArchivesMobile from './TheArchivesMobile';
+import Loader from './ui/Loader';
 
 /**
  * TheArchives component – from the_archives template.
@@ -65,7 +66,9 @@ const TheArchives = ({ items = [], onItemClick = () => { }, categories = ['ALL']
 
                 {/* Global Archive Sync Trigger */}
                 <div className="mt-12 py-20 flex flex-col items-center justify-center border-t border-border-void/30">
-                    <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                    <div className="h-12 mb-4 flex items-center justify-center">
+                        {isFetchingMore && <Loader size={32} />}
+                    </div>
                     <button 
                         onClick={onLoadMore}
                         disabled={isFetchingMore}

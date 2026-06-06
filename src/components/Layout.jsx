@@ -15,6 +15,8 @@ const Layout = ({
     description = "A digital sanctuary for deep reading and archival silence.",
     onSignalOpen = () => { },
     user = null,
+    userRole = 'viewer',
+    isAdmin = false,
     loading = false,
     activeProject = 'ALL_SYSTEMS',
     setActiveProject = () => { },
@@ -81,6 +83,20 @@ const Layout = ({
         { id: 'settings', icon: <Settings size={20} />, label: 'Settings' },
         { id: 'profile', icon: <User size={20} />, label: 'Profile' },
     ];
+
+    const isEditor = userRole === 'editor' || userRole === 'admin';
+    const adminOnlyTabs = ['portal', 'beacon', 'console'];
+    const editorOnlyTabs = ['forge'];
+
+    const filteredNavItems = navItems.filter(item => {
+        if (adminOnlyTabs.includes(item.id)) {
+            return isAdmin;
+        }
+        if (editorOnlyTabs.includes(item.id)) {
+            return isEditor;
+        }
+        return true;
+    });
 
     return (
         <HelmetProvider>
@@ -228,7 +244,7 @@ const Layout = ({
                         className="fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.1)]"
                     >
                         <div className="flex flex-col gap-1.5 px-3">
-                            {navItems.filter(i => i.id !== 'profile').map(item => {
+                            {filteredNavItems.filter(i => i.id !== 'profile').map(item => {
                                 const isActive = activeTab === item.id;
                                 return (
                                     <button
@@ -356,7 +372,7 @@ const Layout = ({
                     onClose={() => setIsHubOpen(false)}
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
-                    navItems={navItems}
+                    navItems={filteredNavItems}
                     user={user}
                     logOut={logOut}
                 />

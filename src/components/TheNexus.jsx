@@ -293,7 +293,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             </div>
 
             <header className="px-12 py-16 border-b border-border-void">
-                <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-tighter leading-none mb-8 font-display">THE_VRINDA<span className="animate-pulse text-primary">.</span></h1>
+                <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-tighter leading-none mb-8 font-display">THE_VRINDA<span className="text-primary">.</span></h1>
                 <div className="flex justify-between items-end">
                     <p className="max-w-md text-sm opacity-60 leading-relaxed uppercase">
                         Deep-tech blog & archival platform for the silent majority.

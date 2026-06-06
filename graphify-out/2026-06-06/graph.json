@@ -22,10 +22,19 @@
       "norm_label": "app.jsx"
     },
     {
+      "label": "PROJECTS",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "id": "src_app_projects",
+      "community": 0,
+      "norm_label": "projects"
+    },
+    {
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.jsx",
-      "source_location": "L27",
+      "source_location": "L40",
       "id": "src_app_app",
       "community": 2,
       "norm_label": "app()"
@@ -110,6 +119,24 @@
       "id": "components_searchinput_styledwrapper",
       "community": 21,
       "norm_label": "styledwrapper"
+    },
+    {
+      "label": "TheAirlock.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L1",
+      "id": "components_theairlock",
+      "community": 3,
+      "norm_label": "theairlock.jsx"
+    },
+    {
+      "label": "TheAirlock()",
+      "file_type": "code",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L9",
+      "id": "components_theairlock_theairlock",
+      "community": 3,
+      "norm_label": "theairlock()"
     },
     {
       "label": "TheArchiveGrid.jsx",
@@ -198,25 +225,25 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L1",
       "id": "components_thechat",
-      "community": 22,
+      "community": 2,
       "norm_label": "thechat.jsx"
     },
     {
       "label": "INITIAL_MESSAGES",
       "file_type": "code",
       "source_file": "src/components/TheChat.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "components_thechat_initial_messages",
-      "community": 22,
+      "community": 2,
       "norm_label": "initial_messages"
     },
     {
       "label": "TheChat()",
       "file_type": "code",
       "source_file": "src/components/TheChat.jsx",
-      "source_location": "L71",
+      "source_location": "L72",
       "id": "components_thechat_thechat",
-      "community": 22,
+      "community": 2,
       "norm_label": "thechat()"
     },
     {
@@ -232,7 +259,7 @@
       "label": "TheConsole()",
       "file_type": "code",
       "source_file": "src/components/TheConsole.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "components_theconsole_theconsole",
       "community": 0,
       "norm_label": "theconsole()"
@@ -396,7 +423,7 @@
       "source_file": "src/components/TheMenu.jsx",
       "source_location": "L1",
       "id": "components_themenu",
-      "community": 3,
+      "community": 28,
       "norm_label": "themenu.jsx"
     },
     {
@@ -405,7 +432,7 @@
       "source_file": "src/components/TheMenu.jsx",
       "source_location": "L7",
       "id": "components_themenu_themenu",
-      "community": 3,
+      "community": 28,
       "norm_label": "themenu()"
     },
     {
@@ -450,16 +477,16 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L1",
       "id": "components_theportal",
-      "community": 0,
+      "community": 3,
       "norm_label": "theportal.jsx"
     },
     {
       "label": "ThePortal()",
       "file_type": "code",
       "source_file": "src/components/ThePortal.jsx",
-      "source_location": "L6",
+      "source_location": "L13",
       "id": "components_theportal_theportal",
-      "community": 0,
+      "community": 3,
       "norm_label": "theportal()"
     },
     {
@@ -504,7 +531,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L1",
       "id": "components_thestratification",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratification.jsx"
     },
     {
@@ -513,7 +540,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L7",
       "id": "components_thestratification_strat_tiers",
-      "community": 1,
+      "community": 2,
       "norm_label": "strat_tiers"
     },
     {
@@ -522,7 +549,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L14",
       "id": "components_thestratification_thestratification",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratification()"
     },
     {
@@ -531,7 +558,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L1",
       "id": "components_thestratificationmobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratificationmobile.jsx"
     },
     {
@@ -540,7 +567,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L8",
       "id": "components_thestratificationmobile_thestratificationmobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratificationmobile()"
     },
     {
@@ -556,7 +583,7 @@
       "label": "TheTether()",
       "file_type": "code",
       "source_file": "src/components/TheTether.jsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "id": "components_thetether_thetether",
       "community": 21,
       "norm_label": "thetether()"
@@ -837,7 +864,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L1",
       "id": "ui_hamburgertoggle",
-      "community": 3,
+      "community": 28,
       "norm_label": "hamburgertoggle.jsx"
     },
     {
@@ -846,7 +873,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L4",
       "id": "ui_hamburgertoggle_hamburgertoggle",
-      "community": 3,
+      "community": 28,
       "norm_label": "hamburgertoggle()"
     },
     {
@@ -855,7 +882,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L18",
       "id": "ui_hamburgertoggle_styledwrapper",
-      "community": 3,
+      "community": 28,
       "norm_label": "styledwrapper"
     },
     {
@@ -880,7 +907,7 @@
       "label": "StyledWrapper",
       "file_type": "code",
       "source_file": "src/components/ui/InstallButton.jsx",
-      "source_location": "L94",
+      "source_location": "L83",
       "id": "ui_installbutton_styledwrapper",
       "community": 21,
       "norm_label": "styledwrapper"
@@ -891,7 +918,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L1",
       "id": "ui_liketoggle",
-      "community": 22,
+      "community": 29,
       "norm_label": "liketoggle.jsx"
     },
     {
@@ -900,7 +927,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L4",
       "id": "ui_liketoggle_liketoggle",
-      "community": 22,
+      "community": 29,
       "norm_label": "liketoggle()"
     },
     {
@@ -909,7 +936,34 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L51",
       "id": "ui_liketoggle_styledwrapper",
-      "community": 22,
+      "community": 29,
+      "norm_label": "styledwrapper"
+    },
+    {
+      "label": "Loader.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Loader.jsx",
+      "source_location": "L1",
+      "id": "ui_loader",
+      "community": 3,
+      "norm_label": "loader.jsx"
+    },
+    {
+      "label": "Loader()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Loader.jsx",
+      "source_location": "L4",
+      "id": "ui_loader_loader",
+      "community": 3,
+      "norm_label": "loader()"
+    },
+    {
+      "label": "StyledWrapper",
+      "file_type": "code",
+      "source_file": "src/components/ui/Loader.jsx",
+      "source_location": "L18",
+      "id": "ui_loader_styledwrapper",
+      "community": 3,
       "norm_label": "styledwrapper"
     },
     {
@@ -1093,6 +1147,33 @@
       "norm_label": "styledwrapper"
     },
     {
+      "label": "Tooltip.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Tooltip.jsx",
+      "source_location": "L1",
+      "id": "ui_tooltip",
+      "community": 21,
+      "norm_label": "tooltip.jsx"
+    },
+    {
+      "label": "Tooltip()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Tooltip.jsx",
+      "source_location": "L4",
+      "id": "ui_tooltip_tooltip",
+      "community": 21,
+      "norm_label": "tooltip()"
+    },
+    {
+      "label": "StyledWrapper",
+      "file_type": "code",
+      "source_file": "src/components/ui/Tooltip.jsx",
+      "source_location": "L21",
+      "id": "ui_tooltip_styledwrapper",
+      "community": 21,
+      "norm_label": "styledwrapper"
+    },
+    {
       "label": "syntheticData.js",
       "file_type": "code",
       "source_file": "src/data/syntheticData.js",
@@ -1228,6 +1309,87 @@
       "norm_label": "usemobile()"
     },
     {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "id": "lib_auth",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "INITIAL_ADMINS",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L5",
+      "id": "lib_auth_initial_admins",
+      "community": 3,
+      "norm_label": "initial_admins"
+    },
+    {
+      "label": "isInitialAdmin()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L16",
+      "id": "lib_auth_isinitialadmin",
+      "community": 3,
+      "norm_label": "isinitialadmin()"
+    },
+    {
+      "label": "checkUserAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L25",
+      "id": "lib_auth_checkuseraccess",
+      "community": 3,
+      "norm_label": "checkuseraccess()"
+    },
+    {
+      "label": "requestDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L54",
+      "id": "lib_auth_requestdashboardaccess",
+      "community": 3,
+      "norm_label": "requestdashboardaccess()"
+    },
+    {
+      "label": "getAllAccessEntries()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L79",
+      "id": "lib_auth_getallaccessentries",
+      "community": 3,
+      "norm_label": "getallaccessentries()"
+    },
+    {
+      "label": "grantDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L96",
+      "id": "lib_auth_grantdashboardaccess",
+      "community": 3,
+      "norm_label": "grantdashboardaccess()"
+    },
+    {
+      "label": "revokeDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L119",
+      "id": "lib_auth_revokedashboardaccess",
+      "community": 3,
+      "norm_label": "revokedashboardaccess()"
+    },
+    {
+      "label": "deleteAccessEntry()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L140",
+      "id": "lib_auth_deleteaccessentry",
+      "community": 3,
+      "norm_label": "deleteaccessentry()"
+    },
+    {
       "label": "cache.js",
       "file_type": "code",
       "source_file": "src/lib/cache.js",
@@ -1258,7 +1420,7 @@
       "label": "firebaseConfig",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "id": "lib_firebase_firebaseconfig",
       "community": 3,
       "norm_label": "firebaseconfig"
@@ -1267,7 +1429,7 @@
       "label": "app",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "lib_firebase_app",
       "community": 3,
       "norm_label": "app"
@@ -1276,16 +1438,25 @@
       "label": "auth",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "lib_firebase_auth",
       "community": 3,
       "norm_label": "auth"
     },
     {
+      "label": "db",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L17",
+      "id": "lib_firebase_db",
+      "community": 3,
+      "norm_label": "db"
+    },
+    {
       "label": "googleProvider",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "lib_firebase_googleprovider",
       "community": 3,
       "norm_label": "googleprovider"
@@ -1294,7 +1465,7 @@
       "label": "signInWithGoogle()",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L18",
+      "source_location": "L20",
       "id": "lib_firebase_signinwithgoogle",
       "community": 3,
       "norm_label": "signinwithgoogle()"
@@ -1303,7 +1474,7 @@
       "label": "logOut()",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "lib_firebase_logout",
       "community": 3,
       "norm_label": "logout()"
@@ -1704,6 +1875,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "components_theairlock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1739,9 +1921,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "components_thechat",
-      "confidence_score": 1.0
+      "target": "components_thechat"
     },
     {
       "relation": "imports_from",
@@ -1926,8 +2108,30 @@
       "source_file": "src/App.jsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "hooks_usemobile_usemobile",
+      "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "lib_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "lib_auth_checkuseraccess",
       "confidence_score": 1.0
     },
     {
@@ -2018,6 +2222,27 @@
       "target": "src_app_app"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_projects",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "ui_scifiloader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2046,8 +2271,19 @@
       "source_file": "src/App.jsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "hooks_usemobile_usemobile",
+      "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "lib_auth_checkuseraccess",
       "confidence_score": 1.0
     },
     {
@@ -2099,9 +2335,9 @@
       "source_file": "src/components/Layout.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_layout",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "imports_from",
@@ -2143,9 +2379,20 @@
       "source_file": "src/components/Layout.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_layout",
-      "target": "ui_eyeloader",
-      "confidence_score": 1.0
+      "target": "ui_eyeloader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Layout.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_layout",
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -2165,9 +2412,9 @@
       "source_file": "src/components/Layout.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_layout_layout",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2185,9 +2432,9 @@
       "source_file": "src/components/SearchInput.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_searchinput",
-      "target": "components_searchinput_searchinput",
-      "confidence_score": 1.0
+      "target": "components_searchinput_searchinput"
     },
     {
       "relation": "contains",
@@ -2195,9 +2442,9 @@
       "source_file": "src/components/SearchInput.jsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_searchinput",
-      "target": "components_searchinput_styledwrapper",
-      "confidence_score": 1.0
+      "target": "components_searchinput_styledwrapper"
     },
     {
       "relation": "imports_from",
@@ -2206,8 +2453,106 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "components_searchinput",
+      "target": "components_searchinput"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "components_theairlock_theairlock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_auth_requestdashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase_signinwithgoogle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "ui_realismbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theairlock",
+      "target": "ui_scifiloader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_theairlock_theairlock",
+      "target": "lib_auth_requestdashboardaccess",
       "confidence_score": 1.0
     },
     {
@@ -2226,9 +2571,9 @@
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchivegrid",
-      "target": "components_thearchivegrid_thearchivegrid",
-      "confidence_score": 1.0
+      "target": "components_thearchivegrid_thearchivegrid"
     },
     {
       "relation": "contains",
@@ -2236,9 +2581,9 @@
       "source_file": "src/components/TheArchives.jsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchives",
-      "target": "components_thearchives_thearchives",
-      "confidence_score": 1.0
+      "target": "components_thearchives_thearchives"
     },
     {
       "relation": "imports_from",
@@ -2247,9 +2592,9 @@
       "source_file": "src/components/TheArchives.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchives",
-      "target": "components_thearchivesmobile",
-      "confidence_score": 1.0
+      "target": "components_thearchivesmobile"
     },
     {
       "relation": "imports_from",
@@ -2269,9 +2614,9 @@
       "source_file": "src/components/TheArchives.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchives",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "calls",
@@ -2280,9 +2625,9 @@
       "source_file": "src/components/TheArchives.jsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchives_thearchives",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2290,9 +2635,9 @@
       "source_file": "src/components/TheArchivesMobile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchivesmobile",
-      "target": "components_thearchivesmobile_thearchivesmobile",
-      "confidence_score": 1.0
+      "target": "components_thearchivesmobile_thearchivesmobile"
     },
     {
       "relation": "contains",
@@ -2310,9 +2655,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "components_thechat_initial_messages",
-      "confidence_score": 1.0
+      "target": "components_thechat_initial_messages"
     },
     {
       "relation": "contains",
@@ -2320,9 +2665,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "components_thechat_thechat",
-      "confidence_score": 1.0
+      "target": "components_thechat_thechat"
     },
     {
       "relation": "imports_from",
@@ -2331,9 +2676,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "hooks_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile"
     },
     {
       "relation": "imports",
@@ -2342,9 +2687,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "imports_from",
@@ -2353,9 +2698,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "ui_favoritetoggle",
-      "confidence_score": 1.0
+      "target": "ui_favoritetoggle"
     },
     {
       "relation": "imports_from",
@@ -2364,9 +2709,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat",
-      "target": "ui_liketoggle",
-      "confidence_score": 1.0
+      "target": "ui_liketoggle"
     },
     {
       "relation": "calls",
@@ -2375,9 +2720,9 @@
       "source_file": "src/components/TheChat.jsx",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thechat_thechat",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2385,9 +2730,9 @@
       "source_file": "src/components/TheConsole.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theconsole",
-      "target": "components_theconsole_theconsole",
-      "confidence_score": 1.0
+      "target": "components_theconsole_theconsole"
     },
     {
       "relation": "contains",
@@ -2457,9 +2802,9 @@
       "source_file": "src/components/TheDossier.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thedossier",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "calls",
@@ -2479,9 +2824,9 @@
       "source_file": "src/components/TheDossier.jsx",
       "source_location": "L248",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thedossier_thedossier",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2522,9 +2867,9 @@
       "source_file": "src/components/TheFeed.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thefeed",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "calls",
@@ -2544,9 +2889,9 @@
       "source_file": "src/components/TheFeed.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thefeed_thefeed",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2630,9 +2975,20 @@
       "source_file": "src/components/TheForge.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theforge",
-      "target": "ui_eyeloader",
-      "confidence_score": 1.0
+      "target": "ui_eyeloader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheForge.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theforge",
+      "target": "ui_loader"
     },
     {
       "relation": "contains",
@@ -2640,9 +2996,9 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thehierarchy",
-      "target": "components_thehierarchy_thehierarchy",
-      "confidence_score": 1.0
+      "target": "components_thehierarchy_thehierarchy"
     },
     {
       "relation": "contains",
@@ -2705,9 +3061,9 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thehierarchy",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "calls",
@@ -2716,9 +3072,9 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thehierarchy_thehierarchy",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2726,9 +3082,9 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thehierarchymobile",
-      "target": "components_thehierarchymobile_thehierarchymobile",
-      "confidence_score": 1.0
+      "target": "components_thehierarchymobile_thehierarchymobile"
     },
     {
       "relation": "contains",
@@ -2747,9 +3103,9 @@
       "source_file": "src/components/TheMenu.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themenu",
-      "target": "ui_hamburgertoggle",
-      "confidence_score": 1.0
+      "target": "ui_hamburgertoggle"
     },
     {
       "relation": "contains",
@@ -2790,9 +3146,9 @@
       "source_file": "src/components/TheNexus.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thenexus",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "imports_from",
@@ -2801,9 +3157,9 @@
       "source_file": "src/components/TheNexus.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thenexus",
-      "target": "ui_rewardbutton",
-      "confidence_score": 1.0
+      "target": "ui_rewardbutton"
     },
     {
       "relation": "calls",
@@ -2823,9 +3179,9 @@
       "source_file": "src/components/TheNexus.jsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thenexus_thenexus",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2833,9 +3189,9 @@
       "source_file": "src/components/TheNexusMobile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thenexusmobile",
-      "target": "components_thenexusmobile_thenexusmobile",
-      "confidence_score": 1.0
+      "target": "components_thenexusmobile_thenexusmobile"
     },
     {
       "relation": "contains",
@@ -2846,6 +3202,138 @@
       "confidence_score": 1.0,
       "source": "components_theportal",
       "target": "components_theportal_theportal"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_deleteaccessentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_getallaccessentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_grantdashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_initial_admins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_revokedashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_theportal",
+      "target": "lib_firebase_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_deleteaccessentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_getallaccessentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_grantdashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_revokedashboardaccess",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2874,9 +3362,9 @@
       "source_file": "src/components/TheSplash.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thesplash",
-      "target": "ui_realismbutton",
-      "confidence_score": 1.0
+      "target": "ui_realismbutton"
     },
     {
       "relation": "imports_from",
@@ -2885,9 +3373,9 @@
       "source_file": "src/components/TheSplash.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thesplash",
-      "target": "ui_scifiloader",
-      "confidence_score": 1.0
+      "target": "ui_scifiloader"
     },
     {
       "relation": "contains",
@@ -2905,9 +3393,9 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thestratification",
-      "target": "components_thestratification_thestratification",
-      "confidence_score": 1.0
+      "target": "components_thestratification_thestratification"
     },
     {
       "relation": "imports_from",
@@ -2960,9 +3448,9 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thestratification",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "calls",
@@ -2971,9 +3459,9 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thestratification_thestratification",
-      "target": "hooks_usemobile_usemobile",
-      "confidence_score": 1.0
+      "target": "hooks_usemobile_usemobile"
     },
     {
       "relation": "contains",
@@ -2981,9 +3469,9 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thestratificationmobile",
-      "target": "components_thestratificationmobile_thestratificationmobile",
-      "confidence_score": 1.0
+      "target": "components_thestratificationmobile_thestratificationmobile"
     },
     {
       "relation": "contains",
@@ -3002,9 +3490,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_ampmtoggle",
-      "confidence_score": 1.0
+      "target": "ui_ampmtoggle"
     },
     {
       "relation": "imports_from",
@@ -3013,9 +3501,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_cloudsavebutton",
-      "confidence_score": 1.0
+      "target": "ui_cloudsavebutton"
     },
     {
       "relation": "imports_from",
@@ -3024,9 +3512,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_creditsbutton",
-      "confidence_score": 1.0
+      "target": "ui_creditsbutton"
     },
     {
       "relation": "imports_from",
@@ -3035,9 +3523,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_daynightswitch",
-      "confidence_score": 1.0
+      "target": "ui_daynightswitch"
     },
     {
       "relation": "imports_from",
@@ -3046,9 +3534,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_eyeloader",
-      "confidence_score": 1.0
+      "target": "ui_eyeloader"
     },
     {
       "relation": "imports_from",
@@ -3057,9 +3545,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_foldercard",
-      "confidence_score": 1.0
+      "target": "ui_foldercard"
     },
     {
       "relation": "imports_from",
@@ -3068,9 +3556,20 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_installbutton",
-      "confidence_score": 1.0
+      "target": "ui_installbutton"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thetether",
+      "target": "ui_loader"
     },
     {
       "relation": "imports_from",
@@ -3079,9 +3578,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_neumorphictoggle",
-      "confidence_score": 1.0
+      "target": "ui_neumorphictoggle"
     },
     {
       "relation": "imports_from",
@@ -3090,9 +3589,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_realismbutton",
-      "confidence_score": 1.0
+      "target": "ui_realismbutton"
     },
     {
       "relation": "imports_from",
@@ -3101,9 +3600,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_savebookmarkswitch",
-      "confidence_score": 1.0
+      "target": "ui_savebookmarkswitch"
     },
     {
       "relation": "imports_from",
@@ -3112,9 +3611,20 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_starrating",
-      "confidence_score": 1.0
+      "target": "ui_starrating"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_thetether",
+      "target": "ui_tooltip"
     },
     {
       "relation": "contains",
@@ -3132,9 +3642,9 @@
       "source_file": "src/components/ui/AMPMToggle.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ampmtoggle",
-      "target": "ui_ampmtoggle_ampmtoggle",
-      "confidence_score": 1.0
+      "target": "ui_ampmtoggle_ampmtoggle"
     },
     {
       "relation": "contains",
@@ -3142,9 +3652,9 @@
       "source_file": "src/components/ui/AMPMToggle.jsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ampmtoggle",
-      "target": "ui_ampmtoggle_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_ampmtoggle_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3152,9 +3662,9 @@
       "source_file": "src/components/ui/BouncingLoader.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_bouncingloader",
-      "target": "ui_bouncingloader_bouncingloader",
-      "confidence_score": 1.0
+      "target": "ui_bouncingloader_bouncingloader"
     },
     {
       "relation": "contains",
@@ -3162,9 +3672,9 @@
       "source_file": "src/components/ui/BouncingLoader.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_bouncingloader",
-      "target": "ui_bouncingloader_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_bouncingloader_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3172,9 +3682,9 @@
       "source_file": "src/components/ui/CloudSaveButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_cloudsavebutton",
-      "target": "ui_cloudsavebutton_cloudsavebutton",
-      "confidence_score": 1.0
+      "target": "ui_cloudsavebutton_cloudsavebutton"
     },
     {
       "relation": "contains",
@@ -3182,9 +3692,9 @@
       "source_file": "src/components/ui/CloudSaveButton.jsx",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_cloudsavebutton",
-      "target": "ui_cloudsavebutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_cloudsavebutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3192,9 +3702,9 @@
       "source_file": "src/components/ui/CreditsButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_creditsbutton",
-      "target": "ui_creditsbutton_creditsbutton",
-      "confidence_score": 1.0
+      "target": "ui_creditsbutton_creditsbutton"
     },
     {
       "relation": "contains",
@@ -3202,9 +3712,9 @@
       "source_file": "src/components/ui/CreditsButton.jsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_creditsbutton",
-      "target": "ui_creditsbutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_creditsbutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3212,9 +3722,9 @@
       "source_file": "src/components/ui/DayNightSwitch.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_daynightswitch",
-      "target": "ui_daynightswitch_daynightswitch",
-      "confidence_score": 1.0
+      "target": "ui_daynightswitch_daynightswitch"
     },
     {
       "relation": "contains",
@@ -3222,9 +3732,9 @@
       "source_file": "src/components/ui/DayNightSwitch.jsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_daynightswitch",
-      "target": "ui_daynightswitch_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_daynightswitch_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3232,9 +3742,9 @@
       "source_file": "src/components/ui/EyeLoader.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_eyeloader",
-      "target": "ui_eyeloader_eyeloader",
-      "confidence_score": 1.0
+      "target": "ui_eyeloader_eyeloader"
     },
     {
       "relation": "contains",
@@ -3242,9 +3752,9 @@
       "source_file": "src/components/ui/EyeLoader.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_eyeloader",
-      "target": "ui_eyeloader_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_eyeloader_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3252,9 +3762,9 @@
       "source_file": "src/components/ui/FavoriteToggle.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_favoritetoggle",
-      "target": "ui_favoritetoggle_favoritetoggle",
-      "confidence_score": 1.0
+      "target": "ui_favoritetoggle_favoritetoggle"
     },
     {
       "relation": "contains",
@@ -3262,9 +3772,9 @@
       "source_file": "src/components/ui/FavoriteToggle.jsx",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_favoritetoggle",
-      "target": "ui_favoritetoggle_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_favoritetoggle_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3272,9 +3782,9 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_foldercard",
-      "target": "ui_foldercard_default_files",
-      "confidence_score": 1.0
+      "target": "ui_foldercard_default_files"
     },
     {
       "relation": "contains",
@@ -3282,9 +3792,9 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_foldercard",
-      "target": "ui_foldercard_foldercard",
-      "confidence_score": 1.0
+      "target": "ui_foldercard_foldercard"
     },
     {
       "relation": "contains",
@@ -3292,9 +3802,9 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_foldercard",
-      "target": "ui_foldercard_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_foldercard_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3302,9 +3812,9 @@
       "source_file": "src/components/ui/GenerateButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_generatebutton",
-      "target": "ui_generatebutton_generatebutton",
-      "confidence_score": 1.0
+      "target": "ui_generatebutton_generatebutton"
     },
     {
       "relation": "contains",
@@ -3312,9 +3822,9 @@
       "source_file": "src/components/ui/GenerateButton.jsx",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_generatebutton",
-      "target": "ui_generatebutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_generatebutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3322,9 +3832,9 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_hamburgertoggle",
-      "target": "ui_hamburgertoggle_hamburgertoggle",
-      "confidence_score": 1.0
+      "target": "ui_hamburgertoggle_hamburgertoggle"
     },
     {
       "relation": "contains",
@@ -3332,9 +3842,9 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_hamburgertoggle",
-      "target": "ui_hamburgertoggle_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_hamburgertoggle_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3342,9 +3852,9 @@
       "source_file": "src/components/ui/InstallButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_installbutton",
-      "target": "ui_installbutton_installbutton",
-      "confidence_score": 1.0
+      "target": "ui_installbutton_installbutton"
     },
     {
       "relation": "contains",
@@ -3352,9 +3862,9 @@
       "source_file": "src/components/ui/InstallButton.jsx",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_installbutton",
-      "target": "ui_installbutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_installbutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3362,9 +3872,9 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_liketoggle",
-      "target": "ui_liketoggle_liketoggle",
-      "confidence_score": 1.0
+      "target": "ui_liketoggle_liketoggle"
     },
     {
       "relation": "contains",
@@ -3372,9 +3882,29 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_liketoggle",
-      "target": "ui_liketoggle_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_liketoggle_styledwrapper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Loader.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_loader",
+      "target": "ui_loader_loader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Loader.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_loader",
+      "target": "ui_loader_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3382,9 +3912,9 @@
       "source_file": "src/components/ui/NeumorphicToggle.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_neumorphictoggle",
-      "target": "ui_neumorphictoggle_neumorphictoggle",
-      "confidence_score": 1.0
+      "target": "ui_neumorphictoggle_neumorphictoggle"
     },
     {
       "relation": "contains",
@@ -3392,9 +3922,9 @@
       "source_file": "src/components/ui/NeumorphicToggle.jsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_neumorphictoggle",
-      "target": "ui_neumorphictoggle_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_neumorphictoggle_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3402,9 +3932,9 @@
       "source_file": "src/components/ui/ProductCard.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_productcard",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "contains",
@@ -3412,9 +3942,9 @@
       "source_file": "src/components/ui/ProductCard.jsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_productcard",
-      "target": "ui_productcard_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_productcard_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3422,9 +3952,9 @@
       "source_file": "src/components/ui/RealismButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_realismbutton",
-      "target": "ui_realismbutton_realismbutton",
-      "confidence_score": 1.0
+      "target": "ui_realismbutton_realismbutton"
     },
     {
       "relation": "contains",
@@ -3432,9 +3962,9 @@
       "source_file": "src/components/ui/RealismButton.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_realismbutton",
-      "target": "ui_realismbutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_realismbutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3442,9 +3972,9 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_rewardbutton",
-      "target": "ui_rewardbutton_rewardbutton",
-      "confidence_score": 1.0
+      "target": "ui_rewardbutton_rewardbutton"
     },
     {
       "relation": "contains",
@@ -3452,9 +3982,9 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_rewardbutton",
-      "target": "ui_rewardbutton_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_rewardbutton_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3462,9 +3992,9 @@
       "source_file": "src/components/ui/SaveBookmarkSwitch.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_savebookmarkswitch",
-      "target": "ui_savebookmarkswitch_savebookmarkswitch",
-      "confidence_score": 1.0
+      "target": "ui_savebookmarkswitch_savebookmarkswitch"
     },
     {
       "relation": "contains",
@@ -3472,9 +4002,9 @@
       "source_file": "src/components/ui/SciFiLoader.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_scifiloader",
-      "target": "ui_scifiloader_scifiloader",
-      "confidence_score": 1.0
+      "target": "ui_scifiloader_scifiloader"
     },
     {
       "relation": "contains",
@@ -3482,9 +4012,9 @@
       "source_file": "src/components/ui/SciFiLoader.jsx",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_scifiloader",
-      "target": "ui_scifiloader_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_scifiloader_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3492,9 +4022,9 @@
       "source_file": "src/components/ui/StarRating.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_starrating",
-      "target": "ui_starrating_starrating",
-      "confidence_score": 1.0
+      "target": "ui_starrating_starrating"
     },
     {
       "relation": "contains",
@@ -3502,9 +4032,29 @@
       "source_file": "src/components/ui/StarRating.jsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_starrating",
-      "target": "ui_starrating_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_starrating_styledwrapper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Tooltip.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_tooltip",
+      "target": "ui_tooltip_styledwrapper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Tooltip.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_tooltip",
+      "target": "ui_tooltip_tooltip"
     },
     {
       "relation": "contains",
@@ -3652,8 +4202,121 @@
       "source_file": "src/hooks/useMobile.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usemobile",
-      "target": "hooks_usemobile_usemobile",
+      "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_checkuseraccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_deleteaccessentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_getallaccessentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_grantdashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_initial_admins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_isinitialadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_requestdashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_revokedashboardaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "lib_auth",
+      "target": "lib_firebase_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "lib_auth_checkuseraccess",
+      "target": "lib_auth_isinitialadmin",
       "confidence_score": 1.0
     },
     {
@@ -3685,6 +4348,16 @@
       "confidence_score": 1.0,
       "source": "lib_firebase",
       "target": "lib_firebase_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_db",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3762,9 +4435,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_devdashboard_the_nexus",
-      "confidence_score": 1.0
+      "target": "readme_devdashboard_the_nexus"
     },
     {
       "relation": "contains",
@@ -3772,9 +4445,9 @@
       "source_file": "README.md",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_devdashboard_the_nexus",
-      "target": "readme_architecture_data_workflow",
-      "confidence_score": 1.0
+      "target": "readme_architecture_data_workflow"
     },
     {
       "relation": "contains",
@@ -3782,9 +4455,9 @@
       "source_file": "README.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_devdashboard_the_nexus",
-      "target": "readme_core_modules",
-      "confidence_score": 1.0
+      "target": "readme_core_modules"
     },
     {
       "relation": "contains",
@@ -3792,9 +4465,9 @@
       "source_file": "README.md",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_devdashboard_the_nexus",
-      "target": "readme_deployment_setup",
-      "confidence_score": 1.0
+      "target": "readme_deployment_setup"
     },
     {
       "relation": "contains",
@@ -3802,9 +4475,9 @@
       "source_file": "README.md",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_devdashboard_the_nexus",
-      "target": "readme_project_structure",
-      "confidence_score": 1.0
+      "target": "readme_project_structure"
     },
     {
       "relation": "contains",
@@ -3812,9 +4485,9 @@
       "source_file": "README.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_devdashboard_the_nexus",
-      "target": "readme_technology_stack",
-      "confidence_score": 1.0
+      "target": "readme_technology_stack"
     },
     {
       "relation": "references",
@@ -3898,5 +4571,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "357096dfe6812dd608241eed2ff650c036099a9f"
+  "built_at_commit": "9c83924a75bb1fa2ff91349c434f8c38b99285b3"
 }

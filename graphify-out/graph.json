@@ -22,10 +22,19 @@
       "norm_label": "app.jsx"
     },
     {
+      "label": "PROJECTS",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "id": "src_app_projects",
+      "community": 0,
+      "norm_label": "projects"
+    },
+    {
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.jsx",
-      "source_location": "L27",
+      "source_location": "L40",
       "id": "src_app_app",
       "community": 2,
       "norm_label": "app()"
@@ -112,6 +121,24 @@
       "norm_label": "styledwrapper"
     },
     {
+      "label": "TheAirlock.jsx",
+      "file_type": "code",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L1",
+      "id": "components_theairlock",
+      "community": 3,
+      "norm_label": "theairlock.jsx"
+    },
+    {
+      "label": "TheAirlock()",
+      "file_type": "code",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L9",
+      "id": "components_theairlock_theairlock",
+      "community": 3,
+      "norm_label": "theairlock()"
+    },
+    {
       "label": "TheArchiveGrid.jsx",
       "file_type": "code",
       "source_file": "src/components/TheArchiveGrid.jsx",
@@ -124,7 +151,7 @@
       "label": "IMAGES",
       "file_type": "code",
       "source_file": "src/components/TheArchiveGrid.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "components_thearchivegrid_images",
       "community": 0,
       "norm_label": "images"
@@ -133,7 +160,7 @@
       "label": "TheArchiveGrid()",
       "file_type": "code",
       "source_file": "src/components/TheArchiveGrid.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "components_thearchivegrid_thearchivegrid",
       "community": 0,
       "norm_label": "thearchivegrid()"
@@ -151,7 +178,7 @@
       "label": "TheArchives()",
       "file_type": "code",
       "source_file": "src/components/TheArchives.jsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "components_thearchives_thearchives",
       "community": 2,
       "norm_label": "thearchives()"
@@ -205,7 +232,7 @@
       "label": "INITIAL_MESSAGES",
       "file_type": "code",
       "source_file": "src/components/TheChat.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "components_thechat_initial_messages",
       "community": 2,
       "norm_label": "initial_messages"
@@ -214,7 +241,7 @@
       "label": "TheChat()",
       "file_type": "code",
       "source_file": "src/components/TheChat.jsx",
-      "source_location": "L71",
+      "source_location": "L72",
       "id": "components_thechat_thechat",
       "community": 2,
       "norm_label": "thechat()"
@@ -232,7 +259,7 @@
       "label": "TheConsole()",
       "file_type": "code",
       "source_file": "src/components/TheConsole.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "components_theconsole_theconsole",
       "community": 0,
       "norm_label": "theconsole()"
@@ -304,7 +331,7 @@
       "label": "TheFeed()",
       "file_type": "code",
       "source_file": "src/components/TheFeed.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "components_thefeed_thefeed",
       "community": 2,
       "norm_label": "thefeed()"
@@ -351,25 +378,25 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L1",
       "id": "components_thehierarchy",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchy.jsx"
     },
     {
       "label": "TIERS",
       "file_type": "code",
       "source_file": "src/components/TheHierarchy.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "components_thehierarchy_tiers",
-      "community": 1,
+      "community": 2,
       "norm_label": "tiers"
     },
     {
       "label": "TheHierarchy()",
       "file_type": "code",
       "source_file": "src/components/TheHierarchy.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "components_thehierarchy_thehierarchy",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchy()"
     },
     {
@@ -378,7 +405,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L1",
       "id": "components_thehierarchymobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchymobile.jsx"
     },
     {
@@ -387,7 +414,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L8",
       "id": "components_thehierarchymobile_thehierarchymobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchymobile()"
     },
     {
@@ -396,7 +423,7 @@
       "source_file": "src/components/TheMenu.jsx",
       "source_location": "L1",
       "id": "components_themenu",
-      "community": 3,
+      "community": 28,
       "norm_label": "themenu.jsx"
     },
     {
@@ -405,7 +432,7 @@
       "source_file": "src/components/TheMenu.jsx",
       "source_location": "L7",
       "id": "components_themenu_themenu",
-      "community": 3,
+      "community": 28,
       "norm_label": "themenu()"
     },
     {
@@ -450,16 +477,16 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L1",
       "id": "components_theportal",
-      "community": 0,
+      "community": 3,
       "norm_label": "theportal.jsx"
     },
     {
       "label": "ThePortal()",
       "file_type": "code",
       "source_file": "src/components/ThePortal.jsx",
-      "source_location": "L6",
+      "source_location": "L13",
       "id": "components_theportal_theportal",
-      "community": 0,
+      "community": 3,
       "norm_label": "theportal()"
     },
     {
@@ -504,25 +531,25 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L1",
       "id": "components_thestratification",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratification.jsx"
     },
     {
       "label": "STRAT_TIERS",
       "file_type": "code",
       "source_file": "src/components/TheStratification.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "components_thestratification_strat_tiers",
-      "community": 1,
+      "community": 2,
       "norm_label": "strat_tiers"
     },
     {
       "label": "TheStratification()",
       "file_type": "code",
       "source_file": "src/components/TheStratification.jsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "components_thestratification_thestratification",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratification()"
     },
     {
@@ -531,7 +558,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L1",
       "id": "components_thestratificationmobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratificationmobile.jsx"
     },
     {
@@ -540,7 +567,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L8",
       "id": "components_thestratificationmobile_thestratificationmobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thestratificationmobile()"
     },
     {
@@ -774,7 +801,7 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L1",
       "id": "ui_foldercard",
-      "community": 28,
+      "community": 21,
       "norm_label": "foldercard.jsx"
     },
     {
@@ -783,7 +810,7 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L4",
       "id": "ui_foldercard_default_files",
-      "community": 28,
+      "community": 21,
       "norm_label": "default_files"
     },
     {
@@ -792,7 +819,7 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L71",
       "id": "ui_foldercard_foldercard",
-      "community": 28,
+      "community": 21,
       "norm_label": "foldercard()"
     },
     {
@@ -801,7 +828,7 @@
       "source_file": "src/components/ui/FolderCard.jsx",
       "source_location": "L193",
       "id": "ui_foldercard_styledwrapper",
-      "community": 28,
+      "community": 21,
       "norm_label": "styledwrapper"
     },
     {
@@ -837,7 +864,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L1",
       "id": "ui_hamburgertoggle",
-      "community": 3,
+      "community": 28,
       "norm_label": "hamburgertoggle.jsx"
     },
     {
@@ -846,7 +873,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L4",
       "id": "ui_hamburgertoggle_hamburgertoggle",
-      "community": 3,
+      "community": 28,
       "norm_label": "hamburgertoggle()"
     },
     {
@@ -855,7 +882,7 @@
       "source_file": "src/components/ui/HamburgerToggle.jsx",
       "source_location": "L18",
       "id": "ui_hamburgertoggle_styledwrapper",
-      "community": 3,
+      "community": 28,
       "norm_label": "styledwrapper"
     },
     {
@@ -880,7 +907,7 @@
       "label": "StyledWrapper",
       "file_type": "code",
       "source_file": "src/components/ui/InstallButton.jsx",
-      "source_location": "L94",
+      "source_location": "L83",
       "id": "ui_installbutton_styledwrapper",
       "community": 21,
       "norm_label": "styledwrapper"
@@ -891,7 +918,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L1",
       "id": "ui_liketoggle",
-      "community": 2,
+      "community": 29,
       "norm_label": "liketoggle.jsx"
     },
     {
@@ -900,7 +927,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L4",
       "id": "ui_liketoggle_liketoggle",
-      "community": 2,
+      "community": 29,
       "norm_label": "liketoggle()"
     },
     {
@@ -909,7 +936,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L51",
       "id": "ui_liketoggle_styledwrapper",
-      "community": 2,
+      "community": 29,
       "norm_label": "styledwrapper"
     },
     {
@@ -918,7 +945,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L1",
       "id": "ui_loader",
-      "community": 3,
+      "community": 2,
       "norm_label": "loader.jsx"
     },
     {
@@ -927,7 +954,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L4",
       "id": "ui_loader_loader",
-      "community": 3,
+      "community": 2,
       "norm_label": "loader()"
     },
     {
@@ -936,7 +963,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L18",
       "id": "ui_loader_styledwrapper",
-      "community": 3,
+      "community": 2,
       "norm_label": "styledwrapper"
     },
     {
@@ -1026,7 +1053,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L1",
       "id": "ui_rewardbutton",
-      "community": 2,
+      "community": 30,
       "norm_label": "rewardbutton.jsx"
     },
     {
@@ -1035,7 +1062,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L4",
       "id": "ui_rewardbutton_rewardbutton",
-      "community": 2,
+      "community": 30,
       "norm_label": "rewardbutton()"
     },
     {
@@ -1044,7 +1071,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L31",
       "id": "ui_rewardbutton_styledwrapper",
-      "community": 2,
+      "community": 30,
       "norm_label": "styledwrapper"
     },
     {
@@ -1206,7 +1233,7 @@
       "source_file": "src/data/syntheticData.js",
       "source_location": "L284",
       "id": "data_syntheticdata_synthetic_users",
-      "community": 1,
+      "community": 2,
       "norm_label": "synthetic_users"
     },
     {
@@ -1282,6 +1309,87 @@
       "norm_label": "usemobile()"
     },
     {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "id": "lib_auth",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "INITIAL_ADMINS",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L5",
+      "id": "lib_auth_initial_admins",
+      "community": 3,
+      "norm_label": "initial_admins"
+    },
+    {
+      "label": "isInitialAdmin()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L16",
+      "id": "lib_auth_isinitialadmin",
+      "community": 3,
+      "norm_label": "isinitialadmin()"
+    },
+    {
+      "label": "checkUserAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L25",
+      "id": "lib_auth_checkuseraccess",
+      "community": 3,
+      "norm_label": "checkuseraccess()"
+    },
+    {
+      "label": "requestDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L54",
+      "id": "lib_auth_requestdashboardaccess",
+      "community": 3,
+      "norm_label": "requestdashboardaccess()"
+    },
+    {
+      "label": "getAllAccessEntries()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L79",
+      "id": "lib_auth_getallaccessentries",
+      "community": 3,
+      "norm_label": "getallaccessentries()"
+    },
+    {
+      "label": "grantDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L96",
+      "id": "lib_auth_grantdashboardaccess",
+      "community": 3,
+      "norm_label": "grantdashboardaccess()"
+    },
+    {
+      "label": "revokeDashboardAccess()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L119",
+      "id": "lib_auth_revokedashboardaccess",
+      "community": 3,
+      "norm_label": "revokedashboardaccess()"
+    },
+    {
+      "label": "deleteAccessEntry()",
+      "file_type": "code",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L140",
+      "id": "lib_auth_deleteaccessentry",
+      "community": 3,
+      "norm_label": "deleteaccessentry()"
+    },
+    {
       "label": "cache.js",
       "file_type": "code",
       "source_file": "src/lib/cache.js",
@@ -1312,7 +1420,7 @@
       "label": "firebaseConfig",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "id": "lib_firebase_firebaseconfig",
       "community": 3,
       "norm_label": "firebaseconfig"
@@ -1321,7 +1429,7 @@
       "label": "app",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "lib_firebase_app",
       "community": 3,
       "norm_label": "app"
@@ -1330,16 +1438,25 @@
       "label": "auth",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "lib_firebase_auth",
       "community": 3,
       "norm_label": "auth"
     },
     {
+      "label": "db",
+      "file_type": "code",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L17",
+      "id": "lib_firebase_db",
+      "community": 3,
+      "norm_label": "db"
+    },
+    {
       "label": "googleProvider",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "lib_firebase_googleprovider",
       "community": 3,
       "norm_label": "googleprovider"
@@ -1348,7 +1465,7 @@
       "label": "signInWithGoogle()",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L18",
+      "source_location": "L20",
       "id": "lib_firebase_signinwithgoogle",
       "community": 3,
       "norm_label": "signinwithgoogle()"
@@ -1357,7 +1474,7 @@
       "label": "logOut()",
       "file_type": "code",
       "source_file": "src/lib/firebase.js",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "lib_firebase_logout",
       "community": 3,
       "norm_label": "logout()"
@@ -1758,6 +1875,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "components_theairlock"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1989,6 +2117,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "lib_auth_checkuseraccess"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -2072,6 +2222,27 @@
       "target": "src_app_app"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_projects"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "ui_scifiloader"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2103,6 +2274,17 @@
       "confidence_score": 1.0,
       "source": "src_app_app",
       "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_app",
+      "target": "lib_auth_checkuseraccess"
     },
     {
       "relation": "contains",
@@ -2208,9 +2390,9 @@
       "source_file": "src/components/Layout.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_layout",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -2278,6 +2460,104 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "components_theairlock_theairlock"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_auth_requestdashboardaccess"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase_logout"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "lib_firebase_signinwithgoogle"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "ui_realismbutton"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock",
+      "target": "ui_scifiloader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheAirlock.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theairlock_theairlock",
+      "target": "lib_auth_requestdashboardaccess"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L11",
       "weight": 1.0,
@@ -2294,6 +2574,17 @@
       "confidence_score": 1.0,
       "source": "components_thearchivegrid",
       "target": "components_thearchivegrid_thearchivegrid"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchiveGrid.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_thearchivegrid",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2337,6 +2628,17 @@
       "confidence_score": 1.0,
       "source": "components_thearchives",
       "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchives.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_thearchives",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2592,6 +2894,17 @@
       "target": "hooks_usemobile_usemobile"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_thefeed",
+      "target": "ui_loader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2706,9 +3019,9 @@
       "source_file": "src/components/TheForge.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theforge",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "contains",
@@ -2784,6 +3097,17 @@
       "confidence_score": 1.0,
       "source": "components_thehierarchy",
       "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_thehierarchy",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2924,6 +3248,138 @@
       "target": "components_theportal_theportal"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_deleteaccessentry"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_getallaccessentries"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_grantdashboardaccess"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_initial_admins"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_auth_revokedashboardaccess"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_firebase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal",
+      "target": "lib_firebase_auth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_deleteaccessentry"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_getallaccessentries"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_grantdashboardaccess"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ThePortal.jsx",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_theportal_theportal",
+      "target": "lib_auth_revokedashboardaccess"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/TheSignal.jsx",
@@ -3041,6 +3497,17 @@
       "target": "hooks_usemobile_usemobile"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_thestratification",
+      "target": "ui_loader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3155,9 +3622,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "imports_from",
@@ -3210,9 +3677,9 @@
       "source_file": "src/components/TheTether.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thetether",
-      "target": "ui_tooltip",
-      "confidence_score": 1.0
+      "target": "ui_tooltip"
     },
     {
       "relation": "contains",
@@ -3480,9 +3947,9 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_loader",
-      "target": "ui_loader_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader_loader"
     },
     {
       "relation": "contains",
@@ -3490,9 +3957,9 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_loader",
-      "target": "ui_loader_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_loader_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3630,9 +4097,9 @@
       "source_file": "src/components/ui/Tooltip.jsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_tooltip",
-      "target": "ui_tooltip_styledwrapper",
-      "confidence_score": 1.0
+      "target": "ui_tooltip_styledwrapper"
     },
     {
       "relation": "contains",
@@ -3640,9 +4107,9 @@
       "source_file": "src/components/ui/Tooltip.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_tooltip",
-      "target": "ui_tooltip_tooltip",
-      "confidence_score": 1.0
+      "target": "ui_tooltip_tooltip"
     },
     {
       "relation": "contains",
@@ -3797,6 +4264,119 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_checkuseraccess"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_deleteaccessentry"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_getallaccessentries"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_grantdashboardaccess"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_initial_admins"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_isinitialadmin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_requestdashboardaccess"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_auth_revokedashboardaccess"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_firebase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth",
+      "target": "lib_firebase_db"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/auth.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_auth_checkuseraccess",
+      "target": "lib_auth_isinitialadmin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/lib/cache.js",
       "source_location": "L9",
       "weight": 1.0,
@@ -3823,6 +4403,16 @@
       "confidence_score": 1.0,
       "source": "lib_firebase",
       "target": "lib_firebase_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/firebase.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_firebase",
+      "target": "lib_firebase_db"
     },
     {
       "relation": "contains",
@@ -4036,5 +4626,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "357096dfe6812dd608241eed2ff650c036099a9f"
+  "built_at_commit": "9c83924a75bb1fa2ff91349c434f8c38b99285b3"
 }

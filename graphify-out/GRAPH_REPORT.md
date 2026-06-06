@@ -1,16 +1,16 @@
 # Graph Report - DevDashboard  (2026-06-06)
 
 ## Corpus Check
-- 58 files · ~37,510 words
+- 60 files · ~40,320 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 185 nodes · 219 edges · 29 communities (12 shown, 17 thin omitted)
+- 198 nodes · 263 edges · 31 communities (12 shown, 19 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `357096df`
+- Built from commit: `9c83924a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -39,51 +39,53 @@
 - [[_COMMUNITY_Community 26|Community 26]]
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
+- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `useMobile()` - 19 edges
 2. `DevDashboard (The Nexus)` - 6 edges
-3. `The Nexus` - 5 edges
-4. `App()` - 3 edges
-5. `Layout()` - 3 edges
-6. `TheDossier()` - 3 edges
-7. `TheFeed()` - 3 edges
-8. `TheNexus()` - 3 edges
-9. `cache` - 3 edges
-10. `supabase` - 3 edges
+3. `ThePortal()` - 5 edges
+4. `The Nexus` - 5 edges
+5. `App()` - 4 edges
+6. `checkUserAccess()` - 4 edges
+7. `Layout()` - 3 edges
+8. `TheDossier()` - 3 edges
+9. `TheFeed()` - 3 edges
+10. `TheNexus()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `The Nexus` --references--> `Custom Caching Engine`  [EXTRACTED]
   README.md → src/lib/cache.js
 - `Main Entry Point` --implements--> `Root DOM Element`  [EXTRACTED]
   src/main.jsx → index.html
-- `TheHierarchy()` --calls--> `useMobile()`  [EXTRACTED]
-  src/components/TheHierarchy.jsx → src/hooks/useMobile.js
-- `TheStratification()` --calls--> `useMobile()`  [EXTRACTED]
-  src/components/TheStratification.jsx → src/hooks/useMobile.js
+- `App()` --calls--> `checkUserAccess()`  [EXTRACTED]
+  src/App.jsx → src/lib/auth.js
 - `TheArchives()` --calls--> `useMobile()`  [EXTRACTED]
   src/components/TheArchives.jsx → src/hooks/useMobile.js
+- `TheChat()` --calls--> `useMobile()`  [EXTRACTED]
+  src/components/TheChat.jsx → src/hooks/useMobile.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (29 total, 17 thin omitted)
+## Communities (31 total, 19 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (4): IMAGES, cache, legacySupabase, supabase
+Cohesion: 0.12
+Nodes (5): IMAGES, cache, legacySupabase, supabase, PROJECTS
 
 ### Community 1 - "Community 1"
-Cohesion: 0.09
-Nodes (14): TheHierarchy(), TIERS, STRAT_TIERS, TheStratification(), ARCHIVE_GRID_IMAGES, AUTHORS, CATEGORIES, IMAGES_POOL (+6 more)
+Cohesion: 0.15
+Nodes (9): ARCHIVE_GRID_IMAGES, AUTHORS, CATEGORIES, IMAGES_POOL, SYNTHETIC_ARTICLES, SYNTHETIC_OPERATORS, SYNTHETIC_PROFILE, SYNTHETIC_SIGNALS (+1 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.11
-Nodes (13): Layout(), TheArchives(), INITIAL_MESSAGES, TheChat(), BADGES, KNOWLEDGE_ITEMS, TheDossier(), TheFeed() (+5 more)
+Cohesion: 0.09
+Nodes (17): Layout(), TheArchives(), INITIAL_MESSAGES, TheChat(), BADGES, KNOWLEDGE_ITEMS, TheDossier(), TheFeed() (+9 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (9): app, auth, firebaseConfig, googleProvider, logOut(), signInWithGoogle(), StyledWrapper, StyledWrapper (+1 more)
+Cohesion: 0.15
+Nodes (18): TheAirlock(), ThePortal(), checkUserAccess(), deleteAccessEntry(), getAllAccessEntries(), grantDashboardAccess(), INITIAL_ADMINS, isInitialAdmin() (+10 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.47
@@ -91,31 +93,31 @@ Nodes (6): Custom Caching Engine, Supabase, The Feed, The Forge (CMS), The Nexus
 
 ### Community 21 - "Community 21"
 Cohesion: 0.06
-Nodes (9): StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper (+1 more)
+Nodes (11): StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, StyledWrapper, DEFAULT_FILES, StyledWrapper, StyledWrapper (+3 more)
 
 ### Community 24 - "Community 24"
 Cohesion: 0.29
 Nodes (6): 🏗️ Architecture & Data Workflow, 🛰️ Core Modules, 🚀 Deployment & Setup, DevDashboard (The Nexus), 📂 Project Structure, 🛠️ Technology Stack
 
 ## Knowledge Gaps
-- **57 isolated node(s):** `StyledWrapper`, `IMAGES`, `INITIAL_MESSAGES`, `KNOWLEDGE_ITEMS`, `BADGES` (+52 more)
+- **58 isolated node(s):** `PROJECTS`, `StyledWrapper`, `IMAGES`, `INITIAL_MESSAGES`, `KNOWLEDGE_ITEMS` (+53 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useMobile()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Why does `useMobile()` connect `Community 2` to `Community 0`, `Community 3`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **Why does `checkUserAccess()` connect `Community 3` to `Community 0`, `Community 2`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `The Nexus` (e.g. with `The Feed` and `The Forge (CMS)`) actually correct?**
   _`The Nexus` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `StyledWrapper`, `IMAGES`, `INITIAL_MESSAGES` to the rest of the system?**
-  _57 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `PROJECTS`, `StyledWrapper`, `IMAGES` to the rest of the system?**
+  _58 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11231884057971014 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.09057971014492754 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11857707509881422 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.10591133004926108 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08708708708708708 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.11695906432748537 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14666666666666667 - nodes in this community are weakly interconnected._

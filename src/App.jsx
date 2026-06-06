@@ -23,6 +23,10 @@ import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
 import { auth } from './lib/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
+import { checkUserAccess } from './lib/auth'
+import TheAirlock from './components/TheAirlock'
+import SciFiLoader from './components/ui/SciFiLoader'
+
 const PROJECTS = [
   { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
   { id: 'FOODY_VRINDA', label: 'Foody Vrinda (App)', icon: 'Store' },
@@ -42,6 +46,8 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [authStatus, setAuthStatus] = useState('checking')
+  const [userRole, setUserRole] = useState('viewer')
   const [isSignalOpen, setIsSignalOpen] = useState(false)
   const [systemSettings, setSystemSettings] = useState({
     typeface: 'serif',
@@ -62,6 +68,27 @@ function App() {
     soulSeekers: 0
   })
 
+  const triggerAccessCheck = async () => {
+    if (auth.currentUser) {
+      setAuthStatus('checking');
+      const access = await checkUserAccess(auth.currentUser.email);
+      setCurrentUser({
+        ...auth.currentUser,
+        role: access.role,
+        accessStatus: access.status
+      });
+      setUserRole(access.role);
+      
+      if (access.status === 'granted') {
+        setAuthStatus('granted');
+      } else if (access.status === 'pending') {
+        setAuthStatus('pending');
+      } else {
+        setAuthStatus('unauthorized');
+      }
+    }
+  };
+
   useEffect(() => {
     const root = document.documentElement;
     PROJECTS.forEach(p => root.classList.remove(`project-${p.id}`));
@@ -70,8 +97,29 @@ function App() {
 
   useEffect(() => {
     // Listen for Firebase Auth changes
-    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user)
+    const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setAuthStatus('checking');
+        const access = await checkUserAccess(user.email);
+        setCurrentUser({
+          ...user,
+          role: access.role,
+          accessStatus: access.status
+        });
+        setUserRole(access.role);
+        
+        if (access.status === 'granted') {
+          setAuthStatus('granted');
+        } else if (access.status === 'pending') {
+          setAuthStatus('pending');
+        } else {
+          setAuthStatus('unauthorized');
+        }
+      } else {
+        setCurrentUser(null);
+        setUserRole('viewer');
+        setAuthStatus('unauthenticated');
+      }
     })
 
     async function fetchData() {
@@ -200,6 +248,25 @@ function App() {
 
   if (showSplash) {
     return <TheSplash onEnter={() => setShowSplash(false)} />
+  }
+
+  if (authStatus === 'checking') {
+    return (
+      <div className="fixed inset-0 bg-[#050505] flex flex-col items-center justify-center font-mono text-[#404040]">
+        <SciFiLoader />
+        <p className="text-[10px] uppercase tracking-[0.3em] mt-8 animate-pulse text-primary font-bold">SYNCHRONIZING OPERATOR LINK...</p>
+      </div>
+    );
+  }
+
+  if (authStatus !== 'granted') {
+    return (
+      <TheAirlock 
+        authStatus={authStatus} 
+        currentUser={currentUser} 
+        onAccessRequested={triggerAccessCheck} 
+      />
+    );
   }
 
   // Derive Dynamic Categories
@@ -337,6 +404,8 @@ function App() {
       settings={systemSettings}
       onSignalOpen={() => setIsSignalOpen(true)}
       user={currentUser}
+      userRole={userRole}
+      isAdmin={userRole === 'admin'}
       loading={isLoading}
       activeProject={activeProject}
       setActiveProject={setActiveProject}

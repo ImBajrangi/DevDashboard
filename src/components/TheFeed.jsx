@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMobile } from '../hooks/useMobile';
 import TheFeedMobile from './TheFeedMobile';
+import Loader from './ui/Loader';
 
 /**
  * TheFeed – exact clone of the_airlock_3/code.html
@@ -82,7 +83,9 @@ const TheFeed = ({ items = [], onItemClick, categories = ['ALL'], selectedCatego
 
                     {/* Deep Archive Sync Trigger */}
                     <div className="px-12 py-20 flex flex-col items-center justify-center border-t border-border-void/30">
-                        <div className={`w-1 h-8 bg-primary mb-4 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                        <div className="h-12 mb-4 flex items-center justify-center">
+                            {isFetchingMore && <Loader size={32} />}
+                        </div>
                         <button 
                             onClick={onLoadMore}
                             disabled={isFetchingMore}

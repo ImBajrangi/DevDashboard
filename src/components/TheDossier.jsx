@@ -181,7 +181,7 @@ const DossierDesktop = ({ user }) => {
                             <p>&gt; UPLOADING_ENCRYPTED_PACKET... DONE</p>
                             <p>&gt; FRAGMENT_RECOVERY: COMPLETE</p>
                             <p>&gt; SYSTEM_CHECK: NOMINAL</p>
-                            <p className="animate-pulse">_</p>
+                            <p className="cursor-blink">_</p>
                         </div>
                     </div>
                 </section>
@@ -375,7 +375,7 @@ const TheDossier = ({ user = null, allEntries = [], onLoadMore, isFetchingMore }
                             <p>&gt; UPLOADING_ENCRYPTED_PACKET... DONE</p>
                             <p>&gt; FRAGMENT_RECOVERY: {userStats.signals} UNITSFOUND</p>
                             <p>&gt; SYSTEM_CHECK: NOMINAL</p>
-                            <p className="animate-pulse">_</p>
+                            <p className="cursor-blink">_</p>
                         </div>
                     </div>
                 </section>

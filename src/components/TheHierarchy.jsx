@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import TheHierarchyMobile from './TheHierarchyMobile';
 import { SYNTHETIC_USERS } from '../data/syntheticData';
+import Loader from './ui/Loader';
 
 const TIERS = [
     { id: 'zenith', label: '01 / Zenith', name: 'COMMANDER', minWeight: 100000 },
@@ -142,7 +143,9 @@ const TheHierarchy = ({ users = [], onLoadMore, isFetchingMore }) => {
                             )}
                             {/* Global Archive Sync Trigger within Hierarchy */}
                             <div className="mt-8 py-12 flex flex-col items-center justify-center border-t border-border-void/20">
-                                <div className={`w-1 h-6 bg-primary mb-2 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                                <div className="h-10 mb-2 flex items-center justify-center">
+                                    {isFetchingMore && <Loader size={24} />}
+                                </div>
                                 <button 
                                     onClick={onLoadMore}
                                     disabled={isFetchingMore}

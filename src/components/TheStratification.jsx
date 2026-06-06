@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMobile } from '../hooks/useMobile';
 import TheStratificationMobile from './TheStratificationMobile';
 import { SYNTHETIC_OPERATORS } from '../data/syntheticData';
+import Loader from './ui/Loader';
 
 const STRAT_TIERS = [
     { id: 'lvl4', label: 'LVL_04', name: 'VOID_LORD', minKw: 1200 },
@@ -142,7 +143,9 @@ const TheStratification = ({ operators = [], onLoadMore, isFetchingMore }) => {
 
                     {/* Global Archive Sync Trigger within Stratification */}
                     <div className="py-8 shrink-0 flex flex-col items-center justify-center border-t border-border-void/20">
-                        <div className={`w-1 h-6 bg-primary mb-2 ${isFetchingMore ? 'animate-ping' : 'animate-pulse'}`} />
+                        <div className="h-10 mb-2 flex items-center justify-center">
+                            {isFetchingMore && <Loader size={24} />}
+                        </div>
                         <button
                             onClick={onLoadMore}
                             disabled={isFetchingMore}
