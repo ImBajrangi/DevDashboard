@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Cpu, Play, CheckCircle, AlertTriangle, RefreshCw, Layers, ShieldCheck, Database, Server, Smartphone, Compass, Image, Star, Heart, Code } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TheConsole = () => {
@@ -212,7 +213,7 @@ const TheConsole = () => {
             <header className="mb-16 border-b border-primary/20 pb-8">
                 <div className="flex items-center gap-4 mb-2">
                     <Cpu className="text-primary" size={32} />
-                    <h1 className="text-4xl font-bold tracking-tighter text-white">SYSTEM CONSOLE</h1>
+                    <h1 className="text-4xl font-bold tracking-tighter text-text-main">SYSTEM CONSOLE</h1>
                 </div>
                 <p className="text-xs text-text-muted uppercase tracking-[0.3em]">Unified Platform Control & Diagnostics Hub</p>
             </header>
@@ -220,7 +221,7 @@ const TheConsole = () => {
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-12">
                 {/* PROJECTS LIST GRID */}
                 <div className="xl:col-span-2 space-y-8">
-                    <h2 className="text-lg font-bold text-white flex items-center gap-3 uppercase">
+                    <h2 className="text-lg font-bold text-text-main flex items-center gap-3 uppercase">
                         <Layers size={18} className="text-primary" />
                         Synchronized Platforms
                     </h2>
@@ -247,7 +248,7 @@ const TheConsole = () => {
                                                 {proj.icon}
                                             </div>
                                             <div>
-                                                <h3 className="text-sm font-bold text-white group-hover:text-primary transition-colors">{proj.name}</h3>
+                                                <h3 className="text-sm font-bold text-text-main group-hover:text-primary transition-colors">{proj.name}</h3>
                                                 <p className="text-[10px] text-text-muted mt-0.5">{proj.type}</p>
                                             </div>
                                         </div>
@@ -260,18 +261,18 @@ const TheConsole = () => {
 
                                     <div className="grid grid-cols-3 gap-2 bg-void/50 p-3 pl-5 text-[9px] uppercase tracking-wider text-text-muted">
                                         <div>
-                                            <span className="block text-[8px] text-text-muted/60 mb-0.5">DB Gateway</span>
-                                            <span className="text-white font-medium truncate block">{proj.db}</span>
+                                            <span className="block text-[8px] text-text-muted mb-0.5">DB Gateway</span>
+                                            <span className="text-text-main font-medium truncate block">{proj.db}</span>
                                         </div>
                                         <div>
-                                            <span className="block text-[8px] text-text-muted/60 mb-0.5">Git Branch</span>
-                                            <span className="text-white font-medium truncate block">
+                                            <span className="block text-[8px] text-text-muted mb-0.5">Git Branch</span>
+                                            <span className="text-text-main font-medium truncate block">
                                                 {projectStatuses[proj.id]?.gitInfo?.branch || 'N/A'}
                                             </span>
                                         </div>
                                         <div>
-                                            <span className="block text-[8px] text-text-muted/60 mb-0.5">Last Commit</span>
-                                            <span className="text-white font-medium truncate block" title={projectStatuses[proj.id]?.gitInfo?.subject || ''}>
+                                            <span className="block text-[8px] text-text-muted mb-0.5">Last Commit</span>
+                                            <span className="text-text-main font-medium truncate block" title={projectStatuses[proj.id]?.gitInfo?.subject || ''}>
                                                 {projectStatuses[proj.id]?.gitInfo?.hash ? `${projectStatuses[proj.id].gitInfo.hash} - ${projectStatuses[proj.id].gitInfo.subject}` : 'No commits'}
                                             </span>
                                         </div>
@@ -288,7 +289,7 @@ const TheConsole = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="bg-void-light border border-white/5 p-8 relative overflow-hidden"
                         >
-                            <h3 className="text-sm font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-3">
+                            <h3 className="text-sm font-bold text-text-main mb-6 uppercase tracking-wider flex items-center gap-3">
                                 <Database size={16} className="text-primary" />
                                 Control Board: {currentProj.name}
                             </h3>
@@ -297,19 +298,19 @@ const TheConsole = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                                 <div className="p-4 bg-void border border-white/5 relative">
                                     <span className="text-[8px] uppercase text-text-muted block mb-1">Local Directory Path</span>
-                                    <span className="text-[10px] font-bold text-white block truncate" title={projectStatuses[currentProj.id]?.path || currentProj.repo}>
+                                    <span className="text-[10px] font-bold text-text-main block truncate" title={projectStatuses[currentProj.id]?.path || currentProj.repo}>
                                         {projectStatuses[currentProj.id]?.path || 'Not Found'}
                                     </span>
                                 </div>
                                 <div className="p-4 bg-void border border-white/5 relative">
                                     <span className="text-[8px] uppercase text-text-muted block mb-1">Git Commit Author / Date</span>
-                                    <span className="text-[10px] font-bold text-white block truncate">
+                                    <span className="text-[10px] font-bold text-text-main block truncate">
                                         {projectStatuses[currentProj.id]?.gitInfo?.author ? `${projectStatuses[currentProj.id].gitInfo.author} (${projectStatuses[currentProj.id].gitInfo.date})` : 'N/A'}
                                     </span>
                                 </div>
                                 <div className="p-4 bg-void border border-white/5 relative">
                                     <span className="text-[8px] uppercase text-text-muted block mb-1">Status Check</span>
-                                    <span className="text-[10px] font-bold text-white block">
+                                    <span className="text-[10px] font-bold text-text-main block">
                                         {projectStatuses[currentProj.id]?.status || 'OFFLINE'}
                                     </span>
                                 </div>
@@ -356,7 +357,7 @@ const TheConsole = () => {
 
                 {/* TERMINAL LOGS COLUMN */}
                 <div className="space-y-8">
-                    <h2 className="text-lg font-bold text-white flex items-center gap-3 uppercase">
+                    <h2 className="text-lg font-bold text-text-main flex items-center gap-3 uppercase">
                         <Terminal size={18} className="text-primary" />
                         Transmitted Signal Stream
                     </h2>

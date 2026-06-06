@@ -80,6 +80,15 @@ const StyledWrapper = styled.div`
     outline: none;
   }
 
+  .input::placeholder {
+    color: transparent;
+    transition: color 0.3s ease;
+  }
+
+  .input:focus::placeholder, .input:valid::placeholder {
+    color: var(--color-text-muted, #86868b);
+  }
+
   .input:focus, .input:valid {
     background: color-mix(in srgb, var(--color-void-matte, #0a0a0a) 85%, transparent);
     backdrop-filter: blur(8px);

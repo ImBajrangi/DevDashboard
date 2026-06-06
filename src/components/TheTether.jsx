@@ -12,6 +12,8 @@ import FolderCard from './ui/FolderCard';
 import EyeLoader from './ui/EyeLoader';
 import SearchInput from './SearchInput';
 import InstallButton from './ui/InstallButton';
+import Loader from './ui/Loader';
+import Tooltip from './ui/Tooltip';
 
 /**
  * TheTether component – from the_tether template.
@@ -327,6 +329,32 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                         </div>
                         <div className="flex justify-center items-center py-2 pr-6">
                             <EyeLoader size={78} />
+                        </div>
+                    </div>
+
+                    {/* Orbital Pulse Loader */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Orbital Pulse Scanner</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Breathing rotating circle orbits. Fades and rotates on active web signals.
+                            </span>
+                        </div>
+                        <div className="flex justify-center items-center py-2 pr-6">
+                            <Loader size={78} />
+                        </div>
+                    </div>
+
+                    {/* Interactive Follow Tooltip */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Interactive Follow Ledger</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Action button with interactive follower count tooltip. Hover to reveal subscriber density.
+                            </span>
+                        </div>
+                        <div className="flex justify-center items-center py-2 pr-6">
+                            <Tooltip followers="45k" label="Follow" />
                         </div>
                     </div>
 

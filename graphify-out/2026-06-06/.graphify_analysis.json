@@ -1,0 +1,247 @@
+{
+  "communities": {
+    "0": [
+      "components_thearchivegrid",
+      "components_thearchivegrid_images",
+      "components_thebeacon",
+      "components_thebeacon_thebeacon",
+      "components_theconsole",
+      "components_theforge",
+      "components_theforge_theforge",
+      "components_theportal",
+      "components_theportal_theportal",
+      "components_thesignal",
+      "components_thesignal_thesignal",
+      "components_thesplash",
+      "components_thesplash_thesplash",
+      "components_thetether",
+      "components_thetether_thetether",
+      "components_thevoid",
+      "components_thevoid_thevoid",
+      "lib_cache",
+      "lib_cache_cache",
+      "lib_supabase",
+      "lib_supabase_legacysupabase",
+      "lib_supabase_supabase",
+      "src_app",
+      "src_main"
+    ],
+    "1": [
+      "components_thehierarchy",
+      "components_thehierarchy_tiers",
+      "components_thehierarchymobile",
+      "components_thestratification",
+      "components_thestratification_strat_tiers",
+      "components_thestratificationmobile",
+      "data_syntheticdata",
+      "data_syntheticdata_archive_grid_images",
+      "data_syntheticdata_authors",
+      "data_syntheticdata_categories",
+      "data_syntheticdata_images_pool",
+      "data_syntheticdata_randomdate",
+      "data_syntheticdata_randomfrom",
+      "data_syntheticdata_randomtags",
+      "data_syntheticdata_synthetic_articles",
+      "data_syntheticdata_synthetic_operators",
+      "data_syntheticdata_synthetic_profile",
+      "data_syntheticdata_synthetic_signals",
+      "data_syntheticdata_synthetic_users",
+      "data_syntheticdata_tags_pool"
+    ],
+    "2": [
+      "components_layout_layout",
+      "components_thearchives",
+      "components_thedossier",
+      "components_thedossier_badges",
+      "components_thedossier_dossierdesktop",
+      "components_thedossier_dossiermobile",
+      "components_thedossier_knowledge_items",
+      "components_thedossier_thedossier",
+      "components_thefeed",
+      "components_thefeed_thefeed",
+      "components_thefeedmobile",
+      "components_thefeedmobile_thefeedmobile",
+      "components_thenexus",
+      "components_thenexus_thenexus",
+      "components_thenexusmobile",
+      "hooks_usemobile",
+      "src_app_app"
+    ],
+    "3": [
+      "components_layout",
+      "components_themenu",
+      "components_themenu_themenu",
+      "lib_firebase",
+      "lib_firebase_app",
+      "lib_firebase_auth",
+      "lib_firebase_firebaseconfig",
+      "lib_firebase_googleprovider",
+      "lib_firebase_logout",
+      "lib_firebase_signinwithgoogle"
+    ],
+    "4": [
+      "readme_cache_js",
+      "readme_supabase",
+      "readme_the_feed",
+      "readme_the_forge",
+      "readme_the_nexus",
+      "readme_the_void"
+    ],
+    "5": [
+      "components_gallery",
+      "components_gallery_gallery"
+    ],
+    "6": [
+      "components_reader",
+      "components_reader_reader"
+    ],
+    "7": [
+      "hooks_usedata",
+      "hooks_usedata_usedata"
+    ],
+    "8": [
+      "index_main_jsx",
+      "index_root"
+    ],
+    "9": [
+      "vite_config",
+      "vite_config_devgatewayplugin"
+    ],
+    "10": [
+      "eslint_config"
+    ],
+    "11": [
+      "readme_firebase_auth"
+    ],
+    "12": [
+      "readme_framer_motion"
+    ],
+    "13": [
+      "readme_gsap"
+    ],
+    "14": [
+      "readme_react_19"
+    ],
+    "15": [
+      "readme_tailwind_css_4"
+    ],
+    "16": [
+      "readme_the_dossier"
+    ],
+    "17": [
+      "readme_the_hierarchy"
+    ],
+    "18": [
+      "readme_the_signal"
+    ],
+    "19": [
+      "readme_the_tether"
+    ],
+    "20": [
+      "readme_vite_7"
+    ]
+  },
+  "cohesion": {
+    "0": 0.11231884057971014,
+    "1": 0.11052631578947368,
+    "2": 0.13970588235294118,
+    "3": 0.24444444444444444,
+    "4": 0.4666666666666667,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0
+  },
+  "gods": [
+    {
+      "id": "readme_the_nexus",
+      "label": "The Nexus",
+      "degree": 5
+    },
+    {
+      "id": "lib_cache_cache",
+      "label": "cache",
+      "degree": 3
+    },
+    {
+      "id": "lib_supabase_supabase",
+      "label": "supabase",
+      "degree": 3
+    },
+    {
+      "id": "lib_supabase_legacysupabase",
+      "label": "legacySupabase",
+      "degree": 3
+    },
+    {
+      "id": "readme_supabase",
+      "label": "Supabase",
+      "degree": 3
+    },
+    {
+      "id": "src_app_app",
+      "label": "App()",
+      "degree": 2
+    },
+    {
+      "id": "components_layout_layout",
+      "label": "Layout()",
+      "degree": 2
+    },
+    {
+      "id": "components_thedossier_thedossier",
+      "label": "TheDossier()",
+      "degree": 2
+    },
+    {
+      "id": "components_thefeed_thefeed",
+      "label": "TheFeed()",
+      "degree": 2
+    },
+    {
+      "id": "components_thenexus_thenexus",
+      "label": "TheNexus()",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "The Nexus",
+      "target": "Custom Caching Engine",
+      "source_files": [
+        "README.md",
+        "src/lib/cache.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `Custom Caching Engine` unexpectedly reaches hub `The Nexus`"
+    },
+    {
+      "source": "Main Entry Point",
+      "target": "Root DOM Element",
+      "source_files": [
+        "src/main.jsx",
+        "index.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "why": "crosses file types (code \u2194 doc); connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

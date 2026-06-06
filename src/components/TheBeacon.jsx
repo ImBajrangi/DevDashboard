@@ -180,8 +180,8 @@ const TheBeacon = ({ config = {}, onUpdate = () => {} }) => {
                     className="p-6 bg-void border border-border-void shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-w-xs pointer-events-auto"
                 >
                     <span className="font-mono text-[8px] text-text-muted uppercase mb-4 block">Search_Result_Preview</span>
-                    <h4 className="text-[#1a0dab] text-lg font-mono leading-tight mb-1 truncate">{localConfig.title}</h4>
-                    <p className="text-[#006621] text-xs font-mono mb-2">vrindopnishad.in › archives</p>
+                    <h4 className="text-[var(--color-search-title)] text-lg font-mono leading-tight mb-1 truncate">{localConfig.title}</h4>
+                    <p className="text-[var(--color-search-url)] text-xs font-mono mb-2">vrindopnishad.in › archives</p>
                     <p className="text-text-muted text-[11px] font-mono leading-relaxed line-clamp-2">{localConfig.description}</p>
                 </motion.div>
             </div>

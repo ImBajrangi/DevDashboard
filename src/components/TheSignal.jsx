@@ -38,10 +38,23 @@ const TheSignal = ({ onClose, onSelection, items = [], categories = ['ALL'], sel
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 z-[100] bg-[#050505]/95 backdrop-blur-sm flex flex-col items-center justify-center">
+        <div 
+            onClick={onClose}
+            className="fixed inset-0 z-[100] bg-[#050505]/95 backdrop-blur-sm flex flex-col items-center justify-center cursor-default"
+        >
+            {/* Top Right Close Button */}
+            <button 
+                onClick={onClose}
+                className="absolute top-6 right-8 text-[#404040] hover:text-[#e5e5e5] transition-colors p-2 text-xs font-mono tracking-widest uppercase cursor-pointer"
+            >
+                [ CLOSE ]
+            </button>
 
             {/* Main Container */}
-            <div className="w-full max-w-3xl px-8">
+            <div 
+                onClick={(e) => e.stopPropagation()}
+                className="w-full max-w-3xl px-8"
+            >
 
                 {/* Search Input */}
                 <div className="mb-6">
@@ -137,7 +150,10 @@ const TheSignal = ({ onClose, onSelection, items = [], categories = ['ALL'], sel
             </div>
 
             {/* Keyboard Legend Footer */}
-            <div className="absolute bottom-10 w-full max-w-3xl px-8 flex items-center justify-between font-mono text-[10px] text-[#404040] tracking-wider">
+            <div 
+                onClick={(e) => e.stopPropagation()}
+                className="absolute bottom-10 w-full max-w-3xl px-8 flex items-center justify-between font-mono text-[10px] text-[#404040] tracking-wider pointer-events-auto"
+            >
                 <div className="flex gap-6">
                     <button onClick={onClose} className="flex items-center gap-2 hover:text-[#e5e5e5]">
                         <span className="border border-[#262626] px-1.5 py-0.5 rounded-[2px] text-center bg-[#050505]">ESC</span>

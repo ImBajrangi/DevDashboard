@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, Send, Search, Hash, BookOpen, Terminal, AlertCircle, Info, Radio, Shield, HelpCircle, Activity } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import FavoriteToggle from './ui/FavoriteToggle';
@@ -69,6 +70,7 @@ const INITIAL_MESSAGES = [
 ];
 
 const TheChat = () => {
+  // eslint-disable-next-line no-unused-vars
   const isMobile = useMobile();
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [activeChannel, setActiveChannel] = useState('transmissions');

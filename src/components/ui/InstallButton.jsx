@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const InstallButton = ({
@@ -41,18 +41,7 @@ const InstallButton = ({
     }
   };
 
-  // Reset/sync state if controlled props change
-  useEffect(() => {
-    if (isControlled) {
-      if (controlledIsCompleted) {
-        setLocalStatus('completed');
-      } else if (controlledIsInstalling) {
-        setLocalStatus('installing');
-      } else {
-        setLocalStatus('idle');
-      }
-    }
-  }, [controlledIsInstalling, controlledIsCompleted, isControlled]);
+
 
   const installDuration = `${duration}ms`;
   const delay = `${Math.round(duration * 0.133)}ms`;

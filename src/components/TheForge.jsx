@@ -4,6 +4,7 @@ import { Save, Plus, X, Edit3, Trash2, Globe, FileText, Type, Hash, Link, Image 
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { cache } from '../lib/cache';
+import Loader from './ui/Loader';
 
 const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
     const [entries, setEntries] = useState([]);
@@ -218,26 +219,26 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
         <div className="p-8 md:p-12 lg:p-20 bg-void min-h-screen text-text-main font-mono overflow-y-auto">
             <header className="flex flex-col md:flex-row items-center justify-between mb-16 border-b border-primary/20 pb-8 gap-8">
                 <div>
-                    <h1 className="text-4xl font-bold tracking-tighter text-white transition-all hover:text-primary">THE FORGE</h1>
-                    <p className="text-xs text-text-muted mt-2 uppercase tracking-[0.3em]">Centralized Content Stream Controller</p>
+                    <h1 className="text-4xl font-bold tracking-tighter text-text-main transition-all hover:text-primary">THE FORGE</h1>
+                    <p className="text-xs text-text-main/70 font-semibold mt-2 uppercase tracking-[0.3em]">Centralized Content Stream Controller</p>
                 </div>
                 
-                <div className="flex bg-void-light p-1 rounded-sm border border-white/5">
+                <div className="flex bg-void-matte p-1 rounded-sm border border-border-void">
                     <button 
                         onClick={() => setActiveStream('content')}
-                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'content' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'content' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-main/60 hover:text-text-main'}`}
                     >
                         DEV STREAM
                     </button>
                     <button 
                         onClick={() => setActiveStream('blogvrinda')}
-                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'blogvrinda' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'blogvrinda' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-main/60 hover:text-text-main'}`}
                     >
                         VRINDA STREAM
                     </button>
                     <button 
                         onClick={() => setActiveStream('journal_entries')}
-                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'journal_entries' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-muted hover:text-white'}`}
+                        className={`px-4 py-2 text-[10px] uppercase tracking-widest transition-all ${activeStream === 'journal_entries' ? 'bg-primary text-white shadow-[0_0_15px_rgba(255,51,51,0.2)]' : 'text-text-main/60 hover:text-text-main'}`}
                     >
                         PREMIUM STREAM
                     </button>
@@ -245,7 +246,7 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
 
                 <button 
                     onClick={openCreateForm}
-                    className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-sm hover:bg-white hover:text-black transition-all active:scale-95 shadow-[0_0_20px_rgba(255,51,51,0.2)]"
+                    className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-sm hover:bg-text-main hover:text-void transition-all active:scale-95 shadow-[0_0_20px_rgba(255,51,51,0.2)]"
                 >
                     <Plus size={18} />
                     <span>NEW {activeStream === 'blogvrinda' ? 'WISDOM' : activeStream === 'journal_entries' ? 'REFLECTION' : 'TRANSMISSION'}</span>
@@ -258,16 +259,16 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-void/90 backdrop-blur-xl"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-void/40 backdrop-blur-md"
                     >
                         <form 
                             onSubmit={handleSave}
-                            className="bg-void border border-primary/30 w-full max-w-4xl max-h-[90vh] overflow-y-auto p-10 relative custom-scroll shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                            className="bg-void-matte border border-border-void/80 w-full max-w-4xl max-h-[90vh] overflow-y-auto p-10 relative custom-scroll shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
                         >
                             <button 
                                 type="button"
                                 onClick={() => setIsFormOpen(false)}
-                                className="absolute top-6 right-6 text-text-muted hover:text-primary transition-colors"
+                                className="absolute top-6 right-6 text-text-main/50 hover:text-primary transition-colors"
                             >
                                 <X size={24} />
                             </button>
@@ -280,10 +281,10 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                                 <div className="space-y-6">
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Transmission Title</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Transmission Title</label>
                                         <input 
                                             required
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main"
                                             value={formData.title}
                                             onChange={e => setFormData({...formData, title: e.target.value})}
                                             placeholder="Enter sacred title..."
@@ -291,10 +292,10 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
-                                            <label className="text-[10px] uppercase text-text-muted">Sphere (Category)</label>
+                                            <label className="text-[10px] uppercase text-text-main/70 font-semibold">Sphere (Category)</label>
                                             <div className="flex flex-col gap-2">
                                                 <input 
-                                                    className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                                    className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main"
                                                     value={formData.category}
                                                     onChange={e => setFormData({...formData, category: e.target.value})}
                                                     placeholder="Type or select..."
@@ -305,7 +306,7 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                                                             key={cat}
                                                             type="button"
                                                             onClick={() => setFormData({...formData, category: cat})}
-                                                            className={`text-[8px] px-2 py-1 border transition-all ${formData.category === cat ? 'bg-primary border-primary text-white' : 'border-white/10 text-text-muted hover:border-white/30'}`}
+                                                            className={`text-[8px] px-2 py-1 border transition-all ${formData.category === cat ? 'bg-primary border-primary text-white' : 'border-border-void text-text-main/60 hover:border-primary/50'}`}
                                                         >
                                                             {cat}
                                                         </button>
@@ -314,19 +315,19 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                                             </div>
                                         </div>
                                         <div className="space-y-1">
-                                            <label className="text-[10px] uppercase text-text-muted">Originator (Author)</label>
+                                            <label className="text-[10px] uppercase text-text-main/70 font-semibold">Originator (Author)</label>
                                             <input 
-                                                className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                                className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main"
                                                 value={formData.author}
                                                 onChange={e => setFormData({...formData, author: e.target.value})}
                                             />
                                         </div>
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Brief Abstract (Description)</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Brief Abstract (Description)</label>
                                         <textarea 
                                             rows={4}
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main resize-none"
                                             value={formData.description}
                                             onChange={e => setFormData({...formData, description: e.target.value})}
                                         />
@@ -335,28 +336,28 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
 
                                 <div className="space-y-6">
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Audio Uplink (URL)</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Audio Uplink (URL)</label>
                                         <input 
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main"
                                             value={formData.audio_url}
                                             onChange={e => setFormData({...formData, audio_url: e.target.value})}
                                             placeholder="https://audio.vrindopnishad.in/..."
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Visual Fragments (URLs, comma separated)</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Visual Fragments (URLs, comma separated)</label>
                                         <textarea 
                                             rows={2}
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main resize-none"
                                             value={formData.image_urls}
                                             onChange={e => setFormData({...formData, image_urls: e.target.value})}
                                             placeholder="url1, url2..."
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Descriptors (Tags, comma separated)</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Descriptors (Tags, comma separated)</label>
                                         <input 
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main"
                                             value={formData.tags}
                                             onChange={e => setFormData({...formData, tags: e.target.value})}
                                             placeholder="meditation, silence, peace..."
@@ -370,34 +371,34 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                                             checked={formData.is_premium}
                                             onChange={e => setFormData({...formData, is_premium: e.target.checked})}
                                         />
-                                        <label htmlFor="is_premium" className="text-[10px] uppercase text-white font-bold tracking-widest cursor-pointer">Premium Access Protocol</label>
+                                        <label htmlFor="is_premium" className="text-[10px] uppercase text-text-main font-bold tracking-widest cursor-pointer">Premium Access Protocol</label>
                                     </div>
                                 </div>
 
                                 <div className="space-y-6">
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">English Interpretation</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">English Interpretation</label>
                                         <textarea 
                                             rows={6}
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main resize-none"
                                             value={formData.english_translation || formData.content_text}
                                             onChange={e => setFormData({...formData, english_translation: e.target.value})}
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Hindi Original Script</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Hindi Original Script</label>
                                         <textarea 
                                             rows={4}
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main resize-none"
                                             value={formData.hindi_text}
                                             onChange={e => setFormData({...formData, hindi_text: e.target.value})}
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] uppercase text-text-muted">Sanskrit original (Shlokas)</label>
+                                        <label className="text-[10px] uppercase text-text-main/70 font-semibold">Sanskrit original (Shlokas)</label>
                                         <textarea 
                                             rows={4}
-                                            className="w-full bg-void-light border border-white/10 p-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                                            className="w-full bg-void border border-border-void p-4 outline-none focus:border-primary transition-colors text-text-main resize-none"
                                             value={formData.sanskrit_text}
                                             onChange={e => setFormData({...formData, sanskrit_text: e.target.value})}
                                             placeholder="यदा यदा हि धर्मस्य..."
@@ -406,17 +407,17 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                                 </div>
                             </div>
 
-                            <footer className="flex justify-end gap-4 border-t border-white/10 pt-8">
+                            <footer className="flex justify-end gap-4 border-t border-border-void pt-8 pb-10">
                                 <button 
                                     type="button"
                                     onClick={() => setIsFormOpen(false)}
-                                    className="px-8 py-3 text-sm text-text-muted hover:text-white transition-colors"
+                                    className="px-8 py-3 text-sm text-text-main/60 hover:text-primary transition-colors"
                                 >
                                     CANCEL
                                 </button>
                                 <button 
                                     type="submit"
-                                    className="px-10 py-3 bg-primary text-white flex items-center gap-2 hover:bg-white hover:text-black transition-all"
+                                    className="px-10 py-3 bg-primary text-white flex items-center gap-2 hover:bg-text-main hover:text-void transition-all"
                                 >
                                     <Save size={18} />
                                     FORGE ENTRY
@@ -436,36 +437,36 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
                 )}
                 
                 {loading && entries.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-32 space-y-4">
-                        <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin shadow-[0_0_20px_rgba(255,51,51,0.3)]"></div>
-                        <div className="text-[10px] text-text-muted uppercase tracking-[0.3em] animate-pulse">Synchronizing Stream...</div>
+                    <div className="flex flex-col items-center justify-center py-32 space-y-6">
+                        <Loader size={64} />
+                        <div className="text-[10px] text-text-main/70 font-semibold uppercase tracking-[0.3em] animate-pulse">Synchronizing Stream...</div>
                     </div>
                 ) : (
                     entries.map((entry) => (
-                        <div key={entry.id} className="group bg-void-light border border-white/5 p-6 hover:border-primary/40 transition-all flex items-center justify-between gap-6">
+                        <div key={entry.id} className="group bg-void-matte border border-border-void p-6 hover:border-primary/40 transition-all flex items-center justify-between gap-6">
                             <div className="flex items-center gap-6">
                                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-sm">
                                     <Globe size={20} className="text-primary opacity-50" />
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-3 mb-1">
-                                        <span className="text-[9px] bg-white/5 px-2 py-0.5 text-text-muted uppercase tracking-wider">{entry.category}</span>
-                                        <span className="text-[9px] text-primary underline opacity-50">{new Date(entry.created_at).toLocaleDateString()}</span>
+                                        <span className="text-[9px] bg-border-void px-2 py-0.5 text-text-main/70 uppercase tracking-wider">{entry.category}</span>
+                                        <span className="text-[9px] text-primary underline opacity-85">{new Date(entry.created_at).toLocaleDateString()}</span>
                                     </div>
-                                    <h3 className="text-lg font-medium text-white group-hover:text-primary transition-colors">{entry.title}</h3>
-                                    <p className="text-xs text-text-muted line-clamp-1 mt-1 opacity-60">{entry.description || 'No abstract provided.'}</p>
+                                    <h3 className="text-lg font-medium text-text-main group-hover:text-primary transition-colors">{entry.title}</h3>
+                                    <p className="text-xs text-text-main/60 line-clamp-1 mt-1 opacity-95">{entry.description || 'No abstract provided.'}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <button 
                                     onClick={() => openEditForm(entry)}
-                                    className="p-3 bg-white/5 text-text-muted hover:text-white hover:bg-primary transition-all"
+                                    className="p-3 bg-void border border-border-void text-text-main/60 hover:text-text-main hover:bg-primary transition-all"
                                 >
                                     <Edit3 size={18} />
                                 </button>
                                 <button 
                                     onClick={() => handleDelete(entry.id)}
-                                    className="p-3 bg-white/5 text-text-muted hover:text-red-500 hover:bg-red-500/10 transition-all"
+                                    className="p-3 bg-void border border-border-void text-text-main/60 hover:text-red-500 hover:bg-red-500/10 transition-all"
                                 >
                                     <Trash2 size={18} />
                                 </button>

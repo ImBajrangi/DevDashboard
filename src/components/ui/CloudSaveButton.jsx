@@ -29,7 +29,7 @@ const CloudSaveButton = ({
           await onClick(e);
           setLocalIsSaving(false);
           setLocalIsSaved(true);
-        } catch (err) {
+        } catch {
           setLocalIsSaving(false);
         }
       } else {

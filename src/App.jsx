@@ -23,6 +23,15 @@ import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
 import { auth } from './lib/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
+const PROJECTS = [
+  { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
+  { id: 'FOODY_VRINDA', label: 'Foody Vrinda (App)', icon: 'Store' },
+  { id: 'VRINDA_TOURS', label: 'Vrinda Tours (Web)', icon: 'Compass' },
+  { id: 'CHITRA_VRINDA', label: 'Chitra Vrinda (Art)', icon: 'Image' },
+  { id: 'SANT_VAANI_PREMIUM', label: 'Sant-Vaani Premium', icon: 'Star' },
+  { id: 'VRINDA_BLOG', label: 'Vrinda Vaani (Blog)', icon: 'Heart' },
+  { id: 'SPIRIT_DEV', label: 'Spirit-Dev Archive', icon: 'Code' }
+];
 
 function App() {
   const isMobile = useMobile()
@@ -47,15 +56,6 @@ function App() {
   const [activeProject, setActiveProject] = useState('ALL_SYSTEMS');
   const [offset, setOffset] = useState(50);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
-  const projects = [
-    { id: 'ALL_SYSTEMS', label: 'All Global Systems', icon: 'Radio' },
-    { id: 'FOODY_VRINDA', label: 'Foody Vrinda (App)', icon: 'Store' },
-    { id: 'VRINDA_TOURS', label: 'Vrinda Tours (Web)', icon: 'Compass' },
-    { id: 'CHITRA_VRINDA', label: 'Chitra Vrinda (Art)', icon: 'Image' },
-    { id: 'SANT_VAANI_PREMIUM', label: 'Sant-Vaani Premium', icon: 'Star' },
-    { id: 'VRINDA_BLOG', label: 'Vrinda Vaani (Blog)', icon: 'Heart' },
-    { id: 'SPIRIT_DEV', label: 'Spirit-Dev Archive', icon: 'Code' }
-  ];
 
   const [globalPremiumStats, setGlobalPremiumStats] = useState({
     totalReflections: 0,
@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     const root = document.documentElement;
-    projects.forEach(p => root.classList.remove(`project-${p.id}`));
+    PROJECTS.forEach(p => root.classList.remove(`project-${p.id}`));
     root.classList.add(`project-${activeProject}`);
   }, [activeProject]);
 
@@ -340,7 +340,7 @@ function App() {
       loading={isLoading}
       activeProject={activeProject}
       setActiveProject={setActiveProject}
-      projects={projects}
+      projects={PROJECTS}
       title={seoConfig.title}
       description={seoConfig.description}
     >

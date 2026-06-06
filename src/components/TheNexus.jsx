@@ -83,12 +83,12 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="space-y-16">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Active_Orders</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">42</div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">42</div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold font-mono">Operational_Kitchens</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">8 <span className="text-sm opacity-50">/ 10</span></div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">8 <span className="text-sm opacity-50">/ 10</span></div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
@@ -107,7 +107,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="grid grid-cols-2 gap-8">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Today's Revenue</span>
-                    <div className="text-4xl font-black font-display text-white">₹24,850</div>
+                    <div className="text-4xl font-black font-display text-text-main">₹24,850</div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Rating Average</span>
@@ -122,8 +122,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 <div className="opacity-60">&gt; CACHE SYNCHRONIZED: 120MS LATENCY</div>
                 <div className="opacity-60">&gt; LISTENING FOR FCM PUSH NOTIFICATIONS...</div>
                 <div className="opacity-60">&gt; DEV_PANEL: COMPILATION CLEAN ON TARGET DEVICES.</div>
-                <div className="opacity-60">&gt; READY.</div>
-                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+                <div className="opacity-60 flex items-center">&gt; READY.<span className="pulsing-cursor"></span></div>
             </div>
         );
         statusReport = "FOODY_VRINDA INSTANCE ONLINE. CACHING ENABLED. 0 LAG/STUTTERS DETECTED. CHANNELS SYNCED.";
@@ -132,12 +131,12 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="space-y-16">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Active_Tours_Braj</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">12</div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">12</div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Registered_Guides</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">24</div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">24</div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
@@ -156,7 +155,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="grid grid-cols-2 gap-8">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Monthly Bookings</span>
-                    <div className="text-4xl font-black font-display text-white">340</div>
+                    <div className="text-4xl font-black font-display text-text-main">340</div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">User Satisfaction</span>
@@ -171,8 +170,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 <div className="opacity-60">&gt; CACHE PRE-LOADED FOR OFFLINE BRAJ MAPS</div>
                 <div className="opacity-60">&gt; WEB CLIENT RUNNING AT 60 FPS WITHOUT FLICKER</div>
                 <div className="opacity-60">&gt; SYNC STATUS: ALL DESTINATIONS OK.</div>
-                <div className="opacity-60">&gt; READY.</div>
-                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+                <div className="opacity-60 flex items-center">&gt; READY.<span className="pulsing-cursor"></span></div>
             </div>
         );
         statusReport = "VRINDA_TOURS PORTAL STABLE. OFFLINE MAP LAYERS LOADED. 12 ACTIVE EXCURSIONS.";
@@ -181,12 +179,12 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="space-y-16">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Paintings</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">412</div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">412</div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Exhibitions_Online</span>
-                    <div className="text-6xl font-medium tracking-tighter font-display text-white">4</div>
+                    <div className="text-6xl font-medium tracking-tighter font-display text-text-main">4</div>
                     <div className="w-full h-px bg-border-void mt-4"></div>
                 </div>
                 <div>
@@ -205,7 +203,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="grid grid-cols-2 gap-8">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">CDN Storage</span>
-                    <div className="text-4xl font-black font-display text-white">12.4 GB</div>
+                    <div className="text-4xl font-black font-display text-text-main">12.4 GB</div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Bandwidth Use</span>
@@ -220,8 +218,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 <div className="opacity-60">&gt; CDN CONTENT VERIFIED: 412 HIGH-RES IMAGES ONLINE</div>
                 <div className="opacity-60">&gt; IMAGE LOADER ENABLED WITH PROGRESSIVE RESIZE</div>
                 <div className="opacity-60">&gt; COMPRESSION RATIO OPTIMIZED TO 1.4:1 WITHOUT LOSS</div>
-                <div className="opacity-60">&gt; READY.</div>
-                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+                <div className="opacity-60 flex items-center">&gt; READY.<span className="pulsing-cursor"></span></div>
             </div>
         );
         statusReport = "CHITRA_VRINDA ASSETS SYNCHRONIZED. 412 MASTER IMAGE FILES PRE-LOADED IN CLOUD CDN CACHE.";
@@ -249,11 +246,11 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <div className="grid grid-cols-2 gap-8">
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Total_Reflections</span>
-                    <div className="text-4xl font-black font-display text-white">{premiumStats.totalReflections}</div>
+                    <div className="text-4xl font-black font-display text-text-main">{premiumStats.totalReflections}</div>
                 </div>
                 <div>
                     <span className="text-[10px] opacity-40 uppercase tracking-widest block mb-2 font-bold">Soul_Seekers</span>
-                    <div className="text-4xl font-black font-display text-white">{premiumStats.soulSeekers}</div>
+                    <div className="text-4xl font-black font-display text-text-main">{premiumStats.soulSeekers}</div>
                 </div>
             </div>
         );
@@ -264,8 +261,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 <div className="opacity-60">&gt; CHECKING_INTEGRITY... 100%</div>
                 <div className="opacity-60">&gt; CONNECTING_TO_PEERS... 12,992 FOUND</div>
                 <div className="opacity-60">&gt; ENABLING_HIGH_FIDELITY_TYPOGRAPHY</div>
-                <div className="opacity-60">&gt; READY.</div>
-                <div className="pulsing-cursor absolute bottom-10 right-10"></div>
+                <div className="opacity-60 flex items-center">&gt; READY.<span className="pulsing-cursor"></span></div>
             </div>
         );
     }
@@ -296,9 +292,8 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 </div>
             </div>
 
-            {/* Main Header Logo */}
             <header className="px-12 py-16 border-b border-border-void">
-                <h1 className="text-[12rem] font-black tracking-tighter leading-none mb-8 font-display">THE_VRINDA<span className="animate-pulse text-primary">.</span></h1>
+                <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-tighter leading-none mb-8 font-display">THE_VRINDA<span className="animate-pulse text-primary">.</span></h1>
                 <div className="flex justify-between items-end">
                     <p className="max-w-md text-sm opacity-60 leading-relaxed uppercase">
                         Deep-tech blog & archival platform for the silent majority.
@@ -315,7 +310,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             <main className="flex-1 grid grid-cols-12 divide-x divide-border-void">
 
                 {/* Column 1: Latest Signals */}
-                <section className="col-span-4 p-8 flex flex-col gap-12">
+                <section className="col-span-4 p-8 flex flex-col gap-12 overflow-y-auto cyber-scroll">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-2 h-2 bg-primary"></div>
                         <h2 className="text-sm font-bold tracking-[0.3em] uppercase">Latest_Signals</h2>
@@ -362,7 +357,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 </section>
 
                 {/* Column 2: System Metrics */}
-                <section className="col-span-4 p-8 flex flex-col gap-16">
+                <section className="col-span-4 p-8 flex flex-col gap-16 overflow-y-auto cyber-scroll">
                     <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase">System_Metrics</h2>
 
                     {displayMetrics}
@@ -375,7 +370,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                 </section>
 
                 {/* Column 3: Active Transmissions & Terminal */}
-                <section className="col-span-4 flex flex-col divide-y divide-border-void">
+                <section className="col-span-4 flex flex-col divide-y divide-border-void overflow-y-auto cyber-scroll">
                     <div className="p-8 flex-1">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase mb-8">Active_Transmissions</h2>
                         <div className="space-y-8">
@@ -401,7 +396,7 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                         </div>
                     </div>
 
-                    <div className="p-12 flex flex-col gap-8">
+                    <div className="p-8 flex flex-col gap-8">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase">Void_Terminal_Output</h2>
                         {displayTerminal}
                     </div>

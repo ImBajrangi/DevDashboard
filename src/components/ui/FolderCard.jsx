@@ -145,7 +145,7 @@ const FolderCard = ({
           </div>
 
           {/* Staggered File Stack */}
-          {filteredFiles.map((file, index) => {
+          {filteredFiles.map((file) => {
             // Map indexes dynamically to retain visual stack ordering
             const fileClassIndex = files.length - files.findIndex(f => f.id === file.id);
             return (
@@ -201,6 +201,8 @@ const StyledWrapper = styled.div`
     
     width: 180px;
     height: 140px;
+    margin-top: 75px;
+    margin-bottom: 25px;
     perspective: 1200px;
     cursor: pointer;
     display: flex;

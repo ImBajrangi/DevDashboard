@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 import TheMenu from './TheMenu';
-import EyeLoader from './ui/EyeLoader';
+import Loader from './ui/Loader';
 
 const Layout = ({
     children,
@@ -116,8 +116,21 @@ const Layout = ({
 
             <div className={`min-h-screen bg-void text-text-main font-display relative ${isMobile ? 'pb-24' : ''}`}>
                 {/* Global Top Header Bar – Pointer Pass-Through Enabled */}
-                <header className={`fixed top-0 left-0 right-0 h-16 bg-void/90 backdrop-blur-md border-b border-border-void z-[100] transition-all duration-700 pointer-events-none ${hideNav ? '-translate-y-full' : 'translate-y-0'}`}>
-                    <div className="h-full flex items-center justify-between px-6 pl-20 md:pl-24 pointer-events-auto">
+                <motion.header 
+                    className="fixed top-0 left-0 right-0 h-16 bg-void/90 backdrop-blur-md border-b border-border-void z-[100] pointer-events-none"
+                    animate={{ y: hideNav ? -64 : 0 }}
+                    transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                >
+                    <motion.div 
+                        className="h-full flex items-center justify-between pr-6 pointer-events-auto"
+                        style={{
+                            paddingLeft: isMobile ? '24px' : (isSidebarHovered ? '264px' : '88px')
+                        }}
+                        animate={{ 
+                            paddingLeft: isMobile ? '24px' : (isSidebarHovered ? '264px' : '88px') 
+                        }}
+                        transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                    >
                         <div className="flex items-center gap-4">
                             <div className="w-2 h-2 bg-primary animate-pulse shadow-[0_0_8px_#FF3333]"></div>
                             <span className="font-mono text-[10px] tracking-[0.4em] text-text-muted uppercase font-bold hidden sm:block">SYSTEM_LINK // ACTIVE</span>
@@ -126,7 +139,7 @@ const Layout = ({
                         <div className="flex items-center gap-6">
                             {loading && (
                                 <div className="flex items-center mr-2">
-                                    <EyeLoader size={26} />
+                                    <Loader size={26} />
                                 </div>
                             )}
                             
@@ -174,8 +187,8 @@ const Layout = ({
                                 </AnimatePresence>
                             </div>
                         </div>
-                    </div>
-                </header>
+                    </motion.div>
+                </motion.header>
 
                 {/* Visual Overlays */}
                 <div className="noise-overlay" />
@@ -199,11 +212,20 @@ const Layout = ({
                         initial={false}
                         animate={{ 
                             width: isSidebarHovered ? 240 : 64,
-                            backgroundColor: isSidebarHovered ? 'var(--sidebar-bg-hover)' : 'var(--sidebar-bg)'
+                            backgroundColor: isSidebarHovered ? 'var(--sidebar-bg-hover)' : 'var(--sidebar-bg)',
+                            x: hideNav ? -250 : 0,
+                            opacity: hideNav ? 0 : 1,
+                            pointerEvents: hideNav ? 'none' : 'auto'
+                        }}
+                        transition={{
+                            x: { type: 'spring', stiffness: 120, damping: 14 },
+                            width: { type: 'spring', stiffness: 150, damping: 18 },
+                            backgroundColor: { duration: 0.2 },
+                            opacity: { duration: 0.2 }
                         }}
                         onMouseEnter={() => setIsSidebarHovered(true)}
                         onMouseLeave={() => setIsSidebarHovered(false)}
-                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.1)] transition-all duration-300 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
+                        className="fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.1)]"
                     >
                         <div className="flex flex-col gap-1.5 px-3">
                             {navItems.filter(i => i.id !== 'profile').map(item => {
@@ -293,34 +315,34 @@ const Layout = ({
 
                 {/* Mobile Bottom Navigation Bar – SIMPLIFIED 4-BUTTON + HUB */}
                 {isMobile && (
-                    <nav className={`fixed bottom-0 left-0 right-0 z-[150] bg-void/90 backdrop-blur-md border-t border-border-void px-6 py-4 flex items-center justify-between transition-all duration-500 md:hidden ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
-                        <button onClick={() => setActiveTab('nexus')} className={`flex flex-col items-center gap-1 ${activeTab === 'nexus' ? 'text-white' : 'text-text-muted'}`}>
+                    <nav className={`fixed bottom-0 left-0 right-0 z-[150] bg-void/90 backdrop-blur-md border-t border-border-void px-2 py-2 flex items-center justify-between transition-all duration-500 md:hidden ${hideNav ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+                        <button onClick={() => setActiveTab('nexus')} className={`flex-1 py-2 flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform ${activeTab === 'nexus' ? 'text-white' : 'text-text-muted'}`}>
                             <Radio size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Nexus</span>
                         </button>
                         
-                        <button onClick={() => setActiveTab('feed')} className={`flex flex-col items-center gap-1 ${activeTab === 'feed' ? 'text-white' : 'text-text-muted'}`}>
+                        <button onClick={() => setActiveTab('feed')} className={`flex-1 py-2 flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform ${activeTab === 'feed' ? 'text-white' : 'text-text-muted'}`}>
                             <Database size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Feed</span>
                         </button>
 
-                        <div className="flex flex-col items-center">
+                        <div className="flex-1 flex justify-center items-center">
                             <button
                                 onClick={onSignalOpen}
-                                className="w-10 h-10 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_15px_rgba(255,51,51,0.3)]"
+                                className="w-12 h-12 bg-primary flex items-center justify-center -mt-8 rounded-sm border-2 border-void text-white active:scale-90 transition-transform shadow-[0_0_20px_rgba(255,51,51,0.4)] cursor-pointer"
                             >
-                                <Search size={20} />
+                                <Search size={22} />
                             </button>
                         </div>
 
-                        <button onClick={() => setActiveTab('profile')} className={`flex flex-col items-center gap-1 ${activeTab === 'profile' ? 'text-white' : 'text-text-muted'}`}>
+                        <button onClick={() => setActiveTab('profile')} className={`flex-1 py-2 flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform ${activeTab === 'profile' ? 'text-white' : 'text-text-muted'}`}>
                             <User size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest">Profile</span>
                         </button>
 
                         <button 
                             onClick={() => setIsHubOpen(true)}
-                            className="flex flex-col items-center gap-1 text-primary animate-pulse"
+                            className="flex-1 py-2 flex flex-col items-center justify-center gap-1 text-primary animate-pulse active:scale-95 transition-transform cursor-pointer"
                         >
                             <Grid3x3 size={20} />
                             <span className="font-mono text-[8px] uppercase tracking-widest font-bold">Hub</span>
@@ -342,11 +364,10 @@ const Layout = ({
                 {/* Main Content Area – Decollided (Explicit 64px Top-Offset) */}
                 <motion.main 
                     className={`min-h-screen ${isMobile ? 'pb-24' : ''}`}
-                    style={{ paddingTop: '64px' }}
-                    animate={{ 
-                        paddingLeft: isMobile ? 0 : (isSidebarHovered ? 240 : 64) 
+                    style={{ 
+                        paddingTop: '64px',
+                        paddingLeft: isMobile ? '0px' : '64px'
                     }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
                 >
                     <AnimatePresence mode="wait">
                         <motion.div
