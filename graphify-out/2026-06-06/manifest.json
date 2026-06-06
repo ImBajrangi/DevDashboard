@@ -25,14 +25,14 @@
     "semantic_hash": "9613d792a4ce7578bd4f7e53c70eb359"
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheArchiveGrid.jsx": {
-    "mtime": 1780759548.9135675,
-    "ast_hash": "1e1d51eb7adf2bf2f16fc4e9bd485e4b",
+    "mtime": 1780760701.9339843,
+    "ast_hash": "ce3a000df1138ec221f87a832ff185ad",
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheArchives.jsx": {
-    "mtime": 1774806116.3261094,
-    "ast_hash": "2c4adeaadc47331cffd56f689ea729ff",
-    "semantic_hash": "2c4adeaadc47331cffd56f689ea729ff"
+    "mtime": 1780760708.378755,
+    "ast_hash": "ba8018778b73dabab176b0662c2a5bf4",
+    "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheArchivesMobile.jsx": {
     "mtime": 1774806334.048206,
@@ -50,14 +50,14 @@
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheDossier.jsx": {
-    "mtime": 1774806172.1867125,
-    "ast_hash": "f546fa1490670a153800db9f1faed42a",
-    "semantic_hash": "f546fa1490670a153800db9f1faed42a"
+    "mtime": 1780761001.0184188,
+    "ast_hash": "34433e617876aef62ace082562b6a280",
+    "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheFeed.jsx": {
-    "mtime": 1774965620.9817486,
-    "ast_hash": "ca432e41bc9a40d851ce0bc65ff82e01",
-    "semantic_hash": "ca432e41bc9a40d851ce0bc65ff82e01"
+    "mtime": 1780760714.1254845,
+    "ast_hash": "bc32c826a7ca820d9b23f9006fa0f595",
+    "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheFeedMobile.jsx": {
     "mtime": 1774806149.299066,
@@ -70,9 +70,9 @@
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheHierarchy.jsx": {
-    "mtime": 1774966854.9824932,
-    "ast_hash": "b331c56b21ad5ce4e4f11c335f9f2361",
-    "semantic_hash": "b331c56b21ad5ce4e4f11c335f9f2361"
+    "mtime": 1780760719.7537768,
+    "ast_hash": "2ee9b217b1806b534d9915ab77095cf3",
+    "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheHierarchyMobile.jsx": {
     "mtime": 1774806185.6441596,
@@ -110,9 +110,9 @@
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheStratification.jsx": {
-    "mtime": 1774966929.8390353,
-    "ast_hash": "2ea0aa83742b4a3a83eeb9e0037ca43e",
-    "semantic_hash": "2ea0aa83742b4a3a83eeb9e0037ca43e"
+    "mtime": 1780760726.4654295,
+    "ast_hash": "5a6b07823e475bf7a7b7f2492243c7a7",
+    "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/TheStratificationMobile.jsx": {
     "mtime": 1774806200.9294884,
@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/ui/SciFiLoader.jsx": {
-    "mtime": 1780733128.8693883,
-    "ast_hash": "154dd4de5db45fe5de641a0ca05ccfa7",
+    "mtime": 1780760800.9403615,
+    "ast_hash": "e8acdf08f7dc930387d1797d2ed6d8ef",
     "semantic_hash": ""
   },
   "/Users/sakhi/Code/DevDashboard/src/components/ui/StarRating.jsx": {

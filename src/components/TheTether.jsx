@@ -14,6 +14,7 @@ import SearchInput from './SearchInput';
 import InstallButton from './ui/InstallButton';
 import Loader from './ui/Loader';
 import Tooltip from './ui/Tooltip';
+import PegtopLoader from './ui/PegtopLoader';
 
 /**
  * TheTether component – from the_tether template.
@@ -342,6 +343,19 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                         </div>
                         <div className="flex justify-center items-center py-2 pr-6">
                             <Loader size={78} />
+                        </div>
+                    </div>
+
+                    {/* Pegtop Cascading Loader */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Pegtop Cascading Scanner</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Animated cascading pegtops with flow animations and glow drops. Used for core database operations.
+                            </span>
+                        </div>
+                        <div className="flex justify-center items-center py-2 pr-6">
+                            <PegtopLoader />
                         </div>
                     </div>
 

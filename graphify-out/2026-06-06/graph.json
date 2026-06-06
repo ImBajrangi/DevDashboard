@@ -151,7 +151,7 @@
       "label": "IMAGES",
       "file_type": "code",
       "source_file": "src/components/TheArchiveGrid.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "components_thearchivegrid_images",
       "community": 0,
       "norm_label": "images"
@@ -160,7 +160,7 @@
       "label": "TheArchiveGrid()",
       "file_type": "code",
       "source_file": "src/components/TheArchiveGrid.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "components_thearchivegrid_thearchivegrid",
       "community": 0,
       "norm_label": "thearchivegrid()"
@@ -178,7 +178,7 @@
       "label": "TheArchives()",
       "file_type": "code",
       "source_file": "src/components/TheArchives.jsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "components_thearchives_thearchives",
       "community": 2,
       "norm_label": "thearchives()"
@@ -331,7 +331,7 @@
       "label": "TheFeed()",
       "file_type": "code",
       "source_file": "src/components/TheFeed.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "components_thefeed_thefeed",
       "community": 2,
       "norm_label": "thefeed()"
@@ -378,25 +378,25 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L1",
       "id": "components_thehierarchy",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchy.jsx"
     },
     {
       "label": "TIERS",
       "file_type": "code",
       "source_file": "src/components/TheHierarchy.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "components_thehierarchy_tiers",
-      "community": 1,
+      "community": 2,
       "norm_label": "tiers"
     },
     {
       "label": "TheHierarchy()",
       "file_type": "code",
       "source_file": "src/components/TheHierarchy.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "components_thehierarchy_thehierarchy",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchy()"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L1",
       "id": "components_thehierarchymobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchymobile.jsx"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L8",
       "id": "components_thehierarchymobile_thehierarchymobile",
-      "community": 1,
+      "community": 2,
       "norm_label": "thehierarchymobile()"
     },
     {
@@ -538,7 +538,7 @@
       "label": "STRAT_TIERS",
       "file_type": "code",
       "source_file": "src/components/TheStratification.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "components_thestratification_strat_tiers",
       "community": 2,
       "norm_label": "strat_tiers"
@@ -547,7 +547,7 @@
       "label": "TheStratification()",
       "file_type": "code",
       "source_file": "src/components/TheStratification.jsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "components_thestratification_thestratification",
       "community": 2,
       "norm_label": "thestratification()"
@@ -945,7 +945,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L1",
       "id": "ui_loader",
-      "community": 3,
+      "community": 2,
       "norm_label": "loader.jsx"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L4",
       "id": "ui_loader_loader",
-      "community": 3,
+      "community": 2,
       "norm_label": "loader()"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L18",
       "id": "ui_loader_styledwrapper",
-      "community": 3,
+      "community": 2,
       "norm_label": "styledwrapper"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L1",
       "id": "ui_rewardbutton",
-      "community": 2,
+      "community": 30,
       "norm_label": "rewardbutton.jsx"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L4",
       "id": "ui_rewardbutton_rewardbutton",
-      "community": 2,
+      "community": 30,
       "norm_label": "rewardbutton()"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L31",
       "id": "ui_rewardbutton_styledwrapper",
-      "community": 2,
+      "community": 30,
       "norm_label": "styledwrapper"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "src/data/syntheticData.js",
       "source_location": "L284",
       "id": "data_syntheticdata_synthetic_users",
-      "community": 1,
+      "community": 2,
       "norm_label": "synthetic_users"
     },
     {
@@ -1877,9 +1877,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "components_theairlock",
-      "confidence_score": 1.0
+      "target": "components_theairlock"
     },
     {
       "relation": "imports_from",
@@ -2119,9 +2119,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "lib_auth",
-      "confidence_score": 1.0
+      "target": "lib_auth"
     },
     {
       "relation": "imports",
@@ -2130,9 +2130,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "lib_auth_checkuseraccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_checkuseraccess"
     },
     {
       "relation": "imports_from",
@@ -2227,9 +2227,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_projects",
-      "confidence_score": 1.0
+      "target": "src_app_projects"
     },
     {
       "relation": "imports_from",
@@ -2238,9 +2238,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "ui_scifiloader",
-      "confidence_score": 1.0
+      "target": "ui_scifiloader"
     },
     {
       "relation": "imports_from",
@@ -2282,9 +2282,9 @@
       "source_file": "src/App.jsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "lib_auth_checkuseraccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_checkuseraccess"
     },
     {
       "relation": "contains",
@@ -2463,9 +2463,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "components_theairlock_theairlock",
-      "confidence_score": 1.0
+      "target": "components_theairlock_theairlock"
     },
     {
       "relation": "imports_from",
@@ -2474,9 +2474,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "lib_auth",
-      "confidence_score": 1.0
+      "target": "lib_auth"
     },
     {
       "relation": "imports",
@@ -2485,9 +2485,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "lib_auth_requestdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_requestdashboardaccess"
     },
     {
       "relation": "imports_from",
@@ -2496,9 +2496,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "lib_firebase",
-      "confidence_score": 1.0
+      "target": "lib_firebase"
     },
     {
       "relation": "imports",
@@ -2507,9 +2507,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "lib_firebase_logout",
-      "confidence_score": 1.0
+      "target": "lib_firebase_logout"
     },
     {
       "relation": "imports",
@@ -2518,9 +2518,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "lib_firebase_signinwithgoogle",
-      "confidence_score": 1.0
+      "target": "lib_firebase_signinwithgoogle"
     },
     {
       "relation": "imports_from",
@@ -2529,9 +2529,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "ui_realismbutton",
-      "confidence_score": 1.0
+      "target": "ui_realismbutton"
     },
     {
       "relation": "imports_from",
@@ -2540,9 +2540,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock",
-      "target": "ui_scifiloader",
-      "confidence_score": 1.0
+      "target": "ui_scifiloader"
     },
     {
       "relation": "calls",
@@ -2551,9 +2551,9 @@
       "source_file": "src/components/TheAirlock.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theairlock_theairlock",
-      "target": "lib_auth_requestdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_requestdashboardaccess"
     },
     {
       "relation": "contains",
@@ -2574,6 +2574,17 @@
       "confidence_score": 1.0,
       "source": "components_thearchivegrid",
       "target": "components_thearchivegrid_thearchivegrid"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchiveGrid.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_thearchivegrid",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2617,6 +2628,17 @@
       "confidence_score": 1.0,
       "source": "components_thearchives",
       "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheArchives.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_thearchives",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2872,6 +2894,17 @@
       "target": "hooks_usemobile_usemobile"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheFeed.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_thefeed",
+      "target": "ui_loader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3066,6 +3099,17 @@
       "target": "hooks_usemobile_usemobile"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheHierarchy.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_thehierarchy",
+      "target": "ui_loader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3210,9 +3254,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth",
-      "confidence_score": 1.0
+      "target": "lib_auth"
     },
     {
       "relation": "imports",
@@ -3221,9 +3265,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth_deleteaccessentry",
-      "confidence_score": 1.0
+      "target": "lib_auth_deleteaccessentry"
     },
     {
       "relation": "imports",
@@ -3232,9 +3276,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth_getallaccessentries",
-      "confidence_score": 1.0
+      "target": "lib_auth_getallaccessentries"
     },
     {
       "relation": "imports",
@@ -3243,9 +3287,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth_grantdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_grantdashboardaccess"
     },
     {
       "relation": "imports",
@@ -3254,9 +3298,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth_initial_admins",
-      "confidence_score": 1.0
+      "target": "lib_auth_initial_admins"
     },
     {
       "relation": "imports",
@@ -3265,9 +3309,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_auth_revokedashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_revokedashboardaccess"
     },
     {
       "relation": "imports_from",
@@ -3276,9 +3320,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_firebase",
-      "confidence_score": 1.0
+      "target": "lib_firebase"
     },
     {
       "relation": "imports",
@@ -3287,9 +3331,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal",
-      "target": "lib_firebase_auth",
-      "confidence_score": 1.0
+      "target": "lib_firebase_auth"
     },
     {
       "relation": "calls",
@@ -3298,9 +3342,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal_theportal",
-      "target": "lib_auth_deleteaccessentry",
-      "confidence_score": 1.0
+      "target": "lib_auth_deleteaccessentry"
     },
     {
       "relation": "calls",
@@ -3309,9 +3353,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal_theportal",
-      "target": "lib_auth_getallaccessentries",
-      "confidence_score": 1.0
+      "target": "lib_auth_getallaccessentries"
     },
     {
       "relation": "calls",
@@ -3320,9 +3364,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal_theportal",
-      "target": "lib_auth_grantdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_grantdashboardaccess"
     },
     {
       "relation": "calls",
@@ -3331,9 +3375,9 @@
       "source_file": "src/components/ThePortal.jsx",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theportal_theportal",
-      "target": "lib_auth_revokedashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_revokedashboardaccess"
     },
     {
       "relation": "contains",
@@ -3451,6 +3495,17 @@
       "confidence_score": 1.0,
       "source": "components_thestratification",
       "target": "hooks_usemobile_usemobile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheStratification.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_thestratification",
+      "target": "ui_loader",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -4212,9 +4267,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_checkuseraccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_checkuseraccess"
     },
     {
       "relation": "contains",
@@ -4222,9 +4277,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_deleteaccessentry",
-      "confidence_score": 1.0
+      "target": "lib_auth_deleteaccessentry"
     },
     {
       "relation": "contains",
@@ -4232,9 +4287,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_getallaccessentries",
-      "confidence_score": 1.0
+      "target": "lib_auth_getallaccessentries"
     },
     {
       "relation": "contains",
@@ -4242,9 +4297,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_grantdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_grantdashboardaccess"
     },
     {
       "relation": "contains",
@@ -4252,9 +4307,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_initial_admins",
-      "confidence_score": 1.0
+      "target": "lib_auth_initial_admins"
     },
     {
       "relation": "contains",
@@ -4262,9 +4317,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_isinitialadmin",
-      "confidence_score": 1.0
+      "target": "lib_auth_isinitialadmin"
     },
     {
       "relation": "contains",
@@ -4272,9 +4327,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_requestdashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_requestdashboardaccess"
     },
     {
       "relation": "contains",
@@ -4282,9 +4337,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_auth_revokedashboardaccess",
-      "confidence_score": 1.0
+      "target": "lib_auth_revokedashboardaccess"
     },
     {
       "relation": "imports_from",
@@ -4293,9 +4348,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_firebase",
-      "confidence_score": 1.0
+      "target": "lib_firebase"
     },
     {
       "relation": "imports",
@@ -4304,9 +4359,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth",
-      "target": "lib_firebase_db",
-      "confidence_score": 1.0
+      "target": "lib_firebase_db"
     },
     {
       "relation": "calls",
@@ -4315,9 +4370,9 @@
       "source_file": "src/lib/auth.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_auth_checkuseraccess",
-      "target": "lib_auth_isinitialadmin",
-      "confidence_score": 1.0
+      "target": "lib_auth_isinitialadmin"
     },
     {
       "relation": "contains",
@@ -4355,9 +4410,9 @@
       "source_file": "src/lib/firebase.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_firebase",
-      "target": "lib_firebase_db",
-      "confidence_score": 1.0
+      "target": "lib_firebase_db"
     },
     {
       "relation": "contains",

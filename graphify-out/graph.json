@@ -144,7 +144,7 @@
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L1",
       "id": "components_thearchivegrid",
-      "community": 0,
+      "community": 22,
       "norm_label": "thearchivegrid.jsx"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L12",
       "id": "components_thearchivegrid_images",
-      "community": 0,
+      "community": 22,
       "norm_label": "images"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L25",
       "id": "components_thearchivegrid_thearchivegrid",
-      "community": 0,
+      "community": 22,
       "norm_label": "thearchivegrid()"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L1",
       "id": "components_thehierarchy",
-      "community": 2,
+      "community": 1,
       "norm_label": "thehierarchy.jsx"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L8",
       "id": "components_thehierarchy_tiers",
-      "community": 2,
+      "community": 1,
       "norm_label": "tiers"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L14",
       "id": "components_thehierarchy_thehierarchy",
-      "community": 2,
+      "community": 1,
       "norm_label": "thehierarchy()"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L1",
       "id": "components_thehierarchymobile",
-      "community": 2,
+      "community": 1,
       "norm_label": "thehierarchymobile.jsx"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src/components/TheHierarchyMobile.jsx",
       "source_location": "L8",
       "id": "components_thehierarchymobile_thehierarchymobile",
-      "community": 2,
+      "community": 1,
       "norm_label": "thehierarchymobile()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L1",
       "id": "components_thestratification",
-      "community": 2,
+      "community": 1,
       "norm_label": "thestratification.jsx"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L8",
       "id": "components_thestratification_strat_tiers",
-      "community": 2,
+      "community": 1,
       "norm_label": "strat_tiers"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L15",
       "id": "components_thestratification_thestratification",
-      "community": 2,
+      "community": 1,
       "norm_label": "thestratification()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L1",
       "id": "components_thestratificationmobile",
-      "community": 2,
+      "community": 1,
       "norm_label": "thestratificationmobile.jsx"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "src/components/TheStratificationMobile.jsx",
       "source_location": "L8",
       "id": "components_thestratificationmobile_thestratificationmobile",
-      "community": 2,
+      "community": 1,
       "norm_label": "thestratificationmobile()"
     },
     {
@@ -583,7 +583,7 @@
       "label": "TheTether()",
       "file_type": "code",
       "source_file": "src/components/TheTether.jsx",
-      "source_location": "L30",
+      "source_location": "L31",
       "id": "components_thetether_thetether",
       "community": 21,
       "norm_label": "thetether()"
@@ -774,7 +774,7 @@
       "source_file": "src/components/ui/FavoriteToggle.jsx",
       "source_location": "L1",
       "id": "ui_favoritetoggle",
-      "community": 22,
+      "community": 2,
       "norm_label": "favoritetoggle.jsx"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "src/components/ui/FavoriteToggle.jsx",
       "source_location": "L4",
       "id": "ui_favoritetoggle_favoritetoggle",
-      "community": 22,
+      "community": 2,
       "norm_label": "favoritetoggle()"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "src/components/ui/FavoriteToggle.jsx",
       "source_location": "L48",
       "id": "ui_favoritetoggle_styledwrapper",
-      "community": 22,
+      "community": 2,
       "norm_label": "styledwrapper"
     },
     {
@@ -918,7 +918,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L1",
       "id": "ui_liketoggle",
-      "community": 29,
+      "community": 2,
       "norm_label": "liketoggle.jsx"
     },
     {
@@ -927,7 +927,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L4",
       "id": "ui_liketoggle_liketoggle",
-      "community": 29,
+      "community": 2,
       "norm_label": "liketoggle()"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "src/components/ui/LikeToggle.jsx",
       "source_location": "L51",
       "id": "ui_liketoggle_styledwrapper",
-      "community": 29,
+      "community": 2,
       "norm_label": "styledwrapper"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L1",
       "id": "ui_loader",
-      "community": 2,
+      "community": 22,
       "norm_label": "loader.jsx"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L4",
       "id": "ui_loader_loader",
-      "community": 2,
+      "community": 22,
       "norm_label": "loader()"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "src/components/ui/Loader.jsx",
       "source_location": "L18",
       "id": "ui_loader_styledwrapper",
-      "community": 2,
+      "community": 22,
       "norm_label": "styledwrapper"
     },
     {
@@ -990,6 +990,33 @@
       "source_file": "src/components/ui/NeumorphicToggle.jsx",
       "source_location": "L26",
       "id": "ui_neumorphictoggle_styledwrapper",
+      "community": 21,
+      "norm_label": "styledwrapper"
+    },
+    {
+      "label": "PegtopLoader.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/PegtopLoader.jsx",
+      "source_location": "L1",
+      "id": "ui_pegtoploader",
+      "community": 21,
+      "norm_label": "pegtoploader.jsx"
+    },
+    {
+      "label": "PegtopLoader()",
+      "file_type": "code",
+      "source_file": "src/components/ui/PegtopLoader.jsx",
+      "source_location": "L4",
+      "id": "ui_pegtoploader_pegtoploader",
+      "community": 21,
+      "norm_label": "pegtoploader()"
+    },
+    {
+      "label": "StyledWrapper",
+      "file_type": "code",
+      "source_file": "src/components/ui/PegtopLoader.jsx",
+      "source_location": "L118",
+      "id": "ui_pegtoploader_styledwrapper",
       "community": 21,
       "norm_label": "styledwrapper"
     },
@@ -1053,7 +1080,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L1",
       "id": "ui_rewardbutton",
-      "community": 30,
+      "community": 2,
       "norm_label": "rewardbutton.jsx"
     },
     {
@@ -1062,7 +1089,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L4",
       "id": "ui_rewardbutton_rewardbutton",
-      "community": 30,
+      "community": 2,
       "norm_label": "rewardbutton()"
     },
     {
@@ -1071,7 +1098,7 @@
       "source_file": "src/components/ui/RewardButton.jsx",
       "source_location": "L31",
       "id": "ui_rewardbutton_styledwrapper",
-      "community": 30,
+      "community": 2,
       "norm_label": "styledwrapper"
     },
     {
@@ -1233,7 +1260,7 @@
       "source_file": "src/data/syntheticData.js",
       "source_location": "L284",
       "id": "data_syntheticdata_synthetic_users",
-      "community": 2,
+      "community": 1,
       "norm_label": "synthetic_users"
     },
     {
@@ -2582,9 +2609,9 @@
       "source_file": "src/components/TheArchiveGrid.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchivegrid",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "contains",
@@ -2636,9 +2663,9 @@
       "source_file": "src/components/TheArchives.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thearchives",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -2900,9 +2927,9 @@
       "source_file": "src/components/TheFeed.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thefeed",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -3105,9 +3132,9 @@
       "source_file": "src/components/TheHierarchy.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thehierarchy",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -3503,9 +3530,9 @@
       "source_file": "src/components/TheStratification.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_thestratification",
-      "target": "ui_loader",
-      "confidence_score": 1.0
+      "target": "ui_loader"
     },
     {
       "relation": "calls",
@@ -3636,6 +3663,17 @@
       "confidence_score": 1.0,
       "source": "components_thetether",
       "target": "ui_neumorphictoggle"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TheTether.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "components_thetether",
+      "target": "ui_pegtoploader",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -3980,6 +4018,26 @@
       "confidence_score": 1.0,
       "source": "ui_neumorphictoggle",
       "target": "ui_neumorphictoggle_styledwrapper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/PegtopLoader.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "ui_pegtoploader",
+      "target": "ui_pegtoploader_pegtoploader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/PegtopLoader.jsx",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "ui_pegtoploader",
+      "target": "ui_pegtoploader_styledwrapper",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4626,5 +4684,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9c83924a75bb1fa2ff91349c434f8c38b99285b3"
+  "built_at_commit": "86ff9f8699e046f92e30d0a1509d1afbfb62d865"
 }
