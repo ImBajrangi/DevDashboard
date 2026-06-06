@@ -1,168 +1,192 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-/**
- * SearchInput component - A premium, high-performance search input
- * that morphs from a magnifying glass to an expanded search field.
- * 
- * Completely converted from styled-components to Tailwind and custom CSS keyframes
- * to ensure maximum performance and seamless dark-mode integration.
- */
-const SearchInput = ({ value, onChange, placeholder = "Search archives..." }) => {
-  const inputRef = useRef(null);
+const SearchInput = ({ 
+  value, 
+  onChange, 
+  placeholder = "Search archives...", 
+  onSubmit, 
+  disabled = false,
+  className = '',
+  ...props 
+}) => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) {
+      onSubmit(value);
+    }
+  };
 
   return (
-    <div className="flex items-center justify-center p-4">
-      {/* Scoped CSS styling for complex keyframe transforms */}
-      <style>{`
-        .morph-search-form {
-          position: relative;
-          width: 100%;
-          max-width: 17rem;
-          margin: auto;
-        }
-
-        .morph-search-input {
-          display: block;
-          margin: auto;
-          width: 2.2rem;
-          height: 2.2rem;
-          background: transparent;
-          border-radius: 50%;
-          color: #e5e5e5;
-          caret-color: #FF3333;
-          box-shadow: 0 0 0 0.2rem inset #404040;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-          appearance: none;
-          -webkit-appearance: none;
-          padding: 0;
-          outline: none;
-          border: none;
-        }
-
-        /* Hover state when collapsed - glowing aura */
-        .morph-search-input:hover {
-          box-shadow: 0 0 0 0.2rem inset #FF3333, 0 0 12px rgba(255, 51, 51, 0.35);
-          cursor: pointer;
-        }
-
-        /* Active/Expanded State (focused or has content) */
-        .morph-search-input:focus,
-        .morph-search-input:not(:placeholder-shown) {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-radius: 0.25rem;
-          box-shadow: 0 0 0 1px rgba(255, 51, 51, 0.4), 0 10px 30px rgba(0, 0, 0, 0.6);
-          padding: 0.75rem 1rem 0.75rem 2.5rem;
-          width: 100%;
-          height: 3rem;
-          cursor: text;
-        }
-
-        .morph-search-input:focus {
-          animation: morphShowCaret 1s steps(1);
-          outline: none;
-        }
-
-        /* Morphing Caret / Magnifying Glass Handle */
-        .morph-search-caret {
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          background: #404040;
-          border-radius: 0 0 0.125rem 0.125rem;
-          width: 0.22rem;
-          height: 0.9rem;
-          transform-origin: 50% 0;
-          /* Offsets the handle to complete the magnifying glass design */
-          transform: translate(-50%, -50%) translate(0.65rem, 0.65rem) rotate(-45deg);
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-          pointer-events: none;
-        }
-
-        .morph-search-input:hover + .morph-search-caret {
-          background: #FF3333;
-        }
-
-        /* Morph animation trigger */
-        .morph-search-input:focus + .morph-search-caret,
-        .morph-search-input:not(:placeholder-shown) + .morph-search-caret {
-          animation: morphHandleToCaret 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          background: #FF3333;
-          width: 1.5px;
-          height: 1.25rem;
-          left: 1rem;
-          top: 50%;
-          transform: translateY(-50%) rotate(0deg);
-        }
-
-        @keyframes morphShowCaret {
-          from { caret-color: transparent; }
-          to { caret-color: #FF3333; }
-        }
-
-        @keyframes morphHandleToCaret {
-          from {
-            background: #404040;
-            width: 0.22rem;
-            height: 0.9rem;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) translate(0.65rem, 0.65rem) rotate(-45deg);
-          }
-          35% {
-            background: #FF3333;
-            width: 0.22rem;
-            height: 0.9rem;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) translate(0.65rem, 0.65rem) rotate(-180deg);
-          }
-          70% {
-            background: #FF3333;
-            width: 1.5px;
-            height: 1.25rem;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%) rotate(-180deg);
-          }
-          to {
-            background: transparent;
-            width: 1.5px;
-            height: 1.25rem;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%) rotate(-360deg);
-          }
-        }
-
-        /* Remove browser-specific search decorations */
-        .morph-search-input::-webkit-search-decoration,
-        .morph-search-input::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-          appearance: none;
-        }
-      `}</style>
-
-      <form className="morph-search-form" onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="search-field" className="sr-only">
-          {placeholder}
-        </label>
-        <input
-          id="search-field"
-          ref={inputRef}
-          type="search"
-          placeholder=" "
-          className="morph-search-input font-mono"
+    <StyledWrapper className={className}>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="search">Search</label>
+        <input 
+          required 
+          pattern=".*\S.*" 
+          type="search" 
+          className="input" 
+          id="search"
           value={value}
           onChange={onChange}
+          disabled={disabled}
+          placeholder={placeholder}
           autoComplete="off"
+          {...props}
         />
-        <span className="morph-search-caret" />
+        <span className="caret" />
       </form>
-    </div>
+    </StyledWrapper>
   );
 };
+
+const StyledWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .input {
+    color: var(--color-text-main, #E5E5E5);
+    font: 1em/1.5 var(--font-mono, monospace);
+  }
+
+  form, .input, .caret {
+    margin: auto;
+  }
+
+  form {
+    position: relative;
+    width: 100%;
+    max-width: 17em;
+  }
+
+  .input, .caret {
+    display: block;
+    transition: all calc(1s * 0.5) linear;
+  }
+
+  .input {
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.25em inset;
+    caret-color: var(--color-primary, #FF3333);
+    width: 2em;
+    height: 2em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+  }
+
+  .input:focus, .input:valid {
+    background: color-mix(in srgb, var(--color-void-matte, #0a0a0a) 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border-void, #262626);
+    border-radius: 0.25em;
+    box-shadow: none;
+    padding: 0.75em 1em;
+    transition-duration: calc(1s * 0.25);
+    transition-delay: calc(1s * 0.25);
+    width: 100%;
+    height: 3em;
+  }
+
+  .input:focus {
+    animation: showCaret 1s steps(1);
+    outline: transparent;
+    border-color: var(--color-primary, #FF3333);
+  }
+
+  .input:focus + .caret, .input:valid + .caret {
+    animation: handleToCaret 1s linear forwards;
+    background: transparent;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+  }
+
+  .input::-webkit-search-decoration,
+  .input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  label {
+    color: #e3e4e8;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  .caret {
+    background: var(--color-text-main, #E5E5E5);
+    border-radius: 0 0 0.125em 0.125em;
+    margin-bottom: -0.6em;
+    width: 0.25em;
+    height: 1em;
+    transform: translate(0,-1em) rotate(-45deg) translate(0,0.875em);
+    transform-origin: 50% 0;
+    pointer-events: none;
+  }
+
+  /* Animations */
+  @keyframes showCaret {
+    from {
+      caret-color: transparent;
+    }
+
+    to {
+      caret-color: var(--color-primary, #FF3333);
+    }
+  }
+
+  @keyframes handleToCaret {
+    from {
+      background: var(--color-text-main, #E5E5E5);
+      width: 0.25em;
+      height: 1em;
+      transform: translate(0,-1em) rotate(-45deg) translate(0,0.875em);
+    }
+
+    25% {
+      background: var(--color-text-main, #E5E5E5);
+      width: 0.25em;
+      height: 1em;
+      transform: translate(0,-1em) rotate(-180deg) translate(0,0.875em);
+    }
+
+    50%, 62.5% {
+      background: var(--color-primary, #FF3333);
+      width: 1px;
+      height: 1.5em;
+      transform: translate(0,-1em) rotate(-180deg) translate(7.5em,2.5em);
+    }
+
+    75%, 99% {
+      background: var(--color-primary, #FF3333);
+      width: 1px;
+      height: 1.5em;
+      transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+    }
+
+    87.5% {
+      background: var(--color-primary, #FF3333);
+      width: 1px;
+      height: 1.5em;
+      transform: translate(0,-1em) rotate(-180deg) translate(7.5em,0.125em);
+    }
+
+    to {
+      background: transparent;
+      width: 1px;
+      height: 1.5em;
+      transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+    }
+  }
+`;
 
 export default SearchInput;

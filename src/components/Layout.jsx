@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 import TheMenu from './TheMenu';
-import BouncingLoader from './ui/BouncingLoader';
+import EyeLoader from './ui/EyeLoader';
 
 const Layout = ({
     children,
@@ -125,8 +125,8 @@ const Layout = ({
 
                         <div className="flex items-center gap-6">
                             {loading && (
-                                <div className="flex items-center gap-2 scale-[0.35] -mx-8 -my-2 origin-center">
-                                    <BouncingLoader />
+                                <div className="flex items-center mr-2">
+                                    <EyeLoader size={26} />
                                 </div>
                             )}
                             

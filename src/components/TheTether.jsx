@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Minus, Plus, Download } from 'lucide-react';
 import DayNightSwitch from './ui/DayNightSwitch';
 import NeumorphicToggle from './ui/NeumorphicToggle';
 import AMPMToggle from './ui/AMPMToggle';
 import StarRating from './ui/StarRating';
 import RealismButton from './ui/RealismButton';
+import SaveBookmarkSwitch from './ui/SaveBookmarkSwitch';
+import CreditsButton from './ui/CreditsButton';
+import CloudSaveButton from './ui/CloudSaveButton';
+import FolderCard from './ui/FolderCard';
+import EyeLoader from './ui/EyeLoader';
+import SearchInput from './SearchInput';
+import InstallButton from './ui/InstallButton';
 
 /**
  * TheTether component – from the_tether template.
@@ -23,6 +30,7 @@ const TheTether = ({ settings, onUpdateSettings }) => {
     const isSerif = typeface === 'serif';
     const fontSize = baseSize;
     const [userRating, setUserRating] = React.useState(0);
+    const [credits, setCredits] = useState(1280);
     const [isNightMode, setIsNightMode] = React.useState(() => {
         return !document.documentElement.classList.contains('light');
     });
@@ -157,18 +165,27 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                     </p>
                 </div>
                 <div className="md:col-span-8 border-t border-[#262626] pt-4 space-y-10">
-                    {/* Export – Premium Realism Button */}
+                    {/* Export – Premium Cloud Save Button */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                            <label className="block text-lg font-bold mb-1">Export Archive</label>
-                            <span className="text-xs font-mono text-text-muted">Download all saved articles as JSON</span>
+                            <label className="block text-lg font-bold mb-1">Export Settings</label>
+                            <span className="text-xs font-mono text-text-muted">Export current system configurations to a JSON file</span>
                         </div>
-                        <RealismButton>
-                            <span className="flex items-center gap-2 text-sm">
-                                <Download size={16} />
-                                DOWNLOAD
-                            </span>
-                        </RealismButton>
+                        <CloudSaveButton 
+                            onClick={async () => {
+                                // Simulate dynamic file compilation
+                                await new Promise(resolve => setTimeout(resolve, 1500));
+                                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(settings, null, 2));
+                                const downloadAnchor = document.createElement('a');
+                                downloadAnchor.setAttribute("href", dataStr);
+                                downloadAnchor.setAttribute("download", "system_settings.json");
+                                document.body.appendChild(downloadAnchor);
+                                downloadAnchor.click();
+                                downloadAnchor.remove();
+                            }}
+                        >
+                            Export config
+                        </CloudSaveButton>
                     </div>
 
                     {/* Storage */}
@@ -238,6 +255,92 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                         <button className="px-5 py-2.5 rounded-sm text-sm font-bold tracking-wide text-text-muted hover:text-primary border border-transparent hover:border-primary/30 transition-colors uppercase">
                             Delete Account
                         </button>
+                    </div>
+                </div>
+
+                {/* Spacer */}
+                <div className="col-span-full h-8"></div>
+
+                {/* SECTION 05: INTERACTIVE TELEMETRY */}
+                <div className="md:col-span-4 border-t border-border-void pt-4">
+                    <h3 className="text-sm font-bold tracking-wider uppercase text-text-muted mb-2">05 // Telemetry Showcase</h3>
+                    <p className="text-xs text-text-muted font-mono leading-relaxed">
+                        Interact with custom visual transmission protocols designed for high-density interfaces.
+                    </p>
+                </div>
+                <div className="md:col-span-8 border-t border-border-void pt-4 space-y-10">
+                    {/* Bookmark Toggle */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Bookmark Node</label>
+                            <span className="text-xs font-mono text-text-muted">Spring-animated checkbox saving protocol</span>
+                        </div>
+                        <SaveBookmarkSwitch defaultChecked />
+                    </div>
+
+                    {/* Search Input */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Cyber Search Aperture</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Morphing telemetry input. Click glass to expand.
+                            </span>
+                        </div>
+                        <div className="w-full sm:w-auto flex justify-center sm:justify-end">
+                            <SearchInput placeholder="Search archives..." />
+                        </div>
+                    </div>
+
+                    {/* Credits Button */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Credits Ledger</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Current Credits: <span className="text-primary font-bold font-mono">{credits} Cr</span>
+                            </span>
+                        </div>
+                        <CreditsButton onClick={() => setCredits(c => c + 10)}>
+                            Add 10 Credits
+                        </CreditsButton>
+                    </div>
+
+                    {/* Folder Card */}
+                    <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Sacred Archive Vault</label>
+                            <span className="text-xs font-mono text-text-muted block max-w-sm">
+                                3D-perspective folder cards containing fanned file indexes. Features real-time content filtering.
+                            </span>
+                        </div>
+                        <div className="w-full sm:w-auto flex justify-center sm:justify-end pt-4 sm:pt-0">
+                            <FolderCard />
+                        </div>
+                    </div>
+
+                    {/* Cybernetic Eye Loader */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Cybernetic Aperture Scanner</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Holographic ocular loader with organic blinking and focus sweeps. Used for system diagnostics.
+                            </span>
+                        </div>
+                        <div className="flex justify-center items-center py-2 pr-6">
+                            <EyeLoader size={78} />
+                        </div>
+                    </div>
+
+                    {/* Progress Install Button */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Vault Installer</label>
+                            <span className="text-xs font-mono text-text-muted">
+                                Action switch morphing to dynamic rotating indicator track and completing success locks.
+                            </span>
+                        </div>
+                        <div className="flex justify-center items-center py-2">
+                            <InstallButton duration={3000} idleText="Install" completedText="Ready" />
+                        </div>
                     </div>
                 </div>
             </div>
