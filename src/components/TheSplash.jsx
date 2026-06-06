@@ -1,9 +1,12 @@
 import React from 'react';
 import { Lock } from 'lucide-react';
+import SciFiLoader from './ui/SciFiLoader';
+import RealismButton from './ui/RealismButton';
 
 /**
  * TheSplash – exact clone of the_airlock_21/code.html
- * Full-screen "Enter the Void" splash with blinking cursor, red glow on hover,
+ * Full-screen "Enter the Void" splash with premium SciFi loader,
+ * Realism glassmorphic button, blinking cursor, red glow on hover,
  * manifesto text, and bottom status bar.
  */
 const TheSplash = ({ onEnter }) => {
@@ -19,18 +22,13 @@ const TheSplash = ({ onEnter }) => {
             />
 
             {/* Main Container */}
-            <main className="relative z-10 flex flex-col items-center justify-center w-full max-w-2xl px-6 gap-12">
-                {/* The Monolith / Cursor */}
-                <div className="flex flex-col items-center gap-6 group">
-                    <div className="relative">
-                        {/* Glowing red aura behind cursor */}
-                        <div className="absolute -inset-4 bg-[#f04242]/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                        <h1
-                            className="text-6xl md:text-8xl font-bold tracking-tighter text-[#E5E5E5] select-none"
-                            style={{ animation: 'blink 1.5s steps(2, start) infinite' }}
-                        >
-                            _
-                        </h1>
+            <main className="relative z-10 flex flex-col items-center justify-center w-full max-w-2xl px-6 gap-8">
+                {/* SciFi Loader – Premium animated concentric circles */}
+                <div className="group flex flex-col items-center gap-4">
+                    <div className="relative scale-[0.55] md:scale-75 -my-12">
+                        {/* Glowing aura behind loader */}
+                        <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                        <SciFiLoader />
                     </div>
                     {/* Manifesto (fades in on hover) */}
                     <div className="h-16 flex items-center justify-center">
@@ -40,17 +38,10 @@ const TheSplash = ({ onEnter }) => {
                     </div>
                 </div>
 
-                {/* Entrance CTA */}
-                <button
-                    onClick={onEnter}
-                    className="relative group/btn overflow-hidden border border-[#404040] hover:border-[#E5E5E5] bg-transparent hover:bg-white transition-colors duration-0 w-full max-w-[320px] h-14 flex items-center justify-center"
-                >
-                    <span className="font-display font-bold text-sm tracking-[0.2em] text-[#E5E5E5] group-hover/btn:text-[#050505] uppercase transition-colors duration-0">
-                        [ Enter The Void ]
-                    </span>
-                    {/* Red flash on active */}
-                    <div className="absolute inset-0 bg-[#f04242] translate-y-full group-active/btn:translate-y-0 transition-transform duration-150" />
-                </button>
+                {/* Entrance CTA – Premium Realism Button */}
+                <RealismButton onClick={onEnter}>
+                    [ Enter The Void ]
+                </RealismButton>
             </main>
 
             {/* Footer / Status */}
@@ -68,13 +59,6 @@ const TheSplash = ({ onEnter }) => {
             <div className="fixed top-8 right-8 text-[#404040] opacity-20 hover:opacity-100 transition-opacity duration-500 cursor-help">
                 <Lock size={24} />
             </div>
-
-            <style>{`
-                @keyframes blink {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0; }
-                }
-            `}</style>
         </div>
     );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code, Globe, Store, Compass, Image, Cpu } from 'lucide-react';
+import { Radio, Database, Search, Settings, User, BarChart3, Grid3x3, Trophy, Plus, LogIn, LogOut, Archive, ShieldCheck, ChevronDown, Star, Heart, Code, Globe, Store, Compass, Image, Cpu, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMobile } from '../hooks/useMobile';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 import TheMenu from './TheMenu';
+import BouncingLoader from './ui/BouncingLoader';
 
 const Layout = ({
     children,
@@ -12,7 +13,6 @@ const Layout = ({
     setActiveTab = () => { },
     title = "The Feed - All Content | Deep Void",
     description = "A digital sanctuary for deep reading and archival silence.",
-    settings = { immersionMode: true },
     onSignalOpen = () => { },
     user = null,
     loading = false,
@@ -20,8 +20,8 @@ const Layout = ({
     setActiveProject = () => { },
     projects = []
 }) => {
+    const _ = motion;
     const isMobile = useMobile();
-    const [isScrolled, setIsScrolled] = React.useState(false);
     const [showNav, setShowNav] = React.useState(true);
     const lastScrollY = React.useRef(0);
     const [isProjectMenuOpen, setIsProjectMenuOpen] = React.useState(false);
@@ -47,9 +47,6 @@ const Layout = ({
             // Limit tracking to significant vertical scrolls
             if (Math.abs(currentScrollY - lastScrollY.current) < 5) return;
 
-            // Threshold for general scrolled state
-            setIsScrolled(currentScrollY > 50);
-
             // Direction tracking
             if (currentScrollY < 50) {
                 setShowNav(true);
@@ -72,6 +69,7 @@ const Layout = ({
     const navItems = [
         { id: 'nexus', icon: <Radio size={20} />, label: 'Nexus' },
         { id: 'feed', icon: <Database size={20} />, label: 'Feed' },
+        { id: 'chat', icon: <MessageSquare size={20} />, label: 'Chat' },
         { id: 'archives', icon: <Archive size={20} />, label: 'Archives' },
         { id: 'grid', icon: <Grid3x3 size={20} />, label: 'Grid' },
         { id: 'hierarchy', icon: <BarChart3 size={20} />, label: 'Hierarchy' },
@@ -127,9 +125,8 @@ const Layout = ({
 
                         <div className="flex items-center gap-6">
                             {loading && (
-                                <div className="flex items-center gap-2 animate-pulse">
-                                    <span className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold">Transmitting</span>
-                                    <div className="size-1 bg-primary rounded-full animate-ping"></div>
+                                <div className="flex items-center gap-2 scale-[0.35] -mx-8 -my-2 origin-center">
+                                    <BouncingLoader />
                                 </div>
                             )}
                             
@@ -137,17 +134,17 @@ const Layout = ({
                             <div className="relative">
                                 <button 
                                     onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
-                                    className="bg-void border border-white/5 px-4 py-2 flex items-center gap-3 hover:border-primary/50 transition-all group"
+                                    className="bg-void border border-border-void/60 px-4 py-2 flex items-center gap-3 hover:border-primary/50 transition-all group"
                                 >
                                     <div className="text-primary group-hover:animate-pulse">
                                         {projectIcons[projects.find(p => p.id === activeProject)?.icon] || <Radio size={14} />}
                                     </div>
-                                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white whitespace-nowrap">
+                                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-text-main whitespace-nowrap">
                                         {projects.find(p => p.id === activeProject)?.label || 'SELECT PROJECT'}
                                     </span>
                                     <ChevronDown size={14} className={`text-text-muted transition-transform duration-300 ${isProjectMenuOpen ? 'rotate-180' : ''}`} />
                                 </button>
-
+ 
                                 <AnimatePresence>
                                     {isProjectMenuOpen && (
                                         <motion.div 
@@ -163,7 +160,7 @@ const Layout = ({
                                                         setActiveProject(proj.id);
                                                         setIsProjectMenuOpen(false);
                                                     }}
-                                                    className={`w-full flex items-center gap-4 px-4 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-primary/10 ${activeProject === proj.id ? 'text-primary bg-primary/5' : 'text-text-muted hover:text-white'}`}
+                                                    className={`w-full flex items-center gap-4 px-4 py-3 text-[10px] uppercase tracking-widest transition-all hover:bg-primary/10 ${activeProject === proj.id ? 'text-primary bg-primary/5' : 'text-text-muted hover:text-text-main'}`}
                                                 >
                                                     <div className={activeProject === proj.id ? 'text-primary' : 'opacity-40'}>
                                                         {projectIcons[proj.icon]}
@@ -196,19 +193,17 @@ const Layout = ({
                 </div>
                 <div className="fixed bottom-0 right-0 p-4 pointer-events-none z-[70]">
                     <div className="w-10 h-10 border-b border-r border-primary/20"></div>
-                </div>
-
-                {/* Desktop Sidebar Navigation */}
+                </div>                {/* Desktop Sidebar Navigation */}
                 {!isMobile && (
                     <motion.nav 
                         initial={false}
                         animate={{ 
                             width: isSidebarHovered ? 240 : 64,
-                            backgroundColor: isSidebarHovered ? 'rgba(5, 5, 5, 0.98)' : 'rgba(5, 5, 5, 0.95)'
+                            backgroundColor: isSidebarHovered ? 'var(--sidebar-bg-hover)' : 'var(--sidebar-bg)'
                         }}
                         onMouseEnter={() => setIsSidebarHovered(true)}
                         onMouseLeave={() => setIsSidebarHovered(false)}
-                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.5)] transition-opacity duration-700 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
+                        className={`fixed left-0 top-0 h-full border-r border-border-void backdrop-blur-xl z-[110] flex flex-col py-10 overflow-y-auto no-scrollbar shadow-[20px_0_50px_rgba(0,0,0,0.1)] transition-all duration-300 ${hideNav ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}
                     >
                         <div className="flex flex-col gap-1.5 px-3">
                             {navItems.filter(i => i.id !== 'profile').map(item => {
@@ -217,7 +212,7 @@ const Layout = ({
                                     <button
                                         key={item.id}
                                         onClick={() => setActiveTab(item.id)}
-                                        className={`group relative flex items-center h-10 transition-all duration-300 rounded-sm ${isActive ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text-main hover:bg-white/5'}`}
+                                        className={`group relative flex items-center h-10 transition-all duration-300 rounded-sm ${isActive ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text-main hover:bg-[var(--sidebar-hover-bg)]'}`}
                                         title={!isSidebarHovered ? item.label : ''}
                                     >
                                         <div className={`flex items-center justify-center w-10 min-w-[40px] transition-transform duration-500 ${isActive ? 'scale-110' : 'group-hover:scale-110 group-active:scale-95'}`}>
@@ -236,7 +231,7 @@ const Layout = ({
                                                 </motion.span>
                                             )}
                                         </AnimatePresence>
-
+ 
                                         {isActive && (
                                             <motion.div 
                                                 layoutId="active-nav"
@@ -283,7 +278,7 @@ const Layout = ({
                             )}
                             <button
                                 onClick={() => setActiveTab('profile')}
-                                className={`group relative flex items-center h-10 transition-colors ${activeTab === 'profile' ? 'text-white' : 'text-text-muted hover:text-white'}`}
+                                className={`group relative flex items-center h-10 transition-colors ${activeTab === 'profile' ? 'text-text-main' : 'text-text-muted hover:text-text-main hover:bg-[var(--sidebar-hover-bg)]'}`}
                             >
                                 <div className="flex items-center justify-center w-10 min-w-[40px] group-hover:scale-110">
                                     <User size={22} />
@@ -345,12 +340,27 @@ const Layout = ({
                 />
 
                 {/* Main Content Area – Decollided (Explicit 64px Top-Offset) */}
-                <main 
-                    className={`min-h-screen ${isMobile ? 'pb-24' : 'main-content-padding'}`}
+                <motion.main 
+                    className={`min-h-screen ${isMobile ? 'pb-24' : ''}`}
                     style={{ paddingTop: '64px' }}
+                    animate={{ 
+                        paddingLeft: isMobile ? 0 : (isSidebarHovered ? 240 : 64) 
+                    }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
                 >
-                    {children}
-                </main>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                            className="w-full h-full"
+                        >
+                            {children}
+                        </motion.div>
+                    </AnimatePresence>
+                </motion.main>
             </div>
         </HelmetProvider>
     );

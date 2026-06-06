@@ -1,6 +1,8 @@
 import React from 'react';
-import { X, Radio, Database, Archive, Grid3x3, BarChart3, Trophy, Plus, Globe, ShieldCheck, Settings, User, LogOut } from 'lucide-react';
+import { Radio, Database, Archive, Grid3x3, BarChart3, Trophy, Plus, Globe, ShieldCheck, Settings, User, LogOut } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
+import HamburgerToggle from './ui/HamburgerToggle';
 
 const TheMenu = ({ isOpen, onClose, activeTab, setActiveTab, navItems, user, logOut }) => {
     return (
@@ -13,18 +15,17 @@ const TheMenu = ({ isOpen, onClose, activeTab, setActiveTab, navItems, user, log
                     transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                     className="fixed inset-0 z-[200] bg-void flex flex-col pt-12 safe-padding-bottom"
                 >
-                    {/* Header */}
+                    {/* Header – Premium Hamburger Toggle */}
                     <div className="flex items-center justify-between px-8 mb-10">
                         <div className="flex flex-col">
                             <span className="font-mono text-[9px] text-primary tracking-[0.3em] uppercase mb-1">System // Core</span>
                             <h2 className="text-3xl font-bold tracking-tighter uppercase font-display leading-none text-white">THE HUB</h2>
                         </div>
-                        <button 
-                            onClick={onClose}
-                            className="w-12 h-12 flex items-center justify-center border border-border-void rounded-full active:scale-90 transition-transform"
-                        >
-                            <X size={24} className="text-white" />
-                        </button>
+                        <HamburgerToggle 
+                            isOpen={true} 
+                            onToggle={onClose}
+                            color="#E5E5E5"
+                        />
                     </div>
 
                     {/* Navigation Grid */}

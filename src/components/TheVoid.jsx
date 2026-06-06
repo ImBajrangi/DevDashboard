@@ -10,13 +10,12 @@ const TheVoid = ({
     settings = { typeface: 'serif', baseSize: 20, immersionMode: true },
     audioUrl, images = [], tags = []
 }) => {
-    const { typeface, baseSize, immersionMode } = settings;
+    const { typeface, baseSize } = settings;
     const fontClass = typeface === 'serif' ? 'font-body' : 'font-mono';
 
     const [fontSize, setFontSize] = useState(baseSize);
     const [isPlaying, setIsPlaying] = useState(false);
     const [showImageModal, setShowImageModal] = useState(null);
-    const [showControls, setShowControls] = useState(true);
     const audioRef = useRef(null);
 
     const toggleAudio = () => {

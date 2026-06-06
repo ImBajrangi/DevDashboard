@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Globe, Search, Share2, Activity, Zap, Save, AlertCircle } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const TheBeacon = ({ config = {}, onUpdate = () => {} }) => {

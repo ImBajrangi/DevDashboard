@@ -17,6 +17,7 @@ import TheForge from './components/TheForge'
 import ThePortal from './components/ThePortal'
 import TheBeacon from './components/TheBeacon'
 import TheConsole from './components/TheConsole'
+import TheChat from './components/TheChat'
 import { useMobile } from './hooks/useMobile'
 import { supabase, legacySupabase } from './lib/supabase'
 import { cache } from './lib/cache';
@@ -60,6 +61,12 @@ function App() {
     totalReflections: 0,
     soulSeekers: 0
   })
+
+  useEffect(() => {
+    const root = document.documentElement;
+    projects.forEach(p => root.classList.remove(`project-${p.id}`));
+    root.classList.add(`project-${activeProject}`);
+  }, [activeProject]);
 
   useEffect(() => {
     // Listen for Firebase Auth changes
@@ -271,7 +278,7 @@ function App() {
       isCurrentUser: currentUser && name ? (name.toLowerCase() === currentUser.displayName?.toLowerCase()) : (name === "Vrindopnishad")
     }));
 
-  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal', 'beacon', 'console'];
+  const validTabs = ['nexus', 'feed', 'archives', 'grid', 'hierarchy', 'stratification', 'settings', 'profile', 'reader', 'forge', 'portal', 'beacon', 'console', 'chat'];
 
   const handleArticleClick = async (article) => {
     if (article.id && validTabs.includes(article.id)) {
@@ -285,7 +292,7 @@ function App() {
           const client = article.stream === 'vrinda' ? supabase : legacySupabase;
           const table = article.stream === 'vrinda' ? 'blogvrinda' : 'content';
           
-          const { data, error } = await client
+          const { data } = await client
             .from(table)
             .select('*')
             .eq('id', article.id)
@@ -471,6 +478,9 @@ function App() {
       )}
       {activeTab === 'console' && (
         <TheConsole />
+      )}
+      {activeTab === 'chat' && (
+        <TheChat />
       )}
     </Layout>
   )

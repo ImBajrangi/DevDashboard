@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Music, Bell, Smartphone, ShieldCheck, Zap, History, Info, Volume2 } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ThePortal = ({ premiumStats = { totalReflections: 0, soulSeekers: 0 } }) => {
@@ -44,7 +45,7 @@ const ThePortal = ({ premiumStats = { totalReflections: 0, soulSeekers: 0 } }) =
                 imageUrl: '',
                 sound: 'default'
             });
-        } catch (err) {
+        } catch {
             setStatus({
                 type: 'error',
                 message: 'Transmission failed: Signal interference detected.'

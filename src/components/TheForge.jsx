@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase, legacySupabase } from '../lib/supabase';
 import { Save, Plus, X, Edit3, Trash2, Globe, FileText, Type, Hash, Link, Image as ImageIcon, Music, Lock } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { cache } from '../lib/cache';
 
@@ -45,6 +46,7 @@ const TheForge = ({ categories = [], activeProject = 'ALL_SYSTEMS' }) => {
 
     useEffect(() => {
         fetchEntries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeStream]); // Refetch when stream changes
 
     const fetchEntries = async () => {

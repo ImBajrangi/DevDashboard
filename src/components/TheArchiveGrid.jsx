@@ -22,11 +22,6 @@ const IMAGES = [
 ];
 
 const TheArchiveGrid = ({ items = [], onLoadMore, isFetchingMore }) => {
-    // Collect all unique images from items
-    const dynamicImages = items
-        .flatMap(item => item.images || [])
-        .filter(url => url);
-
     // Filter items that have at least one image
     const displayItems = items.filter(item => item.images && item.images.length > 0);
 

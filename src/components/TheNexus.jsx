@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useMobile } from '../hooks/useMobile';
 import TheNexusMobile from './TheNexusMobile';
+import RewardButton from './ui/RewardButton';
 
 /**
  * TheNexus component – from the_airlock_2 template.
@@ -9,6 +10,13 @@ import TheNexusMobile from './TheNexusMobile';
 const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categories = ['ALL'], selectedCategory = 'ALL', onCategoryChange, premiumStats = { totalReflections: 0, soulSeekers: 0 }, activeProject = 'ALL_SYSTEMS', onLoadMoreEntries, isFetchingMore }) => {
     const isMobile = useMobile();
     const [visibleCount, setVisibleCount] = useState(6);
+    const [prevContext, setPrevContext] = useState({ activeProject, selectedCategory });
+
+    // Reset visible count when context changes during rendering
+    if (activeProject !== prevContext.activeProject || selectedCategory !== prevContext.selectedCategory) {
+        setPrevContext({ activeProject, selectedCategory });
+        setVisibleCount(6);
+    }
 
     if (isMobile) {
         return (
@@ -23,11 +31,6 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
             />
         );
     }
-    
-    // Reset visible count when context changes
-    useEffect(() => {
-        setVisibleCount(6);
-    }, [activeProject, selectedCategory]);
 
     const projectSourceMap = {
         'SANT_VAANI_PREMIUM': 'PREMIUM_REFLECT',
@@ -393,6 +396,9 @@ const TheNexus = ({ onSignalClick, onTransmissionClick, allEntries = [], categor
                     <div className="p-8 border-t border-border-void">
                         <h2 className="text-xs font-bold tracking-[0.3em] opacity-40 uppercase mb-8 text-primary">Global_Command_Bridge</h2>
                         {displayBridge}
+                        <div className="mt-6 flex items-center gap-4">
+                            <RewardButton text="Rewards" />
+                        </div>
                     </div>
 
                     <div className="p-12 flex flex-col gap-8">

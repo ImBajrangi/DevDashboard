@@ -70,7 +70,7 @@ export const cache = {
 
             const entry = JSON.parse(entryStr);
             return entry.data;
-        } catch (e) {
+        } catch {
             return null;
         }
     },
@@ -87,7 +87,7 @@ export const cache = {
 
             const entry = JSON.parse(entryStr);
             return Date.now() < entry.expires;
-        } catch (e) {
+        } catch {
             return false;
         }
     },

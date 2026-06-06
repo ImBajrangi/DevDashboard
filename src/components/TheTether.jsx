@@ -1,15 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Minus, Plus, Download } from 'lucide-react';
+import DayNightSwitch from './ui/DayNightSwitch';
+import NeumorphicToggle from './ui/NeumorphicToggle';
+import AMPMToggle from './ui/AMPMToggle';
+import StarRating from './ui/StarRating';
+import RealismButton from './ui/RealismButton';
 
 /**
  * TheTether component – from the_tether template.
  * System Configuration / Settings page.
  * Features: Typeface toggle, font size control, immersion mode, export, storage, danger zone.
+ * 
+ * Now enhanced with premium UI components:
+ * - DayNightSwitch for theme toggle
+ * - NeumorphicToggle for immersion mode
+ * - AMPMToggle for time format
+ * - StarRating for experience rating
+ * - RealismButton for export action
  */
 const TheTether = ({ settings, onUpdateSettings }) => {
     const { typeface, baseSize, immersionMode } = settings;
     const isSerif = typeface === 'serif';
     const fontSize = baseSize;
+    const [userRating, setUserRating] = React.useState(0);
+    const [isNightMode, setIsNightMode] = React.useState(() => {
+        return !document.documentElement.classList.contains('light');
+    });
+    const [is24Hr, setIs24Hr] = React.useState(false);
+
+    React.useEffect(() => {
+        if (isNightMode) {
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    }, [isNightMode]);
 
     return (
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-24">
@@ -79,24 +104,45 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                         </div>
                     </div>
 
-                    {/* Immersion Mode */}
+                    {/* Immersion Mode – Premium Neumorphic Toggle */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
                             <label className="block text-lg font-bold mb-1">Immersion Mode</label>
                             <span className="text-xs font-mono text-text-muted">Hide all UI elements while scrolling</span>
                         </div>
-                        <label className="relative inline-flex items-center cursor-pointer group">
-                            <input
-                                type="checkbox"
+                        <div className="flex items-center gap-4">
+                            <NeumorphicToggle 
                                 checked={immersionMode}
                                 onChange={() => onUpdateSettings({ immersionMode: !immersionMode })}
-                                className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-text-muted peer-checked:bg-text-main rounded-sm relative after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-void after:border after:rounded-sm after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
-                            <span className="ms-3 text-sm font-medium text-text-muted group-hover:text-text-main transition-colors uppercase">
+                            <span className="text-sm font-medium text-text-muted uppercase font-mono">
                                 {immersionMode ? 'Active' : 'Inactive'}
                             </span>
-                        </label>
+                        </div>
+                    </div>
+
+                    {/* Theme Mode – Premium Day/Night Switch */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Theme Mode</label>
+                            <span className="text-xs font-mono text-text-muted">Dark void or illuminated reading</span>
+                        </div>
+                        <DayNightSwitch 
+                            checked={!isNightMode}
+                            onChange={() => setIsNightMode(!isNightMode)}
+                        />
+                    </div>
+
+                    {/* Time Format – Premium AM/PM Toggle */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Time Format</label>
+                            <span className="text-xs font-mono text-text-muted">AM/PM or 24-hour clock display</span>
+                        </div>
+                        <AMPMToggle 
+                            checked={is24Hr}
+                            onChange={() => setIs24Hr(!is24Hr)}
+                        />
                     </div>
                 </div>
 
@@ -111,16 +157,18 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                     </p>
                 </div>
                 <div className="md:col-span-8 border-t border-[#262626] pt-4 space-y-10">
-                    {/* Export */}
+                    {/* Export – Premium Realism Button */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
                             <label className="block text-lg font-bold mb-1">Export Archive</label>
                             <span className="text-xs font-mono text-text-muted">Download all saved articles as JSON</span>
                         </div>
-                        <button className="flex items-center gap-2 border border-border-void px-5 py-2.5 rounded-sm text-sm font-bold tracking-wide hover:bg-text-main hover:text-void transition-colors">
-                            <Download size={18} />
-                            DOWNLOAD_DATA.JSON
-                        </button>
+                        <RealismButton>
+                            <span className="flex items-center gap-2 text-sm">
+                                <Download size={16} />
+                                DOWNLOAD
+                            </span>
+                        </RealismButton>
                     </div>
 
                     {/* Storage */}
@@ -141,9 +189,30 @@ const TheTether = ({ settings, onUpdateSettings }) => {
                 {/* Spacer */}
                 <div className="col-span-full h-8"></div>
 
-                {/* SECTION 03: HAZARD */}
+                {/* SECTION 03: EXPERIENCE */}
                 <div className="md:col-span-4 border-t border-border-void pt-4">
-                    <h3 className="text-sm font-bold tracking-wider uppercase text-primary mb-2">03 // Hazard</h3>
+                    <h3 className="text-sm font-bold tracking-wider uppercase text-text-muted mb-2">03 // Experience</h3>
+                    <p className="text-xs text-text-muted font-mono leading-relaxed">
+                        Rate your experience and help us improve.
+                    </p>
+                </div>
+                <div className="md:col-span-8 border-t border-border-void pt-4 space-y-10">
+                    {/* Star Rating – Premium Animated Stars */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <label className="block text-lg font-bold mb-1">Rate Experience</label>
+                            <span className="text-xs font-mono text-text-muted">How's the void treating you?</span>
+                        </div>
+                        <StarRating value={userRating} onChange={setUserRating} />
+                    </div>
+                </div>
+
+                {/* Spacer */}
+                <div className="col-span-full h-8"></div>
+
+                {/* SECTION 04: HAZARD */}
+                <div className="md:col-span-4 border-t border-border-void pt-4">
+                    <h3 className="text-sm font-bold tracking-wider uppercase text-primary mb-2">04 // Hazard</h3>
                     <p className="text-xs text-text-muted font-mono leading-relaxed">
                         Irreversible actions. Tread carefully.
                     </p>

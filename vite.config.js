@@ -55,7 +55,7 @@ const devGatewayPlugin = () => ({
                   });
                 });
                 gitInfo = { branch, ...lastCommit };
-              } catch (e) {
+              } catch {
                 // ignore errors
               }
             }

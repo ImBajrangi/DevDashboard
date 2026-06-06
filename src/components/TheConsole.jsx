@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const TheConsole = () => {
     const [selectedProject, setSelectedProject] = useState('FOODY_VRINDA');
-    const [terminalLogs, setTerminalLogs] = useState([]);
+    const [terminalLogs, setTerminalLogs] = useState([
+        { time: new Date().toLocaleTimeString(), text: 'SYSTEM CONSOLE LINK INITIALIZED.', type: 'info' },
+        { time: new Date().toLocaleTimeString(), text: 'Ready to query local developer nodes.', type: 'info' }
+    ]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [connectionStates, setConnectionStates] = useState({
         FOODY_VRINDA: 'ONLINE',
@@ -157,13 +160,9 @@ const TheConsole = () => {
     };
 
     useEffect(() => {
-        // Initial welcome log
-        setTerminalLogs([
-            { time: new Date().toLocaleTimeString(), text: 'SYSTEM CONSOLE LINK INITIALIZED.', type: 'info' },
-            { time: new Date().toLocaleTimeString(), text: 'Ready to query local developer nodes.', type: 'info' }
-        ]);
-
-        fetchStatuses();
+        setTimeout(() => {
+            fetchStatuses();
+        }, 0);
         const interval = setInterval(fetchStatuses, 10000);
         return () => clearInterval(interval);
     }, []);
@@ -195,12 +194,12 @@ const TheConsole = () => {
                 if (data.text) {
                     addLog(data.text, data.type || 'info');
                 }
-            } catch (e) {
+            } catch {
                 addLog(event.data, 'info');
             }
         };
 
-        eventSource.onerror = (err) => {
+        eventSource.onerror = () => {
             addLog(`SIGNAL STREAM INTERRUPTION: Gateway close or process timeout.`, 'error');
             eventSource.close();
             setIsProcessing(false);

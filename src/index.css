@@ -15,21 +15,222 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Cyber-Brutalist Scrollbar */
+:root {
+  --color-toggle-bg: #151515;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.03);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.6);
+  --color-toggle-shadow-light-inset: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark-inset: rgba(0, 0, 0, 0.6);
+  --color-toggle-indicator: #222222;
+
+  --sidebar-bg: rgba(5, 5, 5, 0.95);
+  --sidebar-bg-hover: rgba(5, 5, 5, 0.98);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+:root.light {
+  --color-void: #ecf0f3;
+  --color-void-matte: #ffffff;
+  --color-text-main: #1d1d1f;
+  --color-text-muted: #86868b;
+  --color-border-void: #d1d9e6;
+
+  --color-toggle-bg: #ecf0f3;
+  --color-toggle-shadow-light: #ffffff;
+  --color-toggle-shadow-dark: #d1d9e6;
+  --color-toggle-shadow-light-inset: #ffffff;
+  --color-toggle-shadow-dark-inset: #d1d9e6;
+  --color-toggle-indicator: #ecf0f3;
+
+  --sidebar-bg: rgba(240, 240, 245, 0.95);
+  --sidebar-bg-hover: rgba(255, 255, 255, 0.98);
+  --sidebar-hover-bg: rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth theme transition */
+body, 
+.quadrant, 
+.feed-row, 
+.archive-row, 
+header, 
+footer, 
+nav {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === PROJECT MOOD ARCHITECTURE === */
+
+/* SANT_VAANI_PREMIUM (Sacred Saffron) */
+.project-SANT_VAANI_PREMIUM {
+  --color-primary: #F2A60D;
+}
+.project-SANT_VAANI_PREMIUM:not(.light) {
+  --color-void: #0d0705;
+  --color-void-matte: #140b08;
+  --color-border-void: #2d1812;
+  --color-toggle-bg: #140b08;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #1a0f0a;
+}
+.project-SANT_VAANI_PREMIUM.light {
+  --color-void: #FFFDF5;
+  --color-void-matte: #FFF9E0;
+  --color-text-main: #2D2D2D;
+  --color-text-muted: #7A7062;
+  --color-border-void: #E8E0D0;
+  --color-toggle-bg: #FFF9E0;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #E8E0D0;
+  --color-toggle-indicator: #FFFDF5;
+}
+
+/* FOODY_VRINDA (Foody Orange) */
+.project-FOODY_VRINDA {
+  --color-primary: #FF7A00;
+}
+.project-FOODY_VRINDA:not(.light) {
+  --color-void: #0b0907;
+  --color-void-matte: #13100c;
+  --color-border-void: #261f18;
+  --color-toggle-bg: #13100c;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #1a1510;
+}
+.project-FOODY_VRINDA.light {
+  --color-void: #FFF8F0;
+  --color-void-matte: #FFF2DF;
+  --color-text-main: #33200c;
+  --color-text-muted: #8c735c;
+  --color-border-void: #e8d7c5;
+  --color-toggle-bg: #FFF2DF;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #e8d7c5;
+  --color-toggle-indicator: #FFF8F0;
+}
+
+/* VRINDA_TOURS (Ocean Teal) */
+.project-VRINDA_TOURS {
+  --color-primary: #00ffd1;
+}
+.project-VRINDA_TOURS:not(.light) {
+  --color-void: #050c0f;
+  --color-void-matte: #091418;
+  --color-border-void: #14282e;
+  --color-toggle-bg: #091418;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #0e1e24;
+}
+.project-VRINDA_TOURS.light {
+  --color-primary: #0891B2;
+  --color-void: #F0F8FF;
+  --color-void-matte: #E0F0FF;
+  --color-text-main: #14272e;
+  --color-text-muted: #5c7885;
+  --color-border-void: #ccdbe8;
+  --color-toggle-bg: #E0F0FF;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #ccdbe8;
+  --color-toggle-indicator: #F0F8FF;
+}
+
+/* CHITRA_VRINDA (Rose Pink) */
+.project-CHITRA_VRINDA {
+  --color-primary: #ff007f;
+}
+.project-CHITRA_VRINDA:not(.light) {
+  --color-void: #0c0609;
+  --color-void-matte: #140b10;
+  --color-border-void: #2b1420;
+  --color-toggle-bg: #140b10;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #1a0f15;
+}
+.project-CHITRA_VRINDA.light {
+  --color-primary: #E8437F;
+  --color-void: #FFF0F5;
+  --color-void-matte: #FFE4E1;
+  --color-text-main: #2b111a;
+  --color-text-muted: #8c606e;
+  --color-border-void: #f5ccd4;
+  --color-toggle-bg: #FFE4E1;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #f5ccd4;
+  --color-toggle-indicator: #FFF0F5;
+}
+
+/* VRINDA_BLOG (Emerald Green) */
+.project-VRINDA_BLOG {
+  --color-primary: #10B981;
+}
+.project-VRINDA_BLOG:not(.light) {
+  --color-void: #050d0a;
+  --color-void-matte: #081611;
+  --color-border-void: #122820;
+  --color-toggle-bg: #081611;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #0e2019;
+}
+.project-VRINDA_BLOG.light {
+  --color-void: #F5F8F0;
+  --color-void-matte: #EAF2DD;
+  --color-text-main: #111a15;
+  --color-text-muted: #5e7065;
+  --color-border-void: #d0dec8;
+  --color-toggle-bg: #EAF2DD;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #d0dec8;
+  --color-toggle-indicator: #F5F8F0;
+}
+
+/* SPIRIT_DEV (Cosmic Blue) */
+.project-SPIRIT_DEV {
+  --color-primary: #256AF4;
+}
+.project-SPIRIT_DEV:not(.light) {
+  --color-void: #050510;
+  --color-void-matte: #08081c;
+  --color-border-void: #141434;
+  --color-toggle-bg: #08081c;
+  --color-toggle-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-toggle-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-toggle-indicator: #0e0e2a;
+}
+.project-SPIRIT_DEV.light {
+  --color-void: #F0F4FF;
+  --color-void-matte: #E5ECFF;
+  --color-text-main: #0c1220;
+  --color-text-muted: #5e6b8c;
+  --color-border-void: #ccd7f5;
+  --color-toggle-bg: #E5ECFF;
+  --color-toggle-shadow-light: #FFFFFF;
+  --color-toggle-shadow-dark: #ccd7f5;
+  --color-toggle-indicator: #F0F4FF;
+}
+
+
+
+/* Dynamic Cyber-Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--color-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: #FF3333;
-  border-radius: 0px;
+  background: var(--color-border-void);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF5555;
-  box-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
 }
 
 @layer base {
@@ -155,19 +356,7 @@ a {
   color: var(--color-void);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  background: var(--color-void);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border-void);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
-}
+/* Cyber scroll utilities */
 
 /* Typography */
 .font-display {

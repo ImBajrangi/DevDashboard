@@ -32,21 +32,7 @@ const IMAGES_POOL = [
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600',
 ];
 
-function randomFrom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
 
-function randomTags() {
-    const count = 2 + Math.floor(Math.random() * 3);
-    const shuffled = [...TAGS_POOL].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-}
-
-function randomDate(startYear = 2024, endYear = 2026) {
-    const start = new Date(startYear, 0, 1).getTime();
-    const end = new Date(endYear, 11, 31).getTime();
-    return new Date(start + Math.random() * (end - start));
-}
 
 // ─── ARTICLES / CONTENT ENTRIES ───────────────────────────────────────────────
 export const SYNTHETIC_ARTICLES = [
